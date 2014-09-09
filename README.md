@@ -1,4 +1,26 @@
-cellsociety
+cellsociety Project Plan
 ===========
 
-Empty repository for CellSociety project
+Introduction
+
+
+
+Overview
+
+
+
+
+User Interface
+
+
+
+Design Details 
+
+
+
+Design Considerations 
+
+
+
+Team Responsibilities
+
