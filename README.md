@@ -28,22 +28,39 @@ User Interface
 -> use buttons for Settings
   
   Speed of Simulation
+  
   Reset
+  
   Start
+  
   Step
+  
   GridSize
+  
   Stop/Pause
+  
   Percentage of Fish vs Sharks
+  
   Empty = white space
+  
   Segragation Specific
+  
     Similarity = Satisfaction
+  
   Forest Specific
+  
     Probability of catching fire
+  
   Predator Specific
+  
     Fish
+  
       Breeding
+  
     Shark 
+  
       Breeding
+  
       Feeding
 
 
