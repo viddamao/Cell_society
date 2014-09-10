@@ -72,51 +72,52 @@ Design Details
 
 Abstract Cell
 
---Variables: 
+  ->Variables: 
 
-  currentState, futureState
+    currentState, futureState
   
-  (uses enumeration: public enum state ON_FIRE, EMPTY, TREE)
+    (uses enumeration: public enum state ON_FIRE, EMPTY, TREE)
   
-  Point as location
+    Point as location
   
-  Methods
+  ->Methods
   
-  prepareToUpdate()
+    prepareToUpdate()
   
-  performUpdate()
+    performUpdate()
 
   Constructor(point P)
   
-  -> Segregation cell
+    -> Segregation cell
   
-  figuring out how to handle instantaneous updates
+    figuring out how to handle instantaneous updates
   
-  (set a flag to indicate whether the block needs to be moved)
+    ( set a flag to indicate whether the block needs to be moved)
   
-  -> Forest cell
+    -> Forest cell
 
-  Update color based on surroundings
+    Update color based on surroundings
   
-  -> Predator Cell
+    -> Predator Cell
   
-  implement an interface of eat,breed and move
+    implement an interface of eat,breed and move
   
-  Shark Cell
+      Shark Cell
   
-    ->Breeding time
+        ->Breeding time
     
-    ->Starving time
+        ->Starving time
     
-    ->movementlocations
+        ->movementlocations
     
-  Fish Cell
+      Fish Cell
   
-    ->Breeding time
+        ->Breeding time
     
-    ->movement locations
+        ->movement locations
   
-  Own Designed Cell
+  
+    Own Designed Cell
   
   
   
