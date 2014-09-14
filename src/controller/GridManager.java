@@ -1,8 +1,11 @@
-package cellsociety_team04;
+package controller;
 
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import simulationObjects.Cell;
+import simulationObjects.PredatorCell;
 
 public class GridManager {
 	private Cell[][] grid;

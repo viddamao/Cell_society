@@ -1,4 +1,4 @@
-package cellsociety_team04;
+package simulationObjects;
 
 public abstract class Cell {
 	
@@ -8,5 +8,7 @@ public abstract class Cell {
 	}
 	
 	public abstract void update();
+
+	public abstract void prepareToUpdate();
 
 }
