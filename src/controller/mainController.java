@@ -16,7 +16,22 @@ public class mainController extends Application {
 	@Override
 	public void start(Stage s) throws Exception {
 		//create our UI
-		new UserInterface(s);
+		new UserInterface(s,this);
+	}
+
+	public void startSimulation() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void stopSimulation() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void stepSimulation() {
+		// TODO Auto-generated method stub
+		
 	}
     
     
