@@ -58,4 +58,8 @@ public class UserInterface {
             }
         });
 	}
+	
+	public Pane getRootPane(){
+		return rootPane;
+	}
 }
