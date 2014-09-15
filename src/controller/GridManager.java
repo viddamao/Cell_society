@@ -10,14 +10,17 @@ import simulationObjects.PredatorCell;
 public class GridManager {
 
     private Cell[][] grid;
+    private int[][] gridIsEmpty; // 1 for moved cells; 0 for cells not moving ;3
+				 // for empty
+    private int[] availableCoord;
     private int[] xDelta = { -1, -1, -1, 0, 0, 1, 1, 1 };
     private int[] yDelta = { -1, 0, 1, -1, 1, -1, 0, 1 };
     private int gWidth;
     private int gHeight;
     private String cellType;
     // {4,8} indicates adjacent type to be 4 or 8 blocks around
-    private int adjacentType; 
-    
+    private int adjacentType;
+
     /**
      * Constructs the GridManager, initiates private variables
      * 
@@ -41,14 +44,57 @@ public class GridManager {
      * Updates all Cells in the grid
      */
     public void updateBasedOnNeighbors() {
+	for (int i = 0; i < gWidth; i++)
+	    for (int j = 0; j < gHeight; j++)
+		gridIsEmpty[i][j] = 3;
+
 	for (Cell[] row : grid) {
 	    for (Cell unit : row) {
-		//if (unit.prepareToUpdate(unit.getState(),this.getCellsAroundPoint(unit.getX(), unit.getY())))
-		    unit.update(this.getCellsAroundPoint(unit.getX(), unit.getY()));
-		
-	   
+		gridIsEmpty[unit.getX()][unit.getY()] = ((unit.needUpdate(this
+			.getCellsAroundPoint(unit.getX(), unit.getY()))) ? 1
+			: 0);
+
 	    }
 	}
+
+	for (Cell[] row : grid) {
+	    for (Cell unit : row) {
+
+		if (gridIsEmpty[unit.getX()][unit.getY()] == 1) {
+		    gridIsEmpty[unit.getX()][unit.getY()] = 3;
+
+		    availableCoord = findFirstEmptyCell();
+		    removeCellAtPoint(unit.getX(), unit.getY());
+		    addCellAtPoint(unit, availableCoord[0], availableCoord[1]);
+		    unit.setX(availableCoord[0]);
+		    unit.setY(availableCoord[1]);
+
+		}
+
+	    }
+
+	}
+    }
+
+    
+    /**
+     * 
+     * 
+     * 
+     * 
+     * @return first empty grid cell coordinate
+     */
+    private int[] findFirstEmptyCell() {
+	int[] coordinates = new int[2];
+	for (int i = 0; i < gWidth; i++)
+	    for (int j = 0; j < gHeight; j++)
+		if ((gridIsEmpty[i][j] == 1) || (gridIsEmpty[i][j] == 3)) {
+		    coordinates[0] = i;
+		    coordinates[1] = j;
+		}
+
+	return coordinates;
+
     }
 
     /**
@@ -63,6 +109,18 @@ public class GridManager {
      */
     public void addCellAtPoint(Cell cell, int xCoord, int yCoord) {
 	grid[xCoord][yCoord] = cell;
+    }
+
+    /**
+     * Remove cell from specific location in the Grid
+     * 
+     * @param xCoord
+     *            in grid
+     * @param yCoord
+     *            in grid
+     */
+    public void removeCellAtPoint(int xCoord, int yCoord) {
+	grid[xCoord][yCoord] = null;
     }
 
     /**
@@ -99,18 +157,16 @@ public class GridManager {
 		|| yCoord < 0;
     }
 
-    
     /*
      * 
      * getter and setting methods for dimensions
-     * 
      */
     public void setWidth(int x) {
-	this.gWidth=x;
+	this.gWidth = x;
     }
 
     public void setHeight(int y) {
-	this.gHeight=y;
+	this.gHeight = y;
     }
 
     public int getWidth() {
@@ -122,20 +178,19 @@ public class GridManager {
     }
 
     public void setType(String type) {
-	this.cellType=type;
+	this.cellType = type;
     }
 
     public void setAdjacent(int adjacentType) {
-	this.adjacentType=adjacentType;
+	this.adjacentType = adjacentType;
     }
 
     public String getType() {
 	return cellType;
     }
-    
+
     public int getAdjacentType() {
-   	return adjacentType;
-       }
-    
+	return adjacentType;
+    }
 
 }
