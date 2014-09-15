@@ -12,7 +12,7 @@ public class SharkCell extends PredatorCell {
 
     @Override
     public void prepareToUpdate(ArrayList<Cell> neighbors) {
-	
+
     }
 
 }

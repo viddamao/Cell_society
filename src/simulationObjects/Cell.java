@@ -20,6 +20,8 @@ public abstract class Cell {
 
     public abstract void prepareToUpdate(ArrayList<Cell> neighbors);
 
+    public abstract boolean needUpdate(ArrayList<Cell> neighbors);
+
     public int getX() {
 	return myX;
     }

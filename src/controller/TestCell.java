@@ -14,7 +14,7 @@ public class TestCell {
     @Override
     public String toString() {
 	return ((Integer) xLoc).toString() + " " + ((Integer) yLoc).toString()
-		+ " " + ((Integer) currentState).toString()+" "+cellType;
+		+ " " + ((Integer) currentState).toString() + " " + cellType;
 
     }
 
