@@ -10,11 +10,11 @@ import javafx.stage.Stage;
 
 
 public class UserInterface {
-    private mainController myMainController;
+    private MainController myMainController;
     private Pane rootPane;
     private Stage myStage;
 
-    public UserInterface (Stage s, mainController mainController) {
+    public UserInterface (Stage s, MainController mainController) {
         myMainController = mainController;
         Stage myStage = s;
         myStage.setTitle("Cell Society Team 4");

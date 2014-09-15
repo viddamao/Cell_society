@@ -6,12 +6,12 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 
-public class mainController extends Application {
+public class MainController extends Application {
     private UserInterface userInterface;
 
     public static void main (String[] args) throws Exception {
 
-        parser.parserXml("gridInput.xml");
+        Parser.parserXml("gridInput.xml");
 
         launch(args);
     }
@@ -24,7 +24,7 @@ public class mainController extends Application {
 
     public void initializeSimulationWithData (File XMLData) {
         try {
-            List<cell> cellList = parser.parserXml(XMLData.getAbsolutePath());
+            List<cell> cellList = Parser.parserXml(XMLData.getAbsolutePath());
             
         }
         catch (Exception e) {
