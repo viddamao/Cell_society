@@ -11,10 +11,8 @@ public class SharkCell extends PredatorCell {
     }
 
     @Override
-    public boolean prepareToUpdate(int myState,ArrayList<Cell> neighbors) {
-	return false;
-	// TODO Auto-generated method stub
-
+    public void prepareToUpdate(ArrayList<Cell> neighbors) {
+	
     }
 
 }
