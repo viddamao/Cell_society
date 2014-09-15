@@ -43,7 +43,7 @@ public class GridManager {
     public void updateBasedOnNeighbors() {
 	for (Cell[] row : grid) {
 	    for (Cell unit : row) {
-		if (unit.prepareToUpdate(unit.getState(),this.getCellsAroundPoint(unit.getX(), unit.getY())))
+		//if (unit.prepareToUpdate(unit.getState(),this.getCellsAroundPoint(unit.getX(), unit.getY())))
 		    unit.update(this.getCellsAroundPoint(unit.getX(), unit.getY()));
 		
 	   

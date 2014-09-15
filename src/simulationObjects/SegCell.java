@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class SegCell extends Cell {
     
-    public static double t=0;
+    public double t=0;
     
     public enum State {
 	EMPTY, X, O
@@ -16,9 +16,14 @@ public class SegCell extends Cell {
     
     @Override
     public void update(ArrayList<Cell> neighbors) {
-	// TODO Auto-generated method stub
+	if (needUpdate(neighbors)){
+	  myState=0;
+	
+	  }
 
     }
+	
+    
 
     
     
@@ -34,10 +39,10 @@ public class SegCell extends Cell {
      * @param neighbors
      * 	 arraylist for neighbor cells
      * 
-     * @see simulationObjects.Cell#prepareToUpdate(int, java.util.ArrayList)
+     * 
      */
-    @Override
-    public boolean prepareToUpdate(int myState,ArrayList<Cell> neighbors) {
+    
+    public boolean needUpdate(ArrayList<Cell> neighbors) {
 	int satisfiedNeighbor=0,dissatisfiedNeighbor=0;
 	for (Cell neighborCell:neighbors){
 	   if (myState==neighborCell.getState())
@@ -45,7 +50,6 @@ public class SegCell extends Cell {
 	   else
 	       if (neighborCell.getState()!=0) dissatisfiedNeighbor++;
 	}
-	
 	
 	return (satisfiedNeighbor/dissatisfiedNeighbor<t);
 	
@@ -59,6 +63,11 @@ public class SegCell extends Cell {
     @Override
     public void setState(int state) {
 	myState = state;
+    }
+
+    @Override
+    public void prepareToUpdate(ArrayList<Cell> neighbors) {
+	
     }
 
 }
