@@ -6,8 +6,6 @@ public abstract class Cell {
     protected int myX;
     protected int myY;
 
-public abstract class Cell extends Rectangle {
-
     public Cell ()
     {
         
