@@ -19,6 +19,11 @@ import org.w3c.dom.NodeList;
 public class parser {
 
     public static void parserXml (String fileName) throws Exception {
+        //check for xml data
+        String extension = fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length());
+        if (!extension.equals("xml")){
+            throw new UnsupportedOperationException();
+        }
 
         DocumentBuilderFactory factory =
                 DocumentBuilderFactory.newInstance();

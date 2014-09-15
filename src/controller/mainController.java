@@ -20,14 +20,14 @@ public class mainController extends Application {
         // create our UI
         userInterface = new UserInterface(s, this);
     }
-    
-    public void initializeSimulationWithData(File XMLData) {
+
+    public void initializeSimulationWithData (File XMLData) {
         try {
             parser.parserXml(XMLData.getAbsolutePath());
         }
         catch (Exception e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            System.out.println("Error processing file, make sure it's XML.");
         }
     }
 
