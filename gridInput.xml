@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <gridBlocks>
    <cell id="00">
      <xLoc>0</xLoc>
      <yLoc>0</yLoc>
-     <property>1</property>
+     <currentState>1</currentState>
+     <cellType>Forest</cellType>
    </cell>
    
    <cell id="01">
      <xLoc>0</xLoc>
      <yLoc>1</yLoc>
-     <property>2</property>
+     <currentState>2</currentState>
+     <cellType>Forest</cellType>
    </cell>
    
    <cell id="10">
      <xLoc>1</xLoc>
      <yLoc>0</yLoc>
-     <property>0</property>
+     <currentState>0</currentState>
+   	 <cellType>Forest</cellType>
    </cell>
    
    <cell id="11">
      <xLoc>1</xLoc>
      <yLoc>1</yLoc>
-     <property>1</property>
+     <currentState>1</currentState>
+     <cellType>Forest</cellType>
    </cell>
    
 </gridBlocks>
+
+
