@@ -40,11 +40,12 @@ public class GridManager {
     /**
      * Updates all Cells in the grid
      */
-    public void update ()
+    public void updateBasedOnNeighbors ()
     {
-        for (Cell[] row : grid) {
+        for (Cell[] row : grid) 
+        {
             for (Cell unit : row) {
-                unit.update();
+                unit.update(this.getCellsAroundPoint(unit.getX(), unit.getY()));
             }
         }
     }

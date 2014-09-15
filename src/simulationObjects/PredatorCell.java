@@ -1,5 +1,7 @@
 package simulationObjects;
 
+import java.util.ArrayList;
+
 public class PredatorCell extends Cell {
 
     public PredatorCell ()
@@ -8,7 +10,7 @@ public class PredatorCell extends Cell {
     }
 
     @Override
-    public void update () {
+    public void update(ArrayList<Cell> neighbors){
         // TODO Auto-generated method stub
 
     }
