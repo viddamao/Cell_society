@@ -16,7 +16,7 @@ import org.w3c.dom.NodeList;
  * 
  * xml parser for the input grid
  */
-public class parser {
+public class Parser {
 
     public static List parserXml (String fileName) throws Exception {
         //check for xml data
