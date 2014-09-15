@@ -3,6 +3,7 @@ package controller;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
+
 import simulationObjects.Cell;
 import simulationObjects.PredatorCell;
 
@@ -13,7 +14,10 @@ public class GridManager {
     private int[] yDelta = { -1, 0, 1, -1, 1, -1, 0, 1 };
     private int gWidth;
     private int gHeight;
-
+    private String cellType;
+    // {4,8} indicates adjacent type to be 4 or 8 blocks around
+    private int adjacentType; 
+    
     /**
      * Constructs the GridManager, initiates private variables
      * 
@@ -39,7 +43,10 @@ public class GridManager {
     public void updateBasedOnNeighbors() {
 	for (Cell[] row : grid) {
 	    for (Cell unit : row) {
-		unit.update(this.getCellsAroundPoint(unit.getX(), unit.getY()));
+		if (unit.prepareToUpdate(unit.getState(),this.getCellsAroundPoint(unit.getX(), unit.getY())))
+		    unit.update(this.getCellsAroundPoint(unit.getX(), unit.getY()));
+		
+	   
 	    }
 	}
     }
@@ -92,6 +99,12 @@ public class GridManager {
 		|| yCoord < 0;
     }
 
+    
+    /*
+     * 
+     * getter and setting methods for dimensions
+     * 
+     */
     public void setWidth(int x) {
 	this.gWidth=x;
     }
@@ -107,5 +120,22 @@ public class GridManager {
     public int getHeight() {
 	return gHeight;
     }
+
+    public void setType(String type) {
+	this.cellType=type;
+    }
+
+    public void setAdjacent(int adjacentType) {
+	this.adjacentType=adjacentType;
+    }
+
+    public String getType() {
+	return cellType;
+    }
+    
+    public int getAdjacentType() {
+   	return adjacentType;
+       }
+    
 
 }
