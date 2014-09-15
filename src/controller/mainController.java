@@ -5,35 +5,34 @@ import javafx.stage.Stage;
 
 
 public class mainController extends Application {
-	private UserInterface userInterface;
+    private UserInterface userInterface;
 
-	public static void main (String[] args) throws Exception{
-	
-	    parser.parserXml("gridInput.xml");
-	
-	    launch(args);
-	}
-	
-	@Override
-	public void start(Stage s) throws Exception {
-		//create our UI
-		userInterface = new UserInterface(s,this);
-	}
+    public static void main (String[] args) throws Exception {
 
-	public void startSimulation() {
-		// TODO Auto-generated method stub
-		
-	}
+        parser.parserXml("gridInput.xml");
 
-	public void stopSimulation() {
-		// TODO Auto-generated method stub
-		
-	}
+        launch(args);
+    }
 
-	public void stepSimulation() {
-		// TODO Auto-generated method stub
-		
-	}
-    
-    
+    @Override
+    public void start (Stage s) throws Exception {
+        // create our UI
+        userInterface = new UserInterface(s, this);
+    }
+
+    public void startSimulation () {
+        // TODO Auto-generated method stub
+
+    }
+
+    public void stopSimulation () {
+        // TODO Auto-generated method stub
+
+    }
+
+    public void stepSimulation () {
+        // TODO Auto-generated method stub
+
+    }
+
 }
