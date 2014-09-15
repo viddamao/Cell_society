@@ -1,5 +1,7 @@
 package simulationObjects;
 
-public class FishCell {
+public class FishCell extends PredatorCell {
 
+    
+    
 }

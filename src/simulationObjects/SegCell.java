@@ -1,5 +1,7 @@
 package simulationObjects;
 
+import java.util.ArrayList;
+
 public class SegCell extends Cell {
     
     private enum State{
@@ -12,7 +14,8 @@ public class SegCell extends Cell {
     }
 
     @Override
-    public void update () {
+    public void update(ArrayList<Cell> neighbors)
+    {
         // TODO Auto-generated method stub
 
     }
