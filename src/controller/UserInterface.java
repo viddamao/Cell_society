@@ -1,15 +1,18 @@
 package controller;
 
+import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 
 public class UserInterface {
     private mainController myMainController;
     private Pane rootPane;
+    private Stage myStage;
 
     public UserInterface (Stage s, mainController mainController) {
         myMainController = mainController;
@@ -60,6 +63,10 @@ public class UserInterface {
             @Override
             public void handle (ActionEvent e) {
                 // show file dialog
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.setTitle("Open XML File");
+                final File XMLData = fileChooser.showOpenDialog(myStage);
+                myMainController.initializeSimulationWithData(XMLData);
             }
         });
     }

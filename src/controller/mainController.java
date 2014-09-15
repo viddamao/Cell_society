@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -18,6 +19,16 @@ public class mainController extends Application {
     public void start (Stage s) throws Exception {
         // create our UI
         userInterface = new UserInterface(s, this);
+    }
+    
+    public void initializeSimulationWithData(File XMLData) {
+        try {
+            parser.parserXml(XMLData.getAbsolutePath());
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     public void startSimulation () {
