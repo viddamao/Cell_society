@@ -6,6 +6,10 @@ public abstract class Cell {
     {
 
     }
+    
+    protected int myState;  
+    public abstract int getState();
+    public abstract void setState(int state);
 
     public abstract void update ();
 

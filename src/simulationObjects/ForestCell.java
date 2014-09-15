@@ -1,6 +1,10 @@
 package simulationObjects;
 
 public class ForestCell extends Cell {
+    
+    public enum State{
+        EMPTY,TREE,ONFIRE
+    }
 
     public ForestCell ()
     {
@@ -16,6 +20,16 @@ public class ForestCell extends Cell {
     @Override
     public void prepareToUpdate () {
 
+    }
+
+    @Override
+    public int getState () {
+        return myState;
+    }
+
+    @Override
+    public void setState (int state) {
+        myState = state;
     }
 
 }

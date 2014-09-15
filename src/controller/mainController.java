@@ -26,7 +26,6 @@ public class mainController extends Application {
             parser.parserXml(XMLData.getAbsolutePath());
         }
         catch (Exception e) {
-            // TODO Auto-generated catch block
             System.out.println("Error processing file, make sure it's XML.");
         }
     }
