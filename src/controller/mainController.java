@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.File;
+import java.util.List;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -23,7 +24,8 @@ public class mainController extends Application {
 
     public void initializeSimulationWithData (File XMLData) {
         try {
-            parser.parserXml(XMLData.getAbsolutePath());
+            List<cell> cellList = parser.parserXml(XMLData.getAbsolutePath());
+            
         }
         catch (Exception e) {
             System.out.println("Error processing file, make sure it's XML.");

@@ -18,7 +18,7 @@ import org.w3c.dom.NodeList;
  */
 public class parser {
 
-    public static void parserXml (String fileName) throws Exception {
+    public static List parserXml (String fileName) throws Exception {
         //check for xml data
         String extension = fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length());
         if (!extension.equals("xml")){
@@ -74,12 +74,13 @@ public class parser {
             }
 
         }
-
+        
         // Printing the cell list input.
         for (cell cellBlock : cellList) {
             System.out.println(cellBlock);
         }
-
+        
+        return cellList;
     }
 
 }

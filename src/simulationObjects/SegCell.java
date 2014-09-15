@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class SegCell extends Cell {
     
-    private enum State{
+    public enum State{
         EMPTY,X,O
     }
 
