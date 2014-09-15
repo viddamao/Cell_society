@@ -18,7 +18,7 @@ public abstract class Cell {
 
     public abstract void update(ArrayList<Cell> neighbors);
 
-    public abstract void prepareToUpdate();
+    public abstract boolean prepareToUpdate(int myState,ArrayList<Cell> neighbors);
 
     public int getX() {
 	return myX;

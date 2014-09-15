@@ -19,9 +19,8 @@ public class PredatorCell extends Cell {
     }
 
     @Override
-    public void prepareToUpdate() {
-	// TODO Auto-generated method stub
-
+    public boolean prepareToUpdate(int myState,ArrayList<Cell> neighbors) {
+	return false;
     }
 
     @Override
