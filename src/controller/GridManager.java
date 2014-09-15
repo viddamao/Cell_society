@@ -8,11 +8,24 @@ import simulationObjects.PredatorCell;
 
 
 public class GridManager {
+    
+    
     private Cell[][] grid;
-
-    public GridManager (int size)
+    private int[] xDelta = {-1,-1,-1, 0, 0, 1, 1, 1}; 
+    private int[] yDelta = {-1, 0, 1,-1, 1,-1, 0, 1}; 
+    private int gWidth;
+    private int gHeight;
+    
+    /**
+     * Constructs the GridManager, initiates private variables
+     * @param width     of the grid
+     * @param height    of the grid
+     */
+    public GridManager (int width, int height)
     {
-
+        grid = new Cell[width][height];
+        gWidth = width;
+        gHeight = height;
     }
 
     /*
@@ -24,6 +37,9 @@ public class GridManager {
      * }
      */
 
+    /**
+     * Updates all Cells in the grid
+     */
     public void update ()
     {
         for (Cell[] row : grid) {
@@ -32,20 +48,54 @@ public class GridManager {
             }
         }
     }
+    
 
-    public void addCellAtPoint (Cell c, Point pt)
+    /**
+     * Adds cell in specific location in the Grid
+     * @param cell      to be added
+     * @param xCoord    in grid
+     * @param yCoord    in grid
+     */
+    public void addCellAtPoint (Cell cell, int xCoord, int yCoord)
     {
-
+        grid[xCoord][yCoord] = cell;
     }
 
-    public ArrayList<Cell> getEmptyCellsAroundPoint (Point p)
+    /**
+     * Retrieves all neighboring cells around a point
+     * @param xCoord    
+     * @param yCoord
+     * @return
+     */
+    public ArrayList<Cell> getCellsAroundPoint (int xCoord ,int yCoord)
     {
-        return null;
+        ArrayList<Cell> neighbors = new ArrayList<>();
+        for(int i = 0; i < xDelta.length; i++)
+        {
+            int nextX = xCoord + xDelta[i];
+            int nextY = yCoord + yDelta[i];
+            
+            if(!isOutOfBounds(nextX,nextY))
+            {
+                neighbors.add(grid[nextX][nextY]);
+            }
+        }
+        return neighbors;
     }
-
-    public ArrayList<Cell> getCellsAroundPoint (Point p)
+    
+    
+    /**
+     * Checks if a location is not in the grid
+     * @param xCoord    in grid
+     * @param yCoord    in grid
+     * @return  true if out of bounds, false otherwise
+     */
+    private boolean isOutOfBounds(int xCoord,int yCoord)
     {
-        return null;
+        return xCoord>gWidth-1
+                ||xCoord<0
+                ||yCoord>gHeight-1
+                ||yCoord<0;
     }
 
 }
