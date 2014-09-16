@@ -40,13 +40,18 @@ public class Parser {
 	FileInputStream is = new FileInputStream(fileName);
 
 	Document document = builder.parse(is);
+	
 
 	List<TestCell> cellList = new ArrayList<>();
+	
+	NodeList nodeList = document.getElementsByTagName("gridInfo");
+	
+	attributeParse(cellList, nodeList.item(0), false);
 
 	// Iterating through the nodes and extracting the data.
 	// NodeList nodeList = document.getDocumentElement().getChildNodes();
 
-	NodeList nodeList = document.getElementsByTagName("cell");
+	nodeList = document.getElementsByTagName("row");
 
 	for (int i = 0; i < nodeList.getLength(); i++) {
 
@@ -57,19 +62,32 @@ public class Parser {
 
 	}
 
-	nodeList = document.getElementsByTagName("gridInfo");
-	attributeParse(cellList, nodeList.item(0), false);
-
+	
 	// Printing the cell list input.
-	TestCell currentBlock = new TestCell();
 	for (TestCell cellBlock : cellList) {
 	    System.out.println(cellBlock);
-	    currentBlock = cellBlock;
+	    
+	    
 	}
-
+	
+	System.out.println(object.getAdjacentType());
 	return cellList;
     }
 
+    
+    /**
+     * 
+     * 
+     * 
+     * 
+     * @param cellList
+     * return a list of strings with rows in the grid
+     * @param node
+     * the input node in XML
+     * @param flag
+     * magic number
+     * 
+     */
     private static void attributeParse(List<TestCell> cellList, Node node,
 	    boolean flag) {
 	{
@@ -90,17 +108,8 @@ public class Parser {
 		    String content = cNode.getLastChild().getTextContent()
 			    .trim();
 		    switch (cNode.getNodeName()) {
-		    case "xLoc":
-			cellBlock.xLoc = Integer.parseInt(content);
-			break;
-		    case "yLoc":
-			cellBlock.yLoc = Integer.parseInt(content);
-			break;
-		    case "currentState":
-			cellBlock.currentState = Integer.parseInt(content);
-			break;
-		    case "cellType":
-			cellBlock.cellType = content;
+		    case "states":
+			cellBlock.states = content;
 			break;
 		    case "width":
 			object.setWidth(Integer.parseInt(content));

@@ -10,7 +10,7 @@ public class MainController extends Application {
 
     public static void main(String[] args) throws Exception {
 
-	Parser.parserXml("gridInput.xml");
+	Parser.parserXml("gridInput_Modified.xml");
 
 	launch(args);
     }
