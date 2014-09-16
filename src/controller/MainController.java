@@ -2,9 +2,15 @@ package controller;
 
 import java.io.File;
 import java.util.List;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import java.util.*;
+import simulationObjects.Patch;
 
 
 public class MainController extends Application {
@@ -23,7 +29,23 @@ public class MainController extends Application {
     public void start (Stage s) throws Exception {
         // create our UI
         userInterface = new UserInterface(s, this);
+        //set game loop
+        KeyFrame frame = new KeyFrame(Duration.millis(1000), oneFrame);
+        Timeline animation = new Timeline();
+        animation.setCycleCount(Timeline.INDEFINITE);
+        animation.getKeyFrames().add(frame);
+        animation.play();
     }
+
+    /**
+     * Function to do each game frame
+     */
+    private EventHandler<ActionEvent> oneFrame = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle (ActionEvent evt) {
+            System.out.println("new frame");
+        }
+    };
 
     public void initializeSimulationWithData (File XMLData) {
         try {
