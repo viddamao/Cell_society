@@ -6,7 +6,6 @@ public abstract class Cell {
     protected int myX;
     protected int myY;
     protected int myState;
-    protected int myFutureState;
     public Cell() {
 
     }
