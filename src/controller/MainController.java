@@ -19,9 +19,9 @@ public class MainController extends Application {
 
     public static void main (String[] args) throws Exception {
 
-        Parser.parserXml("gridInput_Modified.xml");
-        Locale currentLocale = new Locale("en", "US");
-        messages = ResourceBundle.getBundle("messages", currentLocale);
+        //Parser.parserXml("gridInput_Modified.xml");
+        System.out.println(Locale.US);
+        messages = ResourceBundle.getBundle("messages", Locale.US);
         launch(args);
     }
 
@@ -50,9 +50,8 @@ public class MainController extends Application {
     public void initializeSimulationWithData (File XMLData) {
         try {
             @SuppressWarnings("unchecked")
-            List<TestCell> cellList = Parser.parserXml(XMLData
-                    .getAbsolutePath());
-            initializeSimulationObjects(cellList);
+            List<TestCell> cellList = Parser.parserXml(XMLData.getAbsolutePath());
+            //initializeSimulationObjects(cellList);
         }
         catch (Exception e) {
             System.out.println(messages.getString("process_file_error"));

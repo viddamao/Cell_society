@@ -4,6 +4,7 @@ import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -22,7 +23,15 @@ public class UserInterface {
 	Scene myScene = new Scene(rootPane, 500, 540);
 	myStage.setScene(myScene);
 	myStage.show();
+	rootPane.getChildren().add(createSlider());
 	createAndHandleButtons();
+    }
+    
+    private Slider createSlider(){
+        Slider slider = new Slider(0, 1, 0.5);
+        slider.setLayoutX(320);
+        slider.setLayoutY(510);
+        return slider;
     }
 
     private void createAndHandleButtons() {
