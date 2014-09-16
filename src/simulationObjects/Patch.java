@@ -10,7 +10,7 @@ public class Patch extends Rectangle {
     protected int yCoord;
     private GridManager manager;
     private ArrayList<Patch> myNeighbors;
-    
+
     public Patch(int x, int y, Cell cell, GridManager m)
     {
         xCoord  = x;
@@ -18,45 +18,49 @@ public class Patch extends Rectangle {
         myCell  = cell;
         manager = m;
     }
-    
+
     public void getNeighbors()
     {
         myNeighbors = manager.getNeighborsAround(xCoord, yCoord);
     }
-    
+
     public Cell getCell()
     {
         return myCell;
     }
-    
+
     public int getX()
     {
         return xCoord;
     }
-    
+
     public int getY()
     {
         return yCoord;
     }
-    
+
     public void update()
     {
-       Patch destination = myCell.update(myNeighbors);
-       if(destination!=null)
-       {
-           destination.addCell(myCell);
-           this.removeCell();
-       }  
+
+        Patch destination = myCell.update(this, myNeighbors);
+        if(destination!=null)
+        {
+            destination.addCell(myCell);
+        }  
+        else
+        {
+            this.removeCell();
+        }
     }
-    
+
     public void addCell(Cell cell)
     {
         myCell = cell;
     }
-    
+
     public void removeCell()
     {
         myCell = null;
     }
-    
+
 }

@@ -17,7 +17,7 @@ public class PredatorCell extends Cell {
     }
 
     @Override
-    public Patch update(ArrayList<Patch> neighbors) {
+    public Patch update(Patch currentPatch, ArrayList<Patch> neighbors) {
 	
         return null;
         
