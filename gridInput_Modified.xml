@@ -5,7 +5,7 @@
    <gridInfo>
  	  <width>5</width>
 	  <height>4</height>
-      <type>Seg</type>
+      <type>SegCell</type>
  	  <adjacentType>8</adjacentType>
    </gridInfo>
  

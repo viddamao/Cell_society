@@ -74,6 +74,20 @@ public class Parser {
 	return cellList;
     }
 
+    
+    /**
+     * 
+     * 
+     * 
+     * 
+     * @param cellList
+     * return a list of strings with rows in the grid
+     * @param node
+     * the input node in XML
+     * @param flag
+     * magic number
+     * 
+     */
     private static void attributeParse(List<TestCell> cellList, Node node,
 	    boolean flag) {
 	{
