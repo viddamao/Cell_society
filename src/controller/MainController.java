@@ -16,6 +16,7 @@ import simulationObjects.Patch;
 public class MainController extends Application {
     private UserInterface userInterface;
     private static ResourceBundle messages;
+    private Timeline animation;
 
     public static void main (String[] args) throws Exception {
 
@@ -29,12 +30,7 @@ public class MainController extends Application {
     public void start (Stage s) throws Exception {
         // create our UI
         userInterface = new UserInterface(s, this);
-        //set game loop
-        KeyFrame frame = new KeyFrame(Duration.millis(1000), oneFrame);
-        Timeline animation = new Timeline();
-        animation.setCycleCount(Timeline.INDEFINITE);
-        animation.getKeyFrames().add(frame);
-        animation.play();
+        setSimulationSpeed(.1);
     }
 
     /**
@@ -46,6 +42,25 @@ public class MainController extends Application {
             System.out.println("new frame");
         }
     };
+    
+    /**
+     * 
+     * change the simulation speed
+     * @param speed
+     * speed of the simulation
+     */
+    public void setSimulationSpeed(double speed){
+        //set game loop
+        KeyFrame frame = new KeyFrame(Duration.millis(100/speed), oneFrame);
+        if (animation == null){
+            animation = new Timeline();
+        }
+        animation.stop();
+        animation.setCycleCount(Timeline.INDEFINITE);
+        animation.getKeyFrames().clear();
+        animation.getKeyFrames().add(frame);
+        animation.play();
+    }
 
     public void initializeSimulationWithData (File XMLData) {
         try {

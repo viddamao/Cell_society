@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.File;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -23,14 +25,20 @@ public class UserInterface {
 	Scene myScene = new Scene(rootPane, 500, 540);
 	myStage.setScene(myScene);
 	myStage.show();
-	rootPane.getChildren().add(createSlider());
+	rootPane.getChildren().add(createAndHandleSlider());
 	createAndHandleButtons();
     }
     
-    private Slider createSlider(){
-        Slider slider = new Slider(0, 1, 0.5);
+    private Slider createAndHandleSlider(){
+        Slider slider = new Slider(0, 1, 0.1);
         slider.setLayoutX(320);
-        slider.setLayoutY(510);
+        slider.setLayoutY(515);
+        slider.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,
+                Number old_val, Number new_val) {
+                myMainController.setSimulationSpeed((double) new_val);
+            }
+        });
         return slider;
     }
 
