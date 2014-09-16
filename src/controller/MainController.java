@@ -4,14 +4,17 @@ import java.io.File;
 import java.util.List;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import java.util.*;
 
 public class MainController extends Application {
     private UserInterface userInterface;
+    private static ResourceBundle messages;
 
     public static void main(String[] args) throws Exception {
 
 	Parser.parserXml("gridInput_Modified.xml");
-
+	Locale currentLocale = new Locale("en", "US");
+	messages = ResourceBundle.getBundle("messages", currentLocale);
 	launch(args);
     }
 
@@ -28,7 +31,7 @@ public class MainController extends Application {
 		    .getAbsolutePath());
 	    initializeSimulationObjects(cellList);
 	} catch (Exception e) {
-	    System.out.println("Error processing file, make sure it's XML.");
+	    System.out.println(messages.getString("process_file_error"));
 	}
     }
     
@@ -38,7 +41,7 @@ public class MainController extends Application {
                 //create a patch object at the x and y location
                 
                 //create a cell object
-                String classPathAndName = "simulationObjects."+c.cellType;
+                String classPathAndName = messages.getString("cell_bundle")+".";//+c.cellType;
                 Class<?> cellClass = Class.forName(classPathAndName);
                 System.out.println(cellClass);
                 Object cell = cellClass.newInstance();
@@ -47,13 +50,13 @@ public class MainController extends Application {
                 
             }
             catch (ClassNotFoundException e) {
-                System.out.println("One or more cell classes from your XML file could not be found.");
+                System.out.println(messages.getString("class_not_found_error"));
             }
             catch (InstantiationException e) {
-                System.out.println("One or more paramaters could not be applied to the simulation.");
+                System.out.println(messages.getString("instantiation_error"));
             }
             catch (IllegalAccessException e) {
-                System.out.println("Couldn't create a class from the XML file: illegal access.");
+                System.out.println(messages.getString("illegal_access_error"));
             }
         }
     }
