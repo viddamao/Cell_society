@@ -3,21 +3,20 @@ package controller;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import simulationObjects.Cell;
-import simulationObjects.PredatorCell;
+import simulationObjects.Patch;
+import simulationObjects.Patch;
 
 public class GridManager {
 
-    private Cell[][] grid;
-    private int[][] gridIsEmpty; // 1 for moved cells; 0 for cells not moving ;3
+    private Patch[][] grid;
+    private int[][] gridIsEmpty; // 1 for moved patchs; 0 for patchs not moving ;3
 				 // for empty
     private int[] availableCoord;
     private int[] xDelta = { -1, -1, -1, 0, 0, 1, 1, 1 };
     private int[] yDelta = { -1, 0, 1, -1, 1, -1, 0, 1 };
     private int gWidth;
     private int gHeight;
-    private String cellType;
+    //private String patchType;
     // {4,8} indicates adjacent type to be 4 or 8 blocks around
     private int adjacentType;
 
@@ -30,46 +29,46 @@ public class GridManager {
      *            of the grid
      */
     public GridManager(int width, int height) {
-	grid = new Cell[width][height];
+	grid = new Patch[width][height];
 	gWidth = width;
 	gHeight = height;
     }
 
     /*
-     * public void fillGrid(int CellType) { for(Cell[] row : grid){
-     * Arrays.fill(row, new PredatorCell()); } }
+     * public void fillGrid(int PatchType) { for(Patch[] row : grid){
+     * Arrays.fill(row, new PredatorPatch()); } }
      */
 
     /**
-     * Updates all Cells in the grid
+     * Updates all Patchs in the grid
      */
     public void updateBasedOnNeighbors() {
 	for (int i = 0; i < gWidth; i++)
 	    for (int j = 0; j < gHeight; j++)
 		gridIsEmpty[i][j] = 3;
 
-	for (Cell[] row : grid) {
-	    for (Cell unit : row) {
-		gridIsEmpty[unit.getX()][unit.getY()] = ((unit.needUpdate(this
-			.getCellsAroundPoint(unit.getX(), unit.getY()))) ? 1
-			: 0);
+	for (Patch[] row : grid) {
+	    for (Patch unit : row) {
+		/*gridIsEmpty[unit.getX()][unit.getY()] = ((unit.needUpdate(this
+			.getNeighborsAround(unit.getX(), unit.getY()))) ? 1
+			: 0);*/
 
 	    }
 	}
 
-	for (Cell[] row : grid) {
-	    for (Cell unit : row) {
+	for (Patch[] row : grid) {
+	    for (Patch unit : row) {
 
-		if (gridIsEmpty[unit.getX()][unit.getY()] == 1) {
+		/*if (gridIsEmpty[unit.getX()][unit.getY()] == 1) {
 		    gridIsEmpty[unit.getX()][unit.getY()] = 3;
 
-		    availableCoord = findFirstEmptyCell();
-		    removeCellAtPoint(unit.getX(), unit.getY());
-		    addCellAtPoint(unit, availableCoord[0], availableCoord[1]);
+		    availableCoord = findFirstEmptyPatch();
+		    removePatchAtPoint(unit.getX(), unit.getY());
+		    addPatchAtPoint(unit, availableCoord[0], availableCoord[1]);
 		    unit.setX(availableCoord[0]);
 		    unit.setY(availableCoord[1]);
 
-		}
+		}*/
 
 	    }
 
@@ -82,9 +81,9 @@ public class GridManager {
      * 
      * 
      * 
-     * @return first empty grid cell coordinate
+     * @return first empty grid patch coordinate
      */
-    private int[] findFirstEmptyCell() {
+    private int[] findFirstEmptyPatch() {
 	int[] coordinates = new int[2];
 	for (int i = 0; i < gWidth; i++)
 	    for (int j = 0; j < gHeight; j++)
@@ -98,40 +97,40 @@ public class GridManager {
     }
 
     /**
-     * Adds cell in specific location in the Grid
+     * Adds patch in specific location in the Grid
      * 
-     * @param cell
+     * @param patch
      *            to be added
      * @param xCoord
      *            in grid
      * @param yCoord
      *            in grid
      */
-    public void addCellAtPoint(Cell cell, int xCoord, int yCoord) {
-	grid[xCoord][yCoord] = cell;
+    public void addPatchAtPoint(Patch patch, int xCoord, int yCoord) {
+	grid[xCoord][yCoord] = patch;
     }
 
     /**
-     * Remove cell from specific location in the Grid
+     * Remove patch from specific location in the Grid
      * 
      * @param xCoord
      *            in grid
      * @param yCoord
      *            in grid
      */
-    public void removeCellAtPoint(int xCoord, int yCoord) {
+    public void removePatchAtPoint(int xCoord, int yCoord) {
 	grid[xCoord][yCoord] = null;
     }
 
     /**
-     * Retrieves all neighboring cells around a point
+     * Retrieves all neighboring patchs around a point
      * 
      * @param xCoord
      * @param yCoord
      * @return
      */
-    public ArrayList<Cell> getCellsAroundPoint(int xCoord, int yCoord) {
-	ArrayList<Cell> neighbors = new ArrayList<>();
+    public ArrayList<Patch> getNeighborsAround(int xCoord, int yCoord) {
+	ArrayList<Patch> neighbors = new ArrayList<>();
 	for (int i = 0; i < xDelta.length; i++) {
 	    int nextX = xCoord + xDelta[i];
 	    int nextY = yCoord + yDelta[i];
@@ -177,7 +176,7 @@ public class GridManager {
 	return gHeight;
     }
 
-    public void setType(String type) {
+    /*public void setType(String type) {
 	this.cellType = type;
     }
 
@@ -191,6 +190,6 @@ public class GridManager {
 
     public int getAdjacentType() {
 	return adjacentType;
-    }
+    }*/
 
 }
