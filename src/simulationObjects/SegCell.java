@@ -15,12 +15,12 @@ public class SegCell extends Cell {
     }
 
     @Override
-    public void update(ArrayList<Cell> neighbors) {
-	if (needUpdate(neighbors)) {
+    public Patch update(ArrayList<Patch> neighbors) {
+	/*if (needUpdate(neighbors)) {
 	    myState = 0;
 
-	}
-
+	}*/
+	return null;
     }
 
     /**
