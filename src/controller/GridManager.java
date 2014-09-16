@@ -8,9 +8,6 @@ import simulationObjects.Patch;
 public class GridManager {
 
     private Patch[][] grid;
-    //private int[][] gridIsEmpty; // 1 for moved patchs; 0 for patchs not moving ;3
-				 // for empty
-    //private int[] availableCoord;
     private int[] xDelta = { -1, -1, -1, 0, 0, 1, 1, 1 };
     private int[] yDelta = { -1, 0, 1, -1, 1, -1, 0, 1 };
     private int gWidth;
@@ -33,10 +30,6 @@ public class GridManager {
 	gHeight = height;
     }
 
-    /*
-     * public void fillGrid(int PatchType) { for(Patch[] row : grid){
-     * Arrays.fill(row, new PredatorPatch()); } }
-     */
 
     /**
      * Makes a step in the simulation, updates everything sequentially
@@ -50,26 +43,6 @@ public class GridManager {
     }
 
    
-    /**
-     * 
-     * 
-     * 
-     * 
-     * @return first empty grid patch coordinate
-     */
-    /*private int[] findFirstEmptyPatch() {
-	int[] coordinates = new int[2];
-	for (int i = 0; i < gWidth; i++)
-	    for (int j = 0; j < gHeight; j++)
-		if ((gridIsEmpty[i][j] == 1) || (gridIsEmpty[i][j] == 3)) {
-		    coordinates[0] = i;
-		    coordinates[1] = j;
-		}
-
-	return coordinates;
-
-    }*/
-
     /**
      * Adds patch in specific location in the Grid
      * 
@@ -132,41 +105,5 @@ public class GridManager {
 	return xCoord > gWidth - 1 || xCoord < 0 || yCoord > gHeight - 1
 		|| yCoord < 0;
     }
-
-    /*
-     * 
-     * getter and setting methods for dimensions
-     */
-    /*public void setWidth(int x) {
-	this.gWidth = x;
-    }
-
-    public void setHeight(int y) {
-	this.gHeight = y;
-    }
-
-    public int getWidth() {
-	return gWidth;
-    }
-
-    public int getHeight() {
-	return gHeight;
-    }
-
-    public void setType(String type) {
-	this.cellType = type;
-    }
-
-    public void setAdjacent(int adjacentType) {
-	this.adjacentType = adjacentType;
-    }
-
-    public String getType() {
-	return cellType;
-    }
-
-    public int getAdjacentType() {
-	return adjacentType;
-    }*/
 
 }

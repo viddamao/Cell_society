@@ -18,11 +18,11 @@ public class PredatorCell extends Cell {
 
     @Override
     public Patch update(ArrayList<Patch> neighbors) {
-	// TODO Auto-generated method stub
+	
         return null;
         
     }
-
+    
     @Override
     public void prepareToUpdate(ArrayList<Cell> neighbors) {
 

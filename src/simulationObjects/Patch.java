@@ -18,9 +18,15 @@ public class Patch extends Rectangle {
         myCell  = cell;
         manager = m;
     }
+    
     public void getNeighbors()
     {
         myNeighbors = manager.getNeighborsAround(xCoord, yCoord);
+    }
+    
+    public Cell getCell()
+    {
+        return myCell;
     }
     
     public int getX()
@@ -35,7 +41,12 @@ public class Patch extends Rectangle {
     
     public void update()
     {
-       Patch receiver = myCell.update(myNeighbors);
+       Patch destination = myCell.update(myNeighbors);
+       if(destination!=null)
+       {
+           destination.addCell(myCell);
+           this.removeCell();
+       }  
     }
     
     public void addCell(Cell cell)
@@ -47,8 +58,5 @@ public class Patch extends Rectangle {
     {
         myCell = null;
     }
-    
-    
-
     
 }
