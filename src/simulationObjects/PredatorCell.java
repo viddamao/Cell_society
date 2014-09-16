@@ -3,6 +3,10 @@ package simulationObjects;
 import java.util.ArrayList;
 
 public class PredatorCell extends Cell {
+    //This is it's pregnancylevel
+    private int pregnancyLevel = 0;
+    //Birthmark
+    private int maxState =9;
 
     public enum State {
 	EMPTY
@@ -13,9 +17,10 @@ public class PredatorCell extends Cell {
     }
 
     @Override
-    public void update(ArrayList<Cell> neighbors) {
+    public Patch update(ArrayList<Patch> neighbors) {
 	// TODO Auto-generated method stub
-
+        return null;
+        
     }
 
     @Override
