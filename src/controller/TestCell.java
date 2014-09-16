@@ -6,16 +6,12 @@ package controller;
  */
 public class TestCell {
     int id;
-    int xLoc;
-    int yLoc;
-    int currentState;
-    String cellType;
+    String states;
 
     @Override
     public String toString() {
-	return ((Integer) xLoc).toString() + " " + ((Integer) yLoc).toString()
-		+ " " + ((Integer) currentState).toString() + " " + cellType;
-
+	
+	return states;
     }
 
 }
