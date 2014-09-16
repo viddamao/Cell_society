@@ -23,6 +23,16 @@ public class Patch extends Rectangle {
         myNeighbors = manager.getNeighborsAround(xCoord, yCoord);
     }
     
+    public int getX()
+    {
+        return xCoord;
+    }
+    
+    public int getY()
+    {
+        return yCoord;
+    }
+    
     public void update()
     {
        Patch receiver = myCell.update(myNeighbors);
