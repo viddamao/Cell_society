@@ -5,18 +5,19 @@ import java.util.ArrayList;
 public abstract class Cell {
     protected int myX;
     protected int myY;
-
+    protected int myState;
+    protected int myFutureState;
     public Cell() {
 
     }
 
-    protected int myState;
+    
 
     public abstract int getState();
 
     public abstract void setState(int state);
 
-    public abstract void update(ArrayList<Cell> neighbors);
+    public abstract Patch update(ArrayList<Patch> neighbors);
 
     public abstract void prepareToUpdate(ArrayList<Cell> neighbors);
 
