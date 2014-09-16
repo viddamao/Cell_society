@@ -23,12 +23,39 @@ public class MainController extends Application {
 
     public void initializeSimulationWithData(File XMLData) {
 	try {
-	    List<TestCell> cellList = Parser.parserXml(XMLData
+	    @SuppressWarnings("unchecked")
+        List<TestCell> cellList = Parser.parserXml(XMLData
 		    .getAbsolutePath());
-
+	    initializeSimulationObjects(cellList);
 	} catch (Exception e) {
 	    System.out.println("Error processing file, make sure it's XML.");
 	}
+    }
+    
+    private void initializeSimulationObjects(List<TestCell> cellList){
+        for (TestCell c : cellList){
+            try {
+                //create a patch object at the x and y location
+                
+                //create a cell object
+                String classPathAndName = "simulationObjects."+c.cellType;
+                Class<?> cellClass = Class.forName(classPathAndName);
+                System.out.println(cellClass);
+                Object cell = cellClass.newInstance();
+                //assign the cell to the patch
+                //add the patch to grid manager
+                
+            }
+            catch (ClassNotFoundException e) {
+                System.out.println("One or more cell classes from your XML file could not be found.");
+            }
+            catch (InstantiationException e) {
+                System.out.println("One or more paramaters could not be applied to the simulation.");
+            }
+            catch (IllegalAccessException e) {
+                System.out.println("Couldn't create a class from the XML file: illegal access.");
+            }
+        }
     }
 
     public void startSimulation() {
