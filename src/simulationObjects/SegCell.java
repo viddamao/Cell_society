@@ -11,7 +11,7 @@ public class SegCell extends Cell {
     public double t = 0;
 
     public enum State {
-	X, O
+	EMPTY,X, O
     }
 
     public SegCell() {
@@ -44,12 +44,12 @@ public class SegCell extends Cell {
      */
 
     @Override
-    public boolean needUpdate(ArrayList<Cell> neighbors) {
+    public boolean needUpdate(ArrayList<Patch> neighbors) {
 	int satisfiedNeighbor = 0, dissatisfiedNeighbor = 0;
-	for (Cell neighborCell : neighbors) {
-	    if (myState == neighborCell.getState())
+	for (Patch neighborPatch : neighbors) {
+	    if (myState == neighborPatch.getCell().getState())
 		satisfiedNeighbor++;
-	    else if (neighborCell.getState() != 0)
+	    else if (neighborPatch.getCell().getState() != 0)
 		dissatisfiedNeighbor++;
 	}
 
@@ -68,7 +68,7 @@ public class SegCell extends Cell {
     }
 
     @Override
-    public void prepareToUpdate(ArrayList<Cell> neighbors) {
+    public void prepareToUpdate(ArrayList<Patch> neighbors) {
 
     }
 

@@ -19,7 +19,7 @@ public class ForestCell extends Cell {
     }
 
     @Override
-    public void prepareToUpdate(ArrayList<Cell> neighbors) {
+    public void prepareToUpdate(ArrayList<Patch> neighbors) {
 
     }
 
@@ -34,7 +34,7 @@ public class ForestCell extends Cell {
     }
 
     @Override
-    public boolean needUpdate(ArrayList<Cell> neighbors) {
+    public boolean needUpdate(ArrayList<Patch> neighbors) {
 	// TODO Auto-generated method stub
 	return false;
     }

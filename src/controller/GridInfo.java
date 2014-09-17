@@ -53,4 +53,8 @@ public class GridInfo {
 	return myParameter;
     }
 
+    public int getAdjacentType() {
+	return myAdjacentType;
+    }
+
 }

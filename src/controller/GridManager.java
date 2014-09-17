@@ -6,10 +6,11 @@ import simulationObjects.Patch;
 public class GridManager {
 
     private Patch[][] grid;
-    private int[] xDelta = { -1, -1, -1, 0, 0, 1, 1, 1 };
-    private int[] yDelta = { -1, 0, 1, -1, 1, -1, 0, 1 };
+    private int[] xDelta = { -1, 1, 0, 0, 1, 1, -1, -1 };
+    private int[] yDelta = { 0, 0, 1, -1, 1, -1, 1, -1 };
     private int gWidth;
     private int gHeight;
+    private GridInfo object=new GridInfo();
 
     // private String patchType;
     // {4,8} indicates adjacent type to be 4 or 8 blocks around
@@ -38,6 +39,7 @@ public class GridManager {
 		p.update();
 	    }
 	}
+	
     }
 
     /**
@@ -76,7 +78,8 @@ public class GridManager {
      */
     public ArrayList<Patch> getNeighborsAround(int xCoord, int yCoord) {
 	ArrayList<Patch> neighbors = new ArrayList<>();
-	for (int i = 0; i < xDelta.length; i++) {
+	//deal with different neighbor settings
+	for (int i = 0; i < object.getAdjacentType(); i++) {
 	    int nextX = xCoord + xDelta[i];
 	    int nextY = yCoord + yDelta[i];
 
