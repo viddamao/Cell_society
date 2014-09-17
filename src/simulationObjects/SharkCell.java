@@ -5,32 +5,24 @@ import java.util.HashMap;
 
 public class SharkCell extends PredatorCell {
 
-    //Temp variable assignments
+    //Temp variable assignments... needs constructor to set actual.
     private int vitality = 5;
     private int timeToBreed = 5;
     private final int maxVitality = 5;
     private int gestationPeriod;
 
+    //TBD based on design of controllers/parsers
     public SharkCell()
     {
 
     }
-
-
-
+    
+    /**
+     * Updates the states of the shark cell
+     * @param current location of cell
+     * @param destination location of the cell
+     */
     @Override
-    public Patch update(Patch current, ArrayList<Patch> neighbors) {
-        // TODO Auto-generated method stub
-        if(vitality>0)
-        {         
-            Patch destination = chooseMove(neighbors);
-            this.updateStatesandMakeMoves(current, destination);    
-            return current;
-        }
-        return null;
-    }
-    
-    
     public void updateStatesandMakeMoves(Patch current, Patch destination)
     {
         vitality--;
@@ -51,55 +43,23 @@ public class SharkCell extends PredatorCell {
                 this.leaveEgg(current);
                 timeToBreed = gestationPeriod;
             }
-            
-            
         }
     }
     
-    public void leaveEgg(Patch current)
-    {
-        current.addCell(new SharkCell());
-    }
     
-    public void makeMove(Patch current, Patch destination)
-    {
-        destination.addCell(this);
-        current.removeCell();
-    }
-    
+    //Need to specify how much energy it gets
+    //from eating fish...
     public void feed(Patch destination)
     {
         destination.removeCell();
+        this.vitality+=10;
     }
 
-
-    /**
-     * Finds possible patches to move and returns a destination. 
-     * If can't move returns null
-     * @param neighbors
-     * @return Patch to move to (contains fish or empty patch)
-     *         Null if nowhere to move.
-     */
-    public Patch chooseMove(ArrayList<Patch> neighbors)
-    {
-        ArrayList<Patch> destinations = this.processPossibleDestinations(neighbors);
-        int range = destinations.size();
-        if(range > 0)
-            return destinations.get((int)(Math.random()*range));
-        else
-            return null;
-    }
-
-
+    //Refactor...
     public ArrayList<Patch> processPossibleDestinations(ArrayList<Patch> allNeighbors)
     {
-        //1,3,4,6
-        //Repeated code, need to make more efficient/remove dup code... enums? Maps? 
-        ArrayList<Patch> myNeighbors = new ArrayList<>();
-        myNeighbors.add(allNeighbors.get(1));
-        myNeighbors.add(allNeighbors.get(3));
-        myNeighbors.add(allNeighbors.get(4));
-        myNeighbors.add(allNeighbors.get(6));
+      
+        this.siftNeighbors(allNeighbors);
 
         ArrayList<Patch> emptyBuffer = new ArrayList<>();
         ArrayList<Patch> fishBuffer = new ArrayList<>();
@@ -121,5 +81,23 @@ public class SharkCell extends PredatorCell {
         }
         return emptyBuffer;
     }
+
+    
+    /**
+     * REFACTOR DESIGN OF CELL CLASS
+     */
+    @Override
+    public void prepareToUpdate (ArrayList<Cell> neighbors) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public boolean needUpdate (ArrayList<Cell> neighbors) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+
    
 }
