@@ -1,5 +1,6 @@
 package controller;
 
+import simulationObjects.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
@@ -70,6 +71,7 @@ public class Parser {
 	    
 	}
 	
+
 	return cellList;
     }
 
@@ -122,6 +124,7 @@ public class Parser {
 		    case "adjacentType":
                  	object.setAdjacent(Integer.parseInt(content));
 			break;
+
 		    }
 		}
 	    }

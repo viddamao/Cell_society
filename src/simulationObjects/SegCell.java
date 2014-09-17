@@ -15,7 +15,7 @@ public class SegCell extends Cell {
     }
 
     @Override
-    public Patch update(ArrayList<Patch> neighbors) {
+    public Patch update(Patch currentPatch, ArrayList<Patch> neighbors) {
 	/*if (needUpdate(neighbors)) {
 	    myState = 0;
 

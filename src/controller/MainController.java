@@ -10,17 +10,18 @@ import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.util.*;
-import simulationObjects.Patch;
+import simulationObjects.*;
 
 
 public class MainController extends Application {
     private UserInterface userInterface;
     private static ResourceBundle messages;
-
+    private Timeline animation;
+    private GridManager gridManager;
+    private GridInfo object = new GridInfo();
+	    
     public static void main (String[] args) throws Exception {
 
-        //Parser.parserXml("gridInput_Modified.xml");
-        System.out.println(Locale.US);
         messages = ResourceBundle.getBundle("messages", Locale.US);
         launch(args);
     }
@@ -29,12 +30,7 @@ public class MainController extends Application {
     public void start (Stage s) throws Exception {
         // create our UI
         userInterface = new UserInterface(s, this);
-        //set game loop
-        KeyFrame frame = new KeyFrame(Duration.millis(1000), oneFrame);
-        Timeline animation = new Timeline();
-        animation.setCycleCount(Timeline.INDEFINITE);
-        animation.getKeyFrames().add(frame);
-        animation.play();
+        setSimulationSpeed(.1);
     }
 
     /**
@@ -43,33 +39,67 @@ public class MainController extends Application {
     private EventHandler<ActionEvent> oneFrame = new EventHandler<ActionEvent>() {
         @Override
         public void handle (ActionEvent evt) {
-            System.out.println("new frame");
+            stepSimulation();
         }
     };
 
+    /**
+     * 
+     * change the simulation speed
+     * 
+     * @param speed
+     *        speed of the simulation
+     */
+    public void setSimulationSpeed (double speed) {
+        // set game loop
+        KeyFrame frame = new KeyFrame(Duration.millis(100 / speed), oneFrame);
+        if (animation == null) {
+            animation = new Timeline();
+        }
+        animation.stop();
+        animation.setCycleCount(Timeline.INDEFINITE);
+        animation.getKeyFrames().clear();
+        animation.getKeyFrames().add(frame);
+        animation.play();
+    }
+
+    /**
+     * parse the XMLData and check for exceptions
+     * 
+     * @param XMLData
+     *        data to parse
+     */
     public void initializeSimulationWithData (File XMLData) {
         try {
             @SuppressWarnings("unchecked")
-            List<TestCell> cellList = Parser.parserXml(XMLData.getAbsolutePath());
-            //initializeSimulationObjects(cellList);
+            List<TestCell> gridRows = Parser.parserXml(XMLData.getAbsolutePath());
+            // initializeSimulationObjects(cellList);
         }
         catch (Exception e) {
             System.out.println(messages.getString("process_file_error"));
         }
     }
 
-    private void initializeSimulationObjects (List<TestCell> cellList) {
-        for (TestCell c : cellList) {
+    /**
+     * take the data array given by the parser and create patches and cell objects
+     * 
+     * @param gridRows
+     *        list given by the parser
+     */
+    private void initializeSimulationObjects (List<TestCell> gridRows) {
+        for (TestCell c : gridRows) {
             try {
                 // create a patch object at the x and y location
-
+                // Patch patch = new Patch();
                 // create a cell object
                 String classPathAndName = messages.getString("cell_bundle") + ".";// +c.cellType;
                 Class<?> cellClass = Class.forName(classPathAndName);
                 System.out.println(cellClass);
-                Object cell = cellClass.newInstance();
+                Cell cell = (Cell) cellClass.newInstance();
                 // assign the cell to the patch
-                //cell.setState();
+                
+                Patch myPatch = new Patch(0, 0, gridManager);
+                
                 // add the patch to grid manager
 
             }
@@ -85,19 +115,32 @@ public class MainController extends Application {
         }
     }
 
+    /**
+     * starts the simulation
+     */
     public void startSimulation () {
-        // TODO Auto-generated method stub
-
+        // start the animation, assuming there is one
+        if (animation != null) {
+            animation.play();
+        }
     }
 
+    /**
+     * stops the simulation
+     */
     public void stopSimulation () {
-        // TODO Auto-generated method stub
-
+        // stop the animation, assuming there is one
+        if (animation != null) {
+            animation.stop();
+        }
     }
 
+    /**
+     * increment the simulation by one frame
+     */
     public void stepSimulation () {
-        // TODO Auto-generated method stub
-
+        // tell the grid manager to process cell updates
+        System.out.println("new frame");
     }
 
 }
