@@ -11,11 +11,10 @@ public class Patch extends Rectangle {
     private GridManager manager;
     private ArrayList<Patch> myNeighbors;
 
-    public Patch(int x, int y, Cell cell, GridManager m)
+    public Patch(int x, int y, GridManager m)
     {
         xCoord  = x;
         yCoord  = y;
-        myCell  = cell;
         manager = m;
     }
 

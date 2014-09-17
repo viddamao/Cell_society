@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.util.*;
+import simulationObjects.Cell;
 import simulationObjects.Patch;
 
 
@@ -17,6 +18,7 @@ public class MainController extends Application {
     private UserInterface userInterface;
     private static ResourceBundle messages;
     private Timeline animation;
+    private GridManager gridManager;
 
     public static void main (String[] args) throws Exception {
 
@@ -77,13 +79,14 @@ public class MainController extends Application {
         for (TestCell c : cellList) {
             try {
                 // create a patch object at the x and y location
-
+                //Patch patch = new Patch();
                 // create a cell object
                 String classPathAndName = messages.getString("cell_bundle") + ".";// +c.cellType;
                 Class<?> cellClass = Class.forName(classPathAndName);
                 System.out.println(cellClass);
-                Object cell = cellClass.newInstance();
+                Cell cell = (Cell) cellClass.newInstance();
                 // assign the cell to the patch
+                
                 // add the patch to grid manager
 
             }
