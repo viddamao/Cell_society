@@ -5,6 +5,7 @@ public class GridInfo {
     private static int myHeight;
     private static String myType;
     private static int myAdjacentType;
+    private static int myParameter;
 
     public void setWidth(int width) {
 	myWidth = width;
@@ -24,6 +25,10 @@ public class GridInfo {
 
     }
 
+    public void setParameter(int param) {
+	myParameter = param;
+    }
+
     public int getWidth() {
 	return myWidth;
     }
@@ -34,6 +39,10 @@ public class GridInfo {
 
     public String getCellType() {
 	return myType;
+    }
+
+    public int getParam() {
+	return myParameter;
     }
 
 }

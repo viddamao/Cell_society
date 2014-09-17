@@ -2,7 +2,11 @@ package simulationObjects;
 
 import java.util.ArrayList;
 
+import controller.GridInfo;
+
 public class SegCell extends Cell {
+
+    private GridInfo object = new GridInfo();
 
     public double t = 0;
 
@@ -49,7 +53,7 @@ public class SegCell extends Cell {
 		dissatisfiedNeighbor++;
 	}
 
-	return (satisfiedNeighbor / dissatisfiedNeighbor < t);
+	return (satisfiedNeighbor / dissatisfiedNeighbor < object.getParam());
 
     }
 
