@@ -59,7 +59,7 @@ public class GridManager {
     }
 
     /**
-     * Remove patch from specific location in the Grid
+     * Remove cell from specific location in the Grid
      * 
      * @param xCoord
      *            in grid
@@ -73,7 +73,7 @@ public class GridManager {
     
     //TODO Needs to be updated for unique boundary conditions.
     /**
-     * Retrieves all neighboring patchs around a point
+     * Retrieves all neighboring patches around a point
      * 
      * @param xCoord
      * @param yCoord

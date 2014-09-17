@@ -10,8 +10,7 @@ import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.util.*;
-import simulationObjects.Cell;
-import simulationObjects.Patch;
+import simulationObjects.*;
 
 
 public class MainController extends Application {
