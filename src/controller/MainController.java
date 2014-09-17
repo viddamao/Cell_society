@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 import java.util.List;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -9,7 +10,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 import java.util.*;
+
 import simulationObjects.*;
 
 public class MainController extends Application {
@@ -18,6 +21,7 @@ public class MainController extends Application {
     private Timeline animation;
     private GridManager gridManager;
     private GridInfo object = new GridInfo();
+    private Patch[][] myGrid=null;
 
     public static void main(String[] args) throws Exception {
 
@@ -74,9 +78,7 @@ public class MainController extends Application {
 	    List<TestCell> gridRows = Parser.parserXml(XMLData
 		    .getAbsolutePath());
 	    initializeSimulationObjects(gridRows);
-	    System.out.println("123");
-	    checkInit(gridManager);
-
+	
 	} catch (Exception e) {
 	    System.out.println(messages.getString("process_file_error"));
 	}
@@ -114,10 +116,11 @@ public class MainController extends Application {
 		    currentPatch.addCell(cell);
 		    // add the patch to grid manager
 		    grid[i][j] = currentPatch;
+
 		}
 
 	    }
-
+	    myGrid=grid;
 	} catch (ClassNotFoundException e) {
 	    System.out.println(messages.getString("class_not_found_error"));
 	} catch (InstantiationException e) {
@@ -128,14 +131,6 @@ public class MainController extends Application {
 
     }
 
-    private void checkInit(GridManager grid) {
-	for (int i = 0; i < object.getHeight(); i++) {
-	    for (int j = 0; j < object.getWidth(); j++)
-		System.out.print(grid.getPatchAtPoint(i, j).getCell()
-			.getState());
-	    System.out.println();
-	}
-    }
 
     /**
      * starts the simulation

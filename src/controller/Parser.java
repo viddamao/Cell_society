@@ -113,6 +113,9 @@ public class Parser {
 		    case "adjacentType":
 			object.setAdjacent(Integer.parseInt(content));
 			break;
+		    case "parameter":
+			object.setParameter(Integer.parseInt(content));
+			break;
 
 		    }
 		}
