@@ -21,7 +21,6 @@ public class MainController extends Application {
     private Timeline animation;
     private GridManager gridManager;
     private GridInfo object = new GridInfo();
-    private Patch[][] myGrid=null;
 
     public static void main(String[] args) throws Exception {
 
@@ -80,6 +79,7 @@ public class MainController extends Application {
 	    initializeSimulationObjects(gridRows);
 	
 	} catch (Exception e) {
+	    e.printStackTrace();
 	    System.out.println(messages.getString("process_file_error"));
 	}
     }
@@ -95,12 +95,10 @@ public class MainController extends Application {
 	try {
 	    int width = object.getWidth();
 	    int height = object.getHeight();
-	    Patch[][] grid = new Patch[width][height];
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
 
 		for (int i = 0; i < width; i++) {
-
 		    // create a patch object at the x and y location
 		    // create a cell object
 		    String classPathAndName = messages.getString("cell_bundle")
@@ -113,14 +111,14 @@ public class MainController extends Application {
 		    cell.setState(Integer.parseInt(currentRow[i]));
 		    // assign the cell to the patch
 		    Patch currentPatch = new Patch(i, j, gridManager);
+		    System.out.println(currentPatch);
 		    currentPatch.addCell(cell);
 		    // add the patch to grid manager
-		    grid[i][j] = currentPatch;
+		    gridManager.addPatchAtPoint(currentPatch);
 
 		}
 
 	    }
-	    myGrid=grid;
 	} catch (ClassNotFoundException e) {
 	    System.out.println(messages.getString("class_not_found_error"));
 	} catch (InstantiationException e) {
