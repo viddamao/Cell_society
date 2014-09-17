@@ -55,7 +55,7 @@ public class GridManager {
      */
     public void addPatchAtPoint(Patch patch) {
 	
-        grid[patch.getX()][patch.getY()] = patch;
+        grid[patch.getGridX()][patch.getGridY()] = patch;
     }
 
     /**

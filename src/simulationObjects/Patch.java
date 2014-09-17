@@ -1,7 +1,7 @@
 package simulationObjects;
 
 import java.util.ArrayList;
-import com.sun.javafx.geom.Rectangle;
+import javafx.scene.shape.Rectangle;
 import controller.GridManager;
 
 public class Patch extends Rectangle {
@@ -13,6 +13,7 @@ public class Patch extends Rectangle {
 
     public Patch(int x, int y, GridManager m)
     {
+        super();
         xCoord  = x;
         yCoord  = y;
         manager = m;
@@ -28,12 +29,12 @@ public class Patch extends Rectangle {
         return myCell;
     }
 
-    public int getX()
+    public int getGridX()
     {
         return xCoord;
     }
 
-    public int getY()
+    public int getGridY()
     {
         return yCoord;
     }
