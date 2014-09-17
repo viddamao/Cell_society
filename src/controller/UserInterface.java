@@ -27,24 +27,11 @@ public class UserInterface {
         Scene myScene = new Scene(rootPane, 500, 540);
         myStage.setScene(myScene);
         myStage.show();
-        rootPane.getChildren().add(createAndHandleSlider());
-        createAndHandleButtons();
+        makeBottomPanel();
     }
 
-    private Slider createAndHandleSlider () {
-        Slider slider = new Slider(0, 1, 0.1);
-        slider.setLayoutX(320);
-        slider.setLayoutY(515);
-        slider.valueProperty().addListener(new ChangeListener<Number>() {
-            public void changed (ObservableValue<? extends Number> ov,
-                                 Number old_val, Number new_val) {
-                myMainController.setSimulationSpeed((double) new_val);
-            }
-        });
-        return slider;
-    }
-
-    private void createAndHandleButtons () {
+    private void makeBottomPanel () {
+        //buttons
         rootPane.getChildren().add(createButton("Start", 0, 510, new EventHandler<ActionEvent>() {
             @Override
             public void handle (ActionEvent event) {
@@ -73,6 +60,13 @@ public class UserInterface {
                 myMainController.initializeSimulationWithData(XMLData);
             }
         }));
+        //slider
+        rootPane.getChildren().add(createSlider(0,1,.1,320,515, new ChangeListener<Number>(){
+            public void changed (ObservableValue<? extends Number> ov,
+                                 Number old_val, Number new_val) {
+                myMainController.setSimulationSpeed((double) new_val);
+            }
+        }));
     }
 
     private Button createButton (String title, int posX, int posY, EventHandler<ActionEvent> handler) {
@@ -81,6 +75,14 @@ public class UserInterface {
         button.setLayoutY(posY);
         button.setOnAction(handler);
         return button;
+    }
+    
+    private Slider createSlider (int start, int stop, double startVal, int posX, int posY, ChangeListener<Number> listener){
+        Slider slider = new Slider(start, stop, startVal);
+        slider.setLayoutX(posX);
+        slider.setLayoutY(posY);
+        slider.valueProperty().addListener(listener);
+        return slider;
     }
 
     public Pane getRootPane () {
