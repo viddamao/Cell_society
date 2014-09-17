@@ -95,6 +95,7 @@ public class MainController extends Application {
 	try {
 	    int width = object.getWidth();
 	    int height = object.getHeight();
+	    gridManager = new GridManager(width,height);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
 
@@ -105,13 +106,13 @@ public class MainController extends Application {
 			    + "." + object.getCellType();
 		    Class<?> cellClass = Class.forName(classPathAndName);
 		    Cell cell = (Cell) cellClass.newInstance();
-
 		    cell.setX(i);
 		    cell.setY(j);
 		    cell.setState(Integer.parseInt(currentRow[i]));
-		    // assign the cell to the patch
 		    Patch currentPatch = new Patch(i, j, gridManager);
-		    System.out.println(currentPatch);
+                    // add the patch to the UI
+                    addPatchToPane(currentPatch);
+                    // assign the cell to the patch
 		    currentPatch.addCell(cell);
 		    // add the patch to grid manager
 		    gridManager.addPatchAtPoint(currentPatch);
@@ -128,6 +129,19 @@ public class MainController extends Application {
 	}
 
     }
+    
+    private void addPatchToPane (Patch p) {
+        //scale the grid position up to a pixel position
+        int scaleX = 50;
+        int scaleY = 50;
+        p.setLayoutX(scaleX*p.getGridX());
+        p.setLayoutY(scaleY*p.getGridY());
+        System.out.println(p.getLayoutX());
+        p.setMaxWidth(scaleX);
+        p.setMaxHeight(scaleY);
+        userInterface.addNode(p);
+    }
+
 
 
     /**
