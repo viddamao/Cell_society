@@ -7,7 +7,7 @@ public class SegCell extends Cell {
     public double t = 0;
 
     public enum State {
-	EMPTY, X, O
+	X, O
     }
 
     public SegCell() {
@@ -16,10 +16,11 @@ public class SegCell extends Cell {
 
     @Override
     public Patch update(Patch currentPatch, ArrayList<Patch> neighbors) {
-	/*if (needUpdate(neighbors)) {
-	    myState = 0;
-
-	}*/
+	/*
+	 * if (needUpdate(neighbors)) { myState = 0;
+	 * 
+	 * }
+	 */
 	return null;
     }
 
@@ -38,6 +39,7 @@ public class SegCell extends Cell {
      * 
      */
 
+    @Override
     public boolean needUpdate(ArrayList<Cell> neighbors) {
 	int satisfiedNeighbor = 0, dissatisfiedNeighbor = 0;
 	for (Cell neighborCell : neighbors) {

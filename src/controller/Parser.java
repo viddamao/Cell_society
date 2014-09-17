@@ -24,7 +24,7 @@ import org.w3c.dom.NodeList;
  */
 public class Parser {
 
-    static GridManager object = new GridManager(0, 0);
+    static GridInfo object = new GridInfo();
 
     public static List parserXml(String fileName) throws Exception {
 	// check for xml data
@@ -41,12 +41,11 @@ public class Parser {
 	FileInputStream is = new FileInputStream(fileName);
 
 	Document document = builder.parse(is);
-	
 
 	List<TestCell> cellList = new ArrayList<>();
-	
+
 	NodeList nodeList = document.getElementsByTagName("gridInfo");
-	
+
 	attributeParse(cellList, nodeList.item(0), false);
 
 	// Iterating through the nodes and extracting the data.
@@ -63,30 +62,20 @@ public class Parser {
 
 	}
 
-	
-	// Printing the cell list input.
-	for (TestCell cellBlock : cellList) {
-	    System.out.println(cellBlock);
-	    
-	    
-	}
-	
-	
 	return cellList;
     }
 
-    
     /**
      * 
      * 
      * 
      * 
      * @param cellList
-     * return a list of strings with rows in the grid
+     *            return a list of strings with rows in the grid
      * @param node
-     * the input node in XML
+     *            the input node in XML
      * @param flag
-     * magic number
+     *            magic number
      * 
      */
     private static void attributeParse(List<TestCell> cellList, Node node,
@@ -111,6 +100,18 @@ public class Parser {
 		    switch (cNode.getNodeName()) {
 		    case "states":
 			cellBlock.states = content;
+			break;
+		    case "width":
+			object.setWidth(Integer.parseInt(content));
+			break;
+		    case "height":
+			object.setHeight(Integer.parseInt(content));
+			break;
+		    case "type":
+			object.setType(content);
+			break;
+		    case "adjacentType":
+			object.setAdjacent(Integer.parseInt(content));
 			break;
 
 		    }
