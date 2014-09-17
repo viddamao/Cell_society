@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.File;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -17,11 +19,13 @@ public class UserInterface {
     private MainController myMainController;
     private Pane rootPane;
     private Stage myStage;
+    private static ResourceBundle messages;
 
     public UserInterface (Stage s, MainController mainController) {
+        messages = ResourceBundle.getBundle("messages", Locale.US);
         myMainController = mainController;
         Stage myStage = s;
-        myStage.setTitle("Cell Society Team 4");
+        myStage.setTitle(messages.getString("stage_title"));
 
         rootPane = new Pane();
         Scene myScene = new Scene(rootPane, 500, 540);
@@ -35,31 +39,43 @@ public class UserInterface {
      */
     private void makeBottomPanel () {
         // buttons
-        rootPane.getChildren().add(createButton("Start", 0, 510, new EventHandler<ActionEvent>() {
-            @Override
-            public void handle (ActionEvent event) {
-                myMainController.startSimulation();
-            }
-        }));
-        rootPane.getChildren().add(createButton("Stop", 60, 510, new EventHandler<ActionEvent>() {
-            @Override
-            public void handle (ActionEvent event) {
-                myMainController.stopSimulation();
-            }
-        }));
-        rootPane.getChildren().add(createButton("Step", 120, 510, new EventHandler<ActionEvent>() {
-            @Override
-            public void handle (ActionEvent event) {
-                myMainController.stepSimulation();
-            }
-        }));
-        rootPane.getChildren().add(createButton("Choose File", 200, 510,
+        rootPane.getChildren().add(createButton(messages.getString("start_button_title"),
+                                                intFromResource("start_button_x"),
+                                                intFromResource("start_button_y"),
+                                                new EventHandler<ActionEvent>() {
+                                                    @Override
+                                                    public void handle (ActionEvent event) {
+                                                        myMainController.startSimulation();
+                                                    }
+                                                }));
+        rootPane.getChildren().add(createButton(messages.getString("stop_button_title"),
+                                                intFromResource("stop_button_x"),
+                                                intFromResource("stop_button_y"),
+                                                new EventHandler<ActionEvent>() {
+                                                    @Override
+                                                    public void handle (ActionEvent event) {
+                                                        myMainController.stopSimulation();
+                                                    }
+                                                }));
+        rootPane.getChildren().add(createButton(messages.getString("step_button_title"),
+                                                intFromResource("step_button_x"),
+                                                intFromResource("step_button_y"),
+                                                new EventHandler<ActionEvent>() {
+                                                    @Override
+                                                    public void handle (ActionEvent event) {
+                                                        myMainController.stepSimulation();
+                                                    }
+                                                }));
+        rootPane.getChildren().add(createButton(messages.getString("file_button_title"),
+                                                intFromResource("file_button_x"),
+                                                intFromResource("file_button_y"),
                                                 new EventHandler<ActionEvent>() {
                                                     @Override
                                                     public void handle (ActionEvent event) {
                                                         // show file dialog
                                                         FileChooser fileChooser = new FileChooser();
-                                                        fileChooser.setTitle("Open XML File");
+                                                        fileChooser.setTitle(messages
+                                                                .getString("file_dialog_title"));
                                                         final File XMLData =
                                                                 fileChooser.showOpenDialog(myStage);
                                                         myMainController
@@ -67,12 +83,27 @@ public class UserInterface {
                                                     }
                                                 }));
         // slider
-        rootPane.getChildren().add(createSlider(0, 1, .1, 320, 515, new ChangeListener<Number>() {
-            public void changed (ObservableValue<? extends Number> ov,
-                                 Number old_val, Number new_val) {
-                myMainController.setSimulationSpeed((double) new_val);
-            }
-        }));
+        rootPane.getChildren().add(createSlider(intFromResource("slider_min"),
+                                                intFromResource("slider_max"),
+                                                doubleFromResource("slider_start"),
+                                                intFromResource("slider_x"),
+                                                intFromResource("slider_y"),
+                                                new ChangeListener<Number>() {
+                                                    public void changed (ObservableValue<? extends Number> ov,
+                                                                         Number old_val,
+                                                                         Number new_val) {
+                                                        myMainController
+                                                                .setSimulationSpeed((double) new_val);
+                                                    }
+                                                }));
+    }
+
+    private Integer intFromResource (String s) {
+        return (int) doubleFromResource(s);
+    }
+
+    private double doubleFromResource (String s) {
+        return Double.parseDouble(messages.getString(s));
     }
 
     /**
