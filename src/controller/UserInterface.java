@@ -29,12 +29,12 @@ public class UserInterface {
         myStage.show();
         makeBottomPanel();
     }
-    
+
     /**
      * create the bottom panel that the user interacts with
      */
     private void makeBottomPanel () {
-        //buttons
+        // buttons
         rootPane.getChildren().add(createButton("Start", 0, 510, new EventHandler<ActionEvent>() {
             @Override
             public void handle (ActionEvent event) {
@@ -53,18 +53,21 @@ public class UserInterface {
                 myMainController.stepSimulation();
             }
         }));
-        rootPane.getChildren().add(createButton("Choose File", 200, 510, new EventHandler<ActionEvent>() {
-            @Override
-            public void handle (ActionEvent event) {
-                // show file dialog
-                FileChooser fileChooser = new FileChooser();
-                fileChooser.setTitle("Open XML File");
-                final File XMLData = fileChooser.showOpenDialog(myStage);
-                myMainController.initializeSimulationWithData(XMLData);
-            }
-        }));
-        //slider
-        rootPane.getChildren().add(createSlider(0,1,.1,320,515, new ChangeListener<Number>(){
+        rootPane.getChildren().add(createButton("Choose File", 200, 510,
+                                                new EventHandler<ActionEvent>() {
+                                                    @Override
+                                                    public void handle (ActionEvent event) {
+                                                        // show file dialog
+                                                        FileChooser fileChooser = new FileChooser();
+                                                        fileChooser.setTitle("Open XML File");
+                                                        final File XMLData =
+                                                                fileChooser.showOpenDialog(myStage);
+                                                        myMainController
+                                                                .initializeSimulationWithData(XMLData);
+                                                    }
+                                                }));
+        // slider
+        rootPane.getChildren().add(createSlider(0, 1, .1, 320, 515, new ChangeListener<Number>() {
             public void changed (ObservableValue<? extends Number> ov,
                                  Number old_val, Number new_val) {
                 myMainController.setSimulationSpeed((double) new_val);
@@ -76,15 +79,15 @@ public class UserInterface {
      * create a button
      * 
      * @param title
-     * title of the button
+     *        title of the button
      * @param posX
-     * x position of button
+     *        x position of button
      * @param posY
-     * y position of button
+     *        y position of button
      * @param handler
-     * action handler
+     *        action handler
      * @return
-     * the button
+     *         the button
      */
     private Button createButton (String title, int posX, int posY, EventHandler<ActionEvent> handler) {
         Button button = new Button(title);
@@ -93,26 +96,31 @@ public class UserInterface {
         button.setOnAction(handler);
         return button;
     }
-    
+
     /**
      * create a slider
      * 
      * @param start
-     * minimum value of the slider
+     *        minimum value of the slider
      * @param stop
-     * maximum value of the slider
+     *        maximum value of the slider
      * @param startVal
-     * initial value of the slider
+     *        initial value of the slider
      * @param posX
-     * x position of the slider
+     *        x position of the slider
      * @param posY
-     * y position of the slider
+     *        y position of the slider
      * @param listener
-     * listener for when the slider value changes
+     *        listener for when the slider value changes
      * @return
-     * the slider
+     *         the slider
      */
-    private Slider createSlider (int start, int stop, double startVal, int posX, int posY, ChangeListener<Number> listener){
+    private Slider createSlider (int start,
+                                 int stop,
+                                 double startVal,
+                                 int posX,
+                                 int posY,
+                                 ChangeListener<Number> listener) {
         Slider slider = new Slider(start, stop, startVal);
         slider.setLayoutX(posX);
         slider.setLayoutY(posY);
@@ -122,7 +130,7 @@ public class UserInterface {
 
     /**
      * @return
-     * the rootPane for adding children
+     *         the rootPane for adding children
      */
     public Pane getRootPane () {
         return rootPane;

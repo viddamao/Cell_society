@@ -41,7 +41,7 @@ public class MainController extends Application {
     private EventHandler<ActionEvent> oneFrame = new EventHandler<ActionEvent>() {
         @Override
         public void handle (ActionEvent evt) {
-            System.out.println("new frame");
+            stepSimulation();
         }
     };
     
@@ -56,12 +56,11 @@ public class MainController extends Application {
         KeyFrame frame = new KeyFrame(Duration.millis(100/speed), oneFrame);
         if (animation == null){
             animation = new Timeline();
+            animation.play();
         }
-        animation.stop();
         animation.setCycleCount(Timeline.INDEFINITE);
         animation.getKeyFrames().clear();
         animation.getKeyFrames().add(frame);
-        animation.play();
     }
 
     public void initializeSimulationWithData (File XMLData) {
@@ -103,18 +102,22 @@ public class MainController extends Application {
     }
 
     public void startSimulation () {
-        // TODO Auto-generated method stub
-
+        //start the animation, assuming there is one
+        if (animation != null){
+            animation.play();
+        }
     }
 
     public void stopSimulation () {
-        // TODO Auto-generated method stub
-
+        //stop the animation, assuming there is one
+        if (animation != null){
+            animation.stop();
+        }
     }
 
     public void stepSimulation () {
-        // TODO Auto-generated method stub
-
+        //tell the grid manager to process cell updates
+        System.out.println("new frame");
     }
 
 }
