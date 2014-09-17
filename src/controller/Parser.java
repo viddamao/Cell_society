@@ -23,7 +23,7 @@ import org.w3c.dom.NodeList;
  */
 public class Parser {
 
-    static GridManager object = new GridManager(0, 0);
+    static GridInfo object = new GridInfo();
 
     public static List parserXml(String fileName) throws Exception {
 	// check for xml data
@@ -70,7 +70,6 @@ public class Parser {
 	    
 	}
 	
-	System.out.println(object.getAdjacentType());
 	return cellList;
     }
 
@@ -121,7 +120,7 @@ public class Parser {
 			object.setType(content);
 			break;
 		    case "adjacentType":
-			object.setAdjacent(Integer.parseInt(content));
+                 	object.setAdjacent(Integer.parseInt(content));
 			break;
 		    }
 		}

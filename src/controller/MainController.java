@@ -69,6 +69,7 @@ public class MainController extends Application {
                 System.out.println(cellClass);
                 Object cell = cellClass.newInstance();
                 // assign the cell to the patch
+                //cell.setState();
                 // add the patch to grid manager
 
             }
