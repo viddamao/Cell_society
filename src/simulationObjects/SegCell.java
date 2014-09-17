@@ -61,5 +61,9 @@ public class SegCell extends Cell {
 	myState = state;
     }
 
+    @Override
+    public void prepareToUpdate(ArrayList<Cell> neighbors) {
+
+    }
 
 }

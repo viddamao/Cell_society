@@ -10,17 +10,20 @@ public abstract class Cell {
     public Cell() {
 
     }
-    //Maybe make this an interface??
-    protected enum relativePosition{
+
+    public enum relativePosition{
         NORTHWEST, WEST, SOUTHWEST, NORTH, SOUTH, NORTHEAST, EAST, SOUTHEAST 
      }
 
+    //REFACTOR SOME OF THESE METHODS...
+    
     public abstract int getState();
 
     public abstract void setState(int state);
 
     public abstract Patch update(Patch currentPatch, ArrayList<Patch> neighbors);
 
+    public abstract void prepareToUpdate(ArrayList<Cell> neighbors);
 
     public abstract boolean needUpdate(ArrayList<Cell> neighbors);
 
