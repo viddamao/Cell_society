@@ -24,8 +24,6 @@ public class Patch extends Rectangle {
     public void getNeighbors()
     {
         myNeighbors = manager.getNeighborsAround(xCoord, yCoord);
-        
-        
     }
 
     public Cell getCell()
