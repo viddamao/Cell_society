@@ -7,6 +7,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
@@ -157,6 +158,12 @@ public class UserInterface {
 	slider.valueProperty().addListener(listener);
 	return slider;
     }
+    
+    
+    public void addNode (Node n){
+        rootPane.getChildren().add(n);
+    }
+
 
     /**
      * @return the rootPane for adding children

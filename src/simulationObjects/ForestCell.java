@@ -9,7 +9,7 @@ public class ForestCell extends Cell {
     }
 
     public ForestCell() {
-
+        super();
     }
 
     @Override

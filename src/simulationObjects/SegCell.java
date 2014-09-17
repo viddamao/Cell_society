@@ -15,7 +15,7 @@ public class SegCell extends Cell {
     }
 
     public SegCell() {
-
+        super();
     }
 
     @Override

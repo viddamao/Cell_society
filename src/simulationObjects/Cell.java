@@ -1,15 +1,17 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
-public abstract class Cell {
+public abstract class Cell extends Rectangle {
 
     protected int myX;
     protected int myY;
     protected int myState;
 
     public Cell() {
-
+        setFill(Color.BLUE);
     }
 
     public enum relativePosition {
@@ -28,11 +30,11 @@ public abstract class Cell {
 
     public abstract boolean needUpdate(ArrayList<Cell> neighbors);
 
-    public int getX() {
+    public int getGridX() {
 	return myX;
     }
 
-    public int getY() {
+    public int getGridY() {
 	return myY;
     }
 
