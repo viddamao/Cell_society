@@ -16,10 +16,11 @@ public class SegCell extends Cell {
 
     @Override
     public Patch update(Patch currentPatch, ArrayList<Patch> neighbors) {
-	/*if (needUpdate(neighbors)) {
-	    myState = 0;
-
-	}*/
+	/*
+	 * if (needUpdate(neighbors)) { myState = 0;
+	 * 
+	 * }
+	 */
 	return null;
     }
 

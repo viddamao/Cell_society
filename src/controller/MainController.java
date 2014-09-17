@@ -12,35 +12,34 @@ import javafx.util.Duration;
 import java.util.*;
 import simulationObjects.*;
 
-
 public class MainController extends Application {
     private UserInterface userInterface;
     private static ResourceBundle messages;
     private Timeline animation;
     private GridManager gridManager;
     private GridInfo object = new GridInfo();
-	    
-    public static void main (String[] args) throws Exception {
 
-        messages = ResourceBundle.getBundle("messages", Locale.US);
-        launch(args);
+    public static void main(String[] args) throws Exception {
+
+	messages = ResourceBundle.getBundle("messages", Locale.US);
+	launch(args);
     }
 
     @Override
-    public void start (Stage s) throws Exception {
-        // create our UI
-        userInterface = new UserInterface(s, this);
-        setSimulationSpeed(.1);
+    public void start(Stage s) throws Exception {
+	// create our UI
+	userInterface = new UserInterface(s, this);
+	setSimulationSpeed(.1);
     }
 
     /**
      * Function to do each game frame
      */
     private EventHandler<ActionEvent> oneFrame = new EventHandler<ActionEvent>() {
-        @Override
-        public void handle (ActionEvent evt) {
-            stepSimulation();
-        }
+	@Override
+	public void handle(ActionEvent evt) {
+	    stepSimulation();
+	}
     };
 
     /**
@@ -48,99 +47,122 @@ public class MainController extends Application {
      * change the simulation speed
      * 
      * @param speed
-     *        speed of the simulation
+     *            speed of the simulation
      */
-    public void setSimulationSpeed (double speed) {
-        // set game loop
-        KeyFrame frame = new KeyFrame(Duration.millis(100 / speed), oneFrame);
-        if (animation == null) {
-            animation = new Timeline();
-        }
-        animation.stop();
-        animation.setCycleCount(Timeline.INDEFINITE);
-        animation.getKeyFrames().clear();
-        animation.getKeyFrames().add(frame);
-        animation.play();
+    public void setSimulationSpeed(double speed) {
+	// set game loop
+	KeyFrame frame = new KeyFrame(Duration.millis(100 / speed), oneFrame);
+	if (animation == null) {
+	    animation = new Timeline();
+	}
+	animation.stop();
+	animation.setCycleCount(Timeline.INDEFINITE);
+	animation.getKeyFrames().clear();
+	animation.getKeyFrames().add(frame);
+	animation.play();
     }
 
     /**
      * parse the XMLData and check for exceptions
      * 
      * @param XMLData
-     *        data to parse
+     *            data to parse
      */
-    public void initializeSimulationWithData (File XMLData) {
-        try {
-            @SuppressWarnings("unchecked")
-            List<TestCell> gridRows = Parser.parserXml(XMLData.getAbsolutePath());
-            // initializeSimulationObjects(cellList);
-        }
-        catch (Exception e) {
-            System.out.println(messages.getString("process_file_error"));
-        }
+    public void initializeSimulationWithData(File XMLData) {
+	try {
+	    @SuppressWarnings("unchecked")
+	    List<TestCell> gridRows = Parser.parserXml(XMLData
+		    .getAbsolutePath());
+	    initializeSimulationObjects(gridRows);
+	    System.out.println("123");
+	    checkInit(gridManager);
+
+	} catch (Exception e) {
+	    System.out.println(messages.getString("process_file_error"));
+	}
     }
 
     /**
-     * take the data array given by the parser and create patches and cell objects
+     * take the data array given by the parser and create patches and cell
+     * objects
      * 
      * @param gridRows
-     *        list given by the parser
+     *            list given by the parser
      */
-    private void initializeSimulationObjects (List<TestCell> gridRows) {
-        for (TestCell c : gridRows) {
-            try {
-                // create a patch object at the x and y location
-                // Patch patch = new Patch();
-                // create a cell object
-                String classPathAndName = messages.getString("cell_bundle") + ".";// +c.cellType;
-                Class<?> cellClass = Class.forName(classPathAndName);
-                System.out.println(cellClass);
-                Cell cell = (Cell) cellClass.newInstance();
-                // assign the cell to the patch
-                
-                Patch myPatch = new Patch(0, 0, gridManager);
-                
-                // add the patch to grid manager
+    private void initializeSimulationObjects(List<TestCell> gridRows) {
+	try {
+	    int width = object.getWidth();
+	    int height = object.getHeight();
+	    Patch[][] grid = new Patch[width][height];
+	    for (int j = 0; j < height; j++) {
+		String[] currentRow = gridRows.get(j).states.split(" ");
 
-            }
-            catch (ClassNotFoundException e) {
-                System.out.println(messages.getString("class_not_found_error"));
-            }
-            catch (InstantiationException e) {
-                System.out.println(messages.getString("instantiation_error"));
-            }
-            catch (IllegalAccessException e) {
-                System.out.println(messages.getString("illegal_access_error"));
-            }
-        }
+		for (int i = 0; i < width; i++) {
+
+		    // create a patch object at the x and y location
+		    // create a cell object
+		    String classPathAndName = messages.getString("cell_bundle")
+			    + "." + object.getCellType();
+		    Class<?> cellClass = Class.forName(classPathAndName);
+		    Cell cell = (Cell) cellClass.newInstance();
+
+		    cell.setX(i);
+		    cell.setY(j);
+		    cell.setState(Integer.parseInt(currentRow[i]));
+		    // assign the cell to the patch
+		    Patch currentPatch = new Patch(i, j, gridManager);
+		    currentPatch.addCell(cell);
+		    // add the patch to grid manager
+		    grid[i][j] = currentPatch;
+		}
+
+	    }
+
+	} catch (ClassNotFoundException e) {
+	    System.out.println(messages.getString("class_not_found_error"));
+	} catch (InstantiationException e) {
+	    System.out.println(messages.getString("instantiation_error"));
+	} catch (IllegalAccessException e) {
+	    System.out.println(messages.getString("illegal_access_error"));
+	}
+
+    }
+
+    private void checkInit(GridManager grid) {
+	for (int i = 0; i < object.getHeight(); i++) {
+	    for (int j = 0; j < object.getWidth(); j++)
+		System.out.print(grid.getPatchAtPoint(i, j).getCell()
+			.getState());
+	    System.out.println();
+	}
     }
 
     /**
      * starts the simulation
      */
-    public void startSimulation () {
-        // start the animation, assuming there is one
-        if (animation != null) {
-            animation.play();
-        }
+    public void startSimulation() {
+	// start the animation, assuming there is one
+	if (animation != null) {
+	    animation.play();
+	}
     }
 
     /**
      * stops the simulation
      */
-    public void stopSimulation () {
-        // stop the animation, assuming there is one
-        if (animation != null) {
-            animation.stop();
-        }
+    public void stopSimulation() {
+	// stop the animation, assuming there is one
+	if (animation != null) {
+	    animation.stop();
+	}
     }
 
     /**
      * increment the simulation by one frame
      */
-    public void stepSimulation () {
-        // tell the grid manager to process cell updates
-        System.out.println("new frame");
+    public void stepSimulation() {
+	// tell the grid manager to process cell updates
+	// System.out.println("new frame");
     }
 
 }

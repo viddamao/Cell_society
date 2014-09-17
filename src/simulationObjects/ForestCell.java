@@ -15,7 +15,7 @@ public class ForestCell extends Cell {
     @Override
     public Patch update(Patch currentPatch, ArrayList<Patch> neighbors) {
 	// TODO Auto-generated method stub
-        return null;
+	return null;
     }
 
     @Override

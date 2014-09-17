@@ -3,20 +3,21 @@ package simulationObjects;
 import java.util.ArrayList;
 
 public abstract class Cell {
-    
+
     protected int myX;
     protected int myY;
     protected int myState;
+
     public Cell() {
 
     }
 
-    public enum relativePosition{
-        NORTHWEST, WEST, SOUTHWEST, NORTH, SOUTH, NORTHEAST, EAST, SOUTHEAST 
-     }
+    public enum relativePosition {
+	NORTHWEST, WEST, SOUTHWEST, NORTH, SOUTH, NORTHEAST, EAST, SOUTHEAST
+    }
 
-    //REFACTOR SOME OF THESE METHODS...
-    
+    // REFACTOR SOME OF THESE METHODS...
+
     public abstract int getState();
 
     public abstract void setState(int state);

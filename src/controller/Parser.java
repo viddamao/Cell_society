@@ -41,12 +41,11 @@ public class Parser {
 	FileInputStream is = new FileInputStream(fileName);
 
 	Document document = builder.parse(is);
-	
 
 	List<TestCell> cellList = new ArrayList<>();
-	
+
 	NodeList nodeList = document.getElementsByTagName("gridInfo");
-	
+
 	attributeParse(cellList, nodeList.item(0), false);
 
 	// Iterating through the nodes and extracting the data.
@@ -63,30 +62,20 @@ public class Parser {
 
 	}
 
-	
-	// Printing the cell list input.
-	for (TestCell cellBlock : cellList) {
-	    System.out.println(cellBlock);
-	    
-	    
-	}
-	
-
 	return cellList;
     }
 
-    
     /**
      * 
      * 
      * 
      * 
      * @param cellList
-     * return a list of strings with rows in the grid
+     *            return a list of strings with rows in the grid
      * @param node
-     * the input node in XML
+     *            the input node in XML
      * @param flag
-     * magic number
+     *            magic number
      * 
      */
     private static void attributeParse(List<TestCell> cellList, Node node,
@@ -122,7 +111,7 @@ public class Parser {
 			object.setType(content);
 			break;
 		    case "adjacentType":
-                 	object.setAdjacent(Integer.parseInt(content));
+			object.setAdjacent(Integer.parseInt(content));
 			break;
 
 		    }

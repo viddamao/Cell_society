@@ -1,9 +1,7 @@
 package controller;
 
-
 import java.util.ArrayList;
 import simulationObjects.Patch;
-
 
 public class GridManager {
 
@@ -12,9 +10,10 @@ public class GridManager {
     private int[] yDelta = { -1, 0, 1, -1, 1, -1, 0, 1 };
     private int gWidth;
     private int gHeight;
-    //private String patchType;
+
+    // private String patchType;
     // {4,8} indicates adjacent type to be 4 or 8 blocks around
-    //private int adjacentType;
+    // private int adjacentType;
 
     /**
      * Constructs the GridManager, initiates private variables
@@ -30,7 +29,6 @@ public class GridManager {
 	gHeight = height;
     }
 
-
     /**
      * Makes a step in the simulation, updates everything sequentially
      */
@@ -42,7 +40,6 @@ public class GridManager {
 	}
     }
 
-   
     /**
      * Adds patch in specific location in the Grid
      * 
@@ -54,8 +51,7 @@ public class GridManager {
      *            in grid
      */
     public void addPatchAtPoint(Patch patch) {
-	
-        grid[patch.getGridX()][patch.getGridY()] = patch;
+	grid[patch.getGridX()][patch.getGridY()] = patch;
     }
 
     /**
@@ -70,8 +66,7 @@ public class GridManager {
 	grid[xCoord][yCoord].removeCell();
     }
 
-    
-    //TODO Needs to be updated for unique boundary conditions.
+    // TODO Needs to be updated for unique boundary conditions.
     /**
      * Retrieves all neighboring patches around a point
      * 
@@ -104,6 +99,10 @@ public class GridManager {
     private boolean isOutOfBounds(int xCoord, int yCoord) {
 	return xCoord > gWidth - 1 || xCoord < 0 || yCoord > gHeight - 1
 		|| yCoord < 0;
+    }
+
+    public Patch getPatchAtPoint(int i, int j) {
+	return grid[i][j];
     }
 
 }
