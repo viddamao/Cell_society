@@ -3,15 +3,17 @@ package simulationObjects;
 import java.util.ArrayList;
 
 public abstract class Cell {
-    protected Patch myPatch;
+    
     protected int myX;
     protected int myY;
     protected int myState;
     public Cell() {
 
     }
-
-    
+    //Maybe make this an interface??
+    protected enum relativePosition{
+        NORTHWEST, WEST, SOUTHWEST, NORTH, SOUTH, NORTHEAST, EAST, SOUTHEAST 
+     }
 
     public abstract int getState();
 
@@ -19,7 +21,6 @@ public abstract class Cell {
 
     public abstract Patch update(Patch currentPatch, ArrayList<Patch> neighbors);
 
-    public abstract void prepareToUpdate(ArrayList<Cell> neighbors);
 
     public abstract boolean needUpdate(ArrayList<Cell> neighbors);
 

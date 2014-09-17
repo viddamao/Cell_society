@@ -23,11 +23,7 @@ public class PredatorCell extends Cell {
         
     }
     
-    @Override
-    public void prepareToUpdate(ArrayList<Cell> neighbors) {
-
-    }
-
+  
     @Override
     public int getState() {
 	return myState;

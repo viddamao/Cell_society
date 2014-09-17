@@ -18,10 +18,7 @@ public class ForestCell extends Cell {
         return null;
     }
 
-    @Override
-    public void prepareToUpdate(ArrayList<Cell> neighbors) {
 
-    }
 
     @Override
     public int getState() {
