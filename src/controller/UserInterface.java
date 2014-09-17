@@ -29,7 +29,10 @@ public class UserInterface {
         myStage.show();
         makeBottomPanel();
     }
-
+    
+    /**
+     * create the bottom panel that the user interacts with
+     */
     private void makeBottomPanel () {
         //buttons
         rootPane.getChildren().add(createButton("Start", 0, 510, new EventHandler<ActionEvent>() {
@@ -69,6 +72,20 @@ public class UserInterface {
         }));
     }
 
+    /**
+     * create a button
+     * 
+     * @param title
+     * title of the button
+     * @param posX
+     * x position of button
+     * @param posY
+     * y position of button
+     * @param handler
+     * action handler
+     * @return
+     * the button
+     */
     private Button createButton (String title, int posX, int posY, EventHandler<ActionEvent> handler) {
         Button button = new Button(title);
         button.setLayoutX(posX);
@@ -77,6 +94,24 @@ public class UserInterface {
         return button;
     }
     
+    /**
+     * create a slider
+     * 
+     * @param start
+     * minimum value of the slider
+     * @param stop
+     * maximum value of the slider
+     * @param startVal
+     * initial value of the slider
+     * @param posX
+     * x position of the slider
+     * @param posY
+     * y position of the slider
+     * @param listener
+     * listener for when the slider value changes
+     * @return
+     * the slider
+     */
     private Slider createSlider (int start, int stop, double startVal, int posX, int posY, ChangeListener<Number> listener){
         Slider slider = new Slider(start, stop, startVal);
         slider.setLayoutX(posX);
@@ -85,6 +120,10 @@ public class UserInterface {
         return slider;
     }
 
+    /**
+     * @return
+     * the rootPane for adding children
+     */
     public Pane getRootPane () {
         return rootPane;
     }
