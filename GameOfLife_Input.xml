@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<gridInput>
+ 
+   <gridInfo>
+ 	  <width>5</width>
+	  <height>4</height>
+      <type>LifeCell</type>
+ 	  <adjacentType>8</adjacentType>
+   </gridInfo>
+ 
+   <row id="00">
+     <states>0 0 0 0 0</states>   
+   </row>
+   
+   <row id="01">
+     <states>0 0 1 0 0</states>   
+   </row>
+   
+   <row id="02">
+     <states>0 0 1 0 0</states>   
+   </row>
+   
+   <row id="03">
+     <states>0 0 1 0 0</states>   
+   </row>
+   
+   <row id="03">
+     <states>0 0 0 0 0</states>   
+   </row>
+ 
+
+</gridInput
