@@ -1,5 +1,13 @@
 package controller;
 
+/**
+ * 
+ * 
+ * Stores the parameter and info for the grid
+ * 
+ * @author Viddamao
+ *
+ */
 public class GridInfo {
     private static int myWidth;
     private static int myHeight;
@@ -43,6 +51,10 @@ public class GridInfo {
 
     public int getParam() {
 	return myParameter;
+    }
+
+    public int getAdjacentType() {
+	return myAdjacentType;
     }
 
 }

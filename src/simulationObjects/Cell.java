@@ -1,19 +1,23 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
-public abstract class Cell {
+public abstract class Cell extends Rectangle {
 
     protected int myX;
     protected int myY;
     protected int myState;
 
     public Cell() {
+	setFill(Color.BLUE);
 
     }
 
+    // modified the order for processing 4 directions
     public enum relativePosition {
-	NORTHWEST, WEST, SOUTHWEST, NORTH, SOUTH, NORTHEAST, EAST, SOUTHEAST
+	NORTH, SOUTH, EAST, WEST, SOUTHEAST, NORTHEAST, SOUTHWEST, NORTHWEST
     }
 
     // REFACTOR SOME OF THESE METHODS...
@@ -24,15 +28,16 @@ public abstract class Cell {
 
     public abstract Patch update(Patch currentPatch, ArrayList<Patch> neighbors);
 
-    public abstract void prepareToUpdate(ArrayList<Cell> neighbors);
+    public abstract void prepareToUpdate(Patch currentPatch,
+	    ArrayList<Patch> neighbors);
 
-    public abstract boolean needUpdate(ArrayList<Cell> neighbors);
+    public abstract boolean needUpdate(ArrayList<Patch> neighbors);
 
-    public int getX() {
+    public int getGridX() {
 	return myX;
     }
 
-    public int getY() {
+    public int getGridY() {
 	return myY;
     }
 

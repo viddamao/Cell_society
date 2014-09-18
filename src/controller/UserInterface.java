@@ -7,6 +7,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
@@ -19,6 +20,9 @@ public class UserInterface {
     private Pane rootPane;
     private Stage myStage;
     private static ResourceBundle messages;
+    public final int GRID_WIDTH = 500;
+    public final int GRID_HEIGHT = 500;
+    private final int PANEL_HEIGHT = 40;
 
     public UserInterface(Stage s, MainController mainController) {
 	messages = ResourceBundle.getBundle("messages", Locale.US);
@@ -27,7 +31,8 @@ public class UserInterface {
 	myStage.setTitle(messages.getString("stage_title"));
 
 	rootPane = new Pane();
-	Scene myScene = new Scene(rootPane, 500, 540);
+	Scene myScene = new Scene(rootPane, GRID_WIDTH, GRID_HEIGHT
+		+ PANEL_HEIGHT);
 	myStage.setScene(myScene);
 	myStage.show();
 	makeBottomPanel();
@@ -156,6 +161,10 @@ public class UserInterface {
 	slider.setLayoutY(posY);
 	slider.valueProperty().addListener(listener);
 	return slider;
+    }
+
+    public void addNode(Node n) {
+	rootPane.getChildren().add(n);
     }
 
     /**

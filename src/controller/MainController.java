@@ -2,7 +2,6 @@ package controller;
 
 import java.io.File;
 import java.util.List;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -10,9 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.util.*;
-
 import simulationObjects.*;
 
 public class MainController extends Application {
@@ -21,7 +18,6 @@ public class MainController extends Application {
     private Timeline animation;
     private GridManager gridManager;
     private GridInfo object = new GridInfo();
-    private Patch[][] myGrid=null;
 
     public static void main(String[] args) throws Exception {
 
@@ -78,8 +74,9 @@ public class MainController extends Application {
 	    List<TestCell> gridRows = Parser.parserXml(XMLData
 		    .getAbsolutePath());
 	    initializeSimulationObjects(gridRows);
-	
+
 	} catch (Exception e) {
+	    e.printStackTrace();
 	    System.out.println(messages.getString("process_file_error"));
 	}
     }
@@ -93,34 +90,41 @@ public class MainController extends Application {
      */
     private void initializeSimulationObjects(List<TestCell> gridRows) {
 	try {
+	    ArrayList<Patch> patchList = new ArrayList<Patch>();
 	    int width = object.getWidth();
 	    int height = object.getHeight();
-	    Patch[][] grid = new Patch[width][height];
+	    gridManager = new GridManager(width, height);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
 
 		for (int i = 0; i < width; i++) {
-
 		    // create a patch object at the x and y location
 		    // create a cell object
 		    String classPathAndName = messages.getString("cell_bundle")
 			    + "." + object.getCellType();
 		    Class<?> cellClass = Class.forName(classPathAndName);
 		    Cell cell = (Cell) cellClass.newInstance();
-
 		    cell.setX(i);
 		    cell.setY(j);
 		    cell.setState(Integer.parseInt(currentRow[i]));
-		    // assign the cell to the patch
 		    Patch currentPatch = new Patch(i, j, gridManager);
+		    // add the patch to the UI
+		    addPatchToPane(currentPatch);
+		    // assign the cell to the patch
+
 		    currentPatch.addCell(cell);
 		    // add the patch to grid manager
-		    grid[i][j] = currentPatch;
-
+		    gridManager.addPatchAtPoint(currentPatch);
+		    // add patch for later
+		    patchList.add(currentPatch);
 		}
 
 	    }
-	    myGrid=grid;
+	    // now that we have all the patches, assign neighbors to each one
+	    for (Patch p : patchList) {
+		p.getNeighbors();
+	    }
+
 	} catch (ClassNotFoundException e) {
 	    System.out.println(messages.getString("class_not_found_error"));
 	} catch (InstantiationException e) {
@@ -131,6 +135,17 @@ public class MainController extends Application {
 
     }
 
+    private void addPatchToPane(Patch p) {
+	// scale the grid position up to a pixel position
+	int scaleX = 50;
+	int scaleY = 50;
+	p.setLayoutX(scaleX * p.getGridX());
+	p.setLayoutY(scaleY * p.getGridY());
+	System.out.println(p.getLayoutX());
+	p.setMaxWidth(scaleX);
+	p.setMaxHeight(scaleY);
+	userInterface.addNode(p);
+    }
 
     /**
      * starts the simulation
@@ -158,6 +173,9 @@ public class MainController extends Application {
     public void stepSimulation() {
 	// tell the grid manager to process cell updates
 	// System.out.println("new frame");
+	if (gridManager != null) {
+	    gridManager.step();
+	}
     }
 
 }

@@ -1,16 +1,22 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+import javafx.scene.Group;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import controller.GridManager;
 
-public class Patch extends Rectangle {
+public class Patch extends Group {
     protected Cell myCell;
     protected int xCoord;
     protected int yCoord;
     private GridManager manager;
     private ArrayList<Patch> myNeighbors;
+
     private State myState;
+
+    private int myPreviousCellState;
+
 
     // protected relativePosition myNorth, mySouth, myWest, myEast,
     // myNorthWest, myNorthEast, mySouthWest, mySouthEast;
@@ -63,12 +69,13 @@ public class Patch extends Rectangle {
 
     }
 
-    // private int[] xDelta = { -1, -1, -1, 0, 0, 1, 1, 1 };
-    // private int[] yDelta = { -1, 0, 1, -1, 1, -1, 0, 1 };
-
-    // Maybe make this an interface??
+    // modified the order for processing 4 directions
     protected enum relativePosition {
+<<<<<<< HEAD
         NORTHWEST, WEST, SOUTHWEST, NORTH, SOUTH, NORTHEAST, EAST, SOUTHEAST
+=======
+	NORTH, SOUTH, EAST, WEST, SOUTHEAST, NORTHEAST, SOUTHWEST, NORTHWEST
+>>>>>>> master
     }
 
     public boolean isEmpty() {
@@ -76,11 +83,36 @@ public class Patch extends Rectangle {
     }
 
     public void addCell(Cell cell) {
+<<<<<<< HEAD
         myCell = cell;
     }
 
     public void removeCell() {
         myCell = null;
+=======
+	cell.setLayoutX(this.getLayoutX());
+	cell.setLayoutY(this.getLayoutY());
+	cell.setHeight(this.getMaxHeight());
+	cell.setWidth(this.getMaxWidth());
+	cell.setArcHeight(cell.getHeight());
+	cell.setArcWidth(cell.getWidth());
+	getChildren().add(cell);
+
+	myCell = cell;
+    }
+
+    public void removeCell() {
+	getChildren().remove(myCell);
+	myCell = null;
+>>>>>>> master
+    }
+
+    public int getPreviousState() {
+	return myPreviousCellState;
+    }
+
+    public void setPreviousState(int myState) {
+	myPreviousCellState = myState;
     }
 
 }
