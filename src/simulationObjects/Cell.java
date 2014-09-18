@@ -11,10 +11,13 @@ public abstract class Cell extends Rectangle {
     protected int myState;
 
     public Cell() {
+	setFill(Color.BLUE);
+
     }
 
+    // modified the order for processing 4 directions
     public enum relativePosition {
-	NORTHWEST, WEST, SOUTHWEST, NORTH, SOUTH, NORTHEAST, EAST, SOUTHEAST
+	NORTH, SOUTH, EAST, WEST, SOUTHEAST, NORTHEAST, SOUTHWEST, NORTHWEST
     }
 
     // REFACTOR SOME OF THESE METHODS...
@@ -25,9 +28,10 @@ public abstract class Cell extends Rectangle {
 
     public abstract Patch update(Patch currentPatch, ArrayList<Patch> neighbors);
 
-    public abstract void prepareToUpdate(ArrayList<Cell> neighbors);
+    public abstract void prepareToUpdate(Patch currentPatch,
+	    ArrayList<Patch> neighbors);
 
-    public abstract boolean needUpdate(ArrayList<Cell> neighbors);
+    public abstract boolean needUpdate(ArrayList<Patch> neighbors);
 
     public int getGridX() {
 	return myX;

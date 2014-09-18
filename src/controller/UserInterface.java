@@ -31,7 +31,8 @@ public class UserInterface {
 	myStage.setTitle(messages.getString("stage_title"));
 
 	rootPane = new Pane();
-	Scene myScene = new Scene(rootPane, GRID_WIDTH, GRID_HEIGHT+PANEL_HEIGHT);
+	Scene myScene = new Scene(rootPane, GRID_WIDTH, GRID_HEIGHT
+		+ PANEL_HEIGHT);
 	myStage.setScene(myScene);
 	myStage.show();
 	makeBottomPanel();
@@ -161,12 +162,10 @@ public class UserInterface {
 	slider.valueProperty().addListener(listener);
 	return slider;
     }
-    
-    
-    public void addNode (Node n){
-        rootPane.getChildren().add(n);
-    }
 
+    public void addNode(Node n) {
+	rootPane.getChildren().add(n);
+    }
 
     /**
      * @return the rootPane for adding children

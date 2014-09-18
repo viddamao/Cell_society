@@ -76,13 +76,13 @@ public class SharkCell extends PredatorCell {
      * REFACTOR DESIGN OF CELL CLASS
      */
     @Override
-    public void prepareToUpdate(ArrayList<Cell> neighbors) {
+    public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
 	// TODO Auto-generated method stub
 
     }
 
     @Override
-    public boolean needUpdate(ArrayList<Cell> neighbors) {
+    public boolean needUpdate(ArrayList<Patch> neighbors) {
 	// TODO Auto-generated method stub
 	return false;
     }
