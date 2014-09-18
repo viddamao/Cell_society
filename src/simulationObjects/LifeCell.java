@@ -1,9 +1,24 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+import javafx.scene.paint.Color;
 
 public class LifeCell extends Cell {
 
+    public LifeCell()
+    {
+        super();
+        setFill(Color.BLACK);
+    }
+    
+    public LifeCell(int x, int y)
+    {
+        super();      
+        myX = x;
+        myY = y;
+        setFill(Color.BLACK);
+
+    }
     @Override
     public int getState () {
         // TODO Auto-generated method stub

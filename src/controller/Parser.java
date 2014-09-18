@@ -114,7 +114,7 @@ public class Parser {
 			object.setAdjacent(Integer.parseInt(content));
 			break;
 		    case "parameter":
-			object.setParameter(Integer.parseInt(content));
+			object.setParameter(Double.parseDouble(content));
 			break;
 
 		    }

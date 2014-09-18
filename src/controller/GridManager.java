@@ -1,8 +1,10 @@
 package controller;
 
 import java.util.ArrayList;
+
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.TilePane;
+import simulationObjects.ForestCell;
 import simulationObjects.Patch;
 /**
  * Manages grid properties and contents
@@ -44,7 +46,8 @@ public class GridManager extends GridPane {
 	for (Patch[] row : grid) {
 	    for (Patch p : row) {
 		p.prepareToUpdate();
-	    }
+	   }
+	    System.out.println();
 	}
 
 	for (Patch[] row : grid) {
@@ -96,10 +99,12 @@ public class GridManager extends GridPane {
 	for (int i = 0; i < object.getAdjacentType(); i++) {
 	    int nextX = xCoord + xDelta[i];
 	    int nextY = yCoord + yDelta[i];
-
+	    
 	    if (!isOutOfBounds(nextX, nextY)) {
 		neighbors.add(grid[nextX][nextY]);
+	    
 	    }
+	   
 	}
 	return neighbors;
     }

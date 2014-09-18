@@ -27,7 +27,7 @@ public class MainController extends Application {
     private static ResourceBundle messages;
     private Timeline animation;
     private GridManager gridManager;
-    private GridInfo object = new GridInfo();
+    private GridInfo infoSheet = new GridInfo();
 
     public static void main(String[] args) throws Exception {
 
@@ -101,8 +101,8 @@ public class MainController extends Application {
     private void initializeSimulationObjects(List<TestCell> gridRows) {
 	try {
 	    ArrayList<Patch> patchList = new ArrayList<Patch>();
-	    int width = object.getWidth();
-	    int height = object.getHeight();
+	    int width = infoSheet.getWidth();
+	    int height = infoSheet.getHeight();
 	    createGridManager(width,height);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
@@ -111,14 +111,22 @@ public class MainController extends Application {
 		    // create a patch object at the x and y location
 		    // create a cell object
 		    String classPathAndName = messages.getString("cell_bundle")
-			    + "." + object.getCellType();
+			    + "." + infoSheet.getCellType();
 		    Class<?> cellClass = Class.forName(classPathAndName);
 		    Cell cell = (Cell) cellClass.newInstance();
 		    cell.setX(i);
 		    cell.setY(j);
 		    int state = Integer.parseInt(currentRow[i]);
 		    cell.setState(state);
-		    Patch currentPatch = new Patch(i, j, gridManager);
+		    Patch currentPatch;
+		    //TEMP WILL REFACTOR
+		    if(infoSheet.getCellType().equals("LifeCell")){
+		        currentPatch = new LifePatch(i, j, gridManager);
+		    }
+		    else
+		    {
+		        currentPatch = new Patch(i, j, gridManager);
+		    }
                     // add the patch to grid manager
                     gridManager.addPatchAtPoint(currentPatch);
                     // assign the cell to the patch

@@ -83,6 +83,7 @@ public class Patch extends Group {
         cell.setArcHeight(cell.getHeight());
         cell.setArcWidth(cell.getWidth());
         getChildren().add(cell);
+        myState = State.OCCUPIED;
 	myCell = cell;
     }
 

@@ -7,12 +7,9 @@ import controller.GridInfo;
 public class SegCell extends Cell {
 
 
-    public double t = 0;
-
     final private int BLUE = 1;
     final private int RED = 2;
     
-    final private double SATISFIED_RATIO = 0.5;
 
     public SegCell() {
 	super();
@@ -43,7 +40,7 @@ public class SegCell extends Cell {
             }
         }
         if (satisfiedCount+dissatisfiedCount > 0){
-            return satisfiedCount/(satisfiedCount+dissatisfiedCount) > SATISFIED_RATIO;
+            return satisfiedCount/(satisfiedCount+dissatisfiedCount) > infoSheet.getParam();
         }
         else{
             return false;
