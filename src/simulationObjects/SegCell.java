@@ -6,7 +6,6 @@ import controller.GridInfo;
 
 public class SegCell extends Cell {
 
-    private GridInfo object = new GridInfo();
 
     public double t = 0;
 
@@ -45,6 +44,19 @@ public class SegCell extends Cell {
      * 
      */
 
+    @Override
+    public boolean needUpdate(ArrayList<Patch> neighbors) {
+	int satisfiedNeighbor = 0, dissatisfiedNeighbor = 0;
+	for (Patch neighborPatch : neighbors) {
+	    if (myState == (neighborPatch.getPreviousState()))
+		satisfiedNeighbor++;
+	    else if (!(neighborPatch.isEmpty()))
+		dissatisfiedNeighbor++;
+	}
+
+	return (satisfiedNeighbor / dissatisfiedNeighbor < infoSheet.getParam());
+
+    }
     
     private boolean isSatisfied(Patch currentPatch, ArrayList<Patch> neighbors){
         double satisfiedCount = 0;
