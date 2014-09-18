@@ -32,19 +32,18 @@ public class GridManager extends GridPane {
 	gHeight = height;
     }
 
-    
-    //TODO Duplicated for loop...
+    // TODO Duplicated for loop...
     /**
      * Makes a step in the simulation, updates everything sequentially
      */
     public void step() {
-        for (Patch[] row : grid) {
-            for (Patch p : row) {
-                p.prepareToUpdate();
-            }
-        }
-        
-        for (Patch[] row : grid) {
+	for (Patch[] row : grid) {
+	    for (Patch p : row) {
+		p.prepareToUpdate();
+	    }
+	}
+
+	for (Patch[] row : grid) {
 	    for (Patch p : row) {
 		p.update();
 	    }
@@ -122,16 +121,16 @@ public class GridManager extends GridPane {
     public int getGridWidth() {
 	return gWidth;
     }
-    
-    public Patch findEmptyPatch(){
-        for (int i = 0; i < gWidth; i++) {
-            for (int j = 0; i < gHeight; i++) {
-                if (grid[i][j].getCell() == null){
-                    return grid[i][j];
-                }
-            }
-        }
-        return null;
+
+    public Patch findEmptyPatch() {
+	for (int i = 0; i < gWidth; i++) {
+	    for (int j = 0; i < gHeight; i++) {
+		if (grid[i][j].getCell() == null) {
+		    return grid[i][j];
+		}
+	    }
+	}
+	return null;
     }
 
 }

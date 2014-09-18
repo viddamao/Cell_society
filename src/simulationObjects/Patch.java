@@ -15,53 +15,50 @@ public class Patch extends Group {
 
     private int myPreviousCellState;
 
-
     // protected relativePosition myNorth, mySouth, myWest, myEast,
     // myNorthWest, myNorthEast, mySouthWest, mySouthEast;
 
     public Patch(int x, int y, GridManager m) {
-        super();
-        xCoord = x;
-        yCoord = y;
-        manager = m;
-        myState = State.EMPTY;
-        
+	super();
+	xCoord = x;
+	yCoord = y;
+	manager = m;
+	myState = State.EMPTY;
+
     }
 
-    private enum State{
-        EMPTY, GENERATING, OCCUPIED
+    private enum State {
+	EMPTY, GENERATING, OCCUPIED
     }
-    
+
     public void getNeighbors() {
-        myNeighbors = manager.getNeighborsAround(xCoord, yCoord);
+	myNeighbors = manager.getNeighborsAround(xCoord, yCoord);
     }
 
     public Cell getCell() {
-        return myCell;
+	return myCell;
     }
 
     public int getGridX() {
-        return xCoord;
+	return xCoord;
     }
 
     public int getGridY() {
-        return yCoord;
+	return yCoord;
     }
 
-    public void prepareToUpdate()
-    {
-       myCell.prepareToUpdate(this, myNeighbors);
+    public void prepareToUpdate() {
+	myCell.prepareToUpdate(this, myNeighbors);
     }
 
     public void update() {
-        // Update this
-        if(myCell!=null)
-        {
-            Patch state = myCell.update(this, myNeighbors);
-            if (state == null) {
-                this.removeCell();
-            }
-        }
+	// Update this
+	if (myCell != null) {
+	    Patch state = myCell.update(this, myNeighbors);
+	    if (state == null) {
+		this.removeCell();
+	    }
+	}
 
     }
 
@@ -71,33 +68,33 @@ public class Patch extends Group {
     }
 
     public boolean isEmpty() {
-        return myCell == null;
+	return myCell == null;
     }
 
     public void addCell(Cell cell) {
-        if (myCell != null){
-            removeCell();
-        }
-        cell.setLayoutX(this.getLayoutX());
-        cell.setLayoutY(this.getLayoutY());
-        cell.setHeight(500/manager.getGridWidth());
-        cell.setWidth(500/manager.getGridWidth());
-        cell.setArcHeight(cell.getHeight());
-        cell.setArcWidth(cell.getWidth());
-        getChildren().add(cell);
+	if (myCell != null) {
+	    removeCell();
+	}
+	cell.setLayoutX(this.getLayoutX());
+	cell.setLayoutY(this.getLayoutY());
+	cell.setHeight(500 / manager.getGridWidth());
+	cell.setWidth(500 / manager.getGridWidth());
+	cell.setArcHeight(cell.getHeight());
+	cell.setArcWidth(cell.getWidth());
+	getChildren().add(cell);
 	myCell = cell;
     }
 
     public void removeCell() {
-        if (myCell != null){
-            getChildren().remove(myCell);
-            myCell = null;
-        }
+	if (myCell != null) {
+	    getChildren().remove(myCell);
+	    myCell = null;
+	}
     }
-    
-    public Patch randomEmptyPatch(){
-        //get an empty patch from grid manager
-        return manager.findEmptyPatch();
+
+    public Patch randomEmptyPatch() {
+	// get an empty patch from grid manager
+	return manager.findEmptyPatch();
     }
 
     public int getPreviousState() {

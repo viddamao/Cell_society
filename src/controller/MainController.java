@@ -109,9 +109,9 @@ public class MainController extends Application {
 		    int state = Integer.parseInt(currentRow[i]);
 		    cell.setState(state);
 		    Patch currentPatch = new Patch(i, j, gridManager);
-                    // assign the cell to the patch
-		    if (state < 2){
-		        currentPatch.addCell(cell);
+		    // assign the cell to the patch
+		    if (state < 2) {
+			currentPatch.addCell(cell);
 		    }
 		    // add the patch to grid manager
 		    gridManager.addPatchAtPoint(currentPatch);
@@ -120,9 +120,9 @@ public class MainController extends Application {
 		}
 
 	    }
-	    //now that we have all the patches, assign neighbors to each one
-	    for (Patch p: patchList){
-	        p.getNeighbors();
+	    // now that we have all the patches, assign neighbors to each one
+	    for (Patch p : patchList) {
+		p.getNeighbors();
 	    }
 
 	} catch (ClassNotFoundException e) {
@@ -135,16 +135,15 @@ public class MainController extends Application {
 
     }
 
-    private void createGridManager(int width, int height){
-        gridManager = new GridManager(width,height);
-        gridManager.setGridLinesVisible(true);
-        gridManager.setLayoutX(0);
-        gridManager.setLayoutY(0);
-        gridManager.setMinHeight(userInterface.GRID_HEIGHT);
-        gridManager.setMinWidth(userInterface.GRID_WIDTH);
-        gridManager.setPrefSize(width, height);
+    private void createGridManager(int width, int height) {
+	gridManager = new GridManager(width, height);
+	gridManager.setGridLinesVisible(true);
+	gridManager.setLayoutX(0);
+	gridManager.setLayoutY(0);
+	gridManager.setMinHeight(userInterface.GRID_HEIGHT);
+	gridManager.setMinWidth(userInterface.GRID_WIDTH);
+	gridManager.setPrefSize(width, height);
     }
-
 
     /**
      * starts the simulation
@@ -172,9 +171,9 @@ public class MainController extends Application {
     public void stepSimulation() {
 	// tell the grid manager to process cell updates
 	// System.out.println("new frame");
-        if (gridManager != null){
-            gridManager.step();
-        }
+	if (gridManager != null) {
+	    gridManager.step();
+	}
     }
 
 }
