@@ -13,7 +13,7 @@ public class SegCell extends Cell {
     final private int BLUE = 0;
     final private int RED = 1;
     
-    final private double SATISFIED_RATIO = 0.3;
+    final private double SATISFIED_RATIO = 0.5;
 
     public SegCell() {
 	super();
@@ -21,11 +21,12 @@ public class SegCell extends Cell {
 
     @Override
     public Patch update(Patch currentPatch, ArrayList<Patch> neighbors) {
-	if (isSatisfied(neighbors)){
+	if (isSatisfied(currentPatch,neighbors)){
 	    return currentPatch;
 	}
 	else{
-	    return currentPatch.randomEmptyPatch();
+	    currentPatch.randomEmptyPatch().addCell(this);;
+	    return null;
 	}
     }
 
@@ -58,7 +59,7 @@ public class SegCell extends Cell {
 
     }
     
-    private boolean isSatisfied(ArrayList<Patch> neighbors){
+    private boolean isSatisfied(Patch currentPatch, ArrayList<Patch> neighbors){
         double satisfiedCount = 0;
         double dissatisfiedCount = 0;
         for (Patch p: neighbors){
@@ -75,6 +76,7 @@ public class SegCell extends Cell {
             return satisfiedCount/(satisfiedCount+dissatisfiedCount) > SATISFIED_RATIO;
         }
         else{
+            System.out.println("no");
             return false;
         }
     }

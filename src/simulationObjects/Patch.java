@@ -78,10 +78,8 @@ public class Patch extends Group {
         if (myCell != null){
             removeCell();
         }
-        cell.setLayoutX(this.getLayoutX());
-        cell.setLayoutY(this.getLayoutY());
-        cell.setHeight(500/manager.getGridWidth());
-        cell.setWidth(500/manager.getGridWidth());
+        cell.setHeight(manager.getRowConstraints().get(0).getPrefHeight());
+        cell.setWidth(manager.getColumnConstraints().get(0).getPrefWidth());
         cell.setArcHeight(cell.getHeight());
         cell.setArcWidth(cell.getWidth());
         getChildren().add(cell);

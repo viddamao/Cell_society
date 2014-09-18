@@ -124,10 +124,10 @@ public class GridManager extends GridPane {
     }
     
     public Patch findEmptyPatch(){
-        for (int i = 0; i < gWidth; i++) {
-            for (int j = 0; i < gHeight; i++) {
-                if (grid[i][j].getCell() == null){
-                    return grid[i][j];
+        for (Patch[] row : grid) {
+            for (Patch p : row) {
+                if (p.getCell() == null){
+                    return p;
                 }
             }
         }
