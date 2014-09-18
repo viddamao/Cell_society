@@ -166,6 +166,10 @@ public class UserInterface {
     public void addNode(Node n) {
 	rootPane.getChildren().add(n);
     }
+    
+    public void removeNode (Node n) {
+        rootPane.getChildren().remove(n);
+    }
 
     /**
      * @return the rootPane for adding children
@@ -173,4 +177,6 @@ public class UserInterface {
     public Pane getRootPane() {
 	return rootPane;
     }
+
+
 }

@@ -113,9 +113,9 @@ public class MainController extends Application {
 		    Patch currentPatch = new Patch(i, j, gridManager);
                     // add the patch to grid manager
                     gridManager.addPatchAtPoint(currentPatch);
-		    // assign the cell to the patch
-		    if (state < 2) {
-			currentPatch.addCell(cell);
+                    // assign the cell to the patch
+		    if (state > 0){
+		        currentPatch.addCell(cell);
 		    }
 		    // add patch for later
 		    patchList.add(currentPatch);
@@ -138,6 +138,9 @@ public class MainController extends Application {
     }
 
     private void createGridManager(int width, int height){
+        if (gridManager != null){
+            userInterface.removeNode(gridManager);
+        }
         gridManager = new GridManager(width,height);
         for (int i=0; i<width; i++){
             gridManager.getColumnConstraints().add(new ColumnConstraints(userInterface.GRID_WIDTH/width)); // column 1 is 100 wide

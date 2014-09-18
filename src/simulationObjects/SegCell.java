@@ -45,19 +45,6 @@ public class SegCell extends Cell {
      * 
      */
 
-    @Override
-    public boolean needUpdate(ArrayList<Patch> neighbors) {
-	int satisfiedNeighbor = 0, dissatisfiedNeighbor = 0;
-	for (Patch neighborPatch : neighbors) {
-	    if (myState == (neighborPatch.getPreviousState()))
-		satisfiedNeighbor++;
-	    else if (!(neighborPatch.isEmpty()))
-		dissatisfiedNeighbor++;
-	}
-
-	return (satisfiedNeighbor / dissatisfiedNeighbor < object.getParam());
-
-    }
     
     private boolean isSatisfied(Patch currentPatch, ArrayList<Patch> neighbors){
         double satisfiedCount = 0;

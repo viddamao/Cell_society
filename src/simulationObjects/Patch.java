@@ -47,8 +47,11 @@ public class Patch extends Group {
 	return yCoord;
     }
 
-    public void prepareToUpdate() {
-	myCell.prepareToUpdate(this, myNeighbors);
+    public void prepareToUpdate()
+    {
+        if (myCell != null){
+            myCell.prepareToUpdate(this, myNeighbors);
+        }
     }
 
     public void update() {
