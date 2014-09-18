@@ -16,7 +16,7 @@ public class SegCell extends Cell {
     final private double SATISFIED_RATIO = 0.3;
 
     public SegCell() {
-        super();
+	super();
     }
 
     @Override
@@ -45,12 +45,12 @@ public class SegCell extends Cell {
      */
 
     @Override
-    public boolean needUpdate(ArrayList<Cell> neighbors) {
+    public boolean needUpdate(ArrayList<Patch> neighbors) {
 	int satisfiedNeighbor = 0, dissatisfiedNeighbor = 0;
-	for (Cell neighborCell : neighbors) {
-	    if (myState == neighborCell.getState())
+	for (Patch neighborPatch : neighbors) {
+	    if (myState == (neighborPatch.getPreviousState()))
 		satisfiedNeighbor++;
-	    else if (neighborCell.getState() != 0)
+	    else if (!(neighborPatch.isEmpty()))
 		dissatisfiedNeighbor++;
 	}
 
@@ -97,9 +97,16 @@ public class SegCell extends Cell {
 	myState = state;
     }
 
-    @Override
-    public void prepareToUpdate(ArrayList<Cell> neighbors) {
+    public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
 
+	for (int i = 0; i < neighbors.size(); i++)
+
+	    if (neighbors.get(i).isEmpty()) {
+		neighbors.get(i).setPreviousState(
+			neighbors.get(i).getCell().myState);
+		neighbors.get(i).addCell(this);
+
+	    }
     }
 
 }

@@ -74,7 +74,7 @@ public class MainController extends Application {
 	    List<TestCell> gridRows = Parser.parserXml(XMLData
 		    .getAbsolutePath());
 	    initializeSimulationObjects(gridRows);
-	
+
 	} catch (Exception e) {
 	    e.printStackTrace();
 	    System.out.println(messages.getString("process_file_error"));
@@ -93,8 +93,7 @@ public class MainController extends Application {
 	    ArrayList<Patch> patchList = new ArrayList<Patch>();
 	    int width = object.getWidth();
 	    int height = object.getHeight();
-	    createGridManager(width,height);
-	    userInterface.addNode(gridManager);
+	    gridManager = new GridManager(width, height);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
 
@@ -116,16 +115,16 @@ public class MainController extends Application {
 		    }
 		    // add the patch to grid manager
 		    gridManager.addPatchAtPoint(currentPatch);
-		    //add patch for later
+		    // add patch for later
 		    patchList.add(currentPatch);
 		}
 
 	    }
 	    //now that we have all the patches, assign neighbors to each one
 	    for (Patch p: patchList){
-	        p.loadNeighbors();
+	        p.getNeighbors();
 	    }
-	    
+
 	} catch (ClassNotFoundException e) {
 	    System.out.println(messages.getString("class_not_found_error"));
 	} catch (InstantiationException e) {
@@ -135,7 +134,7 @@ public class MainController extends Application {
 	}
 
     }
-    
+
     private void createGridManager(int width, int height){
         gridManager = new GridManager(width,height);
         gridManager.setGridLinesVisible(true);

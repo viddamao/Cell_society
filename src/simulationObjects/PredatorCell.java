@@ -76,10 +76,10 @@ public abstract class PredatorCell extends Cell {
     // Repeated code, need to make more efficient/remove dup code... enums?
     // Maps?
     public void siftNeighbors(ArrayList<Patch> allNeighbors) {
+	myNeighbors.add(allNeighbors.get(0));
 	myNeighbors.add(allNeighbors.get(1));
+	myNeighbors.add(allNeighbors.get(2));
 	myNeighbors.add(allNeighbors.get(3));
-	myNeighbors.add(allNeighbors.get(4));
-	myNeighbors.add(allNeighbors.get(6));
     }
 
     // slightly duplicated method

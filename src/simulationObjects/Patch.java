@@ -11,60 +11,67 @@ public class Patch extends Group {
     private GridManager manager;
     private ArrayList<Patch> myNeighbors;
 
+    private State myState;
+
+    private int myPreviousCellState;
+
+
     // protected relativePosition myNorth, mySouth, myWest, myEast,
     // myNorthWest, myNorthEast, mySouthWest, mySouthEast;
 
     public Patch(int x, int y, GridManager m) {
-	super();
-	xCoord = x;
-	yCoord = y;
-	manager = m;
+        super();
+        xCoord = x;
+        yCoord = y;
+        manager = m;
+        myState = State.EMPTY;
+        
     }
 
-    public ArrayList<Patch> getNeighbors() {
-        return myNeighbors;
+    private enum State{
+        EMPTY, GENERATING, OCCUPIED
     }
-        
-    public void loadNeighbors() {
-	myNeighbors = manager.getNeighborsAround(xCoord, yCoord);
+    
+    public void getNeighbors() {
+        myNeighbors = manager.getNeighborsAround(xCoord, yCoord);
     }
 
     public Cell getCell() {
-	return myCell;
+        return myCell;
     }
 
     public int getGridX() {
-	return xCoord;
+        return xCoord;
     }
 
     public int getGridY() {
-	return yCoord;
+        return yCoord;
+    }
+
+    public void prepareToUpdate()
+    {
+       
     }
 
     public void update() {
-        if (myCell != null){
-            // Update this
-            Patch patchToMoveTo = myCell.update(this, myNeighbors);
-            if (patchToMoveTo == null) {
+        // Update this
+        if(myCell!=null)
+        {
+            Patch state = myCell.update(this, myNeighbors);
+            if (state == null) {
                 this.removeCell();
             }
-            else if(patchToMoveTo != this){
-                patchToMoveTo.addCell(myCell);
-                removeCell();
-            }
         }
+
     }
 
-    // private int[] xDelta = { -1, -1, -1, 0, 0, 1, 1, 1 };
-    // private int[] yDelta = { -1, 0, 1, -1, 1, -1, 0, 1 };
-
-    // Maybe make this an interface??
+    // modified the order for processing 4 directions
     protected enum relativePosition {
-	NORTHWEST, WEST, SOUTHWEST, NORTH, SOUTH, NORTHEAST, EAST, SOUTHEAST
+	NORTH, SOUTH, EAST, WEST, SOUTHEAST, NORTHEAST, SOUTHWEST, NORTHWEST
     }
 
     public boolean isEmpty() {
-	return myCell == null;
+        return myCell == null;
     }
 
     public void addCell(Cell cell) {
@@ -91,6 +98,14 @@ public class Patch extends Group {
     public Patch randomEmptyPatch(){
         //get an empty patch from grid manager
         return manager.findEmptyPatch();
+    }
+
+    public int getPreviousState() {
+	return myPreviousCellState;
+    }
+
+    public void setPreviousState(int myState) {
+	myPreviousCellState = myState;
     }
 
 }
