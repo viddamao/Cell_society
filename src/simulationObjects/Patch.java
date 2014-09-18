@@ -52,10 +52,7 @@ public class Patch extends Group {
 
     public void prepareToUpdate()
     {
-        if(this.myState = State.GENERATING)
-        {
-            
-        }
+       
     }
 
     public void update() {
@@ -82,8 +79,8 @@ public class Patch extends Group {
     public void addCell(Cell cell) {
 	cell.setLayoutX(this.getLayoutX());
 	cell.setLayoutY(this.getLayoutY());
-	cell.setHeight(this.getMaxHeight());
-	cell.setWidth(this.getMaxWidth());
+	cell.setHeight(500/manager.getGridWidth());
+	cell.setWidth(500/manager.getGridWidth());
 	cell.setArcHeight(cell.getHeight());
 	cell.setArcWidth(cell.getWidth());
 	getChildren().add(cell);
