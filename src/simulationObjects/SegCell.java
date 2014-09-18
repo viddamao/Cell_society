@@ -1,16 +1,18 @@
 package simulationObjects;
 
 import java.util.ArrayList;
-
+import javafx.scene.paint.Color;
 import controller.GridInfo;
 
 public class SegCell extends Cell {
 
     private GridInfo object = new GridInfo();
 
-    public enum State {
-	EMPTY, X, O
-    }
+    public double t = 0;
+
+    final private int EMPTY = 0;
+    final private int RED = 1;
+    final private int BLUE = 2;
 
     public SegCell() {
 	super();
@@ -63,6 +65,13 @@ public class SegCell extends Cell {
 
     @Override
     public void setState(int state) {
+	if (state == EMPTY) {
+	    setFill(Color.WHITE);
+	} else if (state == RED) {
+	    setFill(Color.RED);
+	} else if (state == BLUE) {
+	    setFill(Color.BLUE);
+	}
 	myState = state;
     }
 

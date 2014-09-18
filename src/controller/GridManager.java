@@ -1,9 +1,11 @@
 package controller;
 
 import java.util.ArrayList;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.TilePane;
 import simulationObjects.Patch;
 
-public class GridManager {
+public class GridManager extends GridPane {
 
     private Patch[][] grid;
     private int[] xDelta = { -1, 1, 0, 0, 1, 1, -1, -1 };
@@ -54,6 +56,7 @@ public class GridManager {
      */
     public void addPatchAtPoint(Patch patch) {
 	grid[patch.getGridX()][patch.getGridY()] = patch;
+	this.add(patch, patch.getGridX(), patch.getGridY());
     }
 
     /**
@@ -106,6 +109,10 @@ public class GridManager {
 
     public Patch getPatchAtPoint(int i, int j) {
 	return grid[i][j];
+    }
+    
+    public int getGridWidth(){
+        return gWidth;
     }
 
 }
