@@ -19,7 +19,6 @@ public class ForestCell extends Cell {
 
     @Override
     public Patch update(Patch currentPatch, ArrayList<Patch> neighbors) {
-	currentPatch.setPreviousState(myState);
 	switch (myState){
 	case TREE:
 	
