@@ -94,6 +94,7 @@ public class UserInterface {
                                                                 .getString("file_dialog_title"));
                                                         final File XMLData = fileChooser
                                                                 .showOpenDialog(myStage);
+                                                        if (XMLData!=null)
                                                         myMainController
                                                                 .initializeSimulationWithData(XMLData);
                                                     }
