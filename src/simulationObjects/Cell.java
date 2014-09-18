@@ -11,10 +11,8 @@ public abstract class Cell extends Rectangle {
     protected int myState;
 
     public Cell() {
-<<<<<<< HEAD
 	setFill(Color.BLUE);
-=======
->>>>>>> origin/master
+
     }
 
     // modified the order for processing 4 directions

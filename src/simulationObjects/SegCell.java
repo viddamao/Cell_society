@@ -8,8 +8,6 @@ public class SegCell extends Cell {
 
     private GridInfo object = new GridInfo();
 
-    public double t = 0;
-
     final private int EMPTY = 0;
     final private int RED = 1;
     final private int BLUE = 2;

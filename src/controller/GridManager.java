@@ -110,9 +110,9 @@ public class GridManager extends GridPane {
     public Patch getPatchAtPoint(int i, int j) {
 	return grid[i][j];
     }
-    
-    public int getGridWidth(){
-        return gWidth;
+
+    public int getGridWidth() {
+	return gWidth;
     }
 
 }
