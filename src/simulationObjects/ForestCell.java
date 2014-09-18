@@ -3,7 +3,6 @@ package simulationObjects;
 import java.util.ArrayList;
 
 import javafx.scene.paint.Color;
-import controller.GridInfo;
 
 public class ForestCell extends Cell {
 
@@ -23,7 +22,7 @@ public class ForestCell extends Cell {
 
 	    if (willCatchFire(neighbors))
 		catchFire(currentPatch);
-
+	    break;
 	case ONFIRE:
 	    burnDown(currentPatch);
 	}
@@ -68,7 +67,7 @@ public class ForestCell extends Cell {
 
     @Override
     public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
-	currentPatch.setPreviousState(myState);
+	currentPatch.setPreviousState(this.myState);
     }
 
 

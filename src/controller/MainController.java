@@ -14,6 +14,14 @@ import javafx.util.Duration;
 import java.util.*;
 import simulationObjects.*;
 
+/**
+ * 
+ * The main controller responsible for the gameloop, as well as creating
+ * instances of the user interface and grid
+ * @author Davis Gossage
+ *
+ */
+
 public class MainController extends Application {
     private UserInterface userInterface;
     private static ResourceBundle messages;
@@ -159,6 +167,16 @@ public class MainController extends Application {
 	}
 
     }
+    
+    /**
+     * create an instance of the grid 
+     * set column and row constraints
+     * and add to the scene
+     * @param width
+     * width of the grid
+     * @param height
+     * height of the grid
+     */
 
     private void createGridManager(int width, int height){
         if (gridManager != null){

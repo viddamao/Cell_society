@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<gridInput>
+ 
+   <gridInfo>
+ 	  <width>15</width>
+	  <height>15</height>
+      <type>ForestCell</type>
+ 	  <adjacentType>4</adjacentType>
+ 	  <parameter>0.7</parameter>
+   </gridInfo>
+ 
+   <row id="00">
+     <states>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</states>   
+   </row>
+   
+   <row id="01">
+     <states>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</states>   
+   </row>
+      
+   <row id="02">
+     <states>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</states>   
+   </row>
+   
+    <row id="03">
+     <states>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</states>   
+    </row>
+   
+    <row id="04">
+     <states>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</states>   
+   </row>
+   
+<row id="05">
+     <states>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</states>   
+   </row>
+   
+<row id="06">
+     <states>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</states>   
+   </row>
+   
+<row id="07">
+     <states>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</states>   
+   </row>
+   
+<row id="08">
+     <states>2 2 2 2 2 2 2 1 2 2 2 2 2 2 2</states>   
+   </row>
+
+   <row id="09">
+     <states>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</states>   
+   </row>
+
+   <row id="10">
+     <states>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</states>   
+   </row>
+
+   <row id="11">
+     <states>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</states>   
+   </row>
+
+   <row id="12">
+     <states>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</states>   
+   </row>
+
+   <row id="13">
+     <states>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</states>   
+   </row>
+
+   <row id="14">
+     <states>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</states>   
+   </row>
+   
+</gridInput>
+

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<gridInput>
+ 
+   <gridInfo>
+ 	  <width>20</width>
+	  <height>20</height>
+      <type>SegCell</type>
+ 	  <adjacentType>8</adjacentType>
+ 	  <parameter>0.7</parameter>
+   </gridInfo>
+
+  <row id="01">
+     <states>0 0 2 2 2 2 2 2 0 2 1 2 2 0 2 2 1 1 1 1</states>   
+  </row>
+ 
+   <row id="01">
+     <states>2 2 1 1 1 0 0 0 0 2 1 1 0 0 0 0 1 0 0 1</states>   
+   </row>
+   
+   <row id="02">
+     <states>0 1 0 2 2 0 1 0 0 0 1 0 2 1 0 0 0 1 2 1</states>   
+   </row>
+   
+   <row id="03">
+     <states>1 0 2 1 0 0 0 2 1 0 1 2 1 2 2 0 2 1 2 1</states>   
+   </row>
+   
+   <row id="04">
+     <states>1 0 2 0 0 2 2 1 2 2 1 2 1 0 2 0 0 2 2 2</states>   
+   </row>
+
+  <row id="05">
+     <states>1 0 0 0 2 2 0 0 1 0 2 1 2 0 0 1 0 0 0 2</states>   
+   </row>
+   
+   <row id="06">
+     <states>2 2 1 2 2 1 0 2 0 2 1 2 1 2 0 1 0 2 0 2</states>   
+   </row>
+   
+   <row id="07">
+     <states>0 1 0 2 1 1 0 0 1 2 0 1 2 0 2 0 1 0 0 2</states>   
+   </row>
+   
+   <row id="08">
+     <states>0 0 2 0 2 2 0 0 2 0 2 2 2 0 1 2 0 1 1 1</states>   
+   </row>
+
+  <row id="09">
+     <states>2 2 1 0 0 0 0 2 1 0 2 0 1 0 2 0 2 2 2 2</states>   
+   </row>
+   
+   <row id="10">
+     <states>2 1 2 1 1 0 1 0 0 1 0 1 1 1 2 0 0 0 2 2</states>   
+   </row>
+   
+   <row id="11">
+     <states>0 2 1 2 0 1 1 1 1 0 1 1 2 2 1 2 0 1 2 1</states>   
+   </row>
+   
+   <row id="12">
+     <states>2 2 0 1 2 1 2 0 0 0 2 0 2 2 1 1 1 2 0 1</states>   
+   </row>
+
+  <row id="13">
+     <states>1 2 2 2 2 1 1 0 1 1 2 1 1 1 1 1 2 2 1 2</states>   
+   </row>
+   
+   <row id="14">
+     <states>2 2 2 0 0 1 1 0 0 1 0 1 2 1 0 2 0 2 2 1</states>   
+   </row>
+   
+   <row id="15">
+     <states>1 0 2 0 1 2 2 0 1 2 2 0 0 2 1 2 2 1 2 2</states>   
+   </row>
+   
+   <row id="16">
+     <states>1 1 2 0 2 2 1 0 1 0 2 0 0 1 0 0 0 0 2 1</states>   
+   </row>
+
+  <row id="17">
+     <states>0 0 1 1 0 2 2 2 2 2 2 1 2 2 1 2 1 0 0 1</states>   
+  </row>
+   
+   <row id="18">
+     <states>2 1 0 0 1 2 2 2 0 2 0 2 1 1 0 1 0 1 2 1</states>   
+   </row>
+   
+   <row id="19">
+     <states>2 0 0 0 1 0 0 1 2 2 1 2 2 1 1 1 1 0 2 2</states>   
+   </row>
+   
+
+ 
+
+</gridInput>
+

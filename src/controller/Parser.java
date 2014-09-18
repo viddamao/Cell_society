@@ -120,7 +120,11 @@ public class Parser {
 			infoSheet.setAdjacent(Integer.parseInt(content));
 			break;
 		    case "parameter":
+<<<<<<< HEAD
 			infoSheet.setParameter(Integer.parseInt(content));
+=======
+			object.setParameter(Double.parseDouble(content));
+>>>>>>> e564f74b70a73bd583ea1af33ddde6310e2aa246
 			break;
 
 		    }

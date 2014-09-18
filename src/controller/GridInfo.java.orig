@@ -15,10 +15,14 @@ public class GridInfo {
     private static int myHeight;
     private static String myType;
     private static int myAdjacentType;
+<<<<<<< HEAD
     private static int myParameter;
     private ArrayList<String> subTypeList = new ArrayList<>();
     private static String mySub1;
     private static String mySub2;
+=======
+    private static Double myParameter;
+>>>>>>> e564f74b70a73bd583ea1af33ddde6310e2aa246
 
     public void setWidth(int width) {
 	myWidth = width;
@@ -83,7 +87,7 @@ public class GridInfo {
 	return myType;
     }
 
-    public int getParam() {
+    public double getParam() {
 	return myParameter;
     }
 
