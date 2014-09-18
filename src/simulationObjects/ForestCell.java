@@ -3,7 +3,6 @@ package simulationObjects;
 import java.util.ArrayList;
 
 import javafx.scene.paint.Color;
-import controller.GridInfo;
 
 public class ForestCell extends Cell {
 
