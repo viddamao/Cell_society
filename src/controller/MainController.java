@@ -135,17 +135,16 @@ public class MainController extends Application {
 
     }
 
-    private void addPatchToPane(Patch p) {
-	// scale the grid position up to a pixel position
-	int scaleX = 50;
-	int scaleY = 50;
-	p.setLayoutX(scaleX * p.getGridX());
-	p.setLayoutY(scaleY * p.getGridY());
-	System.out.println(p.getLayoutX());
-	p.setMaxWidth(scaleX);
-	p.setMaxHeight(scaleY);
-	userInterface.addNode(p);
+    private void createGridManager(int width, int height){
+        gridManager = new GridManager(width,height);
+        gridManager.setGridLinesVisible(true);
+        gridManager.setLayoutX(0);
+        gridManager.setLayoutY(0);
+        gridManager.setMinHeight(userInterface.GRID_HEIGHT);
+        gridManager.setMinWidth(userInterface.GRID_WIDTH);
+        gridManager.setPrefSize(width, height);
     }
+
 
     /**
      * starts the simulation
