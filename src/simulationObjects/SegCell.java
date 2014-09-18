@@ -10,9 +10,10 @@ public class SegCell extends Cell {
 
     public double t = 0;
 
-    final private int EMPTY = 0;
+    final private int BLUE = 0;
     final private int RED = 1;
-    final private int BLUE = 2;
+    
+    final private double SATISFIED_RATIO = 0.3;
 
     public SegCell() {
         super();
@@ -20,13 +21,12 @@ public class SegCell extends Cell {
 
     @Override
     public Patch update(Patch currentPatch, ArrayList<Patch> neighbors) {
-	System.out.println(neighbors);
-        /*
-	 * if (needUpdate(neighbors)) { myState = 0;
-	 * 
-	 * }
-	 */
-	return null;
+	if (isSatisfied(neighbors)){
+	    return currentPatch;
+	}
+	else{
+	    return currentPatch.randomEmptyPatch();
+	}
     }
 
     /**
@@ -57,6 +57,29 @@ public class SegCell extends Cell {
 	return (satisfiedNeighbor / dissatisfiedNeighbor < object.getParam());
 
     }
+    
+    private boolean isSatisfied(ArrayList<Patch> neighbors){
+        double satisfiedCount = 0;
+        double dissatisfiedCount = 0;
+        for (Patch p: neighbors){
+            if (p.getCell() != null){
+                if(p.getCell().getState() == myState){
+                    satisfiedCount++;
+                }
+                else{
+                    dissatisfiedCount++;
+                }
+            }
+        }
+        System.out.println(satisfiedCount);
+        System.out.println("d"+dissatisfiedCount);
+        if (satisfiedCount+dissatisfiedCount > 0){
+            return satisfiedCount/(satisfiedCount+dissatisfiedCount) > SATISFIED_RATIO;
+        }
+        else{
+            return false;
+        }
+    }
 
     @Override
     public int getState() {
@@ -65,10 +88,7 @@ public class SegCell extends Cell {
 
     @Override
     public void setState(int state) {
-        if (state == EMPTY){
-            setFill(Color.WHITE);
-        }
-        else if (state == RED){
+        if (state == RED){
             setFill(Color.RED);
         }
         else if (state == BLUE){

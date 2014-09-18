@@ -107,10 +107,13 @@ public class MainController extends Application {
 		    Cell cell = (Cell) cellClass.newInstance();
 		    cell.setX(i);
 		    cell.setY(j);
-		    cell.setState(Integer.parseInt(currentRow[i]));
+		    int state = Integer.parseInt(currentRow[i]);
+		    cell.setState(state);
 		    Patch currentPatch = new Patch(i, j, gridManager);
                     // assign the cell to the patch
-		    currentPatch.addCell(cell);
+		    if (state < 2){
+		        currentPatch.addCell(cell);
+		    }
 		    // add the patch to grid manager
 		    gridManager.addPatchAtPoint(currentPatch);
 		    //add patch for later
@@ -120,7 +123,7 @@ public class MainController extends Application {
 	    }
 	    //now that we have all the patches, assign neighbors to each one
 	    for (Patch p: patchList){
-	        p.getNeighbors();
+	        p.loadNeighbors();
 	    }
 	    
 	} catch (ClassNotFoundException e) {

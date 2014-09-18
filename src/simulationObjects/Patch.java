@@ -2,8 +2,6 @@ package simulationObjects;
 
 import java.util.ArrayList;
 import javafx.scene.Group;
-import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 import controller.GridManager;
 
 public class Patch extends Group {
@@ -23,7 +21,11 @@ public class Patch extends Group {
 	manager = m;
     }
 
-    public void getNeighbors() {
+    public ArrayList<Patch> getNeighbors() {
+        return myNeighbors;
+    }
+        
+    public void loadNeighbors() {
 	myNeighbors = manager.getNeighborsAround(xCoord, yCoord);
     }
 
@@ -40,15 +42,17 @@ public class Patch extends Group {
     }
 
     public void update() {
-	// Update this
-	Patch state = myCell.update(this, myNeighbors);
-	if (state == null) {
-	    this.removeCell();
-	}
-	/**
-	 * if(destination!=null) { destination.addCell(myCell); } else {
-	 * this.removeCell(); }
-	 */
+        if (myCell != null){
+            // Update this
+            Patch patchToMoveTo = myCell.update(this, myNeighbors);
+            if (patchToMoveTo == null) {
+                this.removeCell();
+            }
+            else if(patchToMoveTo != this){
+                patchToMoveTo.addCell(myCell);
+                removeCell();
+            }
+        }
     }
 
     // private int[] xDelta = { -1, -1, -1, 0, 0, 1, 1, 1 };
@@ -64,6 +68,9 @@ public class Patch extends Group {
     }
 
     public void addCell(Cell cell) {
+        if (myCell != null){
+            removeCell();
+        }
         cell.setLayoutX(this.getLayoutX());
         cell.setLayoutY(this.getLayoutY());
         cell.setHeight(500/manager.getGridWidth());
@@ -75,8 +82,15 @@ public class Patch extends Group {
     }
 
     public void removeCell() {
-        getChildren().remove(myCell);
-	myCell = null;
+        if (myCell != null){
+            getChildren().remove(myCell);
+            myCell = null;
+        }
+    }
+    
+    public Patch randomEmptyPatch(){
+        //get an empty patch from grid manager
+        return manager.findEmptyPatch();
     }
 
 }

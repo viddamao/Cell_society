@@ -111,5 +111,16 @@ public class GridManager extends GridPane {
     public int getGridWidth(){
         return gWidth;
     }
+    
+    public Patch findEmptyPatch(){
+        for (int i = 0; i < gWidth; i++) {
+            for (int j = 0; i < gHeight; i++) {
+                if (grid[i][j].getCell() == null){
+                    return grid[i][j];
+                }
+            }
+        }
+        return null;
+    }
 
 }
