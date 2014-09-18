@@ -110,7 +110,7 @@ public class MainController extends Application {
 		    cell.setY(j);
 		    int state = Integer.parseInt(currentRow[i]);
 		    cell.setState(state);
-		    Patch currentPatch = new LifePatch(i, j, gridManager);
+		    Patch currentPatch = new Patch(i, j, gridManager);
                     // add the patch to grid manager
                     gridManager.addPatchAtPoint(currentPatch);
                     // assign the cell to the patch
