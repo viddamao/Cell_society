@@ -32,19 +32,18 @@ public class GridManager extends GridPane {
 	gHeight = height;
     }
 
-    
-    //TODO Duplicated for loop...
+    // TODO Duplicated for loop...
     /**
      * Makes a step in the simulation, updates everything sequentially
      */
     public void step() {
-        for (Patch[] row : grid) {
-            for (Patch p : row) {
-                p.prepareToUpdate();
-            }
-        }
-        
-        for (Patch[] row : grid) {
+	for (Patch[] row : grid) {
+	    for (Patch p : row) {
+		p.prepareToUpdate();
+	    }
+	}
+
+	for (Patch[] row : grid) {
 	    for (Patch p : row) {
 		p.update();
 	    }

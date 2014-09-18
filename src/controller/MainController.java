@@ -95,7 +95,7 @@ public class MainController extends Application {
 	    ArrayList<Patch> patchList = new ArrayList<Patch>();
 	    int width = object.getWidth();
 	    int height = object.getHeight();
-	    createGridManager(width, height);
+	    gridManager = new GridManager(width, height);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
 
@@ -111,20 +111,20 @@ public class MainController extends Application {
 		    int state = Integer.parseInt(currentRow[i]);
 		    cell.setState(state);
 		    Patch currentPatch = new Patch(i, j, gridManager);
-                    // add the patch to grid manager
-                    gridManager.addPatchAtPoint(currentPatch);
-                    // assign the cell to the patch
-		    if (state < 2){
-		        currentPatch.addCell(cell);
+		    // assign the cell to the patch
+		    if (state < 2) {
+			currentPatch.addCell(cell);
 		    }
+		    // add the patch to grid manager
+		    gridManager.addPatchAtPoint(currentPatch);
 		    // add patch for later
 		    patchList.add(currentPatch);
 		}
 
 	    }
-	    //now that we have all the patches, assign neighbors to each one
-	    for (Patch p: patchList){
-	        p.getNeighbors();
+	    // now that we have all the patches, assign neighbors to each one
+	    for (Patch p : patchList) {
+		p.getNeighbors();
 	    }
 
 	} catch (ClassNotFoundException e) {
@@ -154,7 +154,6 @@ public class MainController extends Application {
         userInterface.addNode(gridManager);
     }
 
-
     /**
      * starts the simulation
      */
@@ -181,9 +180,9 @@ public class MainController extends Application {
     public void stepSimulation() {
 	// tell the grid manager to process cell updates
 	// System.out.println("new frame");
-        if (gridManager != null){
-            gridManager.step();
-        }
+	if (gridManager != null) {
+	    gridManager.step();
+	}
     }
 
 }

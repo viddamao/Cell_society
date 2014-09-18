@@ -88,12 +88,11 @@ public class SegCell extends Cell {
 
     @Override
     public void setState(int state) {
-        if (state == RED){
-            setFill(Color.RED);
-        }
-        else if (state == BLUE){
-            setFill(Color.BLUE);
-        }
+	if (state == RED) {
+	    setFill(Color.RED);
+	} else if (state == BLUE) {
+	    setFill(Color.BLUE);
+	}
 	myState = state;
     }
 

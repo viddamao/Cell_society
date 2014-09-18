@@ -8,60 +8,57 @@ public class Patch extends Group {
     protected Cell myCell;
     protected int xCoord;
     protected int yCoord;
-    protected GridManager manager;
-    protected ArrayList<Patch> myNeighbors;
+    private GridManager manager;
+    private ArrayList<Patch> myNeighbors;
 
-    protected State myState;
+    private State myState;
 
     private int myPreviousCellState;
-
 
     // protected relativePosition myNorth, mySouth, myWest, myEast,
     // myNorthWest, myNorthEast, mySouthWest, mySouthEast;
 
     public Patch(int x, int y, GridManager m) {
-        super();
-        xCoord = x;
-        yCoord = y;
-        manager = m;
-        myState = State.EMPTY;
-        
+	super();
+	xCoord = x;
+	yCoord = y;
+	manager = m;
+	myState = State.EMPTY;
+
     }
 
-    protected enum State{
-        EMPTY, GENERATING, OCCUPIED, EMPTYING
+    private enum State {
+	EMPTY, GENERATING, OCCUPIED
     }
-    
+
     public void getNeighbors() {
-        myNeighbors = manager.getNeighborsAround(xCoord, yCoord);
+	myNeighbors = manager.getNeighborsAround(xCoord, yCoord);
     }
 
     public Cell getCell() {
-        return myCell;
+	return myCell;
     }
 
     public int getGridX() {
-        return xCoord;
+	return xCoord;
     }
 
     public int getGridY() {
-        return yCoord;
+	return yCoord;
     }
-    //TODO Make patch abstract..., extend it for each individual world
-    public void prepareToUpdate()
-    {
-       myCell.prepareToUpdate(this, myNeighbors);
+
+    public void prepareToUpdate() {
+	myCell.prepareToUpdate(this, myNeighbors);
     }
 
     public void update() {
-        // Update this
-        if(myCell!=null)
-        {
-            Patch state = myCell.update(this, myNeighbors);
-            if (state == null) {
-                this.removeCell();
-            }
-        }
+	// Update this
+	if (myCell != null) {
+	    Patch state = myCell.update(this, myNeighbors);
+	    if (state == null) {
+		this.removeCell();
+	    }
+	}
 
     }
 
@@ -71,7 +68,7 @@ public class Patch extends Group {
     }
 
     public boolean isEmpty() {
-        return myCell == null;
+	return myCell == null;
     }
 
     public void addCell(Cell cell) {
@@ -87,15 +84,15 @@ public class Patch extends Group {
     }
 
     public void removeCell() {
-        if (myCell != null){
-            getChildren().remove(myCell);
-            myCell = null;
-        }
+	if (myCell != null) {
+	    getChildren().remove(myCell);
+	    myCell = null;
+	}
     }
-    
-    public Patch randomEmptyPatch(){
-        //get an empty patch from grid manager
-        return manager.findEmptyPatch();
+
+    public Patch randomEmptyPatch() {
+	// get an empty patch from grid manager
+	return manager.findEmptyPatch();
     }
 
     public int getPreviousState() {
