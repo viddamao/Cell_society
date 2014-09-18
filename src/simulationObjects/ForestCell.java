@@ -2,11 +2,16 @@ package simulationObjects;
 
 import java.util.ArrayList;
 
+import javafx.scene.paint.Color;
+import controller.GridInfo;
+
 public class ForestCell extends Cell {
 
-    public enum State {
-	EMPTY, TREE, ONFIRE
-    }
+    private GridInfo object = new GridInfo();
+
+    final private int EMPTY = 0;
+    final private int ONFIRE = 1;
+    final private int TREE = 2;
 
     public ForestCell() {
 	super();
@@ -14,13 +19,26 @@ public class ForestCell extends Cell {
 
     @Override
     public Patch update(Patch currentPatch, ArrayList<Patch> neighbors) {
-	// TODO Auto-generated method stub
-	return null;
+	currentPatch.setPreviousState(myState);
+	switch (myState){
+	case TREE:
+	
+	if (willCatchFire(neighbors)) 
+	    catchFire(currentPatch);
+	
+	case ONFIRE:
+	   burnDown(currentPatch); 
+	}
+	return currentPatch;
     }
 
-    @Override
-    public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
+    
+    private void burnDown(Patch currentPatch) {
+	this.setState(EMPTY);
+    }
 
+    public void catchFire(Patch currentPatch) {
+	this.setState(ONFIRE);	    
     }
 
     @Override
@@ -30,13 +48,26 @@ public class ForestCell extends Cell {
 
     @Override
     public void setState(int state) {
+	if (state == EMPTY) {
+	    setFill(Color.WHITE);
+	} else if (state == ONFIRE) {
+	    setFill(Color.RED);
+	} else if (state == TREE) {
+	    setFill(Color.GREEN);
+	}
 	myState = state;
     }
 
-    @Override
-    public boolean needUpdate(ArrayList<Patch> neighbors) {
-	// TODO Auto-generated method stub
-	return false;
+    
+    public boolean willCatchFire(ArrayList<Patch> neighbors) {
+	boolean haveNeighborOnFire = false;
+	for (Patch neighborPatch : neighbors)
+	    if (neighborPatch.getPreviousState() == ONFIRE) {
+		haveNeighborOnFire = true;
+		break;
+	    }
+	return ((haveNeighborOnFire) && (Math.random() <= object.getParam()));
+
     }
 
 }
