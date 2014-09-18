@@ -1,11 +1,12 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+import javafx.scene.Group;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import controller.GridManager;
 
-public class Patch extends Pane {
+public class Patch extends Group {
     protected Cell myCell;
     protected int xCoord;
     protected int yCoord;
@@ -65,8 +66,8 @@ public class Patch extends Pane {
     public void addCell(Cell cell) {
         cell.setLayoutX(this.getLayoutX());
         cell.setLayoutY(this.getLayoutY());
-        cell.setHeight(this.getMaxHeight());
-        cell.setWidth(this.getMaxWidth());
+        cell.setHeight(500/manager.getGridWidth());
+        cell.setWidth(500/manager.getGridWidth());
         cell.setArcHeight(cell.getHeight());
         cell.setArcWidth(cell.getWidth());
         getChildren().add(cell);
