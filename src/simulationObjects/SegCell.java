@@ -10,8 +10,8 @@ public class SegCell extends Cell {
 
     public double t = 0;
 
-    final private int BLUE = 0;
-    final private int RED = 1;
+    final private int BLUE = 1;
+    final private int RED = 2;
     
     final private double SATISFIED_RATIO = 0.5;
 
@@ -76,7 +76,6 @@ public class SegCell extends Cell {
             return satisfiedCount/(satisfiedCount+dissatisfiedCount) > SATISFIED_RATIO;
         }
         else{
-            System.out.println("no");
             return false;
         }
     }
@@ -97,15 +96,7 @@ public class SegCell extends Cell {
     }
 
     public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
-
-	for (int i = 0; i < neighbors.size(); i++)
-
-	    if (neighbors.get(i).isEmpty()) {
-		neighbors.get(i).setPreviousState(
-			neighbors.get(i).getCell().myState);
-		neighbors.get(i).addCell(this);
-
-	    }
+        return;
     }
 
 }
