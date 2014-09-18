@@ -71,8 +71,6 @@ public class SegCell extends Cell {
                 }
             }
         }
-        System.out.println(satisfiedCount);
-        System.out.println("d"+dissatisfiedCount);
         if (satisfiedCount+dissatisfiedCount > 0){
             return satisfiedCount/(satisfiedCount+dissatisfiedCount) > SATISFIED_RATIO;
         }
