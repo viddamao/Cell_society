@@ -87,6 +87,7 @@ public class Patch extends Group {
 	if (myCell != null) {
 	    getChildren().remove(myCell);
 	    myCell = null;
+	    myState = State.EMPTY;
 	}
     }
 

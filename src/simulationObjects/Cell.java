@@ -1,10 +1,13 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+import controller.GridInfo;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public abstract class Cell extends Rectangle {
+    
+    protected GridInfo infoSheet = new GridInfo();
 
     protected int myX;
     protected int myY;
@@ -31,7 +34,7 @@ public abstract class Cell extends Rectangle {
     public abstract void prepareToUpdate(Patch currentPatch,
 	    ArrayList<Patch> neighbors);
 
-    public abstract boolean needUpdate(ArrayList<Patch> neighbors);
+    
 
     public int getGridX() {
 	return myX;

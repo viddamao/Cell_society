@@ -7,7 +7,6 @@ import controller.GridInfo;
 
 public class ForestCell extends Cell {
 
-    private GridInfo object = new GridInfo();
 
     final private int EMPTY = 0;
     final private int ONFIRE = 1;
@@ -63,7 +62,7 @@ public class ForestCell extends Cell {
 		haveNeighborOnFire = true;
 		break;
 	    }
-	return ((haveNeighborOnFire) && (Math.random() <= object.getParam()));
+	return ((haveNeighborOnFire) && (Math.random() <= infoSheet.getParam()));
 
     }
 
@@ -72,10 +71,5 @@ public class ForestCell extends Cell {
 	currentPatch.setPreviousState(myState);
     }
 
-    @Override
-    public boolean needUpdate(ArrayList<Patch> neighbors) {
-	// TODO Auto-generated method stub
-	return false;
-    }
 
 }

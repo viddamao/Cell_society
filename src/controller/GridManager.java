@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.TilePane;
 import simulationObjects.Patch;
-
+/**
+ * Manages grid properties and contents
+ * @author Will Chang
+ * 
+ */
 public class GridManager extends GridPane {
 
     private Patch[][] grid;

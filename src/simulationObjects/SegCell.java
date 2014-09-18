@@ -6,7 +6,6 @@ import controller.GridInfo;
 
 public class SegCell extends Cell {
 
-    private GridInfo object = new GridInfo();
 
     public double t = 0;
 
@@ -55,7 +54,7 @@ public class SegCell extends Cell {
 		dissatisfiedNeighbor++;
 	}
 
-	return (satisfiedNeighbor / dissatisfiedNeighbor < object.getParam());
+	return (satisfiedNeighbor / dissatisfiedNeighbor < infoSheet.getParam());
 
     }
     
