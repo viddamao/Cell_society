@@ -5,8 +5,10 @@
    <gridInfo>
  	  <width>6</width>
 	  <height>6</height>
-      <type>LifeCell</type>
- 	  <adjacentType>8</adjacentType>
+      <type>PredatorCell</type>
+      <sub1>FishCell</sub1>
+      <sub2>SharkCell</sub2>
+ 	  <adjacentType>4</adjacentType>
    </gridInfo>
  
    <row id="00">
@@ -14,23 +16,23 @@
    </row>
    
    <row id="01">
-     <states>0 1 1 0 0 0</states>   
+     <states>0 0 0 0 0 0</states>   
    </row>
    
    <row id="02">
-     <states>0 1 1 0 0 0</states>   
+     <states>0 0 2 1 0 0</states>   
    </row>
    
    <row id="03">
-     <states>0 0 0 1 1 0</states>   
+     <states>0 0 1 1 0 0</states>   
    </row>
    
    <row id="04">
-     <states>0 0 0 1 1 0</states>   
+     <states>0 0 0 0 0 0</states>   
    </row>
  
    <row id="05">
-     <states>0 0 0 0 0</states>   
+     <states>0 0 0 0 0 0</states>   
    </row>
 
 

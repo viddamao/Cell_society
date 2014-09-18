@@ -2,6 +2,7 @@ package simulationObjects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import javafx.scene.paint.Color;
 
 public class SharkCell extends PredatorCell {
 
@@ -12,8 +13,10 @@ public class SharkCell extends PredatorCell {
     private int gestationPeriod;
 
     // TBD based on design of controllers/parsers
-    public SharkCell() {
-
+    public SharkCell()
+    {
+        super();
+        setFill(Color.YELLOW);
     }
 
     /**
@@ -47,7 +50,7 @@ public class SharkCell extends PredatorCell {
     // from eating fish...
     public void feed(Patch destination) {
 	destination.removeCell();
-	this.vitality += 10;
+	this.vitality += 3;
     }
 
     // Refactor...

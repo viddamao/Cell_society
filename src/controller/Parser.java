@@ -24,7 +24,7 @@ import org.w3c.dom.NodeList;
  */
 public class Parser {
 
-    static GridInfo object = new GridInfo();
+    static GridInfo infoSheet = new GridInfo();
 
     public static List parserXml(String fileName) throws Exception {
 	// check for xml data
@@ -102,19 +102,25 @@ public class Parser {
 			cellBlock.states = content;
 			break;
 		    case "width":
-			object.setWidth(Integer.parseInt(content));
+			infoSheet.setWidth(Integer.parseInt(content));
 			break;
 		    case "height":
-			object.setHeight(Integer.parseInt(content));
+			infoSheet.setHeight(Integer.parseInt(content));
 			break;
 		    case "type":
-			object.setType(content);
+			infoSheet.setType(content);
 			break;
+		    case "sub1":
+                        infoSheet.addSubType1(content);
+                        break;
+		    case "sub2":
+                        infoSheet.addSubType2(content);
+                        break;
 		    case "adjacentType":
-			object.setAdjacent(Integer.parseInt(content));
+			infoSheet.setAdjacent(Integer.parseInt(content));
 			break;
 		    case "parameter":
-			object.setParameter(Integer.parseInt(content));
+			infoSheet.setParameter(Integer.parseInt(content));
 			break;
 
 		    }

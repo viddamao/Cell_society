@@ -102,13 +102,28 @@ public class MainController extends Application {
 		for (int i = 0; i < width; i++) {
 		    // create a patch object at the x and y location
 		    // create a cell object
+		    int state = Integer.parseInt(currentRow[i]);
 		    String classPathAndName = messages.getString("cell_bundle")
 			    + "." + infoSheet.getCellType();
+		    if(infoSheet.getCellType().equals("PredatorCell"))
+		    {
+		        if(state == 1 || state == 0)
+		        {
+		            classPathAndName = messages.getString("cell_bundle")
+	                            + "." + infoSheet.getSub1();
+		        }
+		        if(state == 2)
+                        {
+                            classPathAndName = messages.getString("cell_bundle")
+                                    + "." + infoSheet.getSub2();
+                        }
+
+		    }
 		    Class<?> cellClass = Class.forName(classPathAndName);
 		    Cell cell = (Cell) cellClass.newInstance();
 		    cell.setX(i);
 		    cell.setY(j);
-		    int state = Integer.parseInt(currentRow[i]);
+		    
 		    cell.setState(state);
 		    Patch currentPatch;
 		    //TEMP WILL REFACTOR

@@ -1,23 +1,25 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+import javafx.scene.paint.Color;
 
 public class FishCell extends PredatorCell {
 
     public FishCell() {
+        super();
+        setFill(Color.GREEN);
 
     }
 
-    public ArrayList<Patch> processPossibleDestinations(
-	    ArrayList<Patch> allNeighbors) {
-	this.siftNeighbors(allNeighbors);
-	ArrayList<Patch> emptyBuffer = new ArrayList<>();
-	for (Patch loc : myNeighbors) {
-	    if (loc.isEmpty()) {
-		emptyBuffer.add(loc);
-	    }
-	}
-	return emptyBuffer;
+    public ArrayList<Patch> processPossibleDestinations(ArrayList<Patch> allNeighbors) {
+        this.siftNeighbors(allNeighbors);
+        ArrayList<Patch> emptyBuffer = new ArrayList<>();
+        for (Patch loc : myNeighbors) {
+            if (loc.isEmpty()) {
+                emptyBuffer.add(loc);
+            }
+        }
+        return emptyBuffer;
     }
 
     /**
@@ -30,24 +32,24 @@ public class FishCell extends PredatorCell {
      */
     @Override
     public void updateStatesandMakeMoves(Patch current, Patch destination) {
-	vitality--;
-	if (timeToBreed > 0) {
-	    timeToBreed--;
-	}
-	if (destination != null) {
-	    this.makeMove(current, destination);
+        vitality--;
+        if (timeToBreed > 0) {
+            timeToBreed--;
+        }
+        if (destination != null) {
+            this.makeMove(current, destination);
 
-	    if (timeToBreed == 0) {
-		this.leaveEgg(current);
-		timeToBreed = gestationPeriod;
-	    }
-	}
+            if (timeToBreed == 0) {
+                this.leaveEgg(current);
+                timeToBreed = gestationPeriod;
+            }
+        }
     }
 
     @Override
     public void prepareToUpdate (Patch currentPatch, ArrayList<Patch> neighbors) {
         // TODO Auto-generated method stub
-        
+
     }
 
 }

@@ -43,6 +43,7 @@ public class GridManager extends GridPane {
     public void step() {
 	for (Patch[] row : grid) {
 	    for (Patch p : row) {
+	        
 		p.prepareToUpdate();
 	    }
 	}
