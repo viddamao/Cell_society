@@ -56,6 +56,7 @@ public class SegCell extends Cell {
 	return (satisfiedNeighbor / dissatisfiedNeighbor < object.getParam());
 
     }
+<<<<<<< HEAD
 
     private boolean isSatisfied(ArrayList<Patch> neighbors) {
 	double satisfiedCount = 0;
@@ -76,6 +77,28 @@ public class SegCell extends Cell {
 	} else {
 	    return false;
 	}
+=======
+    
+    private boolean isSatisfied(ArrayList<Patch> neighbors){
+        double satisfiedCount = 0;
+        double dissatisfiedCount = 0;
+        for (Patch p: neighbors){
+            if (p.getCell() != null){
+                if(p.getCell().getState() == myState){
+                    satisfiedCount++;
+                }
+                else{
+                    dissatisfiedCount++;
+                }
+            }
+        }
+        if (satisfiedCount+dissatisfiedCount > 0){
+            return satisfiedCount/(satisfiedCount+dissatisfiedCount) > SATISFIED_RATIO;
+        }
+        else{
+            return false;
+        }
+>>>>>>> origin/master
     }
 
     @Override
