@@ -93,7 +93,7 @@ public class MainController extends Application {
 	    ArrayList<Patch> patchList = new ArrayList<Patch>();
 	    int width = object.getWidth();
 	    int height = object.getHeight();
-	    createGridManager(width, height);
+	    gridManager = new GridManager(width, height);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
 
@@ -109,18 +109,12 @@ public class MainController extends Application {
 		    int state = Integer.parseInt(currentRow[i]);
 		    cell.setState(state);
 		    Patch currentPatch = new Patch(i, j, gridManager);
-<<<<<<< HEAD
 		    // assign the cell to the patch
 		    if (state < 2) {
 			currentPatch.addCell(cell);
-=======
-                    // add the patch to grid manager
-                    gridManager.addPatchAtPoint(currentPatch);
-                    // assign the cell to the patch
-		    if (state < 2){
-		        currentPatch.addCell(cell);
->>>>>>> origin/master
 		    }
+		    // add the patch to grid manager
+		    gridManager.addPatchAtPoint(currentPatch);
 		    // add patch for later
 		    patchList.add(currentPatch);
 		}
@@ -141,7 +135,6 @@ public class MainController extends Application {
 
     }
 
-<<<<<<< HEAD
     private void createGridManager(int width, int height) {
 	gridManager = new GridManager(width, height);
 	gridManager.setGridLinesVisible(true);
@@ -150,17 +143,6 @@ public class MainController extends Application {
 	gridManager.setMinHeight(userInterface.GRID_HEIGHT);
 	gridManager.setMinWidth(userInterface.GRID_WIDTH);
 	gridManager.setPrefSize(width, height);
-=======
-    private void createGridManager(int width, int height){
-        gridManager = new GridManager(width,height);
-        gridManager.setGridLinesVisible(true);
-        gridManager.setLayoutX(0);
-        gridManager.setLayoutY(0);
-        gridManager.setMinHeight(userInterface.GRID_HEIGHT);
-        gridManager.setMinWidth(userInterface.GRID_WIDTH);
-        gridManager.setPrefSize(width, height);
-        userInterface.addNode(gridManager);
->>>>>>> origin/master
     }
 
     /**

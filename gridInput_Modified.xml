@@ -5,20 +5,20 @@
    <gridInfo>
  	  <width>5</width>
 	  <height>4</height>
-      <type>SegCell</type>
- 	  <adjacentType>8</adjacentType>
+      <type>ForestCell</type>
+ 	  <adjacentType>4</adjacentType>
    </gridInfo>
  
    <row id="00">
-     <states>0 2 1 0 1</states>   
+     <states>1 1 1 1 1</states>   
    </row>
    
    <row id="01">
-     <states>0 1 2 0 1</states>   
+     <states>1 1 2 1 1</states>   
    </row>
    
    <row id="02">
-     <states>2 1 0 0 1</states>   
+     <states>1 1 1 1 1</states>   
    </row>
    
    <row id="03">

@@ -8,10 +8,10 @@ public class Patch extends Group {
     protected Cell myCell;
     protected int xCoord;
     protected int yCoord;
-    protected GridManager manager;
-    protected ArrayList<Patch> myNeighbors;
+    private GridManager manager;
+    private ArrayList<Patch> myNeighbors;
 
-    protected State myState;
+    private State myState;
 
     private int myPreviousCellState;
 
@@ -27,13 +27,8 @@ public class Patch extends Group {
 
     }
 
-<<<<<<< HEAD
     private enum State {
 	EMPTY, GENERATING, OCCUPIED
-=======
-    protected enum State{
-        EMPTY, GENERATING, OCCUPIED, EMPTYING
->>>>>>> origin/master
     }
 
     public void getNeighbors() {
@@ -51,16 +46,9 @@ public class Patch extends Group {
     public int getGridY() {
 	return yCoord;
     }
-<<<<<<< HEAD
 
     public void prepareToUpdate() {
 	myCell.prepareToUpdate(this, myNeighbors);
-=======
-    //TODO Make patch abstract..., extend it for each individual world
-    public void prepareToUpdate()
-    {
-       myCell.prepareToUpdate(this, myNeighbors);
->>>>>>> origin/master
     }
 
     public void update() {
