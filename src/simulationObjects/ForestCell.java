@@ -70,4 +70,15 @@ public class ForestCell extends Cell {
 
     }
 
+    @Override
+    public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
+	currentPatch.setPreviousState(myState);
+    }
+
+    @Override
+    public boolean needUpdate(ArrayList<Patch> neighbors) {
+	// TODO Auto-generated method stub
+	return false;
+    }
+
 }
