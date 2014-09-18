@@ -27,6 +27,7 @@ public class Patch extends Group {
         yCoord = y;
         manager = m;
         myState = State.EMPTY;
+        
     }
 
     private enum State{
@@ -71,11 +72,7 @@ public class Patch extends Group {
 
     // modified the order for processing 4 directions
     protected enum relativePosition {
-<<<<<<< HEAD
-        NORTHWEST, WEST, SOUTHWEST, NORTH, SOUTH, NORTHEAST, EAST, SOUTHEAST
-=======
 	NORTH, SOUTH, EAST, WEST, SOUTHEAST, NORTHEAST, SOUTHWEST, NORTHWEST
->>>>>>> master
     }
 
     public boolean isEmpty() {
@@ -83,13 +80,6 @@ public class Patch extends Group {
     }
 
     public void addCell(Cell cell) {
-<<<<<<< HEAD
-        myCell = cell;
-    }
-
-    public void removeCell() {
-        myCell = null;
-=======
 	cell.setLayoutX(this.getLayoutX());
 	cell.setLayoutY(this.getLayoutY());
 	cell.setHeight(this.getMaxHeight());
@@ -104,7 +94,6 @@ public class Patch extends Group {
     public void removeCell() {
 	getChildren().remove(myCell);
 	myCell = null;
->>>>>>> master
     }
 
     public int getPreviousState() {
