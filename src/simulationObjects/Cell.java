@@ -11,7 +11,6 @@ public abstract class Cell extends Rectangle {
     protected int myState;
 
     public Cell() {
-        setFill(Color.BLUE);
     }
 
     public enum relativePosition {

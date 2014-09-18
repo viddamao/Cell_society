@@ -1,7 +1,7 @@
 package simulationObjects;
 
 import java.util.ArrayList;
-
+import javafx.scene.paint.Color;
 import controller.GridInfo;
 
 public class SegCell extends Cell {
@@ -10,9 +10,9 @@ public class SegCell extends Cell {
 
     public double t = 0;
 
-    public enum State {
-	X, O
-    }
+    final private int EMPTY = 0;
+    final private int RED = 1;
+    final private int BLUE = 2;
 
     public SegCell() {
         super();
@@ -20,7 +20,8 @@ public class SegCell extends Cell {
 
     @Override
     public Patch update(Patch currentPatch, ArrayList<Patch> neighbors) {
-	/*
+	System.out.println(neighbors);
+        /*
 	 * if (needUpdate(neighbors)) { myState = 0;
 	 * 
 	 * }
@@ -64,6 +65,15 @@ public class SegCell extends Cell {
 
     @Override
     public void setState(int state) {
+        if (state == EMPTY){
+            setFill(Color.WHITE);
+        }
+        else if (state == RED){
+            setFill(Color.RED);
+        }
+        else if (state == BLUE){
+            setFill(Color.BLUE);
+        }
 	myState = state;
     }
 

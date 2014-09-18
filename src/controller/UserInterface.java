@@ -165,7 +165,6 @@ public class UserInterface {
     
     public void addNode (Node n){
         rootPane.getChildren().add(n);
-        System.out.println(n.boundsInParentProperty());
     }
 
 
