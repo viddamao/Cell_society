@@ -1,6 +1,8 @@
 package simulationObjects;
 
+import javafx.scene.paint.Color;
 import controller.GridManager;
+import javafx.scene.paint.Color;
 
 
 public class LifePatch extends Patch {
@@ -9,6 +11,7 @@ public class LifePatch extends Patch {
     public LifePatch (int x, int y, GridManager m) {
         super(x, y, m);
         // TODO Auto-generated constructor stub
+        
     }
     @Override
     public void prepareToUpdate()
@@ -49,12 +52,12 @@ public class LifePatch extends Patch {
         switch(myState)
         {
             case GENERATING:
-                myCell = new LifeCell();
+                Cell generated = new LifeCell(xCoord, yCoord);
+                this.addCell(generated);
                 myState = State.OCCUPIED;
                 break;
             case EMPTYING:
-                this.removeCell();
-                myState = State.EMPTY;
+                this.removeCell();                
                 break;
             default: 
                 break;
