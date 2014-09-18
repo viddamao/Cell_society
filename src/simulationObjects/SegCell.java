@@ -8,24 +8,23 @@ public class SegCell extends Cell {
 
     private GridInfo object = new GridInfo();
 
-    public double t = 0;
-
     public enum State {
-	EMPTY,X, O
+	EMPTY, X, O
     }
 
     public SegCell() {
-        super();
+	super();
     }
 
     @Override
     public Patch update(Patch currentPatch, ArrayList<Patch> neighbors) {
-	/*
-	 * if (needUpdate(neighbors)) { myState = 0;
-	 * 
-	 * }
-	 */
-	return null;
+	currentPatch.setPreviousState(myState);
+	if (needUpdate(neighbors)) {
+	    prepareToUpdate(currentPatch, neighbors);
+	    return null;
+	} else {
+	    return currentPatch;
+	}
     }
 
     /**
@@ -47,9 +46,9 @@ public class SegCell extends Cell {
     public boolean needUpdate(ArrayList<Patch> neighbors) {
 	int satisfiedNeighbor = 0, dissatisfiedNeighbor = 0;
 	for (Patch neighborPatch : neighbors) {
-	    if (myState == neighborPatch.getCell().getState())
+	    if (myState == (neighborPatch.getPreviousState()))
 		satisfiedNeighbor++;
-	    else if (neighborPatch.getCell().getState() != 0)
+	    else if (!(neighborPatch.isEmpty()))
 		dissatisfiedNeighbor++;
 	}
 
@@ -67,9 +66,16 @@ public class SegCell extends Cell {
 	myState = state;
     }
 
-    @Override
-    public void prepareToUpdate(ArrayList<Patch> neighbors) {
+    public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
 
+	for (int i = 0; i < neighbors.size(); i++)
+
+	    if (neighbors.get(i).isEmpty()) {
+		neighbors.get(i).setPreviousState(
+			neighbors.get(i).getCell().myState);
+		neighbors.get(i).addCell(this);
+
+	    }
     }
 
 }

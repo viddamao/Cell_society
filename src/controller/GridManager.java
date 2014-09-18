@@ -10,7 +10,7 @@ public class GridManager {
     private int[] yDelta = { 0, 0, 1, -1, 1, -1, 1, -1 };
     private int gWidth;
     private int gHeight;
-    private GridInfo object=new GridInfo();
+    private GridInfo object = new GridInfo();
 
     // private String patchType;
     // {4,8} indicates adjacent type to be 4 or 8 blocks around
@@ -39,7 +39,7 @@ public class GridManager {
 		p.update();
 	    }
 	}
-	
+
     }
 
     /**
@@ -78,7 +78,7 @@ public class GridManager {
      */
     public ArrayList<Patch> getNeighborsAround(int xCoord, int yCoord) {
 	ArrayList<Patch> neighbors = new ArrayList<>();
-	//deal with different neighbor settings
+	// deal with different neighbor settings
 	for (int i = 0; i < object.getAdjacentType(); i++) {
 	    int nextX = xCoord + xDelta[i];
 	    int nextY = yCoord + yDelta[i];

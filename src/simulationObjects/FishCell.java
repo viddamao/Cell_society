@@ -45,7 +45,7 @@ public class FishCell extends PredatorCell {
     }
 
     @Override
-    public void prepareToUpdate(ArrayList<Patch> neighbors) {
+    public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
 	// TODO Auto-generated method stub
 
     }

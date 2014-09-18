@@ -11,6 +11,7 @@ public class Patch extends Pane {
     protected int yCoord;
     private GridManager manager;
     private ArrayList<Patch> myNeighbors;
+    private int myPreviousCellState;
 
     // protected relativePosition myNorth, mySouth, myWest, myEast,
     // myNorthWest, myNorthEast, mySouthWest, mySouthEast;
@@ -50,12 +51,9 @@ public class Patch extends Pane {
 	 */
     }
 
-    // private int[] xDelta = { -1, -1, -1, 0, 0, 1, 1, 1 };
-    // private int[] yDelta = { -1, 0, 1, -1, 1, -1, 0, 1 };
-
-    // Maybe make this an interface??
+    // modified the order for processing 4 directions
     protected enum relativePosition {
-	NORTHWEST, WEST, SOUTHWEST, NORTH, SOUTH, NORTHEAST, EAST, SOUTHEAST
+	NORTH, SOUTH, EAST, WEST, SOUTHEAST, NORTHEAST, SOUTHWEST, NORTHWEST
     }
 
     public boolean isEmpty() {
@@ -63,19 +61,27 @@ public class Patch extends Pane {
     }
 
     public void addCell(Cell cell) {
-        cell.setLayoutX(this.getLayoutX());
-        cell.setLayoutY(this.getLayoutY());
-        cell.setHeight(this.getMaxHeight());
-        cell.setWidth(this.getMaxWidth());
-        cell.setArcHeight(cell.getHeight());
-        cell.setArcWidth(cell.getWidth());
-        getChildren().add(cell);
+	cell.setLayoutX(this.getLayoutX());
+	cell.setLayoutY(this.getLayoutY());
+	cell.setHeight(this.getMaxHeight());
+	cell.setWidth(this.getMaxWidth());
+	cell.setArcHeight(cell.getHeight());
+	cell.setArcWidth(cell.getWidth());
+	getChildren().add(cell);
 	myCell = cell;
     }
 
     public void removeCell() {
-        getChildren().remove(myCell);
+	getChildren().remove(myCell);
 	myCell = null;
+    }
+
+    public int getPreviousState() {
+	return myPreviousCellState;
+    }
+
+    public void setPreviousState(int myState) {
+	myPreviousCellState = myState;
     }
 
 }

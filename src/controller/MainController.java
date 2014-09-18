@@ -77,7 +77,7 @@ public class MainController extends Application {
 	    List<TestCell> gridRows = Parser.parserXml(XMLData
 		    .getAbsolutePath());
 	    initializeSimulationObjects(gridRows);
-	
+
 	} catch (Exception e) {
 	    e.printStackTrace();
 	    System.out.println(messages.getString("process_file_error"));
@@ -95,7 +95,7 @@ public class MainController extends Application {
 	try {
 	    int width = object.getWidth();
 	    int height = object.getHeight();
-	    gridManager = new GridManager(width,height);
+	    gridManager = new GridManager(width, height);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
 
@@ -110,9 +110,9 @@ public class MainController extends Application {
 		    cell.setY(j);
 		    cell.setState(Integer.parseInt(currentRow[i]));
 		    Patch currentPatch = new Patch(i, j, gridManager);
-                    // add the patch to the UI
-                    addPatchToPane(currentPatch);
-                    // assign the cell to the patch
+		    // add the patch to the UI
+		    addPatchToPane(currentPatch);
+		    // assign the cell to the patch
 		    currentPatch.addCell(cell);
 		    // add the patch to grid manager
 		    gridManager.addPatchAtPoint(currentPatch);
@@ -129,20 +129,18 @@ public class MainController extends Application {
 	}
 
     }
-    
-    private void addPatchToPane (Patch p) {
-        //scale the grid position up to a pixel position
-        int scaleX = 50;
-        int scaleY = 50;
-        p.setLayoutX(scaleX*p.getGridX());
-        p.setLayoutY(scaleY*p.getGridY());
-        System.out.println(p.getLayoutX());
-        p.setMaxWidth(scaleX);
-        p.setMaxHeight(scaleY);
-        userInterface.addNode(p);
+
+    private void addPatchToPane(Patch p) {
+	// scale the grid position up to a pixel position
+	int scaleX = 50;
+	int scaleY = 50;
+	p.setLayoutX(scaleX * p.getGridX());
+	p.setLayoutY(scaleY * p.getGridY());
+	System.out.println(p.getLayoutX());
+	p.setMaxWidth(scaleX);
+	p.setMaxHeight(scaleY);
+	userInterface.addNode(p);
     }
-
-
 
     /**
      * starts the simulation

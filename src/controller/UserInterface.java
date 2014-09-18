@@ -158,12 +158,10 @@ public class UserInterface {
 	slider.valueProperty().addListener(listener);
 	return slider;
     }
-    
-    
-    public void addNode (Node n){
-        rootPane.getChildren().add(n);
-    }
 
+    public void addNode(Node n) {
+	rootPane.getChildren().add(n);
+    }
 
     /**
      * @return the rootPane for adding children

@@ -1,9 +1,9 @@
 package controller;
+
 /**
  * 
  * 
- * Stores the parameter 
- * and info for the grid
+ * Stores the parameter and info for the grid
  * 
  * @author Viddamao
  *
