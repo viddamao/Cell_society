@@ -50,7 +50,7 @@ public class Patch extends Group {
 
     public void prepareToUpdate()
     {
-       
+       myCell.prepareToUpdate(this, myNeighbors);
     }
 
     public void update() {
