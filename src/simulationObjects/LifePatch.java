@@ -1,10 +1,11 @@
 package simulationObjects;
 
-import javafx.scene.paint.Color;
 import controller.GridManager;
-import javafx.scene.paint.Color;
-
-
+/**
+ * 
+ * @author Will Chang
+ *
+ */
 public class LifePatch extends Patch {
 
 
@@ -17,7 +18,9 @@ public class LifePatch extends Patch {
     public void prepareToUpdate()
     {
         processNeighborsAndUpdateState();
-    }
+    }           
+    
+    
 
     public void processNeighborsAndUpdateState()
     {

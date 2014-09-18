@@ -3,7 +3,11 @@ package simulationObjects;
 import java.util.ArrayList;
 import javafx.scene.Group;
 import controller.GridManager;
-
+/**
+ * 
+ * @author Will Chang
+ *
+ */
 public class Patch extends Group {
     protected Cell myCell;
     protected int xCoord;
@@ -57,8 +61,8 @@ public class Patch extends Group {
     public void update() {
 	// Update this
 	if (myCell != null) {
-	    Patch state = myCell.update(this, myNeighbors);
-	    if (state == null) {
+	    Patch status = myCell.update(this, myNeighbors);
+	    if (status == null) {
 		this.removeCell();
 	    }
 	}

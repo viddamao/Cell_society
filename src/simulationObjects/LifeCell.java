@@ -2,7 +2,11 @@ package simulationObjects;
 
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
-
+/**
+ * 
+ * @author Will Chang
+ *
+ */
 public class LifeCell extends Cell {
 
     public LifeCell()

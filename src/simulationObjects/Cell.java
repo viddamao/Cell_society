@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import controller.GridInfo;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-
+/**
+ * 
+ * @author Everyone
+ *
+ */
 public abstract class Cell extends Rectangle {
     
     protected GridInfo infoSheet = new GridInfo();

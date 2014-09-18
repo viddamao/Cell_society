@@ -1,28 +1,47 @@
 package simulationObjects;
 
 import java.util.ArrayList;
-
-public abstract class PredatorCell extends Cell {
+import javafx.scene.paint.Color;
+/**
+ * 
+ * @author Will Chang
+ *
+ */
+public class PredatorCell extends Cell {
     // This is it's pregnancylevel
 
     protected int vitality = 5;
-    protected int timeToBreed = 5;
+    protected int timeToBreed = 20;
     protected final int maxVitality = 5;
-    protected int gestationPeriod;
-
-
-
+    protected int gestationPeriod = 20;
+    private final int FISH = 1;
+    private final int SHARK = 2;
     // Put in constructor?
     protected ArrayList<Patch> myNeighbors = new ArrayList<>();
     // Birthmark
     private int maxState = 9;
 
     public PredatorCell() {
-
+        super();
     }
 
-    public enum State {
-        EMPTY
+
+    public PredatorCell(int x, int y, int state)
+    {
+        super();      
+        myX = x;
+        myY = y;
+        myState = state;
+
+        if(state == SHARK)
+            setFill(Color.YELLOW);
+        else if(state == FISH)
+            setFill(Color.GREEN);
+
+    }
+    public void feed(Patch destination) {
+        destination.removeCell();
+        this.vitality += 3;
     }
 
     public void prepareToUpdate(Patch currentPatch,
@@ -53,7 +72,15 @@ public abstract class PredatorCell extends Cell {
     }
 
     public void leaveEgg(Patch current) {
-        current.addCell(new SharkCell());
+        if(myState == SHARK)
+        {
+            current.addCell(new PredatorCell(current.getGridX(),current.getGridY(),SHARK));
+        }
+        else
+        {
+            current.addCell(new PredatorCell(current.getGridX(),current.getGridY(),FISH));
+        }
+
     }
 
     /**
@@ -75,27 +102,49 @@ public abstract class PredatorCell extends Cell {
     }
 
     // Some Duplicated code in subclasses...
-    public abstract ArrayList<Patch> processPossibleDestinations(
-                                                                 ArrayList<Patch> allNeighbors);
+    public  ArrayList<Patch> processPossibleDestinations(ArrayList<Patch> allNeighbors)
+    {
+        myNeighbors = allNeighbors;
 
-    // For implementation of processPossibleDestinations... only called by
-    // subclasses...
-    // 1,3,4,6 Cardinal directions
-    // Repeated code, need to make more efficient/remove dup code... enums?
-    // Maps?
-    //REFACTOR FOR INDEX OUT OF BOUNDS< EDGE CASES
-    public void siftNeighbors(ArrayList<Patch> allNeighbors) {
-        
-        myNeighbors.add(allNeighbors.get(0));
-        myNeighbors.add(allNeighbors.get(1));
-        myNeighbors.add(allNeighbors.get(2));
-
+        ArrayList<Patch> emptyBuffer = new ArrayList<>();
+        ArrayList<Patch> fishBuffer = new ArrayList<>();
+        for (Patch loc : myNeighbors) {
+            Cell occupant = loc.getCell();
+            if (occupant == null) {
+                emptyBuffer.add(loc);
+            } else if (occupant.getState() == FISH) {
+                fishBuffer.add(loc);
+            }
+        }
+        if(myState == SHARK)
+        {
+            if (fishBuffer.size() > 0) {
+                return fishBuffer;
+            }
+        }
+        return emptyBuffer;
     }
 
-    // slightly duplicated method
-    public abstract void updateStatesandMakeMoves(Patch current,
-                                                  Patch destination);
 
+
+    // slightly duplicated method
+    public void updateStatesandMakeMoves(Patch current, Patch destination) {
+        vitality--;
+        if (timeToBreed > 0) {
+            timeToBreed--;
+        }
+        if (destination != null) {
+            if(myState==SHARK && !destination.isEmpty()) {
+                this.feed(destination);
+            }
+            this.makeMove(current, destination);
+
+            if (timeToBreed == 0) {
+                this.leaveEgg(current);
+                timeToBreed = gestationPeriod;
+            }
+        }
+    }
     @Override
     public int getState() {
         return myState;
@@ -103,6 +152,14 @@ public abstract class PredatorCell extends Cell {
 
     @Override
     public void setState(int state) {
+        if(state == SHARK)
+        {
+            setFill(Color.YELLOW);
+        }
+        else
+        {
+            setFill(Color.GREEN);
+        }
         myState = state;
     }
 

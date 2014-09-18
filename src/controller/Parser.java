@@ -110,20 +110,11 @@ public class Parser {
 		    case "type":
 			infoSheet.setType(content);
 			break;
-		    case "sub1":
-                        infoSheet.addSubType1(content);
-                        break;
-		    case "sub2":
-                        infoSheet.addSubType2(content);
-                        break;
 		    case "adjacentType":
 			infoSheet.setAdjacent(Integer.parseInt(content));
 			break;
 		    case "parameter":
-
-
 			infoSheet.setParameter(Double.parseDouble(content));
-
 			break;
 
 		    }

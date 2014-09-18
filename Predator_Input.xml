@@ -6,8 +6,6 @@
  	  <width>6</width>
 	  <height>6</height>
       <type>PredatorCell</type>
-      <sub1>FishCell</sub1>
-      <sub2>SharkCell</sub2>
  	  <adjacentType>4</adjacentType>
    </gridInfo>
  
