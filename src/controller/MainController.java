@@ -2,7 +2,6 @@ package controller;
 
 import java.io.File;
 import java.util.List;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -10,9 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.util.*;
-
 import simulationObjects.*;
 
 public class MainController extends Application {
@@ -95,7 +92,8 @@ public class MainController extends Application {
 	try {
 	    int width = object.getWidth();
 	    int height = object.getHeight();
-	    gridManager = new GridManager(width,height);
+	    createGridManager(width,height);
+	    userInterface.addNode(gridManager);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
 
@@ -111,7 +109,7 @@ public class MainController extends Application {
 		    cell.setState(Integer.parseInt(currentRow[i]));
 		    Patch currentPatch = new Patch(i, j, gridManager);
                     // add the patch to the UI
-                    addPatchToPane(currentPatch);
+                    //addPatchToPane(currentPatch);
                     // assign the cell to the patch
 		    currentPatch.addCell(cell);
 		    // add the patch to grid manager
@@ -130,18 +128,15 @@ public class MainController extends Application {
 
     }
     
-    private void addPatchToPane (Patch p) {
-        //scale the grid position up to a pixel position
-        int scaleX = 50;
-        int scaleY = 50;
-        p.setLayoutX(scaleX*p.getGridX());
-        p.setLayoutY(scaleY*p.getGridY());
-        System.out.println(p.getLayoutX());
-        p.setMaxWidth(scaleX);
-        p.setMaxHeight(scaleY);
-        userInterface.addNode(p);
+    private void createGridManager(int width, int height){
+        gridManager = new GridManager(width,height);
+        gridManager.setGridLinesVisible(true);
+        gridManager.setLayoutX(0);
+        gridManager.setLayoutY(0);
+        gridManager.setMinHeight(userInterface.GRID_HEIGHT);
+        gridManager.setMinWidth(userInterface.GRID_WIDTH);
+        gridManager.setPrefSize(width, height);
     }
-
 
 
     /**
