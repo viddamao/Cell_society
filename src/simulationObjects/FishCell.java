@@ -50,10 +50,4 @@ public class FishCell extends PredatorCell {
 
     }
 
-    @Override
-    public boolean needUpdate(ArrayList<Patch> neighbors) {
-	// TODO Auto-generated method stub
-	return false;
-    }
-
 }
