@@ -93,7 +93,7 @@ public class MainController extends Application {
 	    ArrayList<Patch> patchList = new ArrayList<Patch>();
 	    int width = object.getWidth();
 	    int height = object.getHeight();
-	    gridManager = new GridManager(width, height);
+	    createGridManager(width, height);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
 
@@ -109,12 +109,12 @@ public class MainController extends Application {
 		    int state = Integer.parseInt(currentRow[i]);
 		    cell.setState(state);
 		    Patch currentPatch = new Patch(i, j, gridManager);
+                    // add the patch to grid manager
+                    gridManager.addPatchAtPoint(currentPatch);
                     // assign the cell to the patch
 		    if (state < 2){
 		        currentPatch.addCell(cell);
 		    }
-		    // add the patch to grid manager
-		    gridManager.addPatchAtPoint(currentPatch);
 		    // add patch for later
 		    patchList.add(currentPatch);
 		}
@@ -143,6 +143,7 @@ public class MainController extends Application {
         gridManager.setMinHeight(userInterface.GRID_HEIGHT);
         gridManager.setMinWidth(userInterface.GRID_WIDTH);
         gridManager.setPrefSize(width, height);
+        userInterface.addNode(gridManager);
     }
 
 
