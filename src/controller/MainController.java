@@ -7,6 +7,8 @@ import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.util.*;
@@ -137,6 +139,12 @@ public class MainController extends Application {
 
     private void createGridManager(int width, int height){
         gridManager = new GridManager(width,height);
+        for (int i=0; i<width; i++){
+            gridManager.getColumnConstraints().add(new ColumnConstraints(userInterface.GRID_WIDTH/width)); // column 1 is 100 wide
+        }
+        for (int i=0; i<height; i++){
+            gridManager.getRowConstraints().add(new RowConstraints(userInterface.GRID_HEIGHT/height)); // column 1 is 100 wide
+        }
         gridManager.setGridLinesVisible(true);
         gridManager.setLayoutX(0);
         gridManager.setLayoutY(0);

@@ -10,11 +10,11 @@
    </gridInfo>
  
    <row id="00">
-     <states>0 2 1 0 1</states>   
+     <states>2 2 1 0 1</states>   
    </row>
    
    <row id="01">
-     <states>0 1 2 0 1</states>   
+     <states>2 1 2 0 1</states>   
    </row>
    
    <row id="02">
@@ -22,7 +22,7 @@
    </row>
    
    <row id="03">
-     <states>1 1 0 1 1</states>   
+     <states>2 1 0 1 1</states>   
    </row>
    
 
