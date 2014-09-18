@@ -13,7 +13,7 @@ public class GridInfo {
     private static int myHeight;
     private static String myType;
     private static int myAdjacentType;
-    private static int myParameter;
+    private static Double myParameter;
 
     public void setWidth(int width) {
 	myWidth = width;
@@ -33,8 +33,8 @@ public class GridInfo {
 
     }
 
-    public void setParameter(int param) {
-	myParameter = param;
+    public void setParameter(double d) {
+	myParameter = d;
     }
 
     public int getWidth() {
@@ -49,7 +49,7 @@ public class GridInfo {
 	return myType;
     }
 
-    public int getParam() {
+    public double getParam() {
 	return myParameter;
     }
 
