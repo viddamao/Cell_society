@@ -15,7 +15,7 @@ public class GridInfo {
     private static int myHeight;
     private static String myType;
     private static int myAdjacentType;
-    private static int myParameter;
+    private static double myParameter;
     private ArrayList<String> subTypeList = new ArrayList<>();
     private static String mySub1;
     private static String mySub2;
@@ -83,7 +83,7 @@ public class GridInfo {
 	return myType;
     }
 
-    public int getParam() {
+    public double getParam() {
 	return myParameter;
     }
 
