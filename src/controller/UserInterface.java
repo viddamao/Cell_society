@@ -95,9 +95,9 @@ public class UserInterface {
                                                                 .getString("file_dialog_title"));
                                                         final File XMLData = fileChooser
                                                                 .showOpenDialog(myStage);
-                                                        if (XMLData!=null)
-                                                        myMainController
-                                                                .initializeSimulationWithData(XMLData);
+                                                        if (XMLData != null)
+                                                            myMainController
+                                                                    .initializeSimulationWithData(XMLData);
                                                     }
                                                 }));
         // slider
@@ -113,17 +113,19 @@ public class UserInterface {
                                                                          Number old_val,
                                                                          Number new_val) {
                                                         myMainController
-                                                                .setSimulationSpeed((double) new_val);
+                                                                .setSimulationSpeed((double) new_val,
+                                                                                    true);
                                                     }
                                                 }));
     }
 
     /**
      * returns an integer value from the resource file given a key
+     * 
      * @param s
-     * key to find in the resource file
+     *        key to find in the resource file
      * @return
-     * integer from resource file
+     *         integer from resource file
      */
     private Integer intFromResource (String s) {
         return (int) doubleFromResource(s);
@@ -131,10 +133,11 @@ public class UserInterface {
 
     /**
      * returns a double value from the resource file given a key
+     * 
      * @param s
-     * key to find in the resource file
+     *        key to find in the resource file
      * @return
-     * double from resource file
+     *         double from resource file
      */
     private double doubleFromResource (String s) {
         return Double.parseDouble(messages.getString(s));
@@ -190,17 +193,19 @@ public class UserInterface {
 
     /**
      * add a node to the pane
+     * 
      * @param n
-     * node to add
+     *        node to add
      */
     public void addNode (Node n) {
         rootPane.getChildren().add(n);
     }
-    
+
     /**
      * remove a node from the pane
+     * 
      * @param n
-     * node to add
+     *        node to add
      */
     public void removeNode (Node n) {
         rootPane.getChildren().remove(n);
