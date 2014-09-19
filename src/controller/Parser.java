@@ -41,7 +41,7 @@ public class Parser {
 
         Document document = builder.parse(is);
 
-        List<TestCell> cellList = new ArrayList<>();
+        List<GridRows> cellList = new ArrayList<>();
 
         NodeList nodeList = document.getElementsByTagName("gridInfo");
 
@@ -77,11 +77,11 @@ public class Parser {
      *            magic number
      * 
      */
-    private static void attributeParse(List<TestCell> cellList, Node node,
+    private static void attributeParse(List<GridRows> cellList, Node node,
                                        boolean flag) {
         {
 
-            TestCell cellBlock = new TestCell();
+            GridRows cellBlock = new GridRows();
             if (flag) {
 
                 cellBlock.id = Integer.parseInt(node.getAttributes()
