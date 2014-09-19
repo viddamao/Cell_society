@@ -30,7 +30,12 @@ public class PredatorCell extends Cell {
     private enum Status{
         UPDATING, STASIS
     }
-    
+    /**
+     * Constructor
+     * @param x
+     * @param y
+     * @param state
+     */
     public PredatorCell(int x, int y, int state)
     {
         super();      
@@ -49,17 +54,28 @@ public class PredatorCell extends Cell {
             vitality = fishVitality;
         }
     }
+    
+    /**
+     * Special constructor for XML
+     */
     @Override
     public void initialize(int x, int y, int state)
     {
         super.initialize(x, y, state);
         myStatus = Status.STASIS;
     }
+    /**
+     * Eats another fish 
+     * @param destination
+     */
     public void feed(Patch destination) {
         destination.removeCell();
         this.vitality += 3;
     }
 
+    /**
+     * Sets state for updating
+     */
     public void prepareToUpdate(Patch currentPatch,
                                 ArrayList<Patch> neighbors)
     {
@@ -87,11 +103,20 @@ public class PredatorCell extends Cell {
         return current;
     }
 
+    /**
+     * Makes the move
+     * @param current patch
+     * @param destination patch
+     */
     public void makeMove(Patch current, Patch destination) {
         destination.addCell(this);
         current.removeCell();
     }
 
+    /**
+     * Breeds
+     * @param current leaves new PredatorCell on old location
+     */
     public void leaveEgg(Patch current) {
         if(myState == SHARK)
         {
@@ -122,7 +147,11 @@ public class PredatorCell extends Cell {
             return null;
     }
 
-    // Some Duplicated code in subclasses...
+    /**
+     * Processes locations to move to
+     * @param allNeighbors it can move to
+     * @return list of Patches to move to
+     */
     public  ArrayList<Patch> processPossibleDestinations(ArrayList<Patch> allNeighbors)
     {
         myNeighbors = allNeighbors;
@@ -148,7 +177,11 @@ public class PredatorCell extends Cell {
 
 
 
-    // slightly duplicated method
+    /**
+     * Updates the state and moves based on Shark vs Fish
+     * @param current patch
+     * @param destination patch
+     */
     public void updateStatesandMakeMoves(Patch current, Patch destination) {
         vitality--;
         if (timeToBreed > 0) {

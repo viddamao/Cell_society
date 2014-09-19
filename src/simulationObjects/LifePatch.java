@@ -2,7 +2,7 @@ package simulationObjects;
 
 import controller.GridManager;
 /**
- * 
+ * Patch that Simulates GameOfLife
  * @author Will Chang
  *
  */
@@ -24,7 +24,9 @@ public class LifePatch extends Patch {
     }           
     
     
-
+    /**
+     * Special rules for Game of Life
+     */
     public void processNeighborsAndUpdateState()
     {
         int adjacentCells = 0;

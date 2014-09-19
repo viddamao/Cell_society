@@ -26,6 +26,9 @@ public class Patch extends Group {
     // protected relativePosition myNorth, mySouth, myWest, myEast,
     // myNorthWest, myNorthEast, mySouthWest, mySouthEast;
 
+    /**
+     * Constructors
+     */
     public Patch() 
     {
         super();
@@ -46,9 +49,9 @@ public class Patch extends Group {
     }
     /**
      * For Special patch simulations.
-     * @param x
-     * @param y
-     * @param m
+     * @param x loc
+     * @param y loc
+     * @param m manager
      */
     public void initialize(int x, int y, GridManager m)
     {
@@ -57,10 +60,18 @@ public class Patch extends Group {
         manager = m;
         myState = State.EMPTY;
     }
+    
+    /**
+     * Returns surrounding Patches
+     */
     public void getNeighbors() {
         myNeighbors = manager.getNeighborsAround(xCoord, yCoord);
     }
 
+    /**
+     * Gets the cell
+     * @return myCell
+     */
     public Cell getCell() {
         return myCell;
     }
@@ -73,6 +84,9 @@ public class Patch extends Group {
         return yCoord;
     }
 
+    /**
+     * Sets up the update
+     */
     public void prepareToUpdate()
     {
         if (myCell != null){
@@ -80,6 +94,9 @@ public class Patch extends Group {
         }
     }
 
+    /**
+     * Updates patch and the cell
+     */
     public void update() {
         // Update this
         if (myCell != null) {
@@ -100,6 +117,10 @@ public class Patch extends Group {
         return myCell == null;
     }
 
+    /**
+     * Adds cell along with GUI info.
+     * @param cell to occupy patch
+     */
     public void addCell(Cell cell) {
         if (myCell != null){
             removeCell();

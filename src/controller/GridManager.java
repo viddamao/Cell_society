@@ -124,10 +124,15 @@ public class GridManager extends GridPane {
 	return grid[i][j];
     }
 
+    
     public int getGridWidth() {
 	return gWidth;
     }
     
+    /**
+     * Finds empty Patch
+     * @return an empty Patch
+     */
     public Patch findEmptyPatch(){
         ArrayList<Patch> emptyPatches = new ArrayList<Patch>();
         for (Patch[] row : grid) {

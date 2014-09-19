@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import controller.GridInfo;
 import javafx.scene.shape.Rectangle;
 /**
- * 
+ * Parent Class of Cell Hierarchy
  * @author Everyone
  *
  */
@@ -20,7 +20,12 @@ public abstract class Cell extends Rectangle {
 	
 
     }
-    
+    /**
+     * Special constructor for XML reads
+     * @param x
+     * @param y
+     * @param state
+     */
     public void initialize(int x, int y, int state)
     {
         this.setX(x);
@@ -44,7 +49,6 @@ public abstract class Cell extends Rectangle {
     public abstract void prepareToUpdate(Patch currentPatch,
 	    ArrayList<Patch> neighbors);
 
-    
 
     public int getGridX() {
 	return myX;
