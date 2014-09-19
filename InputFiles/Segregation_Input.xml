@@ -6,6 +6,7 @@
  	  <width>20</width>
 	  <height>20</height>
       <type>SegCell</type>
+      <patchType>Default</patchType>
  	  <adjacentType>8</adjacentType>
  	  <parameter>0.7</parameter>
    </gridInfo>
