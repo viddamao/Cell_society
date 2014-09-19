@@ -3,48 +3,107 @@
 <gridInput>
  
    <gridInfo>
- 	  <width>9</width>
-	  <height>9</height>
+ 	  <width>24</width>
+	  <height>24</height>
       <type>LifeCell</type>
       <patchType>LifePatch</patchType>
  	  <adjacentType>8</adjacentType>
    </gridInfo>
  
    <row id="00">
-     <states>0 0 0 0 0 0 0 0 0</states>   
+     <states>0 0 0 0 0 1 1 1 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0</states>   
    </row>
    
    <row id="01">
-     <states>0 0 0 0 1 0 0 0 0</states>   
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
    </row>
    
    <row id="02">
-     <states>0 0 1 0 1 0 0 0 0</states>   
+     <states>0 0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0</states>   
    </row>
    
    <row id="03">
-     <states>0 0 0 1 1 0 0 0 0</states>   
+     <states>0 0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0</states>   
    </row>
    
    <row id="04">
-     <states>0 0 0 0 0 0 0 0 0</states>   
+     <states>0 0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0</states>   
    </row>
  
    <row id="05">
-     <states>0 0 0 0 0 0 0 0 0</states>   
+     <states>0 0 0 0 0 1 1 1 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0</states>   
    </row>
    
    <row id="06">
-     <states>0 0 0 0 0 0 0 0 0</states>   
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
    </row>
    
    <row id="07">
-     <states>0 0 0 0 0 0 0 0 0</states>   
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0</states>   
    </row>
    
-   <row id="08">
-     <states>0 0 0 0 0 0 0 0 0</states>   
+  <row id="08">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0</states>   
+   </row> 
+   
+  <row id="09">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0</states>   
    </row>
 
+  <row id="10">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+    <row id="11">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+   <row id="12">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+   <row id="13">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+   <row id="14">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+   <row id="15">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+   <row id="16">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+   <row id="17">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+   <row id="18">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+   <row id="19">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+   <row id="20">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+   <row id="21">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+   <row id="22">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+   <row id="23">
+     <states>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</states>   
+   </row>
 
 </gridInput>
