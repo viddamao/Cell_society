@@ -87,7 +87,7 @@ public class MainController extends Application {
     public void initializeSimulationWithData (File XMLData) {
         try {
             @SuppressWarnings("unchecked")
-            List<TestCell> gridRows = Parser.parserXml(XMLData
+            List<GridRows> gridRows = Parser.parserXml(XMLData
                     .getAbsolutePath());
             initializeSimulationObjects(gridRows);
 
@@ -105,7 +105,7 @@ public class MainController extends Application {
      * @param gridRows
      *        list given by the parser
      */
-    private void initializeSimulationObjects (List<TestCell> gridRows) {
+    private void initializeSimulationObjects (List<GridRows> gridRows) {
         try {
             ArrayList<Patch> patchList = new ArrayList<Patch>();
             int width = infoSheet.getWidth();

@@ -1,7 +1,6 @@
 package simulationObjects;
 
 import java.util.ArrayList;
-import javax.media.j3d.View;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
