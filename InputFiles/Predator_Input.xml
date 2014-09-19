@@ -3,35 +3,47 @@
 <gridInput>
  
    <gridInfo>
- 	  <width>6</width>
-	  <height>6</height>
+ 	  <width>9</width>
+	  <height>9</height>
       <type>PredatorCell</type>
       <patchType>PredatorPatch</patchType>
  	  <adjacentType>4</adjacentType>
    </gridInfo>
  
    <row id="00">
-     <states>0 0 0 0 0 0</states>   
+     <states>0 0 1 0 0 0 1 0 0</states>   
    </row>
    
    <row id="01">
-     <states>0 0 0 0 0 0</states>   
+     <states>0 0 0 0 1 1 0 0 0</states>   
    </row>
    
    <row id="02">
-     <states>0 0 2 1 0 0</states>   
+     <states>0 0 1 2 1 0 0 1 0</states>   
    </row>
    
    <row id="03">
-     <states>0 0 1 1 0 0</states>   
+     <states>0 0 0 1 1 0 1 0 0</states>   
    </row>
    
    <row id="04">
-     <states>0 0 0 0 0 0</states>   
+     <states>0 0 0 0 2 1 0 0 0</states>   
    </row>
  
    <row id="05">
-     <states>0 0 0 0 0 0</states>   
+     <states>0 0 0 0 1 0 0 0 0</states>   
+   </row>
+   
+   <row id="06">
+     <states>0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+   <row id="07">
+     <states>0 0 0 0 0 0 0 0 0</states>   
+   </row>
+   
+   <row id="08">
+     <states>0 0 0 0 0 0 0 0 0</states>   
    </row>
 
 

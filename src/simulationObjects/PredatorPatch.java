@@ -1,7 +1,5 @@
 package simulationObjects;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import controller.GridManager;
 /**
  * 
@@ -16,10 +14,6 @@ public class PredatorPatch extends Patch {
     }
     public PredatorPatch (int x, int y, GridManager m) {
         super(x, y, m);
-        /*  image = new Image(getClass().getResourceAsStream("/src/Images/WaTorPatch.png));
-        myView = new ImageView();
-        myView.setImage(image);
-        getChildren().add(myView);*/
     }
     
     @Override
@@ -27,10 +21,7 @@ public class PredatorPatch extends Patch {
     {
         
         super.initialize(x, y, m);
-        /*image = new Image(getClass().getResourceAsStream("/Images/WaTorPatch.png"));
-        myView = new ImageView();
-        myView.setImage(image);
-        getChildren().add(myView);*/
+        
         
     }
 }

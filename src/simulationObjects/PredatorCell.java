@@ -11,11 +11,13 @@ public class PredatorCell extends Cell {
     // This is it's pregnancylevel
 
     protected int vitality = 5;
-    protected int timeToBreed = 20;
-    protected final int maxVitality = 5;
-    protected int gestationPeriod = 20;
+    protected int timeToBreed = 4;
+    protected final int sharkVitality = 3;
+    protected final int fishVitality = 8;
+    protected int gestationPeriod = 4;
     private final int FISH = 1;
     private final int SHARK = 2;
+    private Status myStatus;
     
     protected ArrayList<Patch> myNeighbors = new ArrayList<>();
     
@@ -24,7 +26,11 @@ public class PredatorCell extends Cell {
         super();
     }
 
-
+    
+    private enum Status{
+        UPDATING, STASIS
+    }
+    
     public PredatorCell(int x, int y, int state)
     {
         super();      
@@ -33,10 +39,21 @@ public class PredatorCell extends Cell {
         myState = state;
 
         if(state == SHARK)
+        {
             setFill(Color.YELLOW);
+            vitality = sharkVitality;
+        }
         else if(state == FISH)
+        {
             setFill(Color.GREEN);
-
+            vitality = fishVitality;
+        }
+    }
+    @Override
+    public void initialize(int x, int y, int state)
+    {
+        super.initialize(x, y, state);
+        myStatus = Status.STASIS;
     }
     public void feed(Patch destination) {
         destination.removeCell();
@@ -46,7 +63,7 @@ public class PredatorCell extends Cell {
     public void prepareToUpdate(Patch currentPatch,
                                 ArrayList<Patch> neighbors)
     {
-
+        myStatus = Status.UPDATING;
     }
 
     /**
@@ -57,12 +74,17 @@ public class PredatorCell extends Cell {
      */
     @Override
     public Patch update(Patch current, ArrayList<Patch> neighbors) {
-        if (vitality > 0) {
-            Patch destination = chooseMove(neighbors);
-            this.updateStatesandMakeMoves(current, destination);
-            return current;
+        if(myStatus == Status.UPDATING)
+        {
+            if (vitality > 0) {
+                Patch destination = chooseMove(neighbors);
+                this.updateStatesandMakeMoves(current, destination);
+                myStatus = Status.STASIS;
+                return current;
+            }
+            return null;
         }
-        return null;
+        return current;
     }
 
     public void makeMove(Patch current, Patch destination) {
