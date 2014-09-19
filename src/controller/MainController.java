@@ -69,7 +69,7 @@ public class MainController extends Application {
         animation.setCycleCount(Timeline.INDEFINITE);
         animation.getKeyFrames().clear();
         animation.getKeyFrames().add(frame);
-        animation.play();
+        //animation.play();
     }
 
     /**
@@ -119,14 +119,18 @@ public class MainController extends Application {
                     int state = Integer.parseInt(currentRow[i]);
                     cell.setState(state);
                     Patch currentPatch;
-                    //TEMP WILL REFACTOR
-                    if(infoSheet.getCellType().equals("LifeCell")){
-                        currentPatch = new LifePatch(i, j, gridManager);
+                    if(infoSheet.getPatchType().equals("Default")){
+                        currentPatch = new Patch(i, j, gridManager);
                     }
                     else
                     {
-                        currentPatch = new Patch(i, j, gridManager);
+                        String patchPathAndName = messages.getString("cell_bundle")
+                                + "." + infoSheet.getPatchType();
+                        Class<?> patchClass = Class.forName(patchPathAndName);
+                        currentPatch = (Patch) patchClass.newInstance();
+                        currentPatch.initialize(i, j, gridManager);
                     }
+                    
                     // add the patch to grid manager
                     gridManager.addPatchAtPoint(currentPatch);
                     // assign the cell to the patch

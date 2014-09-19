@@ -3,8 +3,6 @@ package controller;
 import java.util.ArrayList;
 import java.util.Random;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.TilePane;
-import simulationObjects.ForestCell;
 import simulationObjects.Patch;
 /**
  * Manages grid properties and contents
@@ -45,7 +43,6 @@ public class GridManager extends GridPane {
     public void step() {
 	for (Patch[] row : grid) {
 	    for (Patch p : row) {
-	        
 		p.prepareToUpdate();
 	   }
 	}

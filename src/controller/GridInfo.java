@@ -1,7 +1,5 @@
 package controller;
 
-import java.util.ArrayList;
-
 /**
  * 
  * 
@@ -14,6 +12,7 @@ public class GridInfo {
     private static int myWidth;
     private static int myHeight;
     private static String myType;
+    private static String myPatchType;
     private static int myAdjacentType;
     private static double myParameter;
     
@@ -31,7 +30,10 @@ public class GridInfo {
 
     }
     
-   
+    public void setPatchType(String type) {
+        myPatchType = type;
+
+    }
   
     
     public void setAdjacent(int adjacent) {
@@ -53,6 +55,11 @@ public class GridInfo {
 
     public String getCellType() {
 	return myType;
+    }
+    
+    public String getPatchType() {
+        return myPatchType;
+
     }
 
     public double getParam() {
