@@ -3,6 +3,12 @@ package simulationObjects;
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
 
+/**
+ * Cell for the segregation simulation
+ * 
+ * @author Davis Gossage
+ *
+ */
 
 public class SegCell extends Cell {
 
@@ -14,7 +20,10 @@ public class SegCell extends Cell {
     public SegCell() {
 	super();
     }
-
+    
+    /**
+     * make changes to the cells position, if needed
+     */
     @Override
     public Patch update(Patch currentPatch, ArrayList<Patch> neighbors) {
 	if (isSatisfied(currentPatch,neighbors)){
@@ -26,6 +35,16 @@ public class SegCell extends Cell {
 	}
     }
     
+    /**
+     * Determines whether the cell is satisfied given its neighbors
+     * 
+     * @param currentPatch
+     * the patch the cell is in
+     * @param neighbors
+     * the neighbors of the cell's patch
+     * @return
+     * satisfied or not
+     */
     private boolean isSatisfied(Patch currentPatch, ArrayList<Patch> neighbors){
         double satisfiedCount = 0;
         double dissatisfiedCount = 0;
@@ -62,6 +81,9 @@ public class SegCell extends Cell {
 	myState = state;
     }
 
+    /**
+     * this simulation does not require the inherited prepare to update method
+     */
     public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
         return;
     }
