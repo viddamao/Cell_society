@@ -6,6 +6,7 @@
  	  <width>15</width>
 	  <height>15</height>
       <type>ForestCell</type>
+      <patchType>Default</patchType>
  	  <adjacentType>4</adjacentType>
  	  <parameter>0.7</parameter>
    </gridInfo>
