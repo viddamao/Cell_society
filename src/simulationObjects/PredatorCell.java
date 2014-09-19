@@ -16,10 +16,9 @@ public class PredatorCell extends Cell {
     protected int gestationPeriod = 20;
     private final int FISH = 1;
     private final int SHARK = 2;
-    // Put in constructor?
+    
     protected ArrayList<Patch> myNeighbors = new ArrayList<>();
-    // Birthmark
-    private int maxState = 9;
+    
 
     public PredatorCell() {
         super();

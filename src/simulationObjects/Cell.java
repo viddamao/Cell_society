@@ -2,7 +2,6 @@ package simulationObjects;
 
 import java.util.ArrayList;
 import controller.GridInfo;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 /**
  * 
@@ -21,7 +20,14 @@ public abstract class Cell extends Rectangle {
 	
 
     }
-
+    
+    public void initialize(int x, int y, int state)
+    {
+        this.setX(x);
+        this.setY(y);
+        this.setState(state);
+    }
+    
     // modified the order for processing 4 directions
     public enum relativePosition {
 	NORTH, SOUTH, EAST, WEST, SOUTHEAST, NORTHEAST, SOUTHWEST, NORTHWEST
