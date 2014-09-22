@@ -83,6 +83,18 @@ public class UserInterface {
                                                     }
                                                 }));
         rootPane.getChildren().add(
+                createButton(messages.getString("color_button_title"),
+                             intFromResource("color_button_x"),
+                             intFromResource("color_button_y"),
+                             new EventHandler<ActionEvent>() {
+                                 @Override
+                                 public void handle (ActionEvent event) {
+                                    ColorPicker colorPicker=new ColorPicker();
+                                    colorPicker.showColorPicker();
+                                     
+                                 }
+                             }));
+        rootPane.getChildren().add(
                                    createButton(messages.getString("file_button_title"),
                                                 intFromResource("file_button_x"),
                                                 intFromResource("file_button_y"),
