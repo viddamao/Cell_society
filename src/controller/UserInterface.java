@@ -3,6 +3,7 @@
 import java.io.File;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import com.apple.laf.AquaButtonBorder.Toggle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -10,7 +11,9 @@ import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -24,12 +27,13 @@ import javafx.stage.Stage;
 
 public class UserInterface {
     private MainController myMainController;
+    private GridManager myManager;
     private Pane rootPane;
     private Stage myStage;
     private static ResourceBundle messages;
     public final int GRID_WIDTH = 500;
     public final int GRID_HEIGHT = 500;
-    private final int PANEL_HEIGHT = 40;
+    private final int PANEL_HEIGHT = 80;
 
     public UserInterface(Stage s, MainController mainController) {
 	messages = ResourceBundle.getBundle("messages", Locale.US);
@@ -111,6 +115,51 @@ public class UserInterface {
 					    .initializeSimulationWithData(XMLData);
 			    }
 			}));
+
+	//radiobuttons
+	final ToggleGroup edgeGroup = new ToggleGroup();
+	rootPane.getChildren().add(
+                createRadioButton(messages.getString("radio_button3_title"),
+                                  intFromResource("radio_button3_x"),
+                                  intFromResource("radio_button3_y"),
+                                  edgeGroup,
+                                  new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            if(myMainController.gridManager!=null)
+                            {
+                                myMainController.gridManager.setAndUpdateMode(2);
+                            } 
+                        }
+                }));
+	rootPane.getChildren().add(
+                createRadioButton(messages.getString("radio_button2_title"),
+                                  intFromResource("radio_button2_x"),
+                                  intFromResource("radio_button2_y"),
+                                  edgeGroup,
+                                  new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            if(myMainController.gridManager!=null)
+                            {
+                                myMainController.gridManager.setAndUpdateMode(1);
+                            } 
+                        }
+                }));
+        rootPane.getChildren().add(
+                createRadioButton(messages.getString("radio_button1_title"),
+                                  intFromResource("radio_button1_x"),
+                                  intFromResource("radio_button1_y"),
+                                  edgeGroup,
+                                  new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            if(myMainController.gridManager!=null)
+                            {
+                                myMainController.gridManager.setAndUpdateMode(0);
+                            } 
+                        }
+                }));
 	// slider
 	rootPane.getChildren().add(
 		createSlider(intFromResource("slider_min"),
@@ -171,6 +220,30 @@ public class UserInterface {
 	button.setOnAction(handler);
 	return button;
     }
+    
+    /**
+     * create a radiobutton
+     * 
+     * @param title
+     *            title of the button
+     * @param posX
+     *            x position of button
+     * @param posY
+     *            y position of button
+     * @param handler
+     *            action handler
+     * @return the button
+     */
+    private RadioButton createRadioButton(String title, int posX, int posY,ToggleGroup group,
+            EventHandler<ActionEvent> handler) {
+        RadioButton radioButton = new RadioButton(title);
+        radioButton.setToggleGroup(group);
+        radioButton.setSelected(true);
+        radioButton.setLayoutX(posX);
+        radioButton.setLayoutY(posY);
+        radioButton.setOnAction(handler);
+        return radioButton;
+    }
 
     /**
      * create a slider
@@ -224,5 +297,10 @@ public class UserInterface {
     public Pane getRootPane() {
 	return rootPane;
     }
+    public void reset(){
+        rootPane.getChildren().clear();
+        this.makeBottomPanel();
+    }
+    
 
 }
