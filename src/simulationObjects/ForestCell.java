@@ -27,6 +27,9 @@ public class ForestCell extends Cell {
 	    
 	case ONFIRE:
 	    burnDown(currentPatch);
+	    break;
+	case EMPTY:
+	    this.setState(EMPTY);
 	}
 	return currentPatch;
     }
