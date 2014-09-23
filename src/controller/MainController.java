@@ -7,6 +7,7 @@ import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
@@ -199,6 +200,16 @@ public class MainController extends Application {
         gridManager.setMinWidth(userInterface.GRID_WIDTH);
         gridManager.setPrefSize(width, height);
         userInterface.addNode(gridManager);
+        gridManager.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                toggleCellStateForMouseEvent(mouseEvent);
+            }
+        });
+    }
+    
+    private void toggleCellStateForMouseEvent(MouseEvent mouseEvent){
+        System.out.println(gridManager.getPatchAtCoordinate((int)mouseEvent.getSceneX(), (int)mouseEvent.getSceneY()));
     }
 
     /**

@@ -120,8 +120,33 @@ public class GridManager extends GridPane {
 		|| yCoord < 0;
     }
 
+    /**
+     * get patch in our grid system
+     * 
+     * @param i
+     * @param j
+     * @return
+     */
     public Patch getPatchAtPoint(int i, int j) {
 	return grid[i][j];
+    }
+    
+    /**
+     * get patch given a scene coordinate
+     * 
+     * @param i
+     * @param j
+     * @return
+     */
+    public Patch getPatchAtCoordinate(int i, int j){
+        for (Patch[] row : grid) {
+            for (Patch p : row) {
+                if (p.getBoundsInParent().contains(i, j)){
+                    return p;
+                }
+            }
+        }
+        return null;
     }
 
     public int getGridWidth() {
