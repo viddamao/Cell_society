@@ -1,5 +1,10 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import javafx.scene.paint.Color;
+
 /**
  * 
  * 
@@ -15,7 +20,8 @@ public class GridInfo {
     private static String myPatchType;
     private static int myAdjacentType;
     private static double myParameter;
-    
+    private static HashMap<String, Color> stateColors = new HashMap<String, Color>();
+    private static ArrayList<String> myStateTypes;
 
     public void setWidth(int width) {
 	myWidth = width;
@@ -29,13 +35,12 @@ public class GridInfo {
 	myType = type;
 
     }
-    
+
     public void setPatchType(String type) {
-        myPatchType = type;
+	myPatchType = type;
 
     }
-  
-    
+
     public void setAdjacent(int adjacent) {
 	myAdjacentType = adjacent;
 
@@ -56,9 +61,9 @@ public class GridInfo {
     public String getCellType() {
 	return myType;
     }
-    
+
     public String getPatchType() {
-        return myPatchType;
+	return myPatchType;
 
     }
 
@@ -68,6 +73,22 @@ public class GridInfo {
 
     public int getAdjacentType() {
 	return myAdjacentType;
+    }
+
+    public void setColor(String stateType, Color myColor) {
+	stateColors.put(stateType, myColor);
+    }
+
+    public Color getColor(String stateType) {
+	return stateColors.get(stateType);
+    }
+
+    public void setStateTypes(ArrayList<String> stateTypes) {
+	myStateTypes = stateTypes;
+    }
+
+    public ArrayList<String> getStateTypes() {
+	return myStateTypes;
     }
 
 }
