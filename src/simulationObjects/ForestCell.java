@@ -16,7 +16,7 @@ public class ForestCell extends Cell {
     }
 
     @Override
-    public Patch update(Patch currentPatch, ArrayList<Patch> neighbors) {
+    public void update(Patch currentPatch, ArrayList<Patch> neighbors) {
 	switch (myState) {
 	case TREE:
 
@@ -26,7 +26,6 @@ public class ForestCell extends Cell {
 	case ONFIRE:
 	    burnDown(currentPatch);
 	}
-	return currentPatch;
     }
 
     private void burnDown(Patch currentPatch) {

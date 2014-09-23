@@ -22,9 +22,7 @@ public class Patch extends Group {
 
     private int myPreviousCellState;
 
-    // protected relativePosition myNorth, mySouth, myWest, myEast,
-    // myNorthWest, myNorthEast, mySouthWest, mySouthEast;
-
+    private int REMOVE_ME = 0;
     /**
      * Constructors
      */
@@ -99,8 +97,9 @@ public class Patch extends Group {
     public void update() {
         // Update this
         if (myCell != null) {
-            Patch status = myCell.update(this, myNeighbors);
-            if (status == null) {
+            myCell.update(this, myNeighbors);
+            //TODO put 0 into the GridInfo/GameInfo
+            if (myCell!= null && myCell.getState() == 0) {
                 this.removeCell();
             }
         }

@@ -13,6 +13,7 @@ import javafx.scene.paint.Color;
 
 public class SegCell extends Cell {
 
+    //TODO Make this read in from the XML and/or put into the constructor
     final private int BLUE = 1;
     final private int RED = 2;
 
@@ -24,14 +25,11 @@ public class SegCell extends Cell {
      * make changes to the cells position, if needed
      */
     @Override
-    public Patch update (Patch currentPatch, ArrayList<Patch> neighbors) {
-        if (isSatisfied(currentPatch, neighbors)) {
-            return currentPatch;
-        }
-        else {
+    public void update (Patch currentPatch, ArrayList<Patch> neighbors) {
+        if (!isSatisfied(currentPatch, neighbors)) {
             currentPatch.randomEmptyPatch().addCell(this);
-            ;
-            return null;
+            //TODO make this part of gridinfo/gameinfo
+            this.setState(0);
         }
     }
 

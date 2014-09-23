@@ -17,18 +17,19 @@ public class PredatorCell extends Cell {
     protected int gestationPeriod = 4;
     private final int FISH = 1;
     private final int SHARK = 2;
-    private Status myStatus;
+    
+    private final int DYING = 0;
+    
+    private Phase myPhase;
     
     protected ArrayList<Patch> myNeighbors = new ArrayList<>();
     
+    private enum Phase{
+        UPDATING, STASIS
+    }
 
     public PredatorCell() {
         super();
-    }
-
-    
-    private enum Status{
-        UPDATING, STASIS
     }
     /**
      * Constructor
@@ -62,7 +63,7 @@ public class PredatorCell extends Cell {
     public void initialize(int x, int y, int state)
     {
         super.initialize(x, y, state);
-        myStatus = Status.STASIS;
+        myPhase = Phase.STASIS;
     }
     /**
      * Eats another fish 
@@ -79,7 +80,7 @@ public class PredatorCell extends Cell {
     public void prepareToUpdate(Patch currentPatch,
                                 ArrayList<Patch> neighbors)
     {
-        myStatus = Status.UPDATING;
+        myPhase = Phase.UPDATING;
     }
 
     /**
@@ -89,18 +90,18 @@ public class PredatorCell extends Cell {
      * null if the shark cell's vitality = 0
      */
     @Override
-    public Patch update(Patch current, ArrayList<Patch> neighbors) {
-        if(myStatus == Status.UPDATING)
-        {
+    public void update(Patch current, ArrayList<Patch> neighbors) {
+        if(myPhase == Phase.UPDATING){
             if (vitality > 0) {
                 Patch destination = chooseMove(neighbors);
                 this.updateStatesandMakeMoves(current, destination);
-                myStatus = Status.STASIS;
-                return current;
+                myPhase = Phase.STASIS;
             }
-            return null;
+            else
+            {
+                this.setState(DYING);
+            }
         }
-        return current;
     }
 
     /**
@@ -210,7 +211,7 @@ public class PredatorCell extends Cell {
         {
             setFill(Color.YELLOW);
         }
-        else
+        if(state == FISH)
         {
             setFill(Color.GREEN);
         }
