@@ -209,7 +209,10 @@ public class MainController extends Application {
     }
     
     private void toggleCellStateForMouseEvent(MouseEvent mouseEvent){
-        System.out.println(gridManager.getPatchAtCoordinate((int)mouseEvent.getSceneX(), (int)mouseEvent.getSceneY()));
+        Patch selectedPatch = gridManager.getPatchAtCoordinate((int)mouseEvent.getSceneX(), (int)mouseEvent.getSceneY());
+        if (selectedPatch != null){
+            System.out.println(selectedPatch);
+        }
     }
 
     /**

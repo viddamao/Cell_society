@@ -5,6 +5,8 @@ import javax.media.j3d.View;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import controller.GridManager;
 /**
  * 
@@ -29,6 +31,7 @@ public class Patch extends Group {
     public Patch() 
     {
         super();
+        
     }
     
     public Patch(int x, int y, GridManager m) {
@@ -38,6 +41,12 @@ public class Patch extends Group {
         manager = m;
         myState = State.EMPTY;
 
+        //add a placeholder rectangle
+        Rectangle r = new Rectangle();
+        r.setHeight(manager.getRowConstraints().get(0).getPrefHeight());
+        r.setWidth(manager.getColumnConstraints().get(0).getPrefWidth());
+        r.setFill(new Color(0f,0f,0f,.0f));
+        getChildren().add(r);
     }
 
     
