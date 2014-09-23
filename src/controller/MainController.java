@@ -28,7 +28,7 @@ public class MainController extends Application {
     private UserInterface userInterface;
     private static ResourceBundle messages;
     private Timeline animation;
-    private GridManager gridManager;
+    protected GridManager gridManager;
     private GridInfo infoSheet = new GridInfo();
 
     public static void main(String[] args) throws Exception {
@@ -85,7 +85,12 @@ public class MainController extends Application {
      *            data to parse
      */
     public void initializeSimulationWithData(File XMLData) {
-	try {
+        
+        //reinitializes everything
+        userInterface.reset();
+        this.stopSimulation();
+        
+        try {
 	    @SuppressWarnings("unchecked")
 	    List<GridRows> gridRows = Parser.parserXml(XMLData
 		    .getAbsolutePath());
@@ -149,6 +154,7 @@ public class MainController extends Application {
 
 	    }
 	    // now that we have all the patches, assign neighbors to each one
+	    //TODO Gridmanager has a method for this...
 	    for (Patch p : patchList) {
 		p.getNeighbors();
 	    }
