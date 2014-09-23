@@ -73,11 +73,7 @@ public class GridManager extends Pane {
     }
 
     private void addPatchToGrid (Patch patch, int gridX, int gridY) {
-        int patchHeight = (int)this.getMinHeight()/gHeight;
-        int patchWidth = (int)this.getMinWidth()/gWidth;
-        patch.setLayoutX(patchWidth*gridX);
-        patch.setLayoutY(patchHeight*gridY);
-        patch.createPlaceholderRect(patchHeight, patchWidth);
+        patch.createPlaceholderRect();
         this.getChildren().add(patch);
     }
 
@@ -162,6 +158,10 @@ public class GridManager extends Pane {
 
     public int getGridWidth() {
 	return gWidth;
+    }
+    
+    public int getGridHeight() {
+        return gHeight;
     }
 
     /**

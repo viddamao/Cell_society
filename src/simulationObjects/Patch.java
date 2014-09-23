@@ -5,6 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import controller.GridManager;
 
@@ -22,9 +23,14 @@ public class Patch extends Group {
     protected Image image;
     protected ImageView myView;
     protected State myState;
-    protected Rectangle myBody;
+    protected Polygon myBody;
 
     private int myPreviousCellState;
+    
+    private int patchHeight;
+    private int patchWidth;
+    private int startX;
+    private int startY;
 
     private int REMOVE_ME = 0;
     /**
@@ -43,11 +49,23 @@ public class Patch extends Group {
 
     }
     
-    public void createPlaceholderRect(int height, int width){
+    public void createPlaceholderRect(){
         //add a placeholder rectangle
-        myBody = new Rectangle();
-        myBody.setHeight(height);
-        myBody.setWidth(width);
+        myBody = new Polygon();
+        patchHeight = (int) (manager.getMinHeight()/manager.getGridHeight());
+        patchWidth = (int) (manager.getMinWidth()/manager.getGridWidth());
+        startX = patchWidth*xCoord;
+        startY = patchHeight*yCoord;
+        double x1 = startX;
+        double y1 = startY;
+        double x2 = startX + patchWidth;
+        double y2 = startY;
+        double x3 = startX + patchWidth;
+        double y3 = startY + patchHeight;
+        double x4 = startX;
+        double y4 = startY + patchHeight;
+        Double[] myPts = new Double[]{x1,y1,x2,y2,x3,y3,x4,y4};
+        myBody.getPoints().addAll(myPts);
         myBody.setFill(new Color(0f,0f,0f,.0f));
         myBody.setStrokeWidth(.5);
         myBody.setStroke(Color.BLACK);
@@ -142,8 +160,10 @@ public class Patch extends Group {
 	if (myCell != null) {
 	    removeCell();
 	}
-	cell.setHeight(myBody.getHeight());
-	cell.setWidth(myBody.getWidth());
+	cell.setHeight(patchHeight);
+	cell.setWidth(patchWidth);
+	cell.setLayoutX(startX);
+	cell.setLayoutY(startY);
 	cell.setArcHeight(cell.getHeight());
 	cell.setArcWidth(cell.getWidth());
 	getChildren().add(cell);
