@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Polygon;
-import javafx.scene.shape.Rectangle;
 import controller.GridManager;
 
 /**
@@ -47,7 +44,7 @@ public class Patch extends Group {
     public void createBody(){
         int patchHeight = (int) (manager.getMinHeight()/manager.getGridHeight());
         int patchWidth = (int) (manager.getMinWidth()/manager.getGridWidth());
-        myBody = new PatchBody(xCoord,yCoord,patchHeight,patchWidth);
+        myBody = new PatchBodyRectangle(xCoord,yCoord,patchHeight,patchWidth);
         getChildren().add(myBody);
     }
 
