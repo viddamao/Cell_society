@@ -20,7 +20,7 @@ import javafx.stage.Stage;
  */
 public class ColorPicker extends javafx.scene.control.ColorPicker {
     private GridInfo infoSheet = new GridInfo();
- 
+
     public void showColorPicker() {
 	Stage myStage = new Stage();
 	myStage.setResizable(false);
@@ -33,7 +33,7 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
 	gridpane.getRowConstraints().add(new RowConstraints(40));
 
 	Scene scene = new Scene(gridpane, 350, 120);
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < infoSheet.getStateTypes().size(); i++) {
 	    gridpane = buildColorPickerMenu(i, gridpane);
 
 	}
@@ -47,17 +47,19 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
 	final ColorPicker colorPicker = new ColorPicker();
 	colorPicker.setValue(Color.RED);
 
-	final Text text = new Text("ONFIRE");
+	final Text text = new Text(infoSheet.getStateTypes().get(index));
 	text.setFont(Font.font("Verdana", 20));
-	text.setFill(colorPicker.getValue());
-
+	String stateType = text.getText();
+	Color myColor = infoSheet.getColor(stateType);
+	text.setFill(myColor);
+	
 	colorPicker.setOnAction(new EventHandler() {
 	    @Override
 	    public void handle(Event t) {
+		
 		Color myColor = colorPicker.getValue();
 		text.setFill(myColor);
-		String stateType = text.getText();
-		//infoSheet.setColor(stateType, myColor);
+		infoSheet.setColor(stateType, myColor);
 	    }
 	});
 

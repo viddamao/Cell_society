@@ -1,15 +1,19 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+
 import controller.GridInfo;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+
 /**
  * Parent Class of Cell Hierarchy
+ * 
  * @author Everyone
  *
  */
 public abstract class Cell extends Rectangle {
-    
+
     protected GridInfo infoSheet = new GridInfo();
 
     protected int myX;
@@ -17,23 +21,22 @@ public abstract class Cell extends Rectangle {
     protected int myState;
 
     public Cell() {
-	
 
     }
+
     /**
      * Special constructor for XML reads
+     * 
      * @param x
      * @param y
      * @param state
      */
-    public void initialize(int x, int y, int state)
-    {
-        this.setX(x);
-        this.setY(y);
-        this.setState(state);
+    public void initialize(int x, int y, int state) {
+	this.setX(x);
+	this.setY(y);
+	this.setState(state);
     }
-    
-    //deprecated...
+
     // modified the order for processing 4 directions
     public enum relativePosition {
 	NORTH, SOUTH, EAST, WEST, SOUTHEAST, NORTHEAST, SOUTHWEST, NORTHWEST
@@ -50,7 +53,6 @@ public abstract class Cell extends Rectangle {
     public abstract void prepareToUpdate(Patch currentPatch,
 	    ArrayList<Patch> neighbors);
 
-
     public int getGridX() {
 	return myX;
     }
@@ -66,5 +68,9 @@ public abstract class Cell extends Rectangle {
     public void setY(int y) {
 	myY = y;
     }
+
+    public abstract ArrayList<String> getStateTypes();
+
+    public abstract ArrayList<Color> getInitialColors();
 
 }

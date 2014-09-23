@@ -1,8 +1,8 @@
 package simulationObjects;
 
 import java.util.ArrayList;
-import javafx.scene.paint.Color;
 
+import javafx.scene.paint.Color;
 
 /**
  * Cell for the segregation simulation
@@ -13,12 +13,11 @@ import javafx.scene.paint.Color;
 
 public class SegCell extends Cell {
 
-    //TODO Make this read in from the XML and/or put into the constructor
-    final private int BLUE = 1;
-    final private int RED = 2;
+    final private int STATE_X = 1;
+    final private int STATE_O = 2;
 
-    public SegCell () {
-        super();
+    public SegCell() {
+	super();
     }
 
     /**
@@ -37,54 +36,68 @@ public class SegCell extends Cell {
      * Determines whether the cell is satisfied given its neighbors
      * 
      * @param currentPatch
-     *        the patch the cell is in
+     *            the patch the cell is in
      * @param neighbors
-     *        the neighbors of the cell's patch
-     * @return
-     *         satisfied or not
+     *            the neighbors of the cell's patch
+     * @return satisfied or not
      */
-    private boolean isSatisfied (Patch currentPatch, ArrayList<Patch> neighbors) {
-        double satisfiedCount = 0;
-        double dissatisfiedCount = 0;
-        for (Patch p : neighbors) {
-            if (p.getCell() != null) {
-                if (p.getCell().getState() == myState) {
-                    satisfiedCount++;
-                }
-                else {
-                    dissatisfiedCount++;
-                }
-            }
-        }
-        if (satisfiedCount + dissatisfiedCount > 0) {
-            return satisfiedCount / (satisfiedCount + dissatisfiedCount) > infoSheet.getParam();
-        }
-        else {
-            return false;
-        }
+    private boolean isSatisfied(Patch currentPatch, ArrayList<Patch> neighbors) {
+	double satisfiedCount = 0;
+	double dissatisfiedCount = 0;
+	currentPatch.myCell.setState(myState);
+	for (Patch p : neighbors) {
+	    if (p.getCell() != null) {
+		if (p.getCell().getState() == myState) {
+		    satisfiedCount++;
+		} else {
+		    dissatisfiedCount++;
+		}
+	    }
+	}
+	if (satisfiedCount + dissatisfiedCount > 0) {
+	    return satisfiedCount / (satisfiedCount + dissatisfiedCount) > infoSheet
+		    .getParam();
+	} else {
+	    return false;
+	}
     }
 
     @Override
-    public int getState () {
-        return myState;
+    public int getState() {
+	return myState;
     }
 
     @Override
-    public void setState (int state) {
-        if (state == RED) {
-            setFill(Color.RED);
-        }
-        else if (state == BLUE) {
-            setFill(Color.BLUE);
-        }
-        myState = state;
+    public void setState(int state) {
+	if (state == STATE_X) {
+	    setFill(infoSheet.getColor("X"));
+	} else if (state == STATE_O) {
+	    setFill(infoSheet.getColor("O"));
+	}
+	myState = state;
     }
 
     /**
      * this simulation does not require the inherited prepare to update method
      */
-    public void prepareToUpdate (Patch currentPatch, ArrayList<Patch> neighbors) {
-        return;
+    public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
+	return;
+    }
+
+    @Override
+    public ArrayList<String> getStateTypes() {
+	ArrayList<String> myStateType = new ArrayList<String>();
+	myStateType.add("X");
+	myStateType.add("O");
+	return myStateType;
+    }
+
+    @Override
+    public ArrayList<Color> getInitialColors() {
+	ArrayList<Color> myStateColors = new ArrayList<Color>();
+	myStateColors.add(Color.RED);
+	myStateColors.add(Color.BLUE);
+	return myStateColors;
     }
 
 }

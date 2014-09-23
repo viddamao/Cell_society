@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Random;
 import javafx.scene.layout.GridPane;
 import simulationObjects.Patch;
+
 /**
  * Manages grid properties and contents
+ * 
  * @author Will Chang
  * 
  */
@@ -44,7 +46,7 @@ public class GridManager extends GridPane {
 	for (Patch[] row : grid) {
 	    for (Patch p : row) {
 		p.prepareToUpdate();
-	   }
+	    }
 	}
 
 	for (Patch[] row : grid) {
@@ -96,12 +98,12 @@ public class GridManager extends GridPane {
 	for (int i = 0; i < infoSheet.getAdjacentType(); i++) {
 	    int nextX = xCoord + xDelta[i];
 	    int nextY = yCoord + yDelta[i];
-	    
+
 	    if (!isOutOfBounds(nextX, nextY)) {
 		neighbors.add(grid[nextX][nextY]);
-	    
+
 	    }
-	   
+
 	}
 	return neighbors;
     }
@@ -124,31 +126,30 @@ public class GridManager extends GridPane {
 	return grid[i][j];
     }
 
-    
     public int getGridWidth() {
 	return gWidth;
     }
-    
+
     /**
      * Finds empty Patch
+     * 
      * @return an empty Patch
      */
-    public Patch findEmptyPatch(){
-        ArrayList<Patch> emptyPatches = new ArrayList<Patch>();
-        for (Patch[] row : grid) {
-            for (Patch p : row) {
-                if (p.getCell() == null){
-                    emptyPatches.add(p);
-                }
-            }
-        }
-        if (emptyPatches.size() == 0){
-            return null;
-        }
-        else{
-            int random = new Random().nextInt(emptyPatches.size());
-            return emptyPatches.get(random);
-        }
+    public Patch findEmptyPatch() {
+	ArrayList<Patch> emptyPatches = new ArrayList<Patch>();
+	for (Patch[] row : grid) {
+	    for (Patch p : row) {
+		if (p.getCell() == null) {
+		    emptyPatches.add(p);
+		}
+	    }
+	}
+	if (emptyPatches.size() == 0) {
+	    return null;
+	} else {
+	    int random = new Random().nextInt(emptyPatches.size());
+	    return emptyPatches.get(random);
+	}
     }
 
 }
