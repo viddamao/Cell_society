@@ -1,6 +1,7 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javafx.scene.paint.Color;
 
@@ -9,6 +10,7 @@ public class ForestCell extends Cell {
     final private int EMPTY = 0;
     final private int ONFIRE = 1;
     final private int TREE = 2;
+    public static HashMap<Integer, Integer> cellTypeNumber = new HashMap<Integer, Integer>();
 
     public ForestCell() {
 	super();
@@ -21,10 +23,12 @@ public class ForestCell extends Cell {
 
 	    if (willCatchFire(neighbors))
 		catchFire(currentPatch);
-	    else
+	    else {
+		subtractOne(cellTypeNumber,TREE);
 		this.setState(TREE);
+	    }
 	    break;
-	    
+
 	case ONFIRE:
 	    burnDown(currentPatch);
 	    break;
@@ -33,10 +37,13 @@ public class ForestCell extends Cell {
 
     private void burnDown(Patch currentPatch) {
 	this.setState(EMPTY);
+	subtractOne(cellTypeNumber,ONFIRE);
+
     }
 
     public void catchFire(Patch currentPatch) {
 	this.setState(ONFIRE);
+	subtractOne(cellTypeNumber,TREE);
     }
 
     @Override
@@ -46,11 +53,18 @@ public class ForestCell extends Cell {
 
     @Override
     public void setState(int state) {
-	if (state ==  ONFIRE) {
+	if (state == ONFIRE) {
 	    setFill(infoSheet.getColor("ONFIRE"));
+	    addOne(cellTypeNumber,ONFIRE);
 	} else if (state == TREE) {
 	    setFill(infoSheet.getColor("TREE"));
+	    addOne(cellTypeNumber,TREE);
 	}
+	
+	System.out.print(cellTypeNumber.get(TREE));
+	System.out.print(" ");
+	System.out.print(cellTypeNumber.get(ONFIRE));
+	System.out.println();
 	myState = state;
     }
 
@@ -86,4 +100,5 @@ public class ForestCell extends Cell {
 	return myStateColors;
     }
 
+   
 }
