@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import javafx.scene.paint.Color;
 
+import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -41,6 +42,8 @@ public class Parser {
 	    throw new UnsupportedOperationException();
 	}
 
+	messages = ResourceBundle.getBundle("messages", Locale.US);
+	
 	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
 	DocumentBuilder builder = factory.newDocumentBuilder();
@@ -59,7 +62,7 @@ public class Parser {
 	// NodeList nodeList = document.getDocumentElement().getChildNodes();
 
 	nodeList = document.getElementsByTagName("row");
-
+	inputValidion();
 	for (int i = 0; i < nodeList.getLength(); i++) {
 
 	    // We have encountered an <cell> tag.
@@ -73,9 +76,18 @@ public class Parser {
 	return cellList;
     }
 
+    private static void inputValidion() {
+	if (infoSheet.getCellType()==null){
+	    JOptionPane.showMessageDialog(null, messages.getString("missing_sim_type"));
+	    System.exit(0);
+	}
+	
+	    
+	
+    }
+
     private static void setCellStates() {
 
-	messages = ResourceBundle.getBundle("messages", Locale.US);
 	String classPathAndName = messages.getString("cell_bundle") + "."
 		+ infoSheet.getCellType();
 	try {

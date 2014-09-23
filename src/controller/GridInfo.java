@@ -17,9 +17,9 @@ public class GridInfo {
     private static int myWidth;
     private static int myHeight;
     private static String myType;
-    private static String myPatchType;
-    private static int myAdjacentType;
-    private static double myParameter;
+    private static String myPatchType="Default";
+    private static int myAdjacentType=8;
+    private static double myParameter=0.7;
     private static HashMap<String, Color> stateColors = new HashMap<String, Color>();
     private static ArrayList<String> myStateTypes;
 

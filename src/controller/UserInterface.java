@@ -41,6 +41,7 @@ public class UserInterface {
 	Scene myScene = new Scene(rootPane, GRID_WIDTH, GRID_HEIGHT
 		+ PANEL_HEIGHT);
 	myStage.setScene(myScene);
+	myStage.setResizable(false);
 	myStage.show();
 	makeBottomPanel();
     }
