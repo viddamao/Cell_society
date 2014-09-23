@@ -19,7 +19,10 @@ public class GridManager extends GridPane {
     private int gWidth;
     private int gHeight;
     private GridInfo infoSheet = new GridInfo();
-
+    private int mode;
+    private final int TOROIDAL = 1;
+    private final int INFINITE = 2;
+    
     // private String patchType;
     // {4,8} indicates adjacent type to be 4 or 8 blocks around
     // private int adjacentType;
@@ -36,6 +39,7 @@ public class GridManager extends GridPane {
 	grid = new Patch[width][height];
 	gWidth = width;
 	gHeight = height;
+	mode = 1; //Default is bounded.
     }
 
     // TODO Duplicated for loop...
@@ -98,14 +102,54 @@ public class GridManager extends GridPane {
 	for (int i = 0; i < infoSheet.getAdjacentType(); i++) {
 	    int nextX = xCoord + xDelta[i];
 	    int nextY = yCoord + yDelta[i];
-
-	    if (!isOutOfBounds(nextX, nextY)) {
-		neighbors.add(grid[nextX][nextY]);
-
+	    
+	    if (!isOutOfBounds(nextX, nextY))
+	    {
+	        neighbors.add(grid[nextX][nextY]);
 	    }
-
+	    else
+	    {
+	       
+	        switch (mode) {
+	            case TOROIDAL:
+	                processToroidal(nextX, nextY, neighbors);
+	                break;
+	            case INFINITE:
+	                processInfinite(nextX, nextY, neighbors);
+	                break;
+	            default:
+	                break;
+	        }
+	    }
+	    
 	}
 	return neighbors;
+    }
+
+    private void processInfinite (int nextX, int nextY, ArrayList<Patch> neighbors) {
+       
+        
+    }
+
+    private void processToroidal (int nextX, int nextY, ArrayList<Patch> neighbors) {
+        // TODO Auto-generated method stub
+        if(nextX > gWidth - 1) 
+        {
+            nextX = 0;
+        }
+        if(nextX < 0)
+        {
+            nextX = gWidth - 1;
+        }
+        if(nextY > gHeight - 1)
+        {
+            nextX = 0;
+        }
+        if(nextY < 0)
+        {
+            nextX = gHeight - 1;
+        }
+        neighbors.add(grid[nextX][nextY]);
     }
 
     /**
@@ -120,6 +164,16 @@ public class GridManager extends GridPane {
     private boolean isOutOfBounds(int xCoord, int yCoord) {
 	return xCoord > gWidth - 1 || xCoord < 0 || yCoord > gHeight - 1
 		|| yCoord < 0;
+    }
+    
+    private boolean isXOOB(int xCoord, int yCoord) {
+        return yCoord > gHeight - 1
+                || yCoord < 0;
+    }
+    
+    private boolean isYOOB(int xCoord, int yCoord) {
+        return xCoord > gWidth - 1 || xCoord < 0 || yCoord > gHeight - 1
+                || yCoord < 0;
     }
 
     /**
@@ -155,6 +209,9 @@ public class GridManager extends GridPane {
 	return gWidth;
     }
 
+    
+    
+    //TODO Look this over and change implementation -Will
     /**
      * Finds empty Patch
      * 
