@@ -1,6 +1,7 @@
 package simulationObjects;
 
 import controller.GridManager;
+
 /**
  * 
  * @author Will Chang
@@ -14,16 +15,15 @@ public class PredatorPatch extends Patch {
     {
         super();
     }
-    public PredatorPatch (int x, int y, GridManager m) {
-        super(x, y, m);
+
+    public PredatorPatch(int x, int y, GridManager m) {
+	super(x, y, m);
     }
-    
+
     @Override
-    public void initialize(int x, int y, GridManager m)
-    {
-        
-        super.initialize(x, y, m);
-        
-        
+    public void initialize(int x, int y, GridManager m) {
+
+	super.initialize(x, y, m);
+
     }
 }

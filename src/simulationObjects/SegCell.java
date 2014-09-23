@@ -27,8 +27,7 @@ public class SegCell extends Cell {
     public void update (Patch currentPatch, ArrayList<Patch> neighbors) {
         if (!isSatisfied(currentPatch, neighbors)) {
             currentPatch.randomEmptyPatch().addCell(this);
-            //TODO make this part of gridinfo/gameinfo
-            this.setState(0);
+            currentPatch.removeCell();
         }
     }
 

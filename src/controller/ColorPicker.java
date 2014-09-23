@@ -45,12 +45,11 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private GridPane buildColorPickerMenu(int index, GridPane gridpane) {
 	final ColorPicker colorPicker = new ColorPicker();
-	colorPicker.setValue(Color.RED);
-
 	final Text text = new Text(infoSheet.getStateTypes().get(index));
 	text.setFont(Font.font("Verdana", 20));
 	String stateType = text.getText();
 	Color myColor = infoSheet.getColor(stateType);
+	colorPicker.setValue(myColor);
 	text.setFill(myColor);
 	
 	colorPicker.setOnAction(new EventHandler() {

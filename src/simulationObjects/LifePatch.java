@@ -1,8 +1,10 @@
 package simulationObjects;
 
 import controller.GridManager;
+
 /**
  * Patch that Simulates GameOfLife
+ * 
  * @author Will Chang
  *
  */
@@ -18,11 +20,12 @@ public class LifePatch extends Patch {
     {
         super();
     }
-    
-    public LifePatch (int x, int y, GridManager m) {
-        super(x, y, m);
-        
+
+    public LifePatch(int x, int y, GridManager m) {
+	super(x, y, m);
+
     }
+
     @Override
     public void prepareToUpdate(){
         processNeighborsAndUpdateState();
@@ -59,15 +62,21 @@ public class LifePatch extends Patch {
     //some duplicated code.
     @Override
     public void update() {
-        switch(myState){
-            case GENERATING:
-                this.addCell(new LifeCell(xCoord, yCoord));
-                break;
-            case EMPTYING:
-                this.removeCell();   
-                break;
-            default: 
-                break;
-        }
+	// Update this
+	switch (myState) {
+	case OCCUPIED:
+	    this.myCell.setFill(myCell.infoSheet.getColor("CELL"));
+	    break;
+	case GENERATING:
+	    Cell generated = new LifeCell(xCoord, yCoord);
+	    this.addCell(generated);
+	    myState = State.OCCUPIED;
+	    break;
+	case EMPTYING:
+	    this.removeCell();
+	    break;
+	default:
+	    break;
+	}
     }
 }
