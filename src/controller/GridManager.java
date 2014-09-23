@@ -73,7 +73,7 @@ public class GridManager extends Pane {
     }
 
     private void addPatchToGrid (Patch patch, int gridX, int gridY) {
-        patch.createPlaceholderRect();
+        patch.createBody();
         this.getChildren().add(patch);
     }
 

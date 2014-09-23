@@ -23,14 +23,9 @@ public class Patch extends Group {
     protected Image image;
     protected ImageView myView;
     protected State myState;
-    protected Polygon myBody;
+    protected PatchBody myBody;
 
     private int myPreviousCellState;
-    
-    private int patchHeight;
-    private int patchWidth;
-    private int startX;
-    private int startY;
 
     private int REMOVE_ME = 0;
     /**
@@ -49,26 +44,10 @@ public class Patch extends Group {
 
     }
     
-    public void createPlaceholderRect(){
-        //add a placeholder rectangle
-        myBody = new Polygon();
-        patchHeight = (int) (manager.getMinHeight()/manager.getGridHeight());
-        patchWidth = (int) (manager.getMinWidth()/manager.getGridWidth());
-        startX = patchWidth*xCoord;
-        startY = patchHeight*yCoord;
-        double x1 = startX;
-        double y1 = startY;
-        double x2 = startX + patchWidth;
-        double y2 = startY;
-        double x3 = startX + patchWidth;
-        double y3 = startY + patchHeight;
-        double x4 = startX;
-        double y4 = startY + patchHeight;
-        Double[] myPts = new Double[]{x1,y1,x2,y2,x3,y3,x4,y4};
-        myBody.getPoints().addAll(myPts);
-        myBody.setFill(new Color(0f,0f,0f,.0f));
-        myBody.setStrokeWidth(.5);
-        myBody.setStroke(Color.BLACK);
+    public void createBody(){
+        int patchHeight = (int) (manager.getMinHeight()/manager.getGridHeight());
+        int patchWidth = (int) (manager.getMinWidth()/manager.getGridWidth());
+        myBody = new PatchBody(xCoord,yCoord,patchHeight,patchWidth);
         getChildren().add(myBody);
     }
 
@@ -160,10 +139,10 @@ public class Patch extends Group {
 	if (myCell != null) {
 	    removeCell();
 	}
-	cell.setHeight(patchHeight);
-	cell.setWidth(patchWidth);
-	cell.setLayoutX(startX);
-	cell.setLayoutY(startY);
+	cell.setHeight(myBody.getHeight());
+	cell.setWidth(myBody.getWidth());
+	cell.setLayoutX(myBody.getStartX());
+	cell.setLayoutY(myBody.getStartY());
 	cell.setArcHeight(cell.getHeight());
 	cell.setArcWidth(cell.getWidth());
 	getChildren().add(cell);
