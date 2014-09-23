@@ -28,7 +28,6 @@ public class LifePatch extends Patch {
         processNeighborsAndUpdateState();
     }           
     
-    
     /**
      * Special rules for Game of Life
      */
