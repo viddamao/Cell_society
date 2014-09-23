@@ -178,21 +178,10 @@ public class MainController extends Application {
             userInterface.removeNode(gridManager);
         }
         gridManager = new GridManager(width, height);
-        for (int i = 0; i < width; i++) {
-            gridManager.getColumnConstraints().add(new ColumnConstraints(userInterface.GRID_WIDTH /
-                                                                         width)); // column 1 is 100
-                                                                                  // wide
-        }
-        for (int i = 0; i < height; i++) {
-            gridManager.getRowConstraints().add(new RowConstraints(userInterface.GRID_HEIGHT /
-                                                                   height)); // column 1 is 100 wide
-        }
-        gridManager.setGridLinesVisible(true);
         gridManager.setLayoutX(0);
         gridManager.setLayoutY(0);
         gridManager.setMinHeight(userInterface.GRID_HEIGHT);
         gridManager.setMinWidth(userInterface.GRID_WIDTH);
-        gridManager.setPrefSize(width, height);
         userInterface.addNode(gridManager);
         gridManager.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

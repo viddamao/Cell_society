@@ -22,6 +22,7 @@ public class Patch extends Group {
     protected Image image;
     protected ImageView myView;
     protected State myState;
+    protected Rectangle myBody;
 
     private int myPreviousCellState;
 
@@ -40,12 +41,17 @@ public class Patch extends Group {
 	manager = m;
 	myState = State.EMPTY;
 
+    }
+    
+    public void createPlaceholderRect(int height, int width){
         //add a placeholder rectangle
-        Rectangle r = new Rectangle();
-        r.setHeight(manager.getRowConstraints().get(0).getPrefHeight());
-        r.setWidth(manager.getColumnConstraints().get(0).getPrefWidth());
-        r.setFill(new Color(0f,0f,0f,.0f));
-        getChildren().add(r);
+        myBody = new Rectangle();
+        myBody.setHeight(height);
+        myBody.setWidth(width);
+        myBody.setFill(new Color(0f,0f,0f,.0f));
+        myBody.setStrokeWidth(.5);
+        myBody.setStroke(Color.BLACK);
+        getChildren().add(myBody);
     }
 
     protected enum State {
@@ -136,8 +142,8 @@ public class Patch extends Group {
 	if (myCell != null) {
 	    removeCell();
 	}
-	cell.setHeight(manager.getRowConstraints().get(0).getPrefHeight());
-	cell.setWidth(manager.getColumnConstraints().get(0).getPrefWidth());
+	cell.setHeight(myBody.getHeight());
+	cell.setWidth(myBody.getWidth());
 	cell.setArcHeight(cell.getHeight());
 	cell.setArcWidth(cell.getWidth());
 	getChildren().add(cell);
