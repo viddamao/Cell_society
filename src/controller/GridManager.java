@@ -19,7 +19,7 @@ public class GridManager extends GridPane {
     private int gWidth;
     private int gHeight;
     private GridInfo infoSheet = new GridInfo();
-    private int mode;
+    private int myMode;
     private final int TOROIDAL = 1;
     private final int INFINITE = 2;
     
@@ -39,7 +39,7 @@ public class GridManager extends GridPane {
 	grid = new Patch[width][height];
 	gWidth = width;
 	gHeight = height;
-	mode = 1; //Default is bounded.
+	myMode = 0; //Default is bounded.
     }
 
     // TODO Duplicated for loop...
@@ -98,61 +98,55 @@ public class GridManager extends GridPane {
      */
     public ArrayList<Patch> getNeighborsAround(int xCoord, int yCoord) {
 	ArrayList<Patch> neighbors = new ArrayList<>();
-	// deal with different neighbor settings
 	for (int i = 0; i < infoSheet.getAdjacentType(); i++) {
 	    int nextX = xCoord + xDelta[i];
 	    int nextY = yCoord + yDelta[i];
 	    
-	    if (!isOutOfBounds(nextX, nextY))
-	    {
+	    if (isOutOfBounds(nextX, nextY)){
+	        applyBoundaryRules(nextX,nextY,neighbors);
+	    }
+	    else{
 	        neighbors.add(grid[nextX][nextY]);
 	    }
-	    else
-	    {
-	       
-	        switch (mode) {
-	            case TOROIDAL:
-	                processToroidal(nextX, nextY, neighbors);
-	                break;
-	            case INFINITE:
-	                processInfinite(nextX, nextY, neighbors);
-	                break;
-	            default:
-	                break;
-	        }
-	    }
-	    
 	}
 	return neighbors;
     }
 
-    private void processInfinite (int nextX, int nextY, ArrayList<Patch> neighbors) {
+    
+    private void applyBoundaryRules (int nextX, int nextY, ArrayList<Patch> neighbors) {
+        if(myMode == 1){   
+            processAndAddToroidal(nextX, nextY, neighbors);       
+        }
+        else if(myMode == INFINITE){
+            processAndAddInfinite(nextX, nextY, neighbors);
+        }
+    }
+
+    private void processAndAddInfinite (int nextX, int nextY, ArrayList<Patch> neighbors) {
        
         
     }
 
-    private void processToroidal (int nextX, int nextY, ArrayList<Patch> neighbors) {
-        // TODO Auto-generated method stub
-        if(nextX > gWidth - 1) 
-        {
-            nextX = 0;
-        }
-        if(nextX < 0)
-        {
-            nextX = gWidth - 1;
-        }
-        if(nextY > gHeight - 1)
-        {
-            nextX = 0;
-        }
-        if(nextY < 0)
-        {
-            nextX = gHeight - 1;
-        }
+    private void processAndAddToroidal (int nextX, int nextY, ArrayList<Patch> neighbors) {
+        // TODO duplicated code...
+        nextX = wrapCoordAround(nextX,gWidth);
+        nextY = wrapCoordAround(nextY,gHeight);
         neighbors.add(grid[nextX][nextY]);
     }
-
-    /**
+    
+    
+    //TODO add min/change for infinite
+    private int wrapCoordAround(int coord, int max){
+        if(coord>max-1){
+            coord = 0;
+        }
+        else if(coord<0){
+            coord = max - 1;
+        }
+        return coord;
+    }
+    
+     /**
      * Checks if a location is not in the grid
      * 
      * @param xCoord
@@ -164,16 +158,6 @@ public class GridManager extends GridPane {
     private boolean isOutOfBounds(int xCoord, int yCoord) {
 	return xCoord > gWidth - 1 || xCoord < 0 || yCoord > gHeight - 1
 		|| yCoord < 0;
-    }
-    
-    private boolean isXOOB(int xCoord, int yCoord) {
-        return yCoord > gHeight - 1
-                || yCoord < 0;
-    }
-    
-    private boolean isYOOB(int xCoord, int yCoord) {
-        return xCoord > gWidth - 1 || xCoord < 0 || yCoord > gHeight - 1
-                || yCoord < 0;
     }
 
     /**
@@ -209,7 +193,11 @@ public class GridManager extends GridPane {
 	return gWidth;
     }
 
-    
+    public void setAndUpdateMode(int mode)
+    {
+        myMode = mode;
+        this.updateAllNeighborhoods();
+    }
     
     //TODO Look this over and change implementation -Will
     /**
@@ -234,4 +222,12 @@ public class GridManager extends GridPane {
 	}
     }
 
+    public void updateAllNeighborhoods()
+    {
+        for(Patch[] row : grid){
+            for (Patch p : row) {
+                p.getNeighbors();
+            }
+        }
+    }
 }
