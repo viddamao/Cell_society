@@ -108,6 +108,14 @@ public class MainController extends Application {
 	    ArrayList<Patch> patchList = new ArrayList<Patch>();
 	    int width = infoSheet.getWidth();
 	    int height = infoSheet.getHeight();
+	    int gridWidth=(gridRows.get(0).states.length()+1)/2;
+	    int gridHeight=gridRows.size();
+	    if (width<0) {infoSheet.setWidth(10);width=10;infoSheet.useGivenGrid=false;}
+	    if (height<0) {infoSheet.setHeight(10);height=10;infoSheet.useGivenGrid=false;}
+	    if (width>gridWidth) {infoSheet.setWidth(gridWidth);width=gridWidth;}
+	    if (height>gridHeight) {infoSheet.setHeight(gridHeight);height=gridHeight;}
+	    
+	    if (!infoSheet.useGivenGrid) gridRows=randomizeGrid();
 	    createGridManager(width, height);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
@@ -160,6 +168,22 @@ public class MainController extends Application {
 	    System.out.println(messages.getString("illegal_access_error"));
 	}
 
+    }
+
+    private List<GridRows> randomizeGrid() {
+	List<GridRows> randomizedRows=new ArrayList<GridRows>();
+	String currentRow="";
+	GridRows currentGridRow=new GridRows();
+	for (int i=0;i<infoSheet.getHeight();i++){
+	    currentRow="";
+	    currentGridRow=new GridRows();
+	    currentGridRow.id=i;
+	    for (int j=0;j<infoSheet.getWidth();j++)
+		currentRow+=Long.toString(((Math.round(Math.random()*2))))+" ";
+	    currentGridRow.states=currentRow;
+	    randomizedRows.add(currentGridRow);
+	}
+	return randomizedRows;
     }
 
     /**

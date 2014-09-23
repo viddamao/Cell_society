@@ -58,11 +58,13 @@ public class Parser {
 
 	attributeParse(cellList, nodeList.item(0), false);
 
+	inputValidion();
+	
 	// Iterating through the nodes and extracting the data.
 	// NodeList nodeList = document.getDocumentElement().getChildNodes();
 
 	nodeList = document.getElementsByTagName("row");
-	inputValidion();
+	
 	for (int i = 0; i < nodeList.getLength(); i++) {
 
 	    // We have encountered an <cell> tag.
@@ -71,7 +73,7 @@ public class Parser {
 		attributeParse(cellList, node, true);
 
 	}
-
+	
 	setCellStates();
 	return cellList;
     }
@@ -81,8 +83,7 @@ public class Parser {
 	    JOptionPane.showMessageDialog(null, messages.getString("missing_sim_type"));
 	    System.exit(0);
 	}
-	
-	    
+	  
 	
     }
 

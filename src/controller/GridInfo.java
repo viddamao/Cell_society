@@ -14,14 +14,15 @@ import javafx.scene.paint.Color;
  *
  */
 public class GridInfo {
-    private static int myWidth;
-    private static int myHeight;
+    private static int myWidth = -1;
+    private static int myHeight = -1;
     private static String myType;
-    private static String myPatchType="Default";
-    private static int myAdjacentType=8;
-    private static double myParameter=0.7;
+    private static String myPatchType = "Default";
+    private static int myAdjacentType = 8;
+    private static double myParameter = 0.7;
     private static HashMap<String, Color> stateColors = new HashMap<String, Color>();
     private static ArrayList<String> myStateTypes;
+    public boolean useGivenGrid = true;
 
     public void setWidth(int width) {
 	myWidth = width;
