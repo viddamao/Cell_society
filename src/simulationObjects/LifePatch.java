@@ -1,72 +1,82 @@
 package simulationObjects;
 
 import controller.GridManager;
+
 /**
+ * Patch that Simulates GameOfLife
  * 
  * @author Will Chang
  *
  */
 public class LifePatch extends Patch {
 
+    //TODO Comment everything
+    //Need to load this through the XML...
+    //Edit from Constructor
+    private int comfortableAmount = 3;
+    private int baselineAmount = 2;
+    
     public LifePatch()
     {
         super();
     }
-    
-    public LifePatch (int x, int y, GridManager m) {
-        super(x, y, m);
-        
+
+    public LifePatch(int x, int y, GridManager m) {
+	super(x, y, m);
+
     }
+
     @Override
-    public void prepareToUpdate()
-    {
+    public void prepareToUpdate(){
         processNeighborsAndUpdateState();
     }           
     
-    
-
-    public void processNeighborsAndUpdateState()
-    {
-        int adjacentCells = 0;
-        for(Patch p : myNeighbors)
-        {
-            if(!p.isEmpty())
-            {
-                adjacentCells++;
-            }
+    /**
+     * Special rules for Game of Life
+     */
+    public void processNeighborsAndUpdateState(){
+        int occupiedNeighbors = this.countNeighbors();
+        
+        if(occupiedNeighbors == comfortableAmount && this.isEmpty()){
+            myState = State.GENERATING;
         }
-        if(adjacentCells == 3)
-        {
-            if(this.isEmpty())
-            {
-                myState = State.GENERATING;
-            }
-        }
-        else if(adjacentCells>3||adjacentCells<2)
-        {
-            if(!this.isEmpty())
-            {
+        else if((occupiedNeighbors>comfortableAmount
+                ||occupiedNeighbors<baselineAmount)
+                && !this.isEmpty()){
                 myState = State.EMPTYING;
+        }
+    }
+    
+    public int countNeighbors(){
+        int occupiedNeighbors = 0;
+        for(Patch p : myNeighbors){
+            if(!p.isEmpty()){
+                occupiedNeighbors++;
             }
         }
-
+        return occupiedNeighbors;
     }
 
+    // TODO Update this
+    //talk to Kevin about this switch 
+    //some duplicated code.
     @Override
     public void update() {
-        // Update this
-        switch(myState)
-        {
-            case GENERATING:
-                Cell generated = new LifeCell(xCoord, yCoord);
-                this.addCell(generated);
-                myState = State.OCCUPIED;
-                break;
-            case EMPTYING:
-                this.removeCell();                
-                break;
-            default: 
-                break;
-        }
+	// Update this
+	switch (myState) {
+	case OCCUPIED:
+	    this.myCell.setFill(myCell.infoSheet.getColor("CELL"));
+	    break;
+	case GENERATING:
+	    Cell generated = new LifeCell(xCoord, yCoord);
+	    this.addCell(generated);
+	    myState = State.OCCUPIED;
+	    break;
+	case EMPTYING:
+	    this.removeCell();
+	    break;
+	default:
+	    break;
+	}
     }
 }

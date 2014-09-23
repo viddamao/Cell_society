@@ -4,7 +4,7 @@ package controller;
  * 
  * Just for xml parser test
  */
-public class TestCell {
+public class GridRows {
     int id;
     String states;
 
