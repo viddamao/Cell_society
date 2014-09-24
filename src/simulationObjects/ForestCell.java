@@ -24,12 +24,10 @@ public class ForestCell extends Cell {
 	    else
 		this.setState(TREE);
 	    break;
-	    
+
 	case ONFIRE:
 	    burnDown(currentPatch);
 	    break;
-	case EMPTY:
-	    this.setState(EMPTY);
 	}
     }
 
@@ -48,9 +46,7 @@ public class ForestCell extends Cell {
 
     @Override
     public void setState(int state) {
-	if (state == EMPTY) {
-	    setFill(infoSheet.getColor("EMPTY"));
-	} else if (state == ONFIRE) {
+	if (state == ONFIRE) {
 	    setFill(infoSheet.getColor("ONFIRE"));
 	} else if (state == TREE) {
 	    setFill(infoSheet.getColor("TREE"));
@@ -77,7 +73,7 @@ public class ForestCell extends Cell {
     @Override
     public ArrayList<String> getStateTypes() {
 	ArrayList<String> myStateType = new ArrayList<String>();
-	myStateType.add("EMPTY");
+	myStateType.add("BACKGROUND");
 	myStateType.add("ONFIRE");
 	myStateType.add("TREE");
 	return myStateType;
@@ -93,8 +89,12 @@ public class ForestCell extends Cell {
     }
 
     @Override
-    public void toggleState () {
-        // TODO toggle to the next cell state
+    public void toggleState() {
+	if (myState == TREE) {
+	    setState(ONFIRE);
+	} else {
+	    setState(TREE);
+	}
     }
 
 }

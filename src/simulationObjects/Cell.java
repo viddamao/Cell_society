@@ -1,6 +1,7 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import controller.GridInfo;
 import javafx.scene.paint.Color;
@@ -52,7 +53,7 @@ public abstract class Cell extends Rectangle {
 
     public abstract void prepareToUpdate(Patch currentPatch,
 	    ArrayList<Patch> neighbors);
-    
+
     public abstract void toggleState();
 
     public int getGridX() {
@@ -74,5 +75,21 @@ public abstract class Cell extends Rectangle {
     public abstract ArrayList<String> getStateTypes();
 
     public abstract ArrayList<Color> getInitialColors();
+
+    public void addOne(HashMap<Integer, Integer> cellTypeNumber, int index) {
+	int temp = 1;
+	if (!(cellTypeNumber.get(index) == null))
+	    temp = cellTypeNumber.get(index).intValue() + 1;
+	cellTypeNumber.put(index, temp);
+
+    }
+
+    public void subtractOne(HashMap<Integer, Integer> cellTypeNumber, int index) {
+	int temp = 1;
+	if (!(cellTypeNumber.get(index) == null))
+	    temp = cellTypeNumber.get(index).intValue() - 1;
+	cellTypeNumber.put(index, temp);
+
+    }
 
 }

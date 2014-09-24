@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import javafx.scene.paint.Color;
 
+import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -41,6 +42,8 @@ public class Parser {
 	    throw new UnsupportedOperationException();
 	}
 
+	messages = ResourceBundle.getBundle("messages", Locale.US);
+
 	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
 	DocumentBuilder builder = factory.newDocumentBuilder();
@@ -54,6 +57,8 @@ public class Parser {
 	NodeList nodeList = document.getElementsByTagName("gridInfo");
 
 	attributeParse(cellList, nodeList.item(0), false);
+
+	inputValidion();
 
 	// Iterating through the nodes and extracting the data.
 	// NodeList nodeList = document.getDocumentElement().getChildNodes();
@@ -73,9 +78,17 @@ public class Parser {
 	return cellList;
     }
 
+    private static void inputValidion() {
+	if (infoSheet.getCellType() == null) {
+	    JOptionPane.showMessageDialog(null,
+		    messages.getString("missing_sim_type"));
+	    System.exit(0);
+	}
+
+    }
+
     private static void setCellStates() {
 
-	messages = ResourceBundle.getBundle("messages", Locale.US);
 	String classPathAndName = messages.getString("cell_bundle") + "."
 		+ infoSheet.getCellType();
 	try {
@@ -83,9 +96,10 @@ public class Parser {
 	    Cell cell = (Cell) cellClass.newInstance();
 	    ArrayList<String> myStateTypes = cell.getStateTypes();
 	    infoSheet.setStateTypes(myStateTypes);
-	    ArrayList<Color> myColors=cell.getInitialColors();
-	    for (int index=0;index<cell.getStateTypes().size();index++){
-		infoSheet.setColor(myStateTypes.get(index), myColors.get(index));
+	    ArrayList<Color> myColors = cell.getInitialColors();
+	    for (int index = 0; index < cell.getStateTypes().size(); index++) {
+		infoSheet
+			.setColor(myStateTypes.get(index), myColors.get(index));
 	    }
 	} catch (ClassNotFoundException e) {
 	    System.out.println(messages.getString("class_not_found_error"));

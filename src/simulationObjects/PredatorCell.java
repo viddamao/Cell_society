@@ -19,20 +19,21 @@ public class PredatorCell extends Cell {
     protected int gestationPeriod = 4;
     private final int FISH = 1;
     private final int SHARK = 2;
-    
+
     private final int DYING = 0;
-    
+
     private Phase myPhase;
-    
+
     protected ArrayList<Patch> myNeighbors = new ArrayList<>();
-    
-    private enum Phase{
-        UPDATING, STASIS
+
+    private enum Phase {
+	UPDATING, STASIS
     }
 
     public PredatorCell() {
 	super();
     }
+
     /**
      * Constructor
      * 
@@ -89,17 +90,15 @@ public class PredatorCell extends Cell {
      */
     @Override
     public void update(Patch current, ArrayList<Patch> neighbors) {
-        if(myPhase == Phase.UPDATING){
-            if (vitality > 0) {
-                Patch destination = chooseMove(neighbors);
-                this.updateStatesandMakeMoves(current, destination);
-                myPhase = Phase.STASIS;
-            }
-            else
-            {
-                this.setState(DYING);
-            }
-        }
+	if (myPhase == Phase.UPDATING) {
+	    if (vitality > 0) {
+		Patch destination = chooseMove(neighbors);
+		this.updateStatesandMakeMoves(current, destination);
+		myPhase = Phase.STASIS;
+	    } else {
+		this.setState(DYING);
+	    }
+	}
     }
 
     /**
@@ -223,6 +222,7 @@ public class PredatorCell extends Cell {
     @Override
     public ArrayList<String> getStateTypes() {
 	ArrayList<String> myStateType = new ArrayList<String>();
+	myStateType.add("BACKGROUND");
 	myStateType.add("SHARK");
 	myStateType.add("FISH");
 	return myStateType;
@@ -231,13 +231,15 @@ public class PredatorCell extends Cell {
     @Override
     public ArrayList<Color> getInitialColors() {
 	ArrayList<Color> myStateColors = new ArrayList<Color>();
+	myStateColors.add(Color.AQUA);
 	myStateColors.add(Color.YELLOW);
 	myStateColors.add(Color.GREEN);
 	return myStateColors;
     }
+
     @Override
-    public void toggleState () {
-        // TODO toggle to the next cell state
+    public void toggleState() {
+	// TODO toggle to the next cell state
     }
 
 }

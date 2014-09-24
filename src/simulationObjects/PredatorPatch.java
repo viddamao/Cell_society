@@ -8,12 +8,11 @@ import controller.Grid;
  *
  */
 public class PredatorPatch extends Patch {
-    
-    //TODO Update with graphical changes. 
-    //Do we need this?... - Will
-    public PredatorPatch()
-    {
-        super();
+
+    // TODO Update with graphical changes.
+    // Do we need this?... - Will
+    public PredatorPatch() {
+	super();
     }
 
     public PredatorPatch(int x, int y, Grid m) {

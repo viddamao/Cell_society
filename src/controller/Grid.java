@@ -2,7 +2,9 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.Random;
+
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import simulationObjects.Patch;
 
 /**
@@ -22,7 +24,7 @@ public class Grid extends Pane {
     private int myMode;
     private final int TOROIDAL = 1;
     private final int INFINITE = 2;
-    
+
     // private String patchType;
     // {4,8} indicates adjacent type to be 4 or 8 blocks around
     // private int adjacentType;
@@ -39,7 +41,11 @@ public class Grid extends Pane {
 	gridArray = new Patch[width][height];
 	gWidth = width;
 	gHeight = height;
-	myMode = 0; //Default is bounded.
+	myMode = 0; // Default is bounded.
+    }
+
+    Grid() {
+	// TODO Auto-generated constructor stub
     }
 
     // TODO Duplicated for loop...
@@ -76,9 +82,9 @@ public class Grid extends Pane {
 	addPatchToGrid(patch, patch.getGridX(), patch.getGridY());
     }
 
-    private void addPatchToGrid (Patch patch, int gridX, int gridY) {
-        patch.createBody();
-        this.getChildren().add(patch);
+    private void addPatchToGrid(Patch patch, int gridX, int gridY) {
+	patch.createBody();
+	this.getChildren().add(patch);
     }
 
     /**
@@ -106,52 +112,49 @@ public class Grid extends Pane {
 	for (int i = 0; i < infoSheet.getAdjacentType(); i++) {
 	    int nextX = xCoord + xDelta[i];
 	    int nextY = yCoord + yDelta[i];
-	    
-	    if (isOutOfBounds(nextX, nextY)){
-	        applyBoundaryRules(nextX,nextY,neighbors);
-	    }
-	    else{
-	        neighbors.add(gridArray[nextX][nextY]);
+
+	    if (isOutOfBounds(nextX, nextY)) {
+		applyBoundaryRules(nextX, nextY, neighbors);
+	    } else {
+		neighbors.add(gridArray[nextX][nextY]);
 	    }
 	}
 	return neighbors;
     }
 
-    
-    private void applyBoundaryRules (int nextX, int nextY, ArrayList<Patch> neighbors) {
-        if(myMode == 1){   
-            processAndAddToroidal(nextX, nextY, neighbors);       
-        }
-        else if(myMode == INFINITE){
-            processAndAddInfinite(nextX, nextY, neighbors);
-        }
+    private void applyBoundaryRules(int nextX, int nextY,
+	    ArrayList<Patch> neighbors) {
+	if (myMode == 1) {
+	    processAndAddToroidal(nextX, nextY, neighbors);
+	} else if (myMode == INFINITE) {
+	    processAndAddInfinite(nextX, nextY, neighbors);
+	}
     }
 
-    private void processAndAddInfinite (int nextX, int nextY, ArrayList<Patch> neighbors) {
-       
-        
+    private void processAndAddInfinite(int nextX, int nextY,
+	    ArrayList<Patch> neighbors) {
+
     }
 
-    private void processAndAddToroidal (int nextX, int nextY, ArrayList<Patch> neighbors) {
-        // TODO duplicated code...
-        nextX = wrapCoordAround(nextX,gWidth);
-        nextY = wrapCoordAround(nextY,gHeight);
-        neighbors.add(gridArray[nextX][nextY]);
+    private void processAndAddToroidal(int nextX, int nextY,
+	    ArrayList<Patch> neighbors) {
+	// TODO duplicated code...
+	nextX = wrapCoordAround(nextX, gWidth);
+	nextY = wrapCoordAround(nextY, gHeight);
+	neighbors.add(gridArray[nextX][nextY]);
     }
-    
-    
-    //TODO add min/change for infinite
-    private int wrapCoordAround(int coord, int max){
-        if(coord>max-1){
-            coord = 0;
-        }
-        else if(coord<0){
-            coord = max - 1;
-        }
-        return coord;
+
+    // TODO add min/change for infinite
+    private int wrapCoordAround(int coord, int max) {
+	if (coord > max - 1) {
+	    coord = 0;
+	} else if (coord < 0) {
+	    coord = max - 1;
+	}
+	return coord;
     }
-    
-     /**
+
+    /**
      * Checks if a location is not in the grid
      * 
      * @param xCoord
@@ -175,8 +178,8 @@ public class Grid extends Pane {
     public Patch getPatchAtPoint(int i, int j) {
 	return gridArray[i][j];
     }
-    
-    //TODO duplicate method??
+
+    // TODO duplicate method??
     /**
      * get patch given a scene coordinate
      * 
@@ -184,32 +187,31 @@ public class Grid extends Pane {
      * @param j
      * @return
      */
-    public Patch getPatchAtCoordinate(int i, int j){
-        for (Patch[] row : gridArray) {
-            for (Patch p : row) {
-                if (p.getBoundsInParent().contains(i, j)){
-                    return p;
-                }
-            }
-        }
-        return null;
+    public Patch getPatchAtCoordinate(int i, int j) {
+	for (Patch[] row : gridArray) {
+	    for (Patch p : row) {
+		if (p.getBoundsInParent().contains(i, j)) {
+		    return p;
+		}
+	    }
+	}
+	return null;
     }
 
     public int getGridWidth() {
 	return gWidth;
     }
-    
+
     public int getGridHeight() {
-        return gHeight;
+	return gHeight;
     }
 
-    public void setAndUpdateMode(int mode)
-    {
-        myMode = mode;
-        this.updateAllNeighborhoods();
+    public void setAndUpdateMode(int mode) {
+	myMode = mode;
+	this.updateAllNeighborhoods();
     }
-    
-    //TODO Look this over and change implementation -Will
+
+    // TODO Look this over and change implementation -Will
     /**
      * Finds empty Patch
      * 
@@ -232,12 +234,19 @@ public class Grid extends Pane {
 	}
     }
 
-    public void updateAllNeighborhoods()
-    {
-        for(Patch[] row : gridArray){
-            for (Patch p : row) {
-                p.getNeighbors();
-            }
-        }
+    public void updateAllNeighborhoods() {
+	for (Patch[] row : gridArray) {
+	    for (Patch p : row) {
+		p.getNeighbors();
+	    }
+	}
+    }
+
+    public void updateBackgroundColor(Color myColor) {
+	for (Patch[] row : gridArray) {
+	    for (Patch p : row) {
+		p.setColorToBody(myColor);
+	    }
+	}
     }
 }

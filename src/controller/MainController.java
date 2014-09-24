@@ -28,7 +28,7 @@ public class MainController extends Application {
     private UserInterface userInterface;
     private static ResourceBundle messages;
     private Timeline animation;
-    private Grid grid;
+    static Grid grid;
     private GridInfo infoSheet = new GridInfo();
 
     public static void main(String[] args) throws Exception {
@@ -85,12 +85,12 @@ public class MainController extends Application {
      *            data to parse
      */
     public void initializeSimulationWithData(File XMLData) {
-        
-        //reinitializes everything
-        userInterface.reset();
-        this.stopSimulation();
-        
-        try {
+
+	// reinitializes everything
+	userInterface.reset();
+	this.stopSimulation();
+
+	try {
 	    @SuppressWarnings("unchecked")
 	    List<GridRows> gridRows = Parser.parserXml(XMLData
 		    .getAbsolutePath());
@@ -114,8 +114,30 @@ public class MainController extends Application {
 	    ArrayList<Patch> patchList = new ArrayList<Patch>();
 	    int width = infoSheet.getWidth();
 	    int height = infoSheet.getHeight();
+	    int gridWidth = (gridRows.get(0).states.length() + 1) / 2;
+	    int gridHeight = gridRows.size();
+	    if (width < 0) {
+		infoSheet.setWidth(10);
+		width = 10;
+		infoSheet.useGivenGrid = false;
+	    }
+	    if (height < 0) {
+		infoSheet.setHeight(10);
+		height = 10;
+		infoSheet.useGivenGrid = false;
+	    }
+	    if (width > gridWidth) {
+		infoSheet.setWidth(gridWidth);
+		width = gridWidth;
+	    }
+	    if (height > gridHeight) {
+		infoSheet.setHeight(gridHeight);
+		height = gridHeight;
+	    }
+
+	    if (!infoSheet.useGivenGrid)
+		gridRows = randomizeGrid();
 	    createGrid(width, height);
-	    userInterface.setGrid(grid);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
 
@@ -143,7 +165,7 @@ public class MainController extends Application {
 			currentPatch.initialize(i, j, grid);
 		    }
 
-		    // add the patch to grid
+		    // add the patch to grid manager
 		    grid.addPatchAtPoint(currentPatch);
 		    // assign the cell to the patch
 		    if (state > 0) {
@@ -155,7 +177,7 @@ public class MainController extends Application {
 
 	    }
 	    // now that we have all the patches, assign neighbors to each one
-	    //TODO Grid has a method for this...
+	    // TODO Grid has a method for this...
 	    for (Patch p : patchList) {
 		p.getNeighbors();
 	    }
@@ -170,6 +192,23 @@ public class MainController extends Application {
 
     }
 
+    private List<GridRows> randomizeGrid() {
+	List<GridRows> randomizedRows = new ArrayList<GridRows>();
+	String currentRow = "";
+	GridRows currentGridRow = new GridRows();
+	for (int i = 0; i < infoSheet.getHeight(); i++) {
+	    currentRow = "";
+	    currentGridRow = new GridRows();
+	    currentGridRow.id = i;
+	    for (int j = 0; j < infoSheet.getWidth(); j++)
+		currentRow += Long.toString(((Math.round(Math.random() * 2))))
+			+ " ";
+	    currentGridRow.states = currentRow;
+	    randomizedRows.add(currentGridRow);
+	}
+	return randomizedRows;
+    }
+
     /**
      * create an instance of the grid set column and row constraints and add to
      * the scene
@@ -180,34 +219,35 @@ public class MainController extends Application {
      *            height of the grid
      */
 
-    private void createGrid (int width, int height) {
-        if (grid != null) {
-            userInterface.removeNode(grid);
-        }
-        grid = new Grid(width, height);
-        grid.setLayoutX(0);
-        grid.setLayoutY(0);
-        grid.setMinHeight(userInterface.GRID_HEIGHT);
-        grid.setMinWidth(userInterface.GRID_WIDTH);
-        userInterface.addNode(grid);
-        grid.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                toggleCellStateForMouseEvent(mouseEvent);
-            }
-        });
+    private void createGrid(int width, int height) {
+	if (grid != null) {
+	    userInterface.removeNode(grid);
+	}
+	grid = new Grid(width, height);
+	grid.setLayoutX(0);
+	grid.setLayoutY(0);
+	grid.setMinHeight(userInterface.GRID_HEIGHT);
+	grid.setMinWidth(userInterface.GRID_WIDTH);
+	userInterface.addNode(grid);
+	grid.setOnMouseClicked(new EventHandler<MouseEvent>() {
+	    @Override
+	    public void handle(MouseEvent mouseEvent) {
+		toggleCellStateForMouseEvent(mouseEvent);
+	    }
+	});
     }
-    
-    //TODO Implementation, clicks for empty patches as well?
+
+    // TODO Implementation, clicks for empty patches as well?
     /**
-     * Clicking empty cell creates a new cell there.
-     * Clicking on a cell decreases its state value by 1.
+     * Clicking empty cell creates a new cell there. Clicking on a cell
+     * decreases its state value by 1.
      */
-    private void toggleCellStateForMouseEvent(MouseEvent mouseEvent){
-        Patch selectedPatch = grid.getPatchAtCoordinate((int)mouseEvent.getSceneX(), (int)mouseEvent.getSceneY());
-        if (selectedPatch != null){
-            selectedPatch.toggleCellState();
-        }
+    private void toggleCellStateForMouseEvent(MouseEvent mouseEvent) {
+	Patch selectedPatch = grid.getPatchAtCoordinate(
+		(int) mouseEvent.getSceneX(), (int) mouseEvent.getSceneY());
+	if (selectedPatch != null) {
+	    selectedPatch.toggleCellState();
+	}
     }
 
     /**

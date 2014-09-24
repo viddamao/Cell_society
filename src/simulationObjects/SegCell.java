@@ -24,11 +24,11 @@ public class SegCell extends Cell {
      * make changes to the cells position, if needed
      */
     @Override
-    public void update (Patch currentPatch, ArrayList<Patch> neighbors) {
-        if (!isSatisfied(currentPatch, neighbors)) {
-            currentPatch.randomEmptyPatch().addCell(this);
-            currentPatch.removeCell();
-        }
+    public void update(Patch currentPatch, ArrayList<Patch> neighbors) {
+	if (!isSatisfied(currentPatch, neighbors)) {
+	    currentPatch.randomEmptyPatch().addCell(this);
+	    currentPatch.removeCell();
+	}
     }
 
     /**
@@ -86,6 +86,7 @@ public class SegCell extends Cell {
     @Override
     public ArrayList<String> getStateTypes() {
 	ArrayList<String> myStateType = new ArrayList<String>();
+	myStateType.add("BACKGROUND");
 	myStateType.add("X");
 	myStateType.add("O");
 	return myStateType;
@@ -94,19 +95,19 @@ public class SegCell extends Cell {
     @Override
     public ArrayList<Color> getInitialColors() {
 	ArrayList<Color> myStateColors = new ArrayList<Color>();
+	myStateColors.add(Color.WHITE);
 	myStateColors.add(Color.RED);
 	myStateColors.add(Color.BLUE);
 	return myStateColors;
     }
 
     @Override
-    public void toggleState () {
-        if (myState == STATE_X){
-            setState(STATE_O);
-        }
-        else{
-            setState(STATE_X);
-        }
+    public void toggleState() {
+	if (myState == STATE_X) {
+	    setState(STATE_O);
+	} else {
+	    setState(STATE_X);
+	}
     }
 
 }

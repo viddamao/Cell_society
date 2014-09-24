@@ -1,9 +1,8 @@
-    package controller;
+package controller;
 
 import java.io.File;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import com.apple.laf.AquaButtonBorder.Toggle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -45,6 +44,7 @@ public class UserInterface {
 	Scene myScene = new Scene(rootPane, GRID_WIDTH, GRID_HEIGHT
 		+ PANEL_HEIGHT);
 	myStage.setScene(myScene);
+	myStage.setResizable(false);
 	myStage.show();
 	makeBottomPanel();
     }
@@ -116,50 +116,44 @@ public class UserInterface {
 			    }
 			}));
 
-	//radiobuttons
+	// radiobuttons
 	final ToggleGroup edgeGroup = new ToggleGroup();
 	rootPane.getChildren().add(
-                createRadioButton(messages.getString("radio_button3_title"),
-                                  intFromResource("radio_button3_x"),
-                                  intFromResource("radio_button3_y"),
-                                  edgeGroup,
-                                  new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            if(myGrid!=null)
-                            {
-                                myGrid.setAndUpdateMode(2);
-                            } 
-                        }
-                }));
+		createRadioButton(messages.getString("radio_button3_title"),
+			intFromResource("radio_button3_x"),
+			intFromResource("radio_button3_y"), edgeGroup,
+			new EventHandler<ActionEvent>() {
+			    @Override
+			    public void handle(ActionEvent event) {
+				if (myGrid != null) {
+				    myGrid.setAndUpdateMode(2);
+				}
+			    }
+			}));
 	rootPane.getChildren().add(
-                createRadioButton(messages.getString("radio_button2_title"),
-                                  intFromResource("radio_button2_x"),
-                                  intFromResource("radio_button2_y"),
-                                  edgeGroup,
-                                  new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            if(myGrid!=null)
-                            {
-                                myGrid.setAndUpdateMode(1);
-                            } 
-                        }
-                }));
-        rootPane.getChildren().add(
-                createRadioButton(messages.getString("radio_button1_title"),
-                                  intFromResource("radio_button1_x"),
-                                  intFromResource("radio_button1_y"),
-                                  edgeGroup,
-                                  new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            if(myGrid!=null)
-                            {
-                                myGrid.setAndUpdateMode(0);
-                            } 
-                        }
-                }));
+		createRadioButton(messages.getString("radio_button2_title"),
+			intFromResource("radio_button2_x"),
+			intFromResource("radio_button2_y"), edgeGroup,
+			new EventHandler<ActionEvent>() {
+			    @Override
+			    public void handle(ActionEvent event) {
+				if (myGrid != null) {
+				    myGrid.setAndUpdateMode(1);
+				}
+			    }
+			}));
+	rootPane.getChildren().add(
+		createRadioButton(messages.getString("radio_button1_title"),
+			intFromResource("radio_button1_x"),
+			intFromResource("radio_button1_y"), edgeGroup,
+			new EventHandler<ActionEvent>() {
+			    @Override
+			    public void handle(ActionEvent event) {
+				if (myGrid != null) {
+				    myGrid.setAndUpdateMode(0);
+				}
+			    }
+			}));
 	// slider
 	rootPane.getChildren().add(
 		createSlider(intFromResource("slider_min"),
@@ -220,7 +214,7 @@ public class UserInterface {
 	button.setOnAction(handler);
 	return button;
     }
-    
+
     /**
      * create a radiobutton
      * 
@@ -234,15 +228,15 @@ public class UserInterface {
      *            action handler
      * @return the radiobutton
      */
-    private RadioButton createRadioButton(String title, int posX, int posY,ToggleGroup group,
-            EventHandler<ActionEvent> handler) {
-        RadioButton radioButton = new RadioButton(title);
-        radioButton.setToggleGroup(group);
-        radioButton.setSelected(true);
-        radioButton.setLayoutX(posX);
-        radioButton.setLayoutY(posY);
-        radioButton.setOnAction(handler);
-        return radioButton;
+    private RadioButton createRadioButton(String title, int posX, int posY,
+	    ToggleGroup group, EventHandler<ActionEvent> handler) {
+	RadioButton radioButton = new RadioButton(title);
+	radioButton.setToggleGroup(group);
+	radioButton.setSelected(true);
+	radioButton.setLayoutX(posX);
+	radioButton.setLayoutY(posY);
+	radioButton.setOnAction(handler);
+	return radioButton;
     }
 
     /**
@@ -297,14 +291,14 @@ public class UserInterface {
     public Pane getRootPane() {
 	return rootPane;
     }
-    public void reset(){
-        rootPane.getChildren().clear();
-        this.makeBottomPanel();
+
+    public void reset() {
+	rootPane.getChildren().clear();
+	this.makeBottomPanel();
     }
-    
-    public void setGrid(Grid grid)
-    {
-        myGrid = grid;
+
+    public void setGrid(Grid grid) {
+	myGrid = grid;
     }
 
 }

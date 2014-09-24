@@ -51,14 +51,18 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
 	Color myColor = infoSheet.getColor(stateType);
 	colorPicker.setValue(myColor);
 	text.setFill(myColor);
-	
+
 	colorPicker.setOnAction(new EventHandler() {
+
 	    @Override
 	    public void handle(Event t) {
-		
+
 		Color myColor = colorPicker.getValue();
 		text.setFill(myColor);
 		infoSheet.setColor(stateType, myColor);
+
+		if (text.getText() == "BACKGROUND")
+		    MainController.grid.updateBackgroundColor(myColor);
 	    }
 	});
 

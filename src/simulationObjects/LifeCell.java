@@ -24,20 +24,20 @@ public class LifeCell extends Cell {
     }
 
     @Override
-    public int getState () {
-        return myState;
+    public int getState() {
+	return myState;
     }
 
     @Override
-    public void setState (int state) {
-        myState = state;
+    public void setState(int state) {
+	myState = state;
 
     }
 
     @Override
-    public void update (Patch currentPatch, ArrayList<Patch> neighbors) {
-        // TODO Auto-generated method stub
-        
+    public void update(Patch currentPatch, ArrayList<Patch> neighbors) {
+	// TODO Auto-generated method stub
+
     }
 
     @Override
@@ -49,6 +49,7 @@ public class LifeCell extends Cell {
     @Override
     public ArrayList<String> getStateTypes() {
 	ArrayList<String> myStateType = new ArrayList<String>();
+	myStateType.add("BACKGROUND");
 	myStateType.add("CELL");
 	return myStateType;
     }
@@ -56,13 +57,14 @@ public class LifeCell extends Cell {
     @Override
     public ArrayList<Color> getInitialColors() {
 	ArrayList<Color> myStateColors = new ArrayList<Color>();
+	myStateColors.add(Color.WHITE);
 	myStateColors.add(Color.BLACK);
 	return myStateColors;
     }
 
     @Override
-    public void toggleState () {
-        // TODO toggle to the next cell state
+    public void toggleState() {
+	// TODO toggle to the next cell state
     }
 
 }
