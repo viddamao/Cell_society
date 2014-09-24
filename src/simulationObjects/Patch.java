@@ -136,10 +136,10 @@ public class Patch extends Group {
 	if (myCell != null) {
 	    removeCell();
 	}
-	cell.setHeight(myBody.getHeight());
-	cell.setWidth(myBody.getWidth());
-	cell.setLayoutX(myBody.getStartX());
-	cell.setLayoutY(myBody.getStartY());
+	cell.setHeight(myBody.getHeight()/2);
+	cell.setWidth(myBody.getWidth()/2);
+	cell.setLayoutX(myBody.getStartX()+myBody.getWidth()/4);
+	cell.setLayoutY(myBody.getStartY()+myBody.getHeight()/4);
 	cell.setArcHeight(cell.getHeight());
 	cell.setArcWidth(cell.getWidth());
 	getChildren().add(cell);

@@ -8,6 +8,8 @@ public abstract class PatchBody extends Polygon {
     private int myPatchWidth;
     private int startX;
     private int startY;
+    public int myX;
+    public int myY;
 
     public PatchBody(int x, int y, int patchHeight, int patchWidth) {
         super();
@@ -15,6 +17,8 @@ public abstract class PatchBody extends Polygon {
         myPatchWidth = patchWidth;
         startX = patchWidth*x;
         startY = patchHeight*y;
+        myX = x;
+        myY = y;
         buildBody();
     }
     
