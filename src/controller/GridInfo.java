@@ -6,10 +6,10 @@ import java.util.HashMap;
 import javafx.scene.paint.Color;
 
 /**
- * 
- * 
+ *
+ *
  * Stores the parameter and info for the grid
- * 
+ *
  * @author Viddamao
  *
  */

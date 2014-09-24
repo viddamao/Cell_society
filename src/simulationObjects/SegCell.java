@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 
 /**
  * Cell for the segregation simulation
- * 
+ *
  * @author Davis Gossage
  *
  */
@@ -33,7 +33,7 @@ public class SegCell extends Cell {
 
     /**
      * Determines whether the cell is satisfied given its neighbors
-     * 
+     *
      * @param currentPatch
      *            the patch the cell is in
      * @param neighbors
@@ -53,12 +53,11 @@ public class SegCell extends Cell {
 		}
 	    }
 	}
-	if (satisfiedCount + dissatisfiedCount > 0) {
+	if (satisfiedCount + dissatisfiedCount > 0)
 	    return satisfiedCount / (satisfiedCount + dissatisfiedCount) > infoSheet
 		    .getParam();
-	} else {
+	else
 	    return false;
-	}
     }
 
     @Override
@@ -79,6 +78,7 @@ public class SegCell extends Cell {
     /**
      * this simulation does not require the inherited prepare to update method
      */
+    @Override
     public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
 	return;
     }

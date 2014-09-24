@@ -3,7 +3,7 @@ package simulationObjects;
 import controller.Grid;
 
 /**
- * 
+ *
  * @author Will Chang
  *
  */

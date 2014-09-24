@@ -10,9 +10,9 @@ import simulationObjects.Patch;
 
 /**
  * Manages grid properties and contents
- * 
+ *
  * @author Will Chang
- * 
+ *
  */
 public class Grid extends Pane {
 
@@ -33,7 +33,7 @@ public class Grid extends Pane {
 
     /**
      * Constructs the Grid, initiates private variables
-     * 
+     *
      * @param width
      *            of the grid
      * @param height
@@ -89,7 +89,7 @@ public class Grid extends Pane {
 
     /**
      * Adds patch in specific location in the Grid
-     * 
+     *
      * @param patch
      *            to be added
      * @param xCoord
@@ -104,12 +104,12 @@ public class Grid extends Pane {
 
     private void addPatchToGrid(Patch patch, int gridX, int gridY) {
 	patch.createBody();
-	this.getChildren().add(patch);
+	getChildren().add(patch);
     }
 
     /**
      * Remove cell from specific location in the Grid
-     * 
+     *
      * @param xCoord
      *            in grid
      * @param yCoord
@@ -122,7 +122,7 @@ public class Grid extends Pane {
     // TODO Needs to be updated for unique boundary conditions.
     /**
      * Retrieves all neighboring patches around a point
-     * 
+     *
      * @param xCoord
      * @param yCoord
      * @return
@@ -158,7 +158,6 @@ public class Grid extends Pane {
 
     private void processAndAddToroidal(int nextX, int nextY,
 	    ArrayList<Patch> neighbors) {
-	// TODO duplicated code...
 	nextX = wrapCoordAround(nextX, gWidth);
 	nextY = wrapCoordAround(nextY, gHeight);
 	neighbors.add(gridArray[nextX][nextY]);
@@ -176,7 +175,7 @@ public class Grid extends Pane {
 
     /**
      * Checks if a location is not in the grid
-     * 
+     *
      * @param xCoord
      *            in grid
      * @param yCoord
@@ -190,7 +189,7 @@ public class Grid extends Pane {
 
     /**
      * get patch in our grid system
-     * 
+     *
      * @param i
      * @param j
      * @return
@@ -202,7 +201,7 @@ public class Grid extends Pane {
     // TODO duplicate method??
     /**
      * get patch given a scene coordinate
-     * 
+     *
      * @param i
      * @param j
      * @return
@@ -210,9 +209,8 @@ public class Grid extends Pane {
     public Patch getPatchAtCoordinate(int i, int j) {
 	for (Patch[] row : gridArray) {
 	    for (Patch p : row) {
-		if (p.getBoundsInParent().contains(i, j)) {
+		if (p.getBoundsInParent().contains(i, j))
 		    return p;
-		}
 	    }
 	}
 	return null;
@@ -228,13 +226,13 @@ public class Grid extends Pane {
 
     public void setAndUpdateMode(int mode) {
 	myMode = mode;
-	this.updateAllNeighborhoods();
+	updateAllNeighborhoods();
     }
 
     // TODO Look this over and change implementation -Will
     /**
      * Finds empty Patch
-     * 
+     *
      * @return an empty Patch
      */
     public Patch findEmptyPatch() {
@@ -246,9 +244,9 @@ public class Grid extends Pane {
 		}
 	    }
 	}
-	if (emptyPatches.size() == 0) {
+	if (emptyPatches.size() == 0)
 	    return null;
-	} else {
+	else {
 	    int random = new Random().nextInt(emptyPatches.size());
 	    return emptyPatches.get(random);
 	}

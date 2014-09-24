@@ -4,7 +4,7 @@ import controller.Grid;
 
 /**
  * Patch that Simulates GameOfLife
- * 
+ *
  * @author Will Chang
  *
  */
@@ -34,12 +34,12 @@ public class LifePatch extends Patch {
      * Special rules for Game of Life
      */
     public void processNeighborsAndUpdateState() {
-	int occupiedNeighbors = this.countNeighbors();
+	int occupiedNeighbors = countNeighbors();
 
-	if (occupiedNeighbors == comfortableAmount && this.isEmpty()) {
+	if (occupiedNeighbors == comfortableAmount && isEmpty()) {
 	    myState = State.GENERATING;
 	} else if ((occupiedNeighbors > comfortableAmount || occupiedNeighbors < baselineAmount)
-		&& !this.isEmpty()) {
+		&& !isEmpty()) {
 	    myState = State.EMPTYING;
 	}
     }
@@ -62,18 +62,33 @@ public class LifePatch extends Patch {
 	// Update this
 	switch (myState) {
 	case OCCUPIED:
-	    this.myCell.setFill(myCell.infoSheet.getColor("CELL"));
+	    myCell.setFill(myCell.infoSheet.getColor("CELL"));
 	    break;
 	case GENERATING:
 	    Cell generated = new LifeCell(xCoord, yCoord);
-	    this.addCell(generated);
+	    addCell(generated);
 	    myState = State.OCCUPIED;
 	    break;
 	case EMPTYING:
-	    this.removeCell();
+	    removeCell();
 	    break;
 	default:
 	    break;
+	}
+    }
+    
+    @Override
+    public void toggleCellState() {
+	switch (myState){
+	case OCCUPIED:
+	    removeCell();
+	    break;
+	case EMPTY:
+	    Cell generated = new LifeCell(xCoord, yCoord);
+	    addCell(generated);
+	    myState = State.OCCUPIED;
+	    break;
+	    
 	}
     }
 }

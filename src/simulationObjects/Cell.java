@@ -3,13 +3,13 @@ package simulationObjects;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import controller.GridInfo;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import controller.GridInfo;
 
 /**
  * Parent Class of Cell Hierarchy
- * 
+ *
  * @author Everyone
  *
  */
@@ -27,7 +27,7 @@ public abstract class Cell extends Rectangle {
 
     /**
      * Special constructor for XML reads
-     * 
+     *
      * @param x
      * @param y
      * @param state
@@ -35,7 +35,7 @@ public abstract class Cell extends Rectangle {
     public void initialize(int x, int y, int state) {
 	this.setX(x);
 	this.setY(y);
-	this.setState(state);
+	setState(state);
     }
 
     // modified the order for processing 4 directions
@@ -78,16 +78,18 @@ public abstract class Cell extends Rectangle {
 
     public void addOne(HashMap<Integer, Integer> cellTypeNumber, int index) {
 	int temp = 1;
-	if (!(cellTypeNumber.get(index) == null))
+	if (!(cellTypeNumber.get(index) == null)) {
 	    temp = cellTypeNumber.get(index).intValue() + 1;
+	}
 	cellTypeNumber.put(index, temp);
 
     }
 
     public void subtractOne(HashMap<Integer, Integer> cellTypeNumber, int index) {
 	int temp = 1;
-	if (!(cellTypeNumber.get(index) == null))
+	if (!(cellTypeNumber.get(index) == null)) {
 	    temp = cellTypeNumber.get(index).intValue() - 1;
+	}
 	cellTypeNumber.put(index, temp);
 
     }

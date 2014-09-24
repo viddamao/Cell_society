@@ -1,7 +1,7 @@
 package simulationObjects;
 
-import controller.GridInfo;
 import javafx.scene.shape.Polygon;
+import controller.GridInfo;
 
 public abstract class PatchBody extends Polygon {
 
