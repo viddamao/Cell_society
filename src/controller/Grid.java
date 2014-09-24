@@ -72,7 +72,7 @@ public class Grid extends Pane {
 		if(!p.isEmpty())
 		{
 		    int state = p.getCell().getState();
-		    cellCounts.put(state, cellCounts.get(state) + 1);
+		   // cellCounts.put(state, cellCounts.get(state) + 1);
 		}
 	    }
 	}
