@@ -46,10 +46,7 @@ public class Patch extends Group {
     }
     
     public void createBody(){
-        int patchHeight = (int) (grid.getMinHeight()/grid.getGridHeight());
-        int patchWidth = (int) (grid.getMinWidth()/grid.getGridWidth());
-        int hexHeight = (int) (grid.getMinHeight() / (grid.getGridHeight()*1.5));
-        myBody = new PatchBodyHexagon(xCoord,yCoord,grid.getMinHeight(),grid.getMinWidth(),grid.getGridHeight(),grid.getGridWidth());
+        myBody = new PatchBodyRectangle(xCoord,yCoord,grid.getMinHeight(),grid.getMinWidth(),grid.getGridHeight(),grid.getGridWidth());
         getChildren().add(myBody);
     }
 
@@ -141,12 +138,10 @@ public class Patch extends Group {
 	if (myCell != null) {
 	    removeCell();
 	}
-	/*
-	cell.setHeight(myBody.getHeight()/2);
-	cell.setWidth(myBody.getWidth()/2);
-	cell.setLayoutX(myBody.getStartX()+myBody.getWidth()/4);
-	cell.setLayoutY(myBody.getStartY()+myBody.getHeight()/4);
-	*/
+	cell.setHeight(myBody.getPatchWidth()/2);
+	cell.setWidth(myBody.getPatchWidth()/2);
+	cell.setLayoutX(myBody.getCenter().x-myBody.getPatchWidth()/4);
+	cell.setLayoutY(myBody.getCenter().y-myBody.getPatchHeight()/4);
 	cell.setArcHeight(cell.getHeight());
 	cell.setArcWidth(cell.getWidth());
 	getChildren().add(cell);

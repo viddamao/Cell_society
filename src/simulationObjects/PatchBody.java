@@ -1,5 +1,6 @@
 package simulationObjects;
 
+import java.awt.Point;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 
@@ -7,7 +8,9 @@ public abstract class PatchBody extends Polygon {
     
     private int myPatchHeight;
     private int myPatchWidth;
+    private Point myCenter;
     public int myX;
+
     public int myY;
 
     public PatchBody(int x, int y) {
@@ -39,6 +42,14 @@ public abstract class PatchBody extends Polygon {
     
     public int getPatchWidth(){
         return myPatchWidth;
+    }
+    
+    public Point getCenter () {
+        return myCenter;
+    }
+
+    public void setCenter (Point c) {
+        myCenter = c;
     }
 
 }

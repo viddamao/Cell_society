@@ -1,5 +1,7 @@
 package simulationObjects;
 
+import java.awt.Point;
+
 
 public class PatchBodyRectangle extends PatchBody {
 
@@ -25,6 +27,7 @@ public class PatchBodyRectangle extends PatchBody {
         double y4 = startY + getPatchHeight();
         Double[] myPts = new Double[]{x1,y1,x2,y2,x3,y3,x4,y4};
         createPolyFromPoints(myPts);
+        setCenter(new Point((int)(x1+x2)/2,(int)(y1+y3)/2));
     }
 
 }
