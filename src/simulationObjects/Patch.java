@@ -27,6 +27,7 @@ public class Patch extends Group {
     private int myPreviousCellState;
 
     private int REMOVE_ME = 0;
+
     /**
      * Constructors
      */
@@ -42,12 +43,12 @@ public class Patch extends Group {
 	myState = State.EMPTY;
 
     }
-    
-    public void createBody(){
-        int patchHeight = (int) (grid.getMinHeight()/grid.getGridHeight());
-        int patchWidth = (int) (grid.getMinWidth()/grid.getGridWidth());
-        myBody = new PatchBodyRectangle(xCoord,yCoord,patchHeight,patchWidth);
-        getChildren().add(myBody);
+
+    public void createBody() {
+	int patchHeight = (int) (grid.getMinHeight() / grid.getGridHeight());
+	int patchWidth = (int) (grid.getMinWidth() / grid.getGridWidth());
+	myBody = new PatchBodyRectangle(xCoord, yCoord, patchHeight, patchWidth);
+	getChildren().add(myBody);
     }
 
     protected enum State {
@@ -108,14 +109,14 @@ public class Patch extends Group {
      * Updates patch and the cell
      */
     public void update() {
-        // Update this
-        if (myCell != null) {
-            myCell.update(this, myNeighbors);
-            //TODO put 0 into the GridInfo/GameInfo
-            if (myCell!= null && myCell.getState() == 0) {
-                this.removeCell();
-            }
-        }
+	// Update this
+	if (myCell != null) {
+	    myCell.update(this, myNeighbors);
+	    // TODO put 0 into the GridInfo/GameInfo
+	    if (myCell != null && myCell.getState() == 0) {
+		this.removeCell();
+	    }
+	}
 
     }
 
@@ -138,10 +139,10 @@ public class Patch extends Group {
 	if (myCell != null) {
 	    removeCell();
 	}
-	cell.setHeight(myBody.getHeight()/2);
-	cell.setWidth(myBody.getWidth()/2);
-	cell.setLayoutX(myBody.getStartX()+myBody.getWidth()/4);
-	cell.setLayoutY(myBody.getStartY()+myBody.getHeight()/4);
+	cell.setHeight(myBody.getHeight() / 2);
+	cell.setWidth(myBody.getWidth() / 2);
+	cell.setLayoutX(myBody.getStartX() + myBody.getWidth() / 4);
+	cell.setLayoutY(myBody.getStartY() + myBody.getHeight() / 4);
 	cell.setArcHeight(cell.getHeight());
 	cell.setArcWidth(cell.getWidth());
 	getChildren().add(cell);
@@ -170,10 +171,10 @@ public class Patch extends Group {
 	myPreviousCellState = myState;
     }
 
-    public void toggleCellState () {
-        if (myCell != null){
-            myCell.toggleState();
-        }
+    public void toggleCellState() {
+	if (myCell != null) {
+	    myCell.toggleState();
+	}
     }
 
     public void setColorToBody(Color myColor) {

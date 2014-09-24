@@ -24,11 +24,11 @@ public class SegCell extends Cell {
      * make changes to the cells position, if needed
      */
     @Override
-    public void update (Patch currentPatch, ArrayList<Patch> neighbors) {
-        if (!isSatisfied(currentPatch, neighbors)) {
-            currentPatch.randomEmptyPatch().addCell(this);
-            currentPatch.removeCell();
-        }
+    public void update(Patch currentPatch, ArrayList<Patch> neighbors) {
+	if (!isSatisfied(currentPatch, neighbors)) {
+	    currentPatch.randomEmptyPatch().addCell(this);
+	    currentPatch.removeCell();
+	}
     }
 
     /**
@@ -102,13 +102,12 @@ public class SegCell extends Cell {
     }
 
     @Override
-    public void toggleState () {
-        if (myState == STATE_X){
-            setState(STATE_O);
-        }
-        else{
-            setState(STATE_X);
-        }
+    public void toggleState() {
+	if (myState == STATE_X) {
+	    setState(STATE_O);
+	} else {
+	    setState(STATE_X);
+	}
     }
 
 }

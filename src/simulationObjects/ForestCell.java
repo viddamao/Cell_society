@@ -24,7 +24,7 @@ public class ForestCell extends Cell {
 	    else
 		this.setState(TREE);
 	    break;
-	    
+
 	case ONFIRE:
 	    burnDown(currentPatch);
 	    break;
@@ -89,13 +89,12 @@ public class ForestCell extends Cell {
     }
 
     @Override
-    public void toggleState () {
-	if (myState == TREE){
-            setState(ONFIRE);
-        }
-        else{
-            setState(TREE);
-        }
+    public void toggleState() {
+	if (myState == TREE) {
+	    setState(ONFIRE);
+	} else {
+	    setState(TREE);
+	}
     }
 
 }

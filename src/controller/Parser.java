@@ -43,7 +43,7 @@ public class Parser {
 	}
 
 	messages = ResourceBundle.getBundle("messages", Locale.US);
-	
+
 	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
 	DocumentBuilder builder = factory.newDocumentBuilder();
@@ -59,12 +59,12 @@ public class Parser {
 	attributeParse(cellList, nodeList.item(0), false);
 
 	inputValidion();
-	
+
 	// Iterating through the nodes and extracting the data.
 	// NodeList nodeList = document.getDocumentElement().getChildNodes();
 
 	nodeList = document.getElementsByTagName("row");
-	
+
 	for (int i = 0; i < nodeList.getLength(); i++) {
 
 	    // We have encountered an <cell> tag.
@@ -73,18 +73,18 @@ public class Parser {
 		attributeParse(cellList, node, true);
 
 	}
-	
+
 	setCellStates();
 	return cellList;
     }
 
     private static void inputValidion() {
-	if (infoSheet.getCellType()==null){
-	    JOptionPane.showMessageDialog(null, messages.getString("missing_sim_type"));
+	if (infoSheet.getCellType() == null) {
+	    JOptionPane.showMessageDialog(null,
+		    messages.getString("missing_sim_type"));
 	    System.exit(0);
 	}
-	  
-	
+
     }
 
     private static void setCellStates() {
@@ -96,9 +96,10 @@ public class Parser {
 	    Cell cell = (Cell) cellClass.newInstance();
 	    ArrayList<String> myStateTypes = cell.getStateTypes();
 	    infoSheet.setStateTypes(myStateTypes);
-	    ArrayList<Color> myColors=cell.getInitialColors();
-	    for (int index=0;index<cell.getStateTypes().size();index++){
-		infoSheet.setColor(myStateTypes.get(index), myColors.get(index));
+	    ArrayList<Color> myColors = cell.getInitialColors();
+	    for (int index = 0; index < cell.getStateTypes().size(); index++) {
+		infoSheet
+			.setColor(myStateTypes.get(index), myColors.get(index));
 	    }
 	} catch (ClassNotFoundException e) {
 	    System.out.println(messages.getString("class_not_found_error"));

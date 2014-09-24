@@ -24,20 +24,20 @@ public class LifeCell extends Cell {
     }
 
     @Override
-    public int getState () {
-        return myState;
+    public int getState() {
+	return myState;
     }
 
     @Override
-    public void setState (int state) {
-        myState = state;
+    public void setState(int state) {
+	myState = state;
 
     }
 
     @Override
-    public void update (Patch currentPatch, ArrayList<Patch> neighbors) {
-        // TODO Auto-generated method stub
-        
+    public void update(Patch currentPatch, ArrayList<Patch> neighbors) {
+	// TODO Auto-generated method stub
+
     }
 
     @Override
@@ -63,8 +63,8 @@ public class LifeCell extends Cell {
     }
 
     @Override
-    public void toggleState () {
-        // TODO toggle to the next cell state
+    public void toggleState() {
+	// TODO toggle to the next cell state
     }
 
 }
