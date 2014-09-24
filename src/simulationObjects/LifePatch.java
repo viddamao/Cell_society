@@ -76,4 +76,19 @@ public class LifePatch extends Patch {
 	    break;
 	}
     }
+    
+    @Override
+    public void toggleCellState() {
+	switch (myState){
+	case OCCUPIED:
+	    removeCell();
+	    break;
+	case EMPTY:
+	    Cell generated = new LifeCell(xCoord, yCoord);
+	    addCell(generated);
+	    myState = State.OCCUPIED;
+	    break;
+	    
+	}
+    }
 }
