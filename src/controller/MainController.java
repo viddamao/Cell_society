@@ -7,6 +7,7 @@ import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
@@ -27,7 +28,7 @@ public class MainController extends Application {
     private UserInterface userInterface;
     private static ResourceBundle messages;
     private Timeline animation;
-    private GridManager gridManager;
+    private Grid grid;
     private GridInfo infoSheet = new GridInfo();
 
     public static void main(String[] args) throws Exception {
@@ -84,7 +85,12 @@ public class MainController extends Application {
      *            data to parse
      */
     public void initializeSimulationWithData(File XMLData) {
-	try {
+        
+        //reinitializes everything
+        userInterface.reset();
+        this.stopSimulation();
+        
+        try {
 	    @SuppressWarnings("unchecked")
 	    List<GridRows> gridRows = Parser.parserXml(XMLData
 		    .getAbsolutePath());
@@ -133,7 +139,7 @@ public class MainController extends Application {
 		    cell.setState(state);
 		    Patch currentPatch;
 		    if (infoSheet.getPatchType().equals("Default")) {
-			currentPatch = new Patch(i, j, gridManager);
+			currentPatch = new Patch(i, j, grid);
 		    } else {
 			String patchPathAndName = messages
 				.getString("cell_bundle")
@@ -141,7 +147,7 @@ public class MainController extends Application {
 				+ infoSheet.getPatchType();
 			Class<?> patchClass = Class.forName(patchPathAndName);
 			currentPatch = (Patch) patchClass.newInstance();
-			currentPatch.initialize(i, j, gridManager);
+			currentPatch.initialize(i, j, grid);
 		    }
 
 		    // add the patch to grid manager
@@ -156,6 +162,7 @@ public class MainController extends Application {
 
 	    }
 	    // now that we have all the patches, assign neighbors to each one
+	    //TODO Grid has a method for this...
 	    for (Patch p : patchList) {
 		p.getNeighbors();
 	    }
@@ -196,34 +203,34 @@ public class MainController extends Application {
      *            height of the grid
      */
 
-    private void createGridManager(int width, int height) {
-	if (gridManager != null) {
-	    userInterface.removeNode(gridManager);
-	}
-	gridManager = new GridManager(width, height);
-	for (int i = 0; i < width; i++) {
-	    gridManager.getColumnConstraints().add(
-		    new ColumnConstraints(userInterface.GRID_WIDTH / width)); // column
-									      // 1
-									      // is
-									      // 100
-									      // wide
-	}
-	for (int i = 0; i < height; i++) {
-	    gridManager.getRowConstraints().add(
-		    new RowConstraints(userInterface.GRID_HEIGHT / height)); // column
-									     // 1
-									     // is
-									     // 100
-									     // wide
-	}
-	gridManager.setGridLinesVisible(true);
-	gridManager.setLayoutX(0);
-	gridManager.setLayoutY(0);
-	gridManager.setMinHeight(userInterface.GRID_HEIGHT);
-	gridManager.setMinWidth(userInterface.GRID_WIDTH);
-	gridManager.setPrefSize(width, height);
-	userInterface.addNode(gridManager);
+    private void createGrid (int width, int height) {
+        if (grid != null) {
+            userInterface.removeNode(grid);
+        }
+        grid = new Grid(width, height);
+        grid.setLayoutX(0);
+        grid.setLayoutY(0);
+        grid.setMinHeight(userInterface.GRID_HEIGHT);
+        grid.setMinWidth(userInterface.GRID_WIDTH);
+        userInterface.addNode(grid);
+        grid.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                toggleCellStateForMouseEvent(mouseEvent);
+            }
+        });
+    }
+    
+    //TODO Implementation, clicks for empty patches as well?
+    /**
+     * Clicking empty cell creates a new cell there.
+     * Clicking on a cell decreases its state value by 1.
+     */
+    private void toggleCellStateForMouseEvent(MouseEvent mouseEvent){
+        Patch selectedPatch = grid.getPatchAtCoordinate((int)mouseEvent.getSceneX(), (int)mouseEvent.getSceneY());
+        if (selectedPatch != null){
+            selectedPatch.toggleCellState();
+        }
     }
 
     /**
@@ -250,10 +257,10 @@ public class MainController extends Application {
      * increment the simulation by one frame
      */
     public void stepSimulation() {
-	// tell the grid manager to process cell updates
+	// tell the grid to process cell updates
 	// System.out.println("new frame");
-	if (gridManager != null) {
-	    gridManager.step();
+	if (grid != null) {
+	    grid.updateGrid();
 	}
     }
 

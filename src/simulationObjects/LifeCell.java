@@ -1,7 +1,6 @@
 package simulationObjects;
 
 import java.util.ArrayList;
-
 import javafx.scene.paint.Color;
 
 /**
@@ -59,6 +58,11 @@ public class LifeCell extends Cell {
 	ArrayList<Color> myStateColors = new ArrayList<Color>();
 	myStateColors.add(Color.BLACK);
 	return myStateColors;
+    }
+
+    @Override
+    public void toggleState () {
+        // TODO toggle to the next cell state
     }
 
 }

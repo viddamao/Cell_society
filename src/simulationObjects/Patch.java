@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import controller.GridManager;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import controller.Grid;
 
 /**
  * 
@@ -15,11 +17,12 @@ public class Patch extends Group {
     protected Cell myCell;
     protected int xCoord;
     protected int yCoord;
-    protected GridManager manager;
+    protected Grid grid;
     protected ArrayList<Patch> myNeighbors;
     protected Image image;
     protected ImageView myView;
     protected State myState;
+    protected PatchBody myBody;
 
     private int myPreviousCellState;
 
@@ -31,13 +34,20 @@ public class Patch extends Group {
 	super();
     }
 
-    public Patch(int x, int y, GridManager m) {
+    public Patch(int x, int y, Grid m) {
 	super();
 	xCoord = x;
 	yCoord = y;
-	manager = m;
+	grid = m;
 	myState = State.EMPTY;
 
+    }
+    
+    public void createBody(){
+        int patchHeight = (int) (grid.getMinHeight()/grid.getGridHeight());
+        int patchWidth = (int) (grid.getMinWidth()/grid.getGridWidth());
+        myBody = new PatchBodyRectangle(xCoord,yCoord,patchHeight,patchWidth);
+        getChildren().add(myBody);
     }
 
     protected enum State {
@@ -54,10 +64,10 @@ public class Patch extends Group {
      * @param m
      *            manager
      */
-    public void initialize(int x, int y, GridManager m) {
+    public void initialize(int x, int y, Grid m) {
 	xCoord = x;
 	yCoord = y;
-	manager = m;
+	grid = m;
 	myState = State.EMPTY;
     }
 
@@ -65,7 +75,7 @@ public class Patch extends Group {
      * Returns surrounding Patches
      */
     public void getNeighbors() {
-	myNeighbors = manager.getNeighborsAround(xCoord, yCoord);
+	myNeighbors = grid.getNeighborsAround(xCoord, yCoord);
     }
 
     /**
@@ -128,8 +138,10 @@ public class Patch extends Group {
 	if (myCell != null) {
 	    removeCell();
 	}
-	cell.setHeight(manager.getRowConstraints().get(0).getPrefHeight());
-	cell.setWidth(manager.getColumnConstraints().get(0).getPrefWidth());
+	cell.setHeight(myBody.getHeight()/2);
+	cell.setWidth(myBody.getWidth()/2);
+	cell.setLayoutX(myBody.getStartX()+myBody.getWidth()/4);
+	cell.setLayoutY(myBody.getStartY()+myBody.getHeight()/4);
 	cell.setArcHeight(cell.getHeight());
 	cell.setArcWidth(cell.getWidth());
 	getChildren().add(cell);
@@ -147,7 +159,7 @@ public class Patch extends Group {
 
     public Patch randomEmptyPatch() {
 	// get an empty patch from grid manager
-	return manager.findEmptyPatch();
+	return grid.findEmptyPatch();
     }
 
     public int getPreviousState() {
@@ -156,6 +168,12 @@ public class Patch extends Group {
 
     public void setPreviousState(int myState) {
 	myPreviousCellState = myState;
+    }
+
+    public void toggleCellState () {
+        if (myCell != null){
+            myCell.toggleState();
+        }
     }
 
 }

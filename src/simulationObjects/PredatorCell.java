@@ -235,5 +235,9 @@ public class PredatorCell extends Cell {
 	myStateColors.add(Color.GREEN);
 	return myStateColors;
     }
+    @Override
+    public void toggleState () {
+        // TODO toggle to the next cell state
+    }
 
 }
