@@ -22,6 +22,7 @@ public class GridInfo {
     private static double myParameter = 0.7;
     private static HashMap<String, Color> stateColors = new HashMap<String, Color>();
     private static ArrayList<String> myStateTypes;
+    private static int maxCellState;
     public boolean useGivenGrid = true;
 
     public void setWidth(int width) {

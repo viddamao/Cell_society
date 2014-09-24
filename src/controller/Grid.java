@@ -93,7 +93,7 @@ public class Grid extends Pane {
      */
     public void addPatchAtPoint(Patch patch) {
 	gridArray[patch.getGridX()][patch.getGridY()] = patch;
-	this.add(patch, patch.getGridX(), patch.getGridY());
+	this.addPatchToGrid(patch, patch.getGridX(), patch.getGridY());
     }
 
     private void addPatchToGrid(Patch patch, int gridX, int gridY) {
