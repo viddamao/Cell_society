@@ -206,7 +206,7 @@ public class MainController extends Application {
     private void toggleCellStateForMouseEvent(MouseEvent mouseEvent){
         Patch selectedPatch = gridManager.getPatchAtCoordinate((int)mouseEvent.getSceneX(), (int)mouseEvent.getSceneY());
         if (selectedPatch != null){
-            System.out.println(selectedPatch);
+            selectedPatch.toggleCellState();
         }
     }
 

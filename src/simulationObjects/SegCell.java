@@ -99,4 +99,14 @@ public class SegCell extends Cell {
 	return myStateColors;
     }
 
+    @Override
+    public void toggleState () {
+        if (myState == STATE_X){
+            setState(STATE_O);
+        }
+        else{
+            setState(STATE_X);
+        }
+    }
+
 }

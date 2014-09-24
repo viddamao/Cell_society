@@ -168,4 +168,10 @@ public class Patch extends Group {
 	myPreviousCellState = myState;
     }
 
+    public void toggleCellState () {
+        if (myCell != null){
+            myCell.toggleState();
+        }
+    }
+
 }
