@@ -3,8 +3,6 @@ package controller;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import javax.swing.JOptionPane;
-
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -15,6 +13,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,7 +37,7 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
 	gridpane.getRowConstraints().add(new RowConstraints(55));
 	gridpane.getRowConstraints().add(new RowConstraints(40));
 
-	if (infoSheet.getStateTypes()==null) {
+	if (infoSheet.getStateTypes() == null) {
 	    sendPickFileAlert();
 	    return;
 	}
@@ -52,9 +52,10 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
     }
 
     private void sendPickFileAlert() {
-	ResourceBundle messages = ResourceBundle.getBundle("messages", Locale.US);
+	ResourceBundle messages = ResourceBundle.getBundle("messages",
+		Locale.US);
 	JOptionPane.showMessageDialog(null,
-		    messages.getString("missing_sim_type"));
+		messages.getString("missing_sim_type"));
     }
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
@@ -76,8 +77,9 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
 		text.setFill(myColor);
 		infoSheet.setColor(stateType, myColor);
 
-		if (text.getText() == "BACKGROUND")
+		if (text.getText() == "BACKGROUND") {
 		    MainController.grid.updateBackgroundColor(myColor);
+		}
 	    }
 	});
 

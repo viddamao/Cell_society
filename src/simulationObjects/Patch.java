@@ -1,15 +1,15 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import controller.Grid;
 
 /**
- * 
+ *
  * @author Will Chang
  *
  */
@@ -57,7 +57,7 @@ public class Patch extends Group {
 
     /**
      * For Special patch simulations.
-     * 
+     *
      * @param x
      *            loc
      * @param y
@@ -81,7 +81,7 @@ public class Patch extends Group {
 
     /**
      * Gets the cell
-     * 
+     *
      * @return myCell
      */
     public Cell getCell() {
@@ -114,7 +114,7 @@ public class Patch extends Group {
 	    myCell.update(this, myNeighbors);
 	    // TODO put 0 into the GridInfo/GameInfo
 	    if (myCell != null && myCell.getState() == 0) {
-		this.removeCell();
+		removeCell();
 	    }
 	}
 
@@ -131,7 +131,7 @@ public class Patch extends Group {
 
     /**
      * Adds cell along with GUI info.
-     * 
+     *
      * @param cell
      *            to occupy patch
      */
@@ -178,7 +178,7 @@ public class Patch extends Group {
     }
 
     public void setColorToBody(Color myColor) {
-	this.myBody.setFill(myColor);
+	myBody.setFill(myColor);
     }
 
 }

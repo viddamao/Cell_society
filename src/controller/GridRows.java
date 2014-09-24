@@ -1,7 +1,7 @@
 package controller;
 
 /*
- * 
+ *
  * Just for xml parser test
  */
 public class GridRows {

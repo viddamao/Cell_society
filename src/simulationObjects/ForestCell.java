@@ -19,10 +19,11 @@ public class ForestCell extends Cell {
 	switch (myState) {
 	case TREE:
 
-	    if (willCatchFire(neighbors))
+	    if (willCatchFire(neighbors)) {
 		catchFire(currentPatch);
-	    else
-		this.setState(TREE);
+	    } else {
+		setState(TREE);
+	    }
 	    break;
 
 	case ONFIRE:
@@ -32,11 +33,11 @@ public class ForestCell extends Cell {
     }
 
     private void burnDown(Patch currentPatch) {
-	this.setState(EMPTY);
+	setState(EMPTY);
     }
 
     public void catchFire(Patch currentPatch) {
-	this.setState(ONFIRE);
+	setState(ONFIRE);
     }
 
     @Override
@@ -67,7 +68,7 @@ public class ForestCell extends Cell {
 
     @Override
     public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
-	currentPatch.setPreviousState(this.myState);
+	currentPatch.setPreviousState(myState);
     }
 
     @Override

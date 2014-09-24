@@ -20,14 +20,14 @@ import org.w3c.dom.NodeList;
 import simulationObjects.Cell;
 
 /**
- * 
+ *
  * @param filename
  *            String input for the xml file name
- * 
+ *
  *            xml parser for the input grid
- * 
+ *
  *            return a list of cell nodes needs first process to grid
- * 
+ *
  */
 public class Parser {
 
@@ -39,6 +39,8 @@ public class Parser {
 	String extension = fileName.substring(fileName.lastIndexOf(".") + 1,
 		fileName.length());
 	if (!extension.equals("xml")) {
+	    JOptionPane.showMessageDialog(null, "Not Valid XML File");
+	    System.exit(0);
 	    throw new UnsupportedOperationException();
 	}
 
@@ -69,8 +71,9 @@ public class Parser {
 
 	    // We have encountered an <cell> tag.
 	    Node node = nodeList.item(i);
-	    if (node instanceof Element)
+	    if (node instanceof Element) {
 		attributeParse(cellList, node, true);
+	    }
 
 	}
 
@@ -111,17 +114,17 @@ public class Parser {
     }
 
     /**
-     * 
-     * 
-     * 
-     * 
+     *
+     *
+     *
+     *
      * @param cellList
      *            return a list of strings with rows in the grid
      * @param node
      *            the input node in XML
      * @param flag
      *            magic number
-     * 
+     *
      */
     private static void attributeParse(List<GridRows> cellList, Node node,
 	    boolean flag) {
@@ -167,8 +170,9 @@ public class Parser {
 		    }
 		}
 	    }
-	    if (flag)
+	    if (flag) {
 		cellList.add(cellBlock);
+	    }
 	}
     }
 

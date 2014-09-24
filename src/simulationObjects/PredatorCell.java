@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javafx.scene.paint.Color;
 
 /**
- * 
+ *
  * @author Will Chang
  *
  */
@@ -36,7 +36,7 @@ public class PredatorCell extends Cell {
 
     /**
      * Constructor
-     * 
+     *
      * @param x
      * @param y
      * @param state
@@ -67,24 +67,25 @@ public class PredatorCell extends Cell {
 
     /**
      * Eats another fish
-     * 
+     *
      * @param destination
      */
     public void feed(Patch destination) {
 	destination.removeCell();
-	this.vitality += 3;
+	vitality += 3;
     }
 
     /**
      * Sets state for updating
      */
+    @Override
     public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
 	myPhase = Phase.UPDATING;
     }
 
     /**
      * Updates the Predator Cell
-     * 
+     *
      * returns the current location if the Predator Cell is still alive returns
      * null if the shark cell's vitality = 0
      */
@@ -93,17 +94,17 @@ public class PredatorCell extends Cell {
 	if (myPhase == Phase.UPDATING) {
 	    if (vitality > 0) {
 		Patch destination = chooseMove(neighbors);
-		this.updateStatesandMakeMoves(current, destination);
+		updateStatesandMakeMoves(current, destination);
 		myPhase = Phase.STASIS;
 	    } else {
-		this.setState(DYING);
+		setState(DYING);
 	    }
 	}
     }
 
     /**
      * Makes the move
-     * 
+     *
      * @param current
      *            patch
      * @param destination
@@ -116,7 +117,7 @@ public class PredatorCell extends Cell {
 
     /**
      * Breeds
-     * 
+     *
      * @param current
      *            leaves new PredatorCell on old location
      */
@@ -134,14 +135,13 @@ public class PredatorCell extends Cell {
     /**
      * Finds possible patches to move and returns a destination. If can't move
      * returns null
-     * 
+     *
      * @param neighbors
      * @return Patch to move to (contains fish or empty patch) Null if nowhere
      *         to move.
      */
     public Patch chooseMove(ArrayList<Patch> neighbors) {
-	ArrayList<Patch> destinations = this
-		.processPossibleDestinations(neighbors);
+	ArrayList<Patch> destinations = processPossibleDestinations(neighbors);
 	int range = destinations.size();
 	if (range > 0)
 	    return destinations.get((int) (Math.random() * range));
@@ -151,7 +151,7 @@ public class PredatorCell extends Cell {
 
     /**
      * Processes locations to move to
-     * 
+     *
      * @param allNeighbors
      *            it can move to
      * @return list of Patches to move to
@@ -171,16 +171,15 @@ public class PredatorCell extends Cell {
 	    }
 	}
 	if (myState == SHARK) {
-	    if (fishBuffer.size() > 0) {
+	    if (fishBuffer.size() > 0)
 		return fishBuffer;
-	    }
 	}
 	return emptyBuffer;
     }
 
     /**
      * Updates the state and moves based on Shark vs Fish
-     * 
+     *
      * @param current
      *            patch
      * @param destination
@@ -193,12 +192,12 @@ public class PredatorCell extends Cell {
 	}
 	if (destination != null) {
 	    if (myState == SHARK && !destination.isEmpty()) {
-		this.feed(destination);
+		feed(destination);
 	    }
-	    this.makeMove(current, destination);
+	    makeMove(current, destination);
 
 	    if (timeToBreed == 0) {
-		this.leaveEgg(current);
+		leaveEgg(current);
 		timeToBreed = gestationPeriod;
 	    }
 	}

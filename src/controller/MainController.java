@@ -1,25 +1,28 @@
 package controller;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import java.util.*;
-import simulationObjects.*;
+import simulationObjects.Cell;
+import simulationObjects.Patch;
 
 /**
- * 
+ *
  * The main controller responsible for the gameloop, as well as creating
  * instances of the user interface and grid
- * 
+ *
  * @author Davis Gossage
  *
  */
@@ -55,9 +58,9 @@ public class MainController extends Application {
     };
 
     /**
-     * 
+     *
      * change the simulation speed
-     * 
+     *
      * @param speed
      *            speed of the simulation
      * @param play
@@ -70,7 +73,7 @@ public class MainController extends Application {
 	    animation = new Timeline();
 	}
 	animation.stop();
-	animation.setCycleCount(Timeline.INDEFINITE);
+	animation.setCycleCount(Animation.INDEFINITE);
 	animation.getKeyFrames().clear();
 	animation.getKeyFrames().add(frame);
 	if (play) {
@@ -80,7 +83,7 @@ public class MainController extends Application {
 
     /**
      * parse the XMLData and check for exceptions
-     * 
+     *
      * @param XMLData
      *            data to parse
      */
@@ -88,7 +91,7 @@ public class MainController extends Application {
 
 	// reinitializes everything
 	userInterface.reset();
-	this.stopSimulation();
+	stopSimulation();
 
 	try {
 	    @SuppressWarnings("unchecked")
@@ -105,7 +108,7 @@ public class MainController extends Application {
     /**
      * take the data array given by the parser and create patches and cell
      * objects
-     * 
+     *
      * @param gridRows
      *            list given by the parser
      */
@@ -135,8 +138,9 @@ public class MainController extends Application {
 		height = gridHeight;
 	    }
 
-	    if (!infoSheet.useGivenGrid)
+	    if (!infoSheet.useGivenGrid) {
 		gridRows = randomizeGrid();
+	    }
 	    createGrid(width, height);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
@@ -200,9 +204,10 @@ public class MainController extends Application {
 	    currentRow = "";
 	    currentGridRow = new GridRows();
 	    currentGridRow.id = i;
-	    for (int j = 0; j < infoSheet.getWidth(); j++)
+	    for (int j = 0; j < infoSheet.getWidth(); j++) {
 		currentRow += Long.toString(((Math.round(Math.random() * 2))))
 			+ " ";
+	    }
 	    currentGridRow.states = currentRow;
 	    randomizedRows.add(currentGridRow);
 	}
@@ -212,7 +217,7 @@ public class MainController extends Application {
     /**
      * create an instance of the grid set column and row constraints and add to
      * the scene
-     * 
+     *
      * @param width
      *            width of the grid
      * @param height

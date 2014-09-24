@@ -1,8 +1,10 @@
 package controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -17,9 +19,11 @@ import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.swing.JOptionPane;
+
 /**
  * The UI of the application, handles buttons and handlers as well as the scene
- * 
+ *
  * @author Davis
  *
  */
@@ -32,7 +36,7 @@ public class UserInterface {
     private static ResourceBundle messages;
     public final int GRID_WIDTH = 500;
     public final int GRID_HEIGHT = 500;
-    private final int PANEL_HEIGHT = 80;
+    private final int PANEL_HEIGHT = 120;
 
     public UserInterface(Stage s, MainController mainController) {
 	messages = ResourceBundle.getBundle("messages", Locale.US);
@@ -110,9 +114,35 @@ public class UserInterface {
 					.getString("file_dialog_title"));
 				final File XMLData = fileChooser
 					.showOpenDialog(myStage);
-				if (XMLData != null)
+				if (XMLData != null) {
 				    myMainController
 					    .initializeSimulationWithData(XMLData);
+				}
+			    }
+			}));
+
+	rootPane.getChildren().add(
+		createButton(messages.getString("edit_button_title"),
+			intFromResource("edit_button_x"),
+			intFromResource("edit_button_y"),
+			new EventHandler<ActionEvent>() {
+			    @Override
+			    public void handle(ActionEvent event) {
+				// show file dialog
+				FileChooser fileChooser = new FileChooser();
+				fileChooser.setTitle(messages
+					.getString("file_dialog_title"));
+				final File XMLData = fileChooser
+					.showOpenDialog(myStage);
+				if (XMLData != null) {
+				    try {
+					java.awt.Desktop.getDesktop().edit(
+						XMLData);
+				    } catch (IOException e) {
+					JOptionPane.showMessageDialog(null,
+						"File not Valid");
+				    }
+				}
 			    }
 			}));
 
@@ -162,6 +192,7 @@ public class UserInterface {
 			intFromResource("slider_x"),
 			intFromResource("slider_y"),
 			new ChangeListener<Number>() {
+			    @Override
 			    public void changed(
 				    ObservableValue<? extends Number> ov,
 				    Number old_val, Number new_val) {
@@ -173,7 +204,7 @@ public class UserInterface {
 
     /**
      * returns an integer value from the resource file given a key
-     * 
+     *
      * @param s
      *            key to find in the resource file
      * @return integer from resource file
@@ -184,7 +215,7 @@ public class UserInterface {
 
     /**
      * returns a double value from the resource file given a key
-     * 
+     *
      * @param s
      *            key to find in the resource file
      * @return double from resource file
@@ -195,7 +226,7 @@ public class UserInterface {
 
     /**
      * create a button
-     * 
+     *
      * @param title
      *            title of the button
      * @param posX
@@ -217,7 +248,7 @@ public class UserInterface {
 
     /**
      * create a radiobutton
-     * 
+     *
      * @param title
      *            title of the radiobutton
      * @param posX
@@ -241,7 +272,7 @@ public class UserInterface {
 
     /**
      * create a slider
-     * 
+     *
      * @param start
      *            minimum value of the slider
      * @param stop
@@ -267,7 +298,7 @@ public class UserInterface {
 
     /**
      * add a node to the pane
-     * 
+     *
      * @param n
      *            node to add
      */
@@ -277,7 +308,7 @@ public class UserInterface {
 
     /**
      * remove a node from the pane
-     * 
+     *
      * @param n
      *            node to add
      */
@@ -294,7 +325,7 @@ public class UserInterface {
 
     public void reset() {
 	rootPane.getChildren().clear();
-	this.makeBottomPanel();
+	makeBottomPanel();
     }
 
     public void setGrid(Grid grid) {
