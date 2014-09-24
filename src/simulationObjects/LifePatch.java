@@ -1,6 +1,6 @@
 package simulationObjects;
 
-import controller.GridManager;
+import controller.Grid;
 
 /**
  * Patch that Simulates GameOfLife
@@ -21,7 +21,7 @@ public class LifePatch extends Patch {
         super();
     }
 
-    public LifePatch(int x, int y, GridManager m) {
+    public LifePatch(int x, int y, Grid m) {
 	super(x, y, m);
 
     }

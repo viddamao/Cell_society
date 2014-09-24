@@ -27,7 +27,7 @@ import javafx.stage.Stage;
 
 public class UserInterface {
     private MainController myMainController;
-    private GridManager myManager;
+    private Grid myGrid;
     private Pane rootPane;
     private Stage myStage;
     private static ResourceBundle messages;
@@ -126,9 +126,9 @@ public class UserInterface {
                                   new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
-                            if(myManager!=null)
+                            if(myGrid!=null)
                             {
-                                myManager.setAndUpdateMode(2);
+                                myGrid.setAndUpdateMode(2);
                             } 
                         }
                 }));
@@ -140,9 +140,9 @@ public class UserInterface {
                                   new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
-                            if(myManager!=null)
+                            if(myGrid!=null)
                             {
-                                myManager.setAndUpdateMode(1);
+                                myGrid.setAndUpdateMode(1);
                             } 
                         }
                 }));
@@ -154,9 +154,9 @@ public class UserInterface {
                                   new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
-                            if(myManager!=null)
+                            if(myGrid!=null)
                             {
-                                myManager.setAndUpdateMode(0);
+                                myGrid.setAndUpdateMode(0);
                             } 
                         }
                 }));
@@ -302,9 +302,9 @@ public class UserInterface {
         this.makeBottomPanel();
     }
     
-    public void setGridManager(GridManager manager)
+    public void setGrid(Grid grid)
     {
-        myManager = manager;
+        myGrid = grid;
     }
 
 }

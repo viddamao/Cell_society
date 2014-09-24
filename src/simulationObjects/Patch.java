@@ -6,7 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import controller.GridManager;
+import controller.Grid;
 
 /**
  * 
@@ -17,7 +17,7 @@ public class Patch extends Group {
     protected Cell myCell;
     protected int xCoord;
     protected int yCoord;
-    protected GridManager manager;
+    protected Grid manager;
     protected ArrayList<Patch> myNeighbors;
     protected Image image;
     protected ImageView myView;
@@ -33,7 +33,7 @@ public class Patch extends Group {
 	super();
     }
 
-    public Patch(int x, int y, GridManager m) {
+    public Patch(int x, int y, Grid m) {
 	super();
 	xCoord = x;
 	yCoord = y;
@@ -62,7 +62,7 @@ public class Patch extends Group {
      * @param m
      *            manager
      */
-    public void initialize(int x, int y, GridManager m) {
+    public void initialize(int x, int y, Grid m) {
 	xCoord = x;
 	yCoord = y;
 	manager = m;
