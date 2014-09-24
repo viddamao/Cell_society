@@ -8,6 +8,7 @@
      	 <type>ForestCell</type>
       	<patchType>Default</patchType>
  	  <adjacentType>4</adjacentType>
+ 	  <maxCellState>2</maxCellState>
  	  <parameter>0.7</parameter>
    </gridInfo>
  

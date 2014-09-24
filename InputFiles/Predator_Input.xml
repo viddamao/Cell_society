@@ -8,6 +8,7 @@
       <type>PredatorCell</type>
       <patchType>PredatorPatch</patchType>
  	  <adjacentType>4</adjacentType>
+ 	  <maxCellState>2</maxCellState>
    </gridInfo>
  
    <row id="00">

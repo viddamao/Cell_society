@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 import javafx.scene.layout.Pane;
@@ -24,7 +25,8 @@ public class Grid extends Pane {
     private int myMode;
     private final int TOROIDAL = 1;
     private final int INFINITE = 2;
-
+    private HashMap<Integer,Integer> cellCounts;
+    
     // private String patchType;
     // {4,8} indicates adjacent type to be 4 or 8 blocks around
     // private int adjacentType;
@@ -41,13 +43,18 @@ public class Grid extends Pane {
 	gridArray = new Patch[width][height];
 	gWidth = width;
 	gHeight = height;
-	myMode = 0; // Default is bounded.
+	initializeCellCounts();
+	myMode = 0; //Default is bounded.
     }
 
-    Grid() {
-	// TODO Auto-generated constructor stub
+    public void initializeCellCounts()
+    {
+        cellCounts = new HashMap();
+        for(Integer i = 1; i <= infoSheet.getMaxCellState(); i++)
+        {
+            cellCounts.put(i, 0);
+        }
     }
-
     // TODO Duplicated for loop...
     /**
      * Makes a step in the simulation, updates everything sequentially
@@ -62,9 +69,19 @@ public class Grid extends Pane {
 	for (Patch[] row : gridArray) {
 	    for (Patch p : row) {
 		p.update();
+		if(!p.isEmpty())
+		{
+		    int state = p.getCell().getState();
+		   // cellCounts.put(state, cellCounts.get(state) + 1);
+		}
 	    }
 	}
 
+    }
+    
+    public HashMap<Integer,Integer> getCellCounts()
+    {
+        return cellCounts;
     }
 
     /**
@@ -79,7 +96,7 @@ public class Grid extends Pane {
      */
     public void addPatchAtPoint(Patch patch) {
 	gridArray[patch.getGridX()][patch.getGridY()] = patch;
-	addPatchToGrid(patch, patch.getGridX(), patch.getGridY());
+	this.addPatchToGrid(patch, patch.getGridX(), patch.getGridY());
     }
 
     private void addPatchToGrid(Patch patch, int gridX, int gridY) {

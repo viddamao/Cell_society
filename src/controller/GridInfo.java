@@ -22,6 +22,7 @@ public class GridInfo {
     private static double myParameter = 0.7;
     private static HashMap<String, Color> stateColors = new HashMap<String, Color>();
     private static ArrayList<String> myStateTypes;
+    private static int maxCellState;
     public boolean useGivenGrid = true;
 
     public void setWidth(int width) {
@@ -67,7 +68,12 @@ public class GridInfo {
 	return myPatchType;
 
     }
-
+    
+    public int getMaxCellState()
+    {
+        return maxCellState;
+    }
+    
     public double getParam() {
 	return myParameter;
     }
@@ -90,6 +96,11 @@ public class GridInfo {
 
     public ArrayList<String> getStateTypes() {
 	return myStateTypes;
+    }
+    
+    public void setMaxCellState(int state)
+    {
+        maxCellState = state;
     }
 
 }
