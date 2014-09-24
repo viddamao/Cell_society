@@ -73,6 +73,7 @@ public class ForestCell extends Cell {
     @Override
     public ArrayList<String> getStateTypes() {
 	ArrayList<String> myStateType = new ArrayList<String>();
+	myStateType.add("BACKGROUND");
 	myStateType.add("ONFIRE");
 	myStateType.add("TREE");
 	return myStateType;
@@ -81,6 +82,7 @@ public class ForestCell extends Cell {
     @Override
     public ArrayList<Color> getInitialColors() {
 	ArrayList<Color> myStateColors = new ArrayList<Color>();
+	myStateColors.add(Color.WHITE);
 	myStateColors.add(Color.RED);
 	myStateColors.add(Color.GREEN);
 	return myStateColors;
@@ -88,7 +90,12 @@ public class ForestCell extends Cell {
 
     @Override
     public void toggleState () {
-        // TODO toggle to the next cell state
+	if (myState == TREE){
+            setState(ONFIRE);
+        }
+        else{
+            setState(TREE);
+        }
     }
 
 }

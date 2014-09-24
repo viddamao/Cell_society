@@ -2,7 +2,9 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.Random;
+
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import simulationObjects.Patch;
 
 /**
@@ -41,6 +43,12 @@ public class Grid extends Pane {
 	gHeight = height;
 	myMode = 0; //Default is bounded.
     }
+
+
+    Grid() {
+	// TODO Auto-generated constructor stub
+    }
+
 
     // TODO Duplicated for loop...
     /**
@@ -237,6 +245,14 @@ public class Grid extends Pane {
         for(Patch[] row : gridArray){
             for (Patch p : row) {
                 p.getNeighbors();
+            }
+        }
+    }
+
+    public void updateBackgroundColor(Color myColor) {
+	for(Patch[] row : gridArray){
+            for (Patch p : row) {
+                p.setColorToBody(myColor);
             }
         }
     }

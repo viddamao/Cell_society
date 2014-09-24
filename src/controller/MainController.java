@@ -28,7 +28,7 @@ public class MainController extends Application {
     private UserInterface userInterface;
     private static ResourceBundle messages;
     private Timeline animation;
-    private Grid grid;
+    static Grid grid;
     private GridInfo infoSheet = new GridInfo();
 
     public static void main(String[] args) throws Exception {

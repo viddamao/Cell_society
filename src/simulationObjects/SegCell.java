@@ -86,6 +86,7 @@ public class SegCell extends Cell {
     @Override
     public ArrayList<String> getStateTypes() {
 	ArrayList<String> myStateType = new ArrayList<String>();
+	myStateType.add("BACKGROUND");
 	myStateType.add("X");
 	myStateType.add("O");
 	return myStateType;
@@ -94,6 +95,7 @@ public class SegCell extends Cell {
     @Override
     public ArrayList<Color> getInitialColors() {
 	ArrayList<Color> myStateColors = new ArrayList<Color>();
+	myStateColors.add(Color.WHITE);
 	myStateColors.add(Color.RED);
 	myStateColors.add(Color.BLUE);
 	return myStateColors;

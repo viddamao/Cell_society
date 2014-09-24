@@ -20,7 +20,7 @@ public class PatchBodyRectangle extends PatchBody {
         double y4 = getStartY() + getHeight();
         Double[] myPts = new Double[]{x1,y1,x2,y2,x3,y3,x4,y4};
         getPoints().addAll(myPts);
-        setFill(new Color(0f,0f,0f,.0f));
+        setFill(infoSheet.getColor("BACKGROUND"));
         setStrokeWidth(.5);
         setStroke(Color.BLACK);
     }

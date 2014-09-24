@@ -1,9 +1,12 @@
 package simulationObjects;
 
+import controller.GridInfo;
 import javafx.scene.shape.Polygon;
 
 public abstract class PatchBody extends Polygon {
     
+    protected GridInfo infoSheet = new GridInfo();
+
     private int myPatchHeight;
     private int myPatchWidth;
     private int startX;

@@ -176,4 +176,8 @@ public class Patch extends Group {
         }
     }
 
+    public void setColorToBody(Color myColor) {
+	this.myBody.setFill(myColor);
+    }
+
 }

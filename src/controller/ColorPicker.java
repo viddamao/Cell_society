@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 public class ColorPicker extends javafx.scene.control.ColorPicker {
     private GridInfo infoSheet = new GridInfo();
 
+
     public void showColorPicker() {
 	Stage myStage = new Stage();
 	myStage.setResizable(false);
@@ -53,13 +54,17 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
 	text.setFill(myColor);
 	
 	colorPicker.setOnAction(new EventHandler() {
+
 	    @Override
 	    public void handle(Event t) {
-		
+
 		Color myColor = colorPicker.getValue();
 		text.setFill(myColor);
 		infoSheet.setColor(stateType, myColor);
-	    }
+		
+		if (text.getText()=="BACKGROUND")
+		    MainController.grid.updateBackgroundColor(myColor);
+		    }
 	});
 
 	gridpane.add(colorPicker, 1, index);

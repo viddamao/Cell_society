@@ -223,6 +223,7 @@ public class PredatorCell extends Cell {
     @Override
     public ArrayList<String> getStateTypes() {
 	ArrayList<String> myStateType = new ArrayList<String>();
+	myStateType.add("BACKGROUND");
 	myStateType.add("SHARK");
 	myStateType.add("FISH");
 	return myStateType;
@@ -231,6 +232,7 @@ public class PredatorCell extends Cell {
     @Override
     public ArrayList<Color> getInitialColors() {
 	ArrayList<Color> myStateColors = new ArrayList<Color>();
+	myStateColors.add(Color.AQUA);
 	myStateColors.add(Color.YELLOW);
 	myStateColors.add(Color.GREEN);
 	return myStateColors;

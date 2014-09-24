@@ -29,7 +29,7 @@ public class PatchBodyTriangle extends PatchBody {
             myPts = new Double[]{topCoord1,topY,bottomCoord1,bottomY,bottomCoord2,bottomY};
         }
         getPoints().addAll(myPts);
-        setFill(new Color(0f,0f,0f,.0f));
+        setFill(infoSheet.getColor("BACKGROUND"));
         setStrokeWidth(.5);
         setStroke(Color.BLACK);
     }
