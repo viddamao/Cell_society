@@ -33,7 +33,7 @@ public class MainController extends Application {
     private Timeline animation;
     static Grid grid;
     private GridInfo infoSheet = new GridInfo();
-    private SimulationChart myChart;
+  // private SimulationChart myChart;
 
     public static void main(String[] args) throws Exception {
 
@@ -143,7 +143,7 @@ public class MainController extends Application {
 		gridRows = randomizeGrid();
 	    }
 	    createGrid(width, height);
-	    myChart = new SimulationChart(grid);
+	//    myChart = new SimulationChart(grid);
 	    userInterface.setGrid(grid);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");

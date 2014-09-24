@@ -33,7 +33,7 @@ public class UserInterface {
     public final int GRID_WIDTH = 500;
     public final int GRID_HEIGHT = 500;
     private final int PANEL_HEIGHT = 80;
-    private SimulationChart myChart;
+   // private SimulationChart myChart;
 
     public UserInterface(Stage s, MainController mainController) {
 	messages = ResourceBundle.getBundle("messages", Locale.US);
