@@ -33,6 +33,7 @@ public class UserInterface {
     public final int GRID_WIDTH = 500;
     public final int GRID_HEIGHT = 500;
     private final int PANEL_HEIGHT = 80;
+    private SimulationChart myChart;
 
     public UserInterface(Stage s, MainController mainController) {
 	messages = ResourceBundle.getBundle("messages", Locale.US);
@@ -55,6 +56,7 @@ public class UserInterface {
      */
     private void makeBottomPanel() {
 	// buttons
+        
 	rootPane.getChildren().add(
 		createButton(messages.getString("start_button_title"),
 			intFromResource("start_button_x"),

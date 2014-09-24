@@ -67,7 +67,12 @@ public class GridInfo {
 	return myPatchType;
 
     }
-
+    
+    public int getMaxCellState()
+    {
+        return maxCellState;
+    }
+    
     public double getParam() {
 	return myParameter;
     }
@@ -90,6 +95,11 @@ public class GridInfo {
 
     public ArrayList<String> getStateTypes() {
 	return myStateTypes;
+    }
+    
+    public void setMaxCellState(int state)
+    {
+        maxCellState = state;
     }
 
 }

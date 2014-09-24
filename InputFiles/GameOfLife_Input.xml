@@ -8,6 +8,7 @@
       <type>LifeCell</type>
       <patchType>LifePatch</patchType>
  	  <adjacentType>8</adjacentType>
+ 	  <maxCellState>1</maxCellState>
    </gridInfo>
  
    <row id="00">

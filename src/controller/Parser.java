@@ -161,6 +161,9 @@ public class Parser {
 		    case "adjacentType":
 			infoSheet.setAdjacent(Integer.parseInt(content));
 			break;
+		    case "maxCellstate":
+                        infoSheet.setAdjacent(Integer.parseInt(content));
+                        break;
 		    case "parameter":
 			infoSheet.setParameter(Double.parseDouble(content));
 			break;

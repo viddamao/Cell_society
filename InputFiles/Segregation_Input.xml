@@ -8,6 +8,7 @@
       <type>SegCell</type>
       <patchType>Default</patchType>
  	  <adjacentType>8</adjacentType>
+ 	  <maxCellState>2</maxCellState>
  	  <parameter>0.7</parameter>
    </gridInfo>
 
