@@ -69,8 +69,11 @@ public class Grid extends Pane {
 	for (Patch[] row : gridArray) {
 	    for (Patch p : row) {
 		p.update();
-		int state = p.getCell().getState();
-		cellCounts.put(state, cellCounts.get(state) + 1);
+		if(!p.isEmpty())
+		{
+		    int state = p.getCell().getState();
+		    cellCounts.put(state, cellCounts.get(state) + 1);
+		}
 	    }
 	}
 
