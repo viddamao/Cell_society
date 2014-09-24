@@ -1,5 +1,10 @@
 package controller;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
+
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -32,6 +37,10 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
 	gridpane.getRowConstraints().add(new RowConstraints(55));
 	gridpane.getRowConstraints().add(new RowConstraints(40));
 
+	if (infoSheet.getStateTypes()==null) {
+	    sendPickFileAlert();
+	    return;
+	}
 	Scene scene = new Scene(gridpane, 350, 120);
 	for (int i = 0; i < infoSheet.getStateTypes().size(); i++) {
 	    gridpane = buildColorPickerMenu(i, gridpane);
@@ -40,6 +49,12 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
 
 	myStage.setScene(scene);
 	myStage.show();
+    }
+
+    private void sendPickFileAlert() {
+	ResourceBundle messages = ResourceBundle.getBundle("messages", Locale.US);
+	JOptionPane.showMessageDialog(null,
+		    messages.getString("missing_sim_type"));
     }
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
