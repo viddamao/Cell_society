@@ -179,6 +179,8 @@ public class MainController extends Application {
 		}
 
 	    }
+	    System.out.println(infoSheet.getMaxCellState());
+	    grid.initializeCellCounts();
 	    // now that we have all the patches, assign neighbors to each one
 	    // TODO Grid has a method for this...
 	    for (Patch p : patchList) {

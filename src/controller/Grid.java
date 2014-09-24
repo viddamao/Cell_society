@@ -43,7 +43,7 @@ public class Grid extends Pane {
 	gridArray = new Patch[width][height];
 	gWidth = width;
 	gHeight = height;
-	initializeCellCounts();
+	
 	myMode = 0; //Default is bounded.
     }
 
@@ -53,7 +53,9 @@ public class Grid extends Pane {
         for(Integer i = 1; i <= infoSheet.getMaxCellState(); i++)
         {
             cellCounts.put(i, 0);
+            
         }
+        System.out.println(cellCounts.get(2));
     }
     // TODO Duplicated for loop...
     /**
@@ -72,7 +74,8 @@ public class Grid extends Pane {
 		if(!p.isEmpty())
 		{
 		    int state = p.getCell().getState();
-		   // cellCounts.put(state, cellCounts.get(state) + 1);
+		    System.out.println(state);
+		    cellCounts.put(state, cellCounts.get(state) + 1);
 		}
 	    }
 	}
