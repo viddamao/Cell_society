@@ -48,7 +48,8 @@ public class Patch extends Group {
     public void createBody(){
         int patchHeight = (int) (grid.getMinHeight()/grid.getGridHeight());
         int patchWidth = (int) (grid.getMinWidth()/grid.getGridWidth());
-        myBody = new PatchBodyRectangle(xCoord,yCoord,patchHeight,patchWidth);
+        int hexHeight = (int) (grid.getMinHeight() / (grid.getGridHeight()*1.5));
+        myBody = new PatchBodyHexagon(xCoord,yCoord,hexHeight);
         getChildren().add(myBody);
     }
 

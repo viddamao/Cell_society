@@ -19,7 +19,7 @@ public abstract class PatchBody extends Polygon {
         startY = patchHeight*y;
         myX = x;
         myY = y;
-        buildBody();
+       // buildBody();
     }
     
     public abstract void buildBody();
