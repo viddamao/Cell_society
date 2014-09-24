@@ -1,43 +1,44 @@
 package simulationObjects;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 
 public abstract class PatchBody extends Polygon {
     
     private int myPatchHeight;
     private int myPatchWidth;
-    private int startX;
-    private int startY;
     public int myX;
     public int myY;
 
-    public PatchBody(int x, int y, int patchHeight, int patchWidth) {
+    public PatchBody(int x, int y) {
         super();
-        myPatchHeight = patchHeight;
-        myPatchWidth = patchWidth;
-        startX = patchWidth*x;
-        startY = patchHeight*y;
         myX = x;
         myY = y;
-       // buildBody();
     }
     
     public abstract void buildBody();
     
-    public int getHeight(){
+    public void createPolyFromPoints(Double[] pts){
+        getPoints().addAll(pts);
+        setFill(new Color(0f,0f,0f,.0f));
+        setStrokeWidth(.5);
+        setStroke(Color.BLACK);
+    }
+    
+    public void setPatchHeight(int h){
+        myPatchHeight = h;
+    }
+    
+    public void setPatchWidth(int w){
+        myPatchWidth = w;
+    }
+    
+    public int getPatchHeight(){
         return myPatchHeight;
     }
     
-    public int getWidth(){
+    public int getPatchWidth(){
         return myPatchWidth;
-    }
-    
-    public int getStartX(){
-        return startX;
-    }
-    
-    public int getStartY(){
-        return startY;
     }
 
 }
