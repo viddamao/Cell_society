@@ -28,8 +28,6 @@ public class ForestCell extends Cell {
 	case ONFIRE:
 	    burnDown(currentPatch);
 	    break;
-	case EMPTY:
-	    this.setState(EMPTY);
 	}
     }
 
@@ -48,9 +46,7 @@ public class ForestCell extends Cell {
 
     @Override
     public void setState(int state) {
-	if (state == EMPTY) {
-	    setFill(infoSheet.getColor("EMPTY"));
-	} else if (state == ONFIRE) {
+	if (state == ONFIRE) {
 	    setFill(infoSheet.getColor("ONFIRE"));
 	} else if (state == TREE) {
 	    setFill(infoSheet.getColor("TREE"));
@@ -77,7 +73,6 @@ public class ForestCell extends Cell {
     @Override
     public ArrayList<String> getStateTypes() {
 	ArrayList<String> myStateType = new ArrayList<String>();
-	myStateType.add("EMPTY");
 	myStateType.add("ONFIRE");
 	myStateType.add("TREE");
 	return myStateType;
@@ -86,7 +81,6 @@ public class ForestCell extends Cell {
     @Override
     public ArrayList<Color> getInitialColors() {
 	ArrayList<Color> myStateColors = new ArrayList<Color>();
-	myStateColors.add(Color.WHITE);
 	myStateColors.add(Color.RED);
 	myStateColors.add(Color.GREEN);
 	return myStateColors;

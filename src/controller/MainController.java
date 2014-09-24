@@ -122,7 +122,7 @@ public class MainController extends Application {
 	    if (height>gridHeight) {infoSheet.setHeight(gridHeight);height=gridHeight;}
 	    
 	    if (!infoSheet.useGivenGrid) gridRows=randomizeGrid();
-	    createGridManager(width, height);
+	    createGrid(width, height);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
 
@@ -151,7 +151,7 @@ public class MainController extends Application {
 		    }
 
 		    // add the patch to grid manager
-		    gridManager.addPatchAtPoint(currentPatch);
+		    grid.addPatchAtPoint(currentPatch);
 		    // assign the cell to the patch
 		    if (state > 0) {
 			currentPatch.addCell(cell);

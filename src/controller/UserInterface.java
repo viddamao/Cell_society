@@ -3,7 +3,6 @@
 import java.io.File;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import com.apple.laf.AquaButtonBorder.Toggle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
