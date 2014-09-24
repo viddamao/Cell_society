@@ -28,7 +28,7 @@ public class MainController extends Application {
     private UserInterface userInterface;
     private static ResourceBundle messages;
     private Timeline animation;
-    private GridManager gridManager;
+    private Grid grid;
     private GridInfo infoSheet = new GridInfo();
 
     public static void main(String[] args) throws Exception {
@@ -114,8 +114,8 @@ public class MainController extends Application {
 	    ArrayList<Patch> patchList = new ArrayList<Patch>();
 	    int width = infoSheet.getWidth();
 	    int height = infoSheet.getHeight();
-	    createGridManager(width, height);
-	    userInterface.setGridManager(gridManager);
+	    createGrid(width, height);
+	    userInterface.setGrid(grid);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
 
@@ -132,7 +132,7 @@ public class MainController extends Application {
 		    cell.setState(state);
 		    Patch currentPatch;
 		    if (infoSheet.getPatchType().equals("Default")) {
-			currentPatch = new Patch(i, j, gridManager);
+			currentPatch = new Patch(i, j, grid);
 		    } else {
 			String patchPathAndName = messages
 				.getString("cell_bundle")
@@ -140,11 +140,11 @@ public class MainController extends Application {
 				+ infoSheet.getPatchType();
 			Class<?> patchClass = Class.forName(patchPathAndName);
 			currentPatch = (Patch) patchClass.newInstance();
-			currentPatch.initialize(i, j, gridManager);
+			currentPatch.initialize(i, j, grid);
 		    }
 
-		    // add the patch to grid manager
-		    gridManager.addPatchAtPoint(currentPatch);
+		    // add the patch to grid
+		    grid.addPatchAtPoint(currentPatch);
 		    // assign the cell to the patch
 		    if (state > 0) {
 			currentPatch.addCell(cell);
@@ -155,7 +155,7 @@ public class MainController extends Application {
 
 	    }
 	    // now that we have all the patches, assign neighbors to each one
-	    //TODO Gridmanager has a method for this...
+	    //TODO Grid has a method for this...
 	    for (Patch p : patchList) {
 		p.getNeighbors();
 	    }
@@ -180,17 +180,17 @@ public class MainController extends Application {
      *            height of the grid
      */
 
-    private void createGridManager (int width, int height) {
-        if (gridManager != null) {
-            userInterface.removeNode(gridManager);
+    private void createGrid (int width, int height) {
+        if (grid != null) {
+            userInterface.removeNode(grid);
         }
-        gridManager = new GridManager(width, height);
-        gridManager.setLayoutX(0);
-        gridManager.setLayoutY(0);
-        gridManager.setMinHeight(userInterface.GRID_HEIGHT);
-        gridManager.setMinWidth(userInterface.GRID_WIDTH);
-        userInterface.addNode(gridManager);
-        gridManager.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        grid = new Grid(width, height);
+        grid.setLayoutX(0);
+        grid.setLayoutY(0);
+        grid.setMinHeight(userInterface.GRID_HEIGHT);
+        grid.setMinWidth(userInterface.GRID_WIDTH);
+        userInterface.addNode(grid);
+        grid.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 toggleCellStateForMouseEvent(mouseEvent);
@@ -204,7 +204,7 @@ public class MainController extends Application {
      * Clicking on a cell decreases its state value by 1.
      */
     private void toggleCellStateForMouseEvent(MouseEvent mouseEvent){
-        Patch selectedPatch = gridManager.getPatchAtCoordinate((int)mouseEvent.getSceneX(), (int)mouseEvent.getSceneY());
+        Patch selectedPatch = grid.getPatchAtCoordinate((int)mouseEvent.getSceneX(), (int)mouseEvent.getSceneY());
         if (selectedPatch != null){
             selectedPatch.toggleCellState();
         }
@@ -234,10 +234,10 @@ public class MainController extends Application {
      * increment the simulation by one frame
      */
     public void stepSimulation() {
-	// tell the grid manager to process cell updates
+	// tell the grid to process cell updates
 	// System.out.println("new frame");
-	if (gridManager != null) {
-	    gridManager.step();
+	if (grid != null) {
+	    grid.updateGrid();
 	}
     }
 

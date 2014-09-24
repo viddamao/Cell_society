@@ -2,7 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.Random;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.GridPane;
 import simulationObjects.Patch;
 
 /**
@@ -11,9 +11,9 @@ import simulationObjects.Patch;
  * @author Will Chang
  * 
  */
-public class GridManager extends Pane {
+public class Grid extends GridPane {
 
-    private Patch[][] grid;
+    private Patch[][] gridArray;
     private int[] xDelta = { -1, 1, 0, 0, 1, 1, -1, -1 };
     private int[] yDelta = { 0, 0, 1, -1, 1, -1, 1, -1 };
     private int gWidth;
@@ -28,15 +28,15 @@ public class GridManager extends Pane {
     // private int adjacentType;
 
     /**
-     * Constructs the GridManager, initiates private variables
+     * Constructs the Grid, initiates private variables
      * 
      * @param width
      *            of the grid
      * @param height
      *            of the grid
      */
-    public GridManager(int width, int height) {
-	grid = new Patch[width][height];
+    public Grid(int width, int height) {
+	gridArray = new Patch[width][height];
 	gWidth = width;
 	gHeight = height;
 	myMode = 0; //Default is bounded.
@@ -46,14 +46,14 @@ public class GridManager extends Pane {
     /**
      * Makes a step in the simulation, updates everything sequentially
      */
-    public void step() {
-	for (Patch[] row : grid) {
+    public void updateGrid() {
+	for (Patch[] row : gridArray) {
 	    for (Patch p : row) {
 		p.prepareToUpdate();
 	    }
 	}
 
-	for (Patch[] row : grid) {
+	for (Patch[] row : gridArray) {
 	    for (Patch p : row) {
 		p.update();
 	    }
@@ -72,13 +72,8 @@ public class GridManager extends Pane {
      *            in grid
      */
     public void addPatchAtPoint(Patch patch) {
-	grid[patch.getGridX()][patch.getGridY()] = patch;
-	addPatchToGrid(patch, patch.getGridX(), patch.getGridY());
-    }
-
-    private void addPatchToGrid (Patch patch, int gridX, int gridY) {
-        patch.createBody();
-        this.getChildren().add(patch);
+	gridArray[patch.getGridX()][patch.getGridY()] = patch;
+	this.add(patch, patch.getGridX(), patch.getGridY());
     }
 
     /**
@@ -90,7 +85,7 @@ public class GridManager extends Pane {
      *            in grid
      */
     public void removeCellinPatch(int xCoord, int yCoord) {
-	grid[xCoord][yCoord].removeCell();
+	gridArray[xCoord][yCoord].removeCell();
     }
 
     // TODO Needs to be updated for unique boundary conditions.
@@ -111,7 +106,7 @@ public class GridManager extends Pane {
 	        applyBoundaryRules(nextX,nextY,neighbors);
 	    }
 	    else{
-	        neighbors.add(grid[nextX][nextY]);
+	        neighbors.add(gridArray[nextX][nextY]);
 	    }
 	}
 	return neighbors;
@@ -136,7 +131,7 @@ public class GridManager extends Pane {
         // TODO duplicated code...
         nextX = wrapCoordAround(nextX,gWidth);
         nextY = wrapCoordAround(nextY,gHeight);
-        neighbors.add(grid[nextX][nextY]);
+        neighbors.add(gridArray[nextX][nextY]);
     }
     
     
@@ -173,7 +168,7 @@ public class GridManager extends Pane {
      * @return
      */
     public Patch getPatchAtPoint(int i, int j) {
-	return grid[i][j];
+	return gridArray[i][j];
     }
     
     //TODO duplicate method??
@@ -185,7 +180,7 @@ public class GridManager extends Pane {
      * @return
      */
     public Patch getPatchAtCoordinate(int i, int j){
-        for (Patch[] row : grid) {
+        for (Patch[] row : gridArray) {
             for (Patch p : row) {
                 if (p.getBoundsInParent().contains(i, j)){
                     return p;
@@ -198,7 +193,7 @@ public class GridManager extends Pane {
     public int getGridWidth() {
 	return gWidth;
     }
-    
+
     public int getGridHeight() {
         return gHeight;
     }
@@ -217,7 +212,7 @@ public class GridManager extends Pane {
      */
     public Patch findEmptyPatch() {
 	ArrayList<Patch> emptyPatches = new ArrayList<Patch>();
-	for (Patch[] row : grid) {
+	for (Patch[] row : gridArray) {
 	    for (Patch p : row) {
 		if (p.getCell() == null) {
 		    emptyPatches.add(p);
@@ -234,7 +229,7 @@ public class GridManager extends Pane {
 
     public void updateAllNeighborhoods()
     {
-        for(Patch[] row : grid){
+        for(Patch[] row : gridArray){
             for (Patch p : row) {
                 p.getNeighbors();
             }
