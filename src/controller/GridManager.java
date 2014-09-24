@@ -2,7 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.Random;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import simulationObjects.Patch;
 
 /**
@@ -11,7 +11,7 @@ import simulationObjects.Patch;
  * @author Will Chang
  * 
  */
-public class GridManager extends GridPane {
+public class GridManager extends Pane {
 
     private Patch[][] grid;
     private int[] xDelta = { -1, 1, 0, 0, 1, 1, -1, -1 };
@@ -73,7 +73,12 @@ public class GridManager extends GridPane {
      */
     public void addPatchAtPoint(Patch patch) {
 	grid[patch.getGridX()][patch.getGridY()] = patch;
-	this.add(patch, patch.getGridX(), patch.getGridY());
+	addPatchToGrid(patch, patch.getGridX(), patch.getGridY());
+    }
+
+    private void addPatchToGrid (Patch patch, int gridX, int gridY) {
+        patch.createBody();
+        this.getChildren().add(patch);
     }
 
     /**
@@ -192,6 +197,10 @@ public class GridManager extends GridPane {
 
     public int getGridWidth() {
 	return gWidth;
+    }
+    
+    public int getGridHeight() {
+        return gHeight;
     }
 
     public void setAndUpdateMode(int mode)

@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import controller.GridManager;
 
 /**
@@ -22,6 +20,7 @@ public class Patch extends Group {
     protected Image image;
     protected ImageView myView;
     protected State myState;
+    protected PatchBody myBody;
 
     private int myPreviousCellState;
 
@@ -40,12 +39,13 @@ public class Patch extends Group {
 	manager = m;
 	myState = State.EMPTY;
 
-        //add a placeholder rectangle
-        Rectangle r = new Rectangle();
-        r.setHeight(manager.getRowConstraints().get(0).getPrefHeight());
-        r.setWidth(manager.getColumnConstraints().get(0).getPrefWidth());
-        r.setFill(new Color(0f,0f,0f,.0f));
-        getChildren().add(r);
+    }
+    
+    public void createBody(){
+        int patchHeight = (int) (manager.getMinHeight()/manager.getGridHeight());
+        int patchWidth = (int) (manager.getMinWidth()/manager.getGridWidth());
+        myBody = new PatchBodyRectangle(xCoord,yCoord,patchHeight,patchWidth);
+        getChildren().add(myBody);
     }
 
     protected enum State {
@@ -136,8 +136,10 @@ public class Patch extends Group {
 	if (myCell != null) {
 	    removeCell();
 	}
-	cell.setHeight(manager.getRowConstraints().get(0).getPrefHeight());
-	cell.setWidth(manager.getColumnConstraints().get(0).getPrefWidth());
+	cell.setHeight(myBody.getHeight()/2);
+	cell.setWidth(myBody.getWidth()/2);
+	cell.setLayoutX(myBody.getStartX()+myBody.getWidth()/4);
+	cell.setLayoutY(myBody.getStartY()+myBody.getHeight()/4);
 	cell.setArcHeight(cell.getHeight());
 	cell.setArcWidth(cell.getWidth());
 	getChildren().add(cell);
