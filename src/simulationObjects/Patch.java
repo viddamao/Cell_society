@@ -23,6 +23,8 @@ public class Patch extends Group {
     protected ImageView myView;
     protected State myState;
     protected PatchBody myBody;
+    
+    private Class<?> myCellClass;
 
     private int myPreviousCellState;
 
@@ -169,10 +171,29 @@ public class Patch extends Group {
     public void setPreviousState(int myState) {
 	myPreviousCellState = myState;
     }
+    
+    public void setCellClass(Class<?> c){
+        myCellClass = c;
+    }
 
     public void toggleCellState () {
         if (myCell != null){
-            myCell.toggleState();
+            int nextState = myCell.getNextState();
+            if (nextState == -1){
+                removeCell();
+            }
+            else{
+                myCell.setState(nextState);
+            }
+        }
+        else{
+            try {
+                addCell((Cell) myCellClass.newInstance());
+                myCell.setState(1);
+            }
+            catch (InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
     }
 

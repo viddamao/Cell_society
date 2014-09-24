@@ -61,8 +61,9 @@ public class LifeCell extends Cell {
     }
 
     @Override
-    public void toggleState () {
-        // TODO toggle to the next cell state
+    public int getNextState () {
+        // TODO return the next cell state
+        return -1;
     }
 
 }

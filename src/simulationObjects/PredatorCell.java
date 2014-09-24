@@ -236,8 +236,8 @@ public class PredatorCell extends Cell {
 	return myStateColors;
     }
     @Override
-    public void toggleState () {
-        // TODO toggle to the next cell state
+    public int getNextState () {
+        return myState == SHARK ? -1 : SHARK;
     }
 
 }

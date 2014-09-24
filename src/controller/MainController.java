@@ -142,6 +142,7 @@ public class MainController extends Application {
 			currentPatch = (Patch) patchClass.newInstance();
 			currentPatch.initialize(i, j, grid);
 		    }
+		    currentPatch.setCellClass(cellClass);
 
 		    // add the patch to grid
 		    grid.addPatchAtPoint(currentPatch);

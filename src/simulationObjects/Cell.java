@@ -53,7 +53,7 @@ public abstract class Cell extends Rectangle {
     public abstract void prepareToUpdate(Patch currentPatch,
 	    ArrayList<Patch> neighbors);
     
-    public abstract void toggleState();
+    public abstract int getNextState();
 
     public int getGridX() {
 	return myX;

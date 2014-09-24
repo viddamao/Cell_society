@@ -93,8 +93,8 @@ public class ForestCell extends Cell {
     }
 
     @Override
-    public void toggleState () {
-        // TODO toggle to the next cell state
+    public int getNextState () {
+        return myState == TREE ? 0 : myState + 1;
     }
 
 }

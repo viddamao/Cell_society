@@ -100,12 +100,12 @@ public class SegCell extends Cell {
     }
 
     @Override
-    public void toggleState () {
+    public int getNextState () {
         if (myState == STATE_X){
-            setState(STATE_O);
+            return STATE_O;
         }
         else{
-            setState(STATE_X);
+            return -1;
         }
     }
 
