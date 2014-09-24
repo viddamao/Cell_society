@@ -1,5 +1,7 @@
 package simulationObjects;
 
+import java.awt.Point;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import controller.GridInfo;
 
@@ -9,38 +11,48 @@ public abstract class PatchBody extends Polygon {
 
     private int myPatchHeight;
     private int myPatchWidth;
-    private int startX;
-    private int startY;
+    private Point myCenter;
     public int myX;
+
     public int myY;
 
-    public PatchBody(int x, int y, int patchHeight, int patchWidth) {
-	super();
-	myPatchHeight = patchHeight;
-	myPatchWidth = patchWidth;
-	startX = patchWidth * x;
-	startY = patchHeight * y;
-	myX = x;
-	myY = y;
-	buildBody();
+    public PatchBody(int x, int y) {
+        super();
+        myX = x;
+        myY = y;
     }
 
     public abstract void buildBody();
-
-    public int getHeight() {
-	return myPatchHeight;
+    
+    public void createPolyFromPoints(Double[] pts){
+        getPoints().addAll(pts);
+        setFill(new Color(0f,0f,0f,.0f));
+        setStrokeWidth(.5);
+        setStroke(Color.BLACK);
+    }
+    
+    public void setPatchHeight(int h){
+        myPatchHeight = h;
+    }
+    
+    public void setPatchWidth(int w){
+        myPatchWidth = w;
+    }
+    
+    public int getPatchHeight(){
+        return myPatchHeight;
+    }
+    
+    public int getPatchWidth(){
+        return myPatchWidth;
+    }
+    
+    public Point getCenter () {
+        return myCenter;
     }
 
-    public int getWidth() {
-	return myPatchWidth;
-    }
-
-    public int getStartX() {
-	return startX;
-    }
-
-    public int getStartY() {
-	return startY;
+    public void setCenter (Point c) {
+        myCenter = c;
     }
 
 }

@@ -90,12 +90,8 @@ public class ForestCell extends Cell {
     }
 
     @Override
-    public void toggleState() {
-	if (myState == TREE) {
-	    setState(ONFIRE);
-	} else {
-	    setState(TREE);
-	}
+    public int getNextState () {
+        return myState == TREE ? 0 : myState + 1;
     }
 
 }

@@ -23,6 +23,8 @@ public class Patch extends Group {
     protected ImageView myView;
     protected State myState;
     protected PatchBody myBody;
+    
+    private Class<?> myCellClass;
 
     private int myPreviousCellState;
 
@@ -43,12 +45,10 @@ public class Patch extends Group {
 	myState = State.EMPTY;
 
     }
-
-    public void createBody() {
-	int patchHeight = (int) (grid.getMinHeight() / grid.getGridHeight());
-	int patchWidth = (int) (grid.getMinWidth() / grid.getGridWidth());
-	myBody = new PatchBodyRectangle(xCoord, yCoord, patchHeight, patchWidth);
-	getChildren().add(myBody);
+    
+    public void createBody(){
+        myBody = new PatchBodyRectangle(xCoord,yCoord,grid.getMinHeight(),grid.getMinWidth(),grid.getGridHeight(),grid.getGridWidth());
+        getChildren().add(myBody);
     }
 
     protected enum State {
@@ -139,10 +139,10 @@ public class Patch extends Group {
 	if (myCell != null) {
 	    removeCell();
 	}
-	cell.setHeight(myBody.getHeight() / 2);
-	cell.setWidth(myBody.getWidth() / 2);
-	cell.setLayoutX(myBody.getStartX() + myBody.getWidth() / 4);
-	cell.setLayoutY(myBody.getStartY() + myBody.getHeight() / 4);
+	cell.setHeight(myBody.getPatchWidth()/2);
+	cell.setWidth(myBody.getPatchWidth()/2);
+	cell.setLayoutX(myBody.getCenter().x-myBody.getPatchWidth()/4);
+	cell.setLayoutY(myBody.getCenter().y-myBody.getPatchHeight()/4);
 	cell.setArcHeight(cell.getHeight());
 	cell.setArcWidth(cell.getWidth());
 	getChildren().add(cell);
@@ -170,11 +170,30 @@ public class Patch extends Group {
     public void setPreviousState(int myState) {
 	myPreviousCellState = myState;
     }
+    
+    public void setCellClass(Class<?> c){
+        myCellClass = c;
+    }
 
-    public void toggleCellState() {
-	if (myCell != null) {
-	    myCell.toggleState();
-	}
+    public void toggleCellState () {
+        if (myCell != null){
+            int nextState = myCell.getNextState();
+            if (nextState == -1){
+                removeCell();
+            }
+            else{
+                myCell.setState(nextState);
+            }
+        }
+        else{
+            try {
+                addCell((Cell) myCellClass.newInstance());
+                myCell.setState(1);
+            }
+            catch (InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void setColorToBody(Color myColor) {
