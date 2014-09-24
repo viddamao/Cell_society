@@ -171,6 +171,7 @@ public class GridManager extends GridPane {
 	return grid[i][j];
     }
     
+    //TODO duplicate method??
     /**
      * get patch given a scene coordinate
      * 

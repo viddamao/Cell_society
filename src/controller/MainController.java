@@ -28,7 +28,7 @@ public class MainController extends Application {
     private UserInterface userInterface;
     private static ResourceBundle messages;
     private Timeline animation;
-    protected GridManager gridManager;
+    private GridManager gridManager;
     private GridInfo infoSheet = new GridInfo();
 
     public static void main(String[] args) throws Exception {
@@ -115,6 +115,7 @@ public class MainController extends Application {
 	    int width = infoSheet.getWidth();
 	    int height = infoSheet.getHeight();
 	    createGridManager(width, height);
+	    userInterface.setGridManager(gridManager);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
 
@@ -208,6 +209,11 @@ public class MainController extends Application {
         });
     }
     
+    //TODO Implementation, clicks for empty patches as well?
+    /**
+     * Clicking empty cell creates a new cell there.
+     * Clicking on a cell decreases its state value by 1.
+     */
     private void toggleCellStateForMouseEvent(MouseEvent mouseEvent){
         Patch selectedPatch = gridManager.getPatchAtCoordinate((int)mouseEvent.getSceneX(), (int)mouseEvent.getSceneY());
         if (selectedPatch != null){

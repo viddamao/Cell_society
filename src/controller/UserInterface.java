@@ -126,9 +126,9 @@ public class UserInterface {
                                   new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
-                            if(myMainController.gridManager!=null)
+                            if(myManager!=null)
                             {
-                                myMainController.gridManager.setAndUpdateMode(2);
+                                myManager.setAndUpdateMode(2);
                             } 
                         }
                 }));
@@ -140,9 +140,9 @@ public class UserInterface {
                                   new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
-                            if(myMainController.gridManager!=null)
+                            if(myManager!=null)
                             {
-                                myMainController.gridManager.setAndUpdateMode(1);
+                                myManager.setAndUpdateMode(1);
                             } 
                         }
                 }));
@@ -154,9 +154,9 @@ public class UserInterface {
                                   new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
-                            if(myMainController.gridManager!=null)
+                            if(myManager!=null)
                             {
-                                myMainController.gridManager.setAndUpdateMode(0);
+                                myManager.setAndUpdateMode(0);
                             } 
                         }
                 }));
@@ -225,14 +225,14 @@ public class UserInterface {
      * create a radiobutton
      * 
      * @param title
-     *            title of the button
+     *            title of the radiobutton
      * @param posX
-     *            x position of button
+     *            x position of radiobutton
      * @param posY
-     *            y position of button
+     *            y position of radiobutton
      * @param handler
      *            action handler
-     * @return the button
+     * @return the radiobutton
      */
     private RadioButton createRadioButton(String title, int posX, int posY,ToggleGroup group,
             EventHandler<ActionEvent> handler) {
@@ -302,5 +302,9 @@ public class UserInterface {
         this.makeBottomPanel();
     }
     
+    public void setGridManager(GridManager manager)
+    {
+        myManager = manager;
+    }
 
 }
