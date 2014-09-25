@@ -2,8 +2,9 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Random;
-
+import java.util.Set;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import simulationObjects.Patch;
@@ -26,6 +27,7 @@ public class Grid extends Pane {
     private final int TOROIDAL = 1;
     private final int INFINITE = 2;
     private HashMap<Integer,Integer> cellCounts;
+    private int totalCells;
     
     // private String patchType;
     // {4,8} indicates adjacent type to be 4 or 8 blocks around
@@ -43,7 +45,7 @@ public class Grid extends Pane {
 	gridArray = new Patch[width][height];
 	gWidth = width;
 	gHeight = height;
-	
+	totalCells = 0;
 	myMode = 0; //Default is bounded.
     }
 
@@ -54,8 +56,9 @@ public class Grid extends Pane {
         {
             cellCounts.put(i, 0);
             
+            
         }
-        System.out.println(cellCounts.get(2));
+        
     }
     // TODO Duplicated for loop...
     /**
@@ -65,17 +68,24 @@ public class Grid extends Pane {
 	for (Patch[] row : gridArray) {
 	    for (Patch p : row) {
 		p.prepareToUpdate();
+		totalCells = 0;
 	    }
 	}
-
+	
+	//Reset state count
+	Set<Integer> s = cellCounts.keySet();
+	for(Integer i : s)
+	{
+	    cellCounts.put(i, 0);
+	}
 	for (Patch[] row : gridArray) {
 	    for (Patch p : row) {
 		p.update();
 		if(!p.isEmpty())
 		{
 		    int state = p.getCell().getState();
-		    System.out.println(state);
 		    cellCounts.put(state, cellCounts.get(state) + 1);
+		    totalCells++;
 		}
 	    }
 	}
@@ -266,5 +276,9 @@ public class Grid extends Pane {
 		p.setColorToBody(myColor);
 	    }
 	}
+    }
+    public int getTotalCells()
+    {
+        return totalCells;
     }
 }

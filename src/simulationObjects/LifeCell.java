@@ -19,6 +19,7 @@ public class LifeCell extends Cell {
 	super();
 	myX = x;
 	myY = y;
+	myState = 1;
 	setFill(infoSheet.getColor("CELL"));
 
     }

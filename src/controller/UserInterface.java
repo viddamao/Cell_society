@@ -32,8 +32,8 @@ public class UserInterface {
     private static ResourceBundle messages;
     public final int GRID_WIDTH = 500;
     public final int GRID_HEIGHT = 500;
-    private final int PANEL_HEIGHT = 80;
-   // private SimulationChart myChart;
+    private final int PANEL_HEIGHT = 180;
+    private SimulationChart myChart;
 
     public UserInterface(Stage s, MainController mainController) {
 	messages = ResourceBundle.getBundle("messages", Locale.US);
@@ -277,6 +277,11 @@ public class UserInterface {
 	rootPane.getChildren().add(n);
     }
 
+    public void setChart(SimulationChart chart)
+    {
+        myChart = chart;
+        rootPane.getChildren().add(myChart);
+    }
     /**
      * remove a node from the pane
      * 

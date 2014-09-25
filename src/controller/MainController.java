@@ -13,6 +13,8 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import simulationObjects.Cell;
@@ -143,8 +145,13 @@ public class MainController extends Application {
 		gridRows = randomizeGrid();
 	    }
 	    createGrid(width, height);
-	//    myChart = new SimulationChart(grid);
+	   //Refactor
+	    myChart = new SimulationChart(grid);
 	    userInterface.setGrid(grid);
+	    userInterface.setChart(myChart);
+	    //Refactor
+	    myChart.setPrefHeight(height);
+	    myChart.setPrefWidth(width);
 	    for (int j = 0; j < height; j++) {
 		String[] currentRow = gridRows.get(j).states.split(" ");
 
@@ -184,7 +191,8 @@ public class MainController extends Application {
 		}
 
 	    }
-	    System.out.println(infoSheet.getMaxCellState());
+	    //TODO
+	    
 	    grid.initializeCellCounts();
 	    // now that we have all the patches, assign neighbors to each one
 	    // TODO Grid has a method for this...
@@ -236,7 +244,7 @@ public class MainController extends Application {
 	}
 	grid = new Grid(width, height);
 	grid.setLayoutX(0);
-	grid.setLayoutY(0);
+	grid.setLayoutY(120);
 	grid.setMinHeight(userInterface.GRID_HEIGHT);
 	grid.setMinWidth(userInterface.GRID_WIDTH);
 	userInterface.addNode(grid);
@@ -289,6 +297,10 @@ public class MainController extends Application {
 	// System.out.println("new frame");
 	if (grid != null) {
 	    grid.updateGrid();
+	}
+	if(myChart!=null)
+	{
+	    myChart.updateDisplay();
 	}
     }
 
