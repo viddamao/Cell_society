@@ -171,6 +171,11 @@ public class Patch extends Group {
 	myPreviousCellState = myState;
     }
     
+    //TODO for new simulations
+    public int getState()
+    {
+        return 0;
+    }
     public void setCellClass(Class<?> c){
         myCellClass = c;
     }

@@ -80,6 +80,7 @@ public class PredatorCell extends Cell {
      */
     @Override
     public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
+        myPatch = currentPatch;
 	myPhase = Phase.UPDATING;
     }
 

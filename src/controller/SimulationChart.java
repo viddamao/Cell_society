@@ -8,6 +8,11 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
 import javafx.scene.layout.Pane;
 
+/**
+ * 
+ * @author Will Chang
+ *
+ */
 public class SimulationChart extends Pane {
     private Grid grid;
     private ArrayList<XYChart.Series> datapoints;

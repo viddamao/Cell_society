@@ -8,7 +8,7 @@ import controller.GridInfo;
 
 /**
  * Parent Class of Cell Hierarchy
- *
+ * TODO Change extends to Polygon?
  * @author Everyone
  *
  */
@@ -19,6 +19,7 @@ public abstract class Cell extends Rectangle {
     protected int myX;
     protected int myY;
     protected int myState;
+    protected Patch myPatch;
 
     public Cell() {
 
