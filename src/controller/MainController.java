@@ -35,7 +35,7 @@ public class MainController extends Application {
     private Timeline animation;
     static Grid grid;
     private GridInfo infoSheet = new GridInfo();
-  // private SimulationChart myChart;
+    private SimulationChart myChart;
 
     public static void main(String[] args) throws Exception {
 
