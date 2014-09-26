@@ -1,6 +1,7 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.paint.Color;
 
 
@@ -15,9 +16,9 @@ public class ForestCell extends Cell {
     }
 
     @Override
-    public void update (Patch currentPatch, ArrayList<Patch> neighbors) {
-        switch (myState) {
-            case TREE:
+    public void update(Patch currentPatch, List<Patch> neighbors) {
+	switch (myState) {
+	case TREE:
 
                 if (willCatchFire(neighbors)) {
                     catchFire(currentPatch);
@@ -57,21 +58,20 @@ public class ForestCell extends Cell {
         myState = state;
     }
 
-    public boolean willCatchFire (ArrayList<Patch> neighbors) {
-        boolean haveNeighborOnFire = false;
-        for (Patch neighborPatch : neighbors) {
-            if (neighborPatch.getPreviousState() == ONFIRE) {
-                haveNeighborOnFire = true;
-                break;
-            }
-        }
-        return ((haveNeighborOnFire) && (Math.random() <= infoSheet.getParam()));
+    public boolean willCatchFire(List<Patch> neighbors) {
+	boolean haveNeighborOnFire = false;
+	for (Patch neighborPatch : neighbors)
+	    if (neighborPatch.getPreviousState() == ONFIRE) {
+		haveNeighborOnFire = true;
+		break;
+	    }
+	return ((haveNeighborOnFire) && (Math.random() <= infoSheet.getParam()));
 
     }
 
     @Override
-    public void prepareToUpdate (Patch currentPatch, ArrayList<Patch> neighbors) {
-        currentPatch.setPreviousState(myState);
+    public void prepareToUpdate(Patch currentPatch, List<Patch> neighbors) {
+	currentPatch.setPreviousState(myState);
     }
 
     @Override

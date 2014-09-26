@@ -93,9 +93,9 @@ public class Parser {
 	try {
 	    Class<?> cellClass = Class.forName(classPathAndName);
 	    Cell cell = (Cell) cellClass.newInstance();
-	    ArrayList<String> myStateTypes = cell.getStateTypes();
+	    List<String> myStateTypes = cell.getStateTypes();
 	    infoSheet.setStateTypes(myStateTypes);
-	    ArrayList<Color> myColors = cell.getInitialColors();
+	    List<Color> myColors = cell.getInitialColors();
 	    for (int index = 0; index < cell.getStateTypes().size(); index++) {
 		infoSheet
 			.setColor(myStateTypes.get(index), myColors.get(index));

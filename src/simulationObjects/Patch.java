@@ -1,6 +1,7 @@
 package simulationObjects;
 
-import java.util.ArrayList;
+
+import java.util.List;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,7 +19,7 @@ public class Patch extends Group {
     protected int xCoord;
     protected int yCoord;
     protected Grid grid;
-    protected ArrayList<Patch> myNeighbors;
+    protected List<Patch> myNeighbors;
     protected Image image;
     protected ImageView myView;
     protected State myState;
@@ -29,7 +30,7 @@ public class Patch extends Group {
 
     private int myPreviousCellState;
 
-    private int REMOVE_ME = 0;
+    
 
     /**
      * Constructors

@@ -1,6 +1,7 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.paint.Color;
 
 /**
@@ -23,7 +24,7 @@ public class PredatorCell extends Cell {
 
     private Phase myPhase;
 
-    protected ArrayList<Patch> myNeighbors = new ArrayList<>();
+    protected List<Patch> myNeighbors;
 
     private enum Phase {
 	UPDATING, STASIS
@@ -31,6 +32,7 @@ public class PredatorCell extends Cell {
 
     public PredatorCell() {
 	super();
+	myNeighbors = new ArrayList<>();
     }
 
     /**
@@ -78,7 +80,7 @@ public class PredatorCell extends Cell {
      * Sets state for updating
      */
     @Override
-    public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
+    public void prepareToUpdate(Patch currentPatch, List<Patch> neighbors) {
         myPatch = currentPatch;
 	myPhase = Phase.UPDATING;
     }
@@ -90,7 +92,7 @@ public class PredatorCell extends Cell {
      * null if the shark cell's vitality = 0
      */
     @Override
-    public void update(Patch current, ArrayList<Patch> neighbors) {
+    public void update(Patch current, List<Patch> neighbors) {
 	if (myPhase == Phase.UPDATING) {
 	    if (vitality > 0) {
 		Patch destination = chooseMove(neighbors);
@@ -140,8 +142,8 @@ public class PredatorCell extends Cell {
      * @return Patch to move to (contains fish or empty patch) Null if nowhere
      *         to move.
      */
-    public Patch chooseMove(ArrayList<Patch> neighbors) {
-	ArrayList<Patch> destinations = processPossibleDestinations(neighbors);
+    public Patch chooseMove(List<Patch> neighbors) {
+	List<Patch> destinations = processPossibleDestinations(neighbors);
 	int range = destinations.size();
 	if (range > 0)
 	    return destinations.get((int) (Math.random() * range));
@@ -156,12 +158,12 @@ public class PredatorCell extends Cell {
      *            it can move to
      * @return list of Patches to move to
      */
-    public ArrayList<Patch> processPossibleDestinations(
-	    ArrayList<Patch> allNeighbors) {
+    public List<Patch> processPossibleDestinations(
+	    List<Patch> allNeighbors) {
 	myNeighbors = allNeighbors;
 
-	ArrayList<Patch> emptyBuffer = new ArrayList<>();
-	ArrayList<Patch> fishBuffer = new ArrayList<>();
+	List<Patch> emptyBuffer = new ArrayList<>();
+	List<Patch> fishBuffer = new ArrayList<>();
 	for (Patch loc : myNeighbors) {
 	    Cell occupant = loc.getCell();
 	    if (occupant == null) {

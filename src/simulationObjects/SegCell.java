@@ -1,6 +1,7 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.paint.Color;
 
 /**
@@ -23,7 +24,7 @@ public class SegCell extends Cell {
      * make changes to the cells position, if needed
      */
     @Override
-    public void update (Patch currentPatch, ArrayList<Patch> neighbors) {
+    public void update(Patch currentPatch, List<Patch> neighbors) {
 	if (!isSatisfied(currentPatch, neighbors)) {
 	    currentPatch.randomEmptyPatch().addCell(this);
 	    currentPatch.removeCell();
@@ -39,7 +40,7 @@ public class SegCell extends Cell {
      *            the neighbors of the cell's patch
      * @return satisfied or not
      */
-    private boolean isSatisfied (Patch currentPatch, ArrayList<Patch> neighbors) {
+    private boolean isSatisfied(Patch currentPatch, List<Patch> neighbors) {
 	double satisfiedCount = 0;
 	double dissatisfiedCount = 0;
 	currentPatch.getCell().setState(myState);
@@ -82,7 +83,7 @@ public class SegCell extends Cell {
      * this simulation does not require the inherited prepare to update method
      */
     @Override
-    public void prepareToUpdate (Patch currentPatch, ArrayList<Patch> neighbors) {
+    public void prepareToUpdate(Patch currentPatch, List<Patch> neighbors) {
 	return;
     }
 
