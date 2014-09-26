@@ -11,7 +11,7 @@ Date Completed: 09/26/14
 Hours Spent: Around 40 per person
 
 ###Roles
-Will Chang - life, predator and ant simulation (incomplete), grid behavior and rules, simulation chart
+Will Chang - life, predator (complete), and ant simulation (incomplete), grid behavior and rules, simulation chart
 Davis Gossage - user interface, main controller, segregation simulation
 Wenjun Mao - xml parsing, colorpicking, forest simulation, sugarscape simulation
 
