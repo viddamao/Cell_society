@@ -1,6 +1,7 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.paint.Color;
 
 public class ForestCell extends Cell {
@@ -14,7 +15,7 @@ public class ForestCell extends Cell {
     }
 
     @Override
-    public void update(Patch currentPatch, ArrayList<Patch> neighbors) {
+    public void update(Patch currentPatch, List<Patch> neighbors) {
 	switch (myState) {
 	case TREE:
 
@@ -54,7 +55,7 @@ public class ForestCell extends Cell {
 	myState = state;
     }
 
-    public boolean willCatchFire(ArrayList<Patch> neighbors) {
+    public boolean willCatchFire(List<Patch> neighbors) {
 	boolean haveNeighborOnFire = false;
 	for (Patch neighborPatch : neighbors)
 	    if (neighborPatch.getPreviousState() == ONFIRE) {
@@ -66,7 +67,7 @@ public class ForestCell extends Cell {
     }
 
     @Override
-    public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
+    public void prepareToUpdate(Patch currentPatch, List<Patch> neighbors) {
 	currentPatch.setPreviousState(myState);
     }
 

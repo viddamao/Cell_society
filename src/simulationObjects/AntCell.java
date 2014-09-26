@@ -4,6 +4,7 @@ package simulationObjects;
  * @author Will Chang
  */
 import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.paint.Color;
 
 public class AntCell extends Cell {
@@ -21,7 +22,7 @@ public class AntCell extends Cell {
     }
 
     @Override
-    public void update (Patch currentPatch, ArrayList<Patch> neighbors) {
+    public void update (Patch currentPatch, List<Patch> neighbors) {
         forage();
 
     }
@@ -222,7 +223,7 @@ public class AntCell extends Cell {
     }
 
     @Override
-    public void prepareToUpdate (Patch currentPatch, ArrayList<Patch> neighbors) {
+    public void prepareToUpdate (Patch currentPatch, List<Patch> neighbors) {
         myPatch = currentPatch;
         
     }
@@ -234,7 +235,7 @@ public class AntCell extends Cell {
     }
 
     @Override
-    public ArrayList<String> getStateTypes () {
+    public List<String> getStateTypes () {
         // TODO Auto-generated method stub
         return null;
     }

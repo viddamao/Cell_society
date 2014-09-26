@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import simulationObjects.Patch;
@@ -23,9 +24,6 @@ public class Grid extends Pane {
     private int gWidth;
     private int gHeight;
     private GridInfo infoSheet = new GridInfo();
-    private int myMode;
-    private final int TOROIDAL = 1;
-    private final int INFINITE = 2;
     private HashMap<Integer,Integer> cellCounts;
     private int totalCells;
     private GridEdgeRules myEdgeRules;
@@ -53,7 +51,7 @@ public class Grid extends Pane {
         gHeight = height;
         myEdgeRules = new DefaultEdgeRules(width, height, this);
         totalCells = 0;
-        myMode = 0; //Default is bounded.
+        
     }
 
     public void initializeCellCounts()
@@ -62,8 +60,6 @@ public class Grid extends Pane {
         for(Integer i = 1; i <= infoSheet.getMaxCellState(); i++)
         {
             cellCounts.put(i, 0);
-            
-            
         }
         
     }
@@ -144,17 +140,13 @@ public class Grid extends Pane {
      * @param yCoord
      * @return
      */
-    public ArrayList<Patch> getNeighborsAround(int xCoord, int yCoord) {
-	ArrayList<Patch> neighbors = new ArrayList<>();
+    public List<Patch> getNeighborsAround(int xCoord, int yCoord) {
+	List<Patch> neighbors = new ArrayList<Patch>();
 	for (int i = 0; i < infoSheet.getAdjacentType(); i++) {
 	    int nextX = xCoord + xDelta[i];
 	    int nextY = yCoord + yDelta[i];
-	    myEdgeRules.applyConditionsAndGetNeighbors(nextX, nextY, neighbors);
+	    myEdgeRules.applyRulesAndGetNeighbors(nextX, nextY, neighbors);
 	}
-	
-	    
-	    
-        
 	return neighbors;
     }
 
@@ -192,29 +184,30 @@ public class Grid extends Pane {
 	return null;
     }
 
+    /**
+     * Get the grid's width
+     * @return gWidth
+     */
     public int getGridWidth() {
 	return gWidth;
     }
 
+    /**
+     * Get the grid's height
+     * @return gHeight
+     */
     public int getGridHeight() {
 	return gHeight;
     }
 
-    //TODO deprecated
-    public void setEdgeRules(int mode) {
-	myMode = mode;
-	updateAllNeighborhoods();
-    }
-
-    // TODO Look this over and change implementation -Will
-    //deprecated
+  
     /**
      * Finds empty Patch
      *
      * @return an empty Patch
      */
     public Patch findEmptyPatch() {
-	ArrayList<Patch> emptyPatches = new ArrayList<Patch>();
+	List<Patch> emptyPatches = new ArrayList<Patch>();
 	for (Patch[] row : gridArray) {
 	    for (Patch p : row) {
 		if (p.getCell() == null) {
@@ -230,6 +223,10 @@ public class Grid extends Pane {
 	}
     }
 
+    /**
+     * Updates the neighborhoods of all patches
+     * based on the grid's rules
+     */
     public void updateAllNeighborhoods() {
 	for (Patch[] row : gridArray) {
 	    for (Patch p : row) {
@@ -238,12 +235,20 @@ public class Grid extends Pane {
 	}
     }
 
+    /**
+     * Change current grid's edge rules to new rules
+     * @param rules
+     */
     public void changeRulesTo(GridEdgeRules rules)
     {
         myEdgeRules = rules;
         updateAllNeighborhoods();
     }
     
+    /**
+     * Updates the background color...
+     * @param myColor
+     */
     public void updateBackgroundColor(Color myColor) {
 	for (Patch[] row : gridArray) {
 	    for (Patch p : row) {
@@ -251,11 +256,20 @@ public class Grid extends Pane {
 	    }
 	}
     }
+    
+    /**
+     * Return the total number of cells in the simulation.
+     * @return
+     */
     public int getTotalCells()
     {
         return totalCells;
     }
 
+    /**
+     * Setup patch body.
+     * @param i
+     */
     public void setPatchBody (int i) {
         for (Patch[] row : gridArray) {
             for (Patch p : row) {

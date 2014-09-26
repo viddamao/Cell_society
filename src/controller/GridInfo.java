@@ -2,7 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.util.List;
 import javafx.scene.paint.Color;
 
 /**
@@ -21,7 +21,7 @@ public class GridInfo {
     private static int myAdjacentType = 8;
     private static double myParameter = 0.7;
     private static HashMap<String, Color> stateColors = new HashMap<String, Color>();
-    private static ArrayList<String> myStateTypes;
+    private static List<String> myStateTypes;
     private static int maxCellState;
     public boolean useGivenGrid = true;
 
@@ -90,11 +90,11 @@ public class GridInfo {
 	return stateColors.get(stateType);
     }
 
-    public void setStateTypes(ArrayList<String> stateTypes) {
+    public void setStateTypes(List<String> stateTypes) {
 	myStateTypes = stateTypes;
     }
 
-    public ArrayList<String> getStateTypes() {
+    public List<String> getStateTypes() {
 	return myStateTypes;
     }
     

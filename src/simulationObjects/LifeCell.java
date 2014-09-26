@@ -1,6 +1,7 @@
 package simulationObjects;
 
 import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.paint.Color;
 
 /**
@@ -36,28 +37,28 @@ public class LifeCell extends Cell {
     }
 
     @Override
-    public void update(Patch currentPatch, ArrayList<Patch> neighbors) {
+    public void update(Patch currentPatch, List<Patch> neighbors) {
 	// TODO Auto-generated method stub
 
     }
 
     @Override
-    public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
+    public void prepareToUpdate(Patch currentPatch, List<Patch> neighbors) {
 	// TODO Auto-generated method stub
 
     }
 
     @Override
-    public ArrayList<String> getStateTypes() {
-	ArrayList<String> myStateType = new ArrayList<String>();
+    public List<String> getStateTypes() {
+	List<String> myStateType = new ArrayList<String>();
 	myStateType.add("BACKGROUND");
 	myStateType.add("CELL");
 	return myStateType;
     }
 
     @Override
-    public ArrayList<Color> getInitialColors() {
-	ArrayList<Color> myStateColors = new ArrayList<Color>();
+    public List<Color> getInitialColors() {
+	List<Color> myStateColors = new ArrayList<Color>();
 	myStateColors.add(Color.WHITE);
 	myStateColors.add(Color.BLACK);
 	return myStateColors;
