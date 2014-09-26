@@ -25,6 +25,12 @@ import javax.swing.JOptionPane;
  */
 public class ColorPicker extends javafx.scene.control.ColorPicker {
     private GridInfo infoSheet = new GridInfo();
+    private Grid grid;
+    
+    public ColorPicker(Grid g)
+    {
+        grid = g;
+    }
 
     public void showColorPicker() {
 	Stage myStage = new Stage();
@@ -60,7 +66,7 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private GridPane buildColorPickerMenu(int index, GridPane gridpane) {
-	final ColorPicker colorPicker = new ColorPicker();
+	final ColorPicker colorPicker = new ColorPicker(grid);
 	final Text text = new Text(infoSheet.getStateTypes().get(index));
 	text.setFont(Font.font("Verdana", 20));
 	String stateType = text.getText();
@@ -78,7 +84,7 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
 		infoSheet.setColor(stateType, myColor);
 
 		if (text.getText() == "BACKGROUND") {
-		    MainController.grid.updateBackgroundColor(myColor);
+		    grid.updateBackgroundColor(myColor);
 		}
 	    }
 	});
