@@ -1,8 +1,8 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import javafx.scene.paint.Color;
 
 /**
@@ -23,6 +23,7 @@ public class GridInfo {
     private static HashMap<String, Color> stateColors = new HashMap<String, Color>();
     private static List<String> myStateTypes;
     private static int maxCellState;
+    private static List<Integer> paramList = new ArrayList<>();
     public boolean useGivenGrid = true;
 
     public int getAdjacentType() {
@@ -61,7 +62,12 @@ public class GridInfo {
     public int getWidth() {
 	return myWidth;
     }
-
+    
+    public List<Integer> getParamList()
+    {
+        return paramList;
+    }
+    
     public void setAdjacent(int adjacent) {
 	myAdjacentType = adjacent;
 
@@ -99,6 +105,14 @@ public class GridInfo {
 
     public void setWidth(int width) {
 	myWidth = width;
+    }
+
+    public void setParamList (String content) {
+        String[] buffer = content.split(" ");
+        for(int i = 0; i < buffer.length; i++)
+        {
+            paramList.add((Integer)Integer.valueOf(buffer[i]));
+        }
     }
 
 }

@@ -85,6 +85,9 @@ public class Parser {
 		    case "maxCellState":
 			infoSheet.setMaxCellState(Integer.parseInt(content));
 			break;
+		    case "paramList":
+		        infoSheet.setParamList(content);
+		        break;
 		    case "parameter":
 			infoSheet.setParameter(Double.parseDouble(content));
 			break;

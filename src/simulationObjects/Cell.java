@@ -20,8 +20,10 @@ public abstract class Cell extends Rectangle {
     protected int myY;
     protected int myState;
     protected Patch myPatch;
+    protected List<Integer> myParamList;
 
     public Cell () {
+        myParamList = infoSheet.getParamList();
     }
 
     /**

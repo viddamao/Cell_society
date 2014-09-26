@@ -13,27 +13,28 @@ import javafx.scene.paint.Color;
 public class PredatorCell extends Cell {
 
     private enum Phase {
-	UPDATING, STASIS
+        UPDATING, STASIS
     }
 
-    protected int vitality = 5;
-    protected int timeToBreed = 4;
-    protected final int sharkVitality = 3;
-    protected final int fishVitality = 8;
-    protected int gestationPeriod = 4;
     private final int FISH = 1;
-
     private final int SHARK = 2;
-
     private final int DYING = 0;
+    protected int vitality;
+    protected int timeToBreed;
+    protected int sharkVitality;
+    protected int fishVitality;
+    protected int gestationPeriod;
+    
 
     private Phase myPhase;
 
     protected List<Patch> myNeighbors;
 
     public PredatorCell() {
-	super();
-	myNeighbors = new ArrayList<>();
+        super();
+        myNeighbors = new ArrayList<>();
+        initializeParameters();
+        
     }
 
     /**
@@ -44,18 +45,18 @@ public class PredatorCell extends Cell {
      * @param state
      */
     public PredatorCell(int x, int y, int state) {
-	super();
-	myX = x;
-	myY = y;
-	myState = state;
-
-	if (state == SHARK) {
-	    setFill(infoSheet.getColor("SHARK"));
-	    vitality = sharkVitality;
-	} else if (state == FISH) {
-	    setFill(infoSheet.getColor("FISH"));
-	    vitality = fishVitality;
-	}
+        super();
+        myX = x;
+        myY = y;
+        myState = state;
+        initializeParameters();
+        if (state == SHARK) {
+            setFill(infoSheet.getColor("SHARK"));
+            vitality = sharkVitality;
+        } else if (state == FISH) {
+            setFill(infoSheet.getColor("FISH"));
+            vitality = fishVitality;
+        }
     }
 
     /**
@@ -67,12 +68,12 @@ public class PredatorCell extends Cell {
      *         to move.
      */
     public Patch chooseMove(List<Patch> neighbors) {
-	List<Patch> destinations = processPossibleDestinations(neighbors);
-	int range = destinations.size();
-	if (range > 0)
-	    return destinations.get((int) (Math.random() * range));
-	else
-	    return null;
+        List<Patch> destinations = processPossibleDestinations(neighbors);
+        int range = destinations.size();
+        if (range > 0)
+            return destinations.get((int) (Math.random() * range));
+        else
+            return null;
     }
 
     /**
@@ -81,36 +82,36 @@ public class PredatorCell extends Cell {
      * @param destination
      */
     public void feed(Patch destination) {
-	destination.removeCell();
-	vitality += 3;
+        destination.removeCell();
+        vitality += 3;
     }
 
     @Override
     public ArrayList<Color> getInitialColors() {
-	ArrayList<Color> myStateColors = new ArrayList<Color>();
-	myStateColors.add(Color.AQUA);
-	myStateColors.add(Color.YELLOW);
-	myStateColors.add(Color.GREEN);
-	return myStateColors;
+        ArrayList<Color> myStateColors = new ArrayList<Color>();
+        myStateColors.add(Color.AQUA);
+        myStateColors.add(Color.YELLOW);
+        myStateColors.add(Color.GREEN);
+        return myStateColors;
     }
 
     @Override
     public int getNextState() {
-	return myState == SHARK ? -1 : SHARK;
+        return myState == SHARK ? -1 : SHARK;
     }
 
     @Override
     public int getState() {
-	return myState;
+        return myState;
     }
 
     @Override
     public ArrayList<String> getStateTypes() {
-	ArrayList<String> myStateType = new ArrayList<String>();
-	myStateType.add("BACKGROUND");
-	myStateType.add("SHARK");
-	myStateType.add("FISH");
-	return myStateType;
+        ArrayList<String> myStateType = new ArrayList<String>();
+        myStateType.add("BACKGROUND");
+        myStateType.add("SHARK");
+        myStateType.add("FISH");
+        return myStateType;
     }
 
     /**
@@ -118,8 +119,9 @@ public class PredatorCell extends Cell {
      */
     @Override
     public void initialize(int x, int y, int state) {
-	super.initialize(x, y, state);
-	myPhase = Phase.STASIS;
+        super.initialize(x, y, state);
+        initializeParameters();
+        myPhase = Phase.STASIS;
     }
 
     /**
@@ -129,13 +131,13 @@ public class PredatorCell extends Cell {
      *            leaves new PredatorCell on old location
      */
     public void leaveEgg(Patch current) {
-	if (myState == SHARK) {
-	    current.addCell(new PredatorCell(current.getGridX(), current
-		    .getGridY(), SHARK));
-	} else {
-	    current.addCell(new PredatorCell(current.getGridX(), current
-		    .getGridY(), FISH));
-	}
+        if (myState == SHARK) {
+            current.addCell(new PredatorCell(current.getGridX(), current
+                    .getGridY(), SHARK));
+        } else {
+            current.addCell(new PredatorCell(current.getGridX(), current
+                    .getGridY(), FISH));
+        }
 
     }
 
@@ -148,8 +150,8 @@ public class PredatorCell extends Cell {
      *            patch
      */
     public void makeMove(Patch current, Patch destination) {
-	destination.addCell(this);
-	current.removeCell();
+        destination.addCell(this);
+        current.removeCell();
     }
 
     /**
@@ -157,8 +159,8 @@ public class PredatorCell extends Cell {
      */
     @Override
     public void prepareToUpdate(Patch currentPatch, List<Patch> neighbors) {
-	myPatch = currentPatch;
-	myPhase = Phase.UPDATING;
+        myPatch = currentPatch;
+        myPhase = Phase.UPDATING;
     }
 
     /**
@@ -169,33 +171,33 @@ public class PredatorCell extends Cell {
      * @return list of Patches to move to
      */
     public List<Patch> processPossibleDestinations(List<Patch> allNeighbors) {
-	myNeighbors = allNeighbors;
+        myNeighbors = allNeighbors;
 
-	List<Patch> emptyBuffer = new ArrayList<>();
-	List<Patch> fishBuffer = new ArrayList<>();
-	for (Patch loc : myNeighbors) {
-	    Cell occupant = loc.getCell();
-	    if (occupant == null) {
-		emptyBuffer.add(loc);
-	    } else if (occupant.getState() == FISH) {
-		fishBuffer.add(loc);
-	    }
-	}
-	if (myState == SHARK) {
-	    if (fishBuffer.size() > 0)
-		return fishBuffer;
-	}
-	return emptyBuffer;
+        List<Patch> emptyBuffer = new ArrayList<>();
+        List<Patch> fishBuffer = new ArrayList<>();
+        for (Patch loc : myNeighbors) {
+            Cell occupant = loc.getCell();
+            if (occupant == null) {
+                emptyBuffer.add(loc);
+            } else if (occupant.getState() == FISH) {
+                fishBuffer.add(loc);
+            }
+        }
+        if (myState == SHARK) {
+            if (fishBuffer.size() > 0)
+                return fishBuffer;
+        }
+        return emptyBuffer;
     }
 
     @Override
     public void setState(int state) {
-	if (state == SHARK) {
-	    setFill(infoSheet.getColor("SHARK"));
-	} else {
-	    setFill(infoSheet.getColor("FISH"));
-	}
-	myState = state;
+        if (state == SHARK) {
+            setFill(infoSheet.getColor("SHARK"));
+        } else {
+            setFill(infoSheet.getColor("FISH"));
+        }
+        myState = state;
     }
 
     /**
@@ -206,15 +208,15 @@ public class PredatorCell extends Cell {
      */
     @Override
     public void update(Patch current, List<Patch> neighbors) {
-	if (myPhase == Phase.UPDATING) {
-	    if (vitality > 0) {
-		Patch destination = chooseMove(neighbors);
-		updateStatesandMakeMoves(current, destination);
-		myPhase = Phase.STASIS;
-	    } else {
-		setState(DYING);
-	    }
-	}
+        if (myPhase == Phase.UPDATING) {
+            if (vitality > 0) {
+                Patch destination = chooseMove(neighbors);
+                updateStatesandMakeMoves(current, destination);
+                myPhase = Phase.STASIS;
+            } else {
+                setState(DYING);
+            }
+        }
     }
 
     /**
@@ -226,21 +228,30 @@ public class PredatorCell extends Cell {
      *            patch
      */
     public void updateStatesandMakeMoves(Patch current, Patch destination) {
-	vitality--;
-	if (timeToBreed > 0) {
-	    timeToBreed--;
-	}
-	if (destination != null) {
-	    if (myState == SHARK && !destination.isEmpty()) {
-		feed(destination);
-	    }
-	    makeMove(current, destination);
+        vitality--;
+        if (timeToBreed > 0) {
+            timeToBreed--;
+        }
+        if (destination != null) {
+            if (myState == SHARK && !destination.isEmpty()) {
+                feed(destination);
+            }
+            makeMove(current, destination);
 
-	    if (timeToBreed == 0) {
-		leaveEgg(current);
-		timeToBreed = gestationPeriod;
-	    }
-	}
+            if (timeToBreed == 0) {
+                leaveEgg(current);
+                timeToBreed = gestationPeriod;
+            }
+        }
+    }
+    
+    
+    private void initializeParameters () {
+        vitality = myParamList.get(0);
+        timeToBreed = myParamList.get(1);
+        sharkVitality = myParamList.get(2);
+        fishVitality = myParamList.get(3);
+        gestationPeriod =myParamList.get(4);
     }
 
 }
