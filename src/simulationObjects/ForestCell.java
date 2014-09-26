@@ -90,8 +90,8 @@ public class ForestCell extends Cell {
     }
 
     @Override
-    public int getNextState () {
-        return myState == TREE ? 0 : myState + 1;
+    public int getNextState() {
+	return myState == TREE ? 0 : myState + 1;
     }
 
 }

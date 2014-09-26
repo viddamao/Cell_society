@@ -81,7 +81,7 @@ public class PredatorCell extends Cell {
      */
     @Override
     public void prepareToUpdate(Patch currentPatch, List<Patch> neighbors) {
-        myPatch = currentPatch;
+	myPatch = currentPatch;
 	myPhase = Phase.UPDATING;
     }
 
@@ -158,8 +158,7 @@ public class PredatorCell extends Cell {
      *            it can move to
      * @return list of Patches to move to
      */
-    public List<Patch> processPossibleDestinations(
-	    List<Patch> allNeighbors) {
+    public List<Patch> processPossibleDestinations(List<Patch> allNeighbors) {
 	myNeighbors = allNeighbors;
 
 	List<Patch> emptyBuffer = new ArrayList<>();
@@ -239,8 +238,8 @@ public class PredatorCell extends Cell {
     }
 
     @Override
-    public int getNextState () {
-        return myState == SHARK ? -1 : SHARK;
+    public int getNextState() {
+	return myState == SHARK ? -1 : SHARK;
     }
 
 }

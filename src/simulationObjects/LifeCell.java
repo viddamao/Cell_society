@@ -65,9 +65,9 @@ public class LifeCell extends Cell {
     }
 
     @Override
-    public int getNextState () {
-        // TODO return the next cell state
-        return -1;
+    public int getNextState() {
+	// TODO return the next cell state
+	return -1;
     }
 
 }

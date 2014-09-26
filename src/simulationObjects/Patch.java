@@ -1,6 +1,5 @@
 package simulationObjects;
 
-
 import java.util.List;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
@@ -25,12 +24,10 @@ public class Patch extends Group {
     protected State myState;
     protected PatchBody myBody;
     protected GridInfo infoSheet;
-    
+
     private Class<?> myCellClass;
 
     private int myPreviousCellState;
-
-    
 
     /**
      * Constructors
@@ -44,33 +41,39 @@ public class Patch extends Group {
 	super();
 	initialize(x, y, m);
     }
-    
+
     /**
      * creates a patch body for the patch
      * 
      * @param bodyType
-     * what kind of shape it is
+     *            what kind of shape it is
      */
-    public void createBody(int bodyType){
-        if (myBody != null){
-            getChildren().remove(myBody);
-        }
-        //TODO: use reflection
-        switch (bodyType){
-            case 0:
-                myBody = new PatchBodyRectangle(xCoord,yCoord,grid.getMinHeight(),grid.getMinWidth(),grid.getGridHeight(),grid.getGridWidth());
-                break;
-            case 1:
-                myBody = new PatchBodyTriangle(xCoord,yCoord,grid.getMinHeight(),grid.getMinWidth(),grid.getGridHeight(),grid.getGridWidth());
-                break;
-            case 2:
-                myBody = new PatchBodyHexagon(xCoord,yCoord,grid.getMinHeight(),grid.getMinWidth(),grid.getGridHeight(),grid.getGridWidth());
-                break;
-        }
-        if (myCell != null){
-            updateCellConstraints(myCell);
-        }
-        getChildren().add(myBody);
+    public void createBody(int bodyType) {
+	if (myBody != null) {
+	    getChildren().remove(myBody);
+	}
+	// TODO: use reflection
+	switch (bodyType) {
+	case 0:
+	    myBody = new PatchBodyRectangle(xCoord, yCoord,
+		    grid.getMinHeight(), grid.getMinWidth(),
+		    grid.getGridHeight(), grid.getGridWidth());
+	    break;
+	case 1:
+	    myBody = new PatchBodyTriangle(xCoord, yCoord, grid.getMinHeight(),
+		    grid.getMinWidth(), grid.getGridHeight(),
+		    grid.getGridWidth());
+	    break;
+	case 2:
+	    myBody = new PatchBodyHexagon(xCoord, yCoord, grid.getMinHeight(),
+		    grid.getMinWidth(), grid.getGridHeight(),
+		    grid.getGridWidth());
+	    break;
+	}
+	if (myCell != null) {
+	    updateCellConstraints(myCell);
+	}
+	getChildren().add(myBody);
     }
 
     protected enum State {
@@ -165,16 +168,16 @@ public class Patch extends Group {
 	myState = State.OCCUPIED;
 	myCell = cell;
 	updateCellConstraints(myCell);
-        getChildren().add(myCell);
+	getChildren().add(myCell);
     }
-    
-    public void updateCellConstraints(Cell cell){
-        cell.setHeight(myBody.getPatchWidth()/2);
-        cell.setWidth(myBody.getPatchWidth()/2);
-        cell.setLayoutX(myBody.getCenter().x-myBody.getPatchWidth()/4);
-        cell.setLayoutY(myBody.getCenter().y-myBody.getPatchHeight()/4);
-        cell.setArcHeight(cell.getHeight());
-        cell.setArcWidth(cell.getWidth());
+
+    public void updateCellConstraints(Cell cell) {
+	cell.setHeight(myBody.getPatchWidth() / 2);
+	cell.setWidth(myBody.getPatchWidth() / 2);
+	cell.setLayoutX(myBody.getCenter().x - myBody.getPatchWidth() / 4);
+	cell.setLayoutY(myBody.getCenter().y - myBody.getPatchHeight() / 4);
+	cell.setArcHeight(cell.getHeight());
+	cell.setArcWidth(cell.getWidth());
     }
 
     public void removeCell() {
@@ -197,45 +200,42 @@ public class Patch extends Group {
     public void setPreviousState(int myState) {
 	myPreviousCellState = myState;
     }
-    
-    //TODO for new simulations
-    public int getState()
-    {
-        return 0;
-    }
-    public void setCellClass(Class<?> c){
-        myCellClass = c;
+
+    // TODO for new simulations
+    public int getState() {
+	return 0;
     }
 
-    public void toggleCellState () {
-        if (myCell != null){
-            int nextState = myCell.getNextState();
-            if (nextState == -1){
-                removeCell();
-            }
-            else{
-                myCell.setState(nextState);
-            }
-        }
-        else{
-            createNewCell();
-        }
+    public void setCellClass(Class<?> c) {
+	myCellClass = c;
+    }
+
+    public void toggleCellState() {
+	if (myCell != null) {
+	    int nextState = myCell.getNextState();
+	    if (nextState == -1) {
+		removeCell();
+	    } else {
+		myCell.setState(nextState);
+	    }
+	} else {
+	    createNewCell();
+	}
     }
 
     /**
-     * create a new cell and assign it to this patch
-     * new cell comes from the cell class stored in this patch
+     * create a new cell and assign it to this patch new cell comes from the
+     * cell class stored in this patch
      */
-    private void createNewCell () {
-        try {
-            addCell((Cell) myCellClass.newInstance());
-            myCell.setState(1);
-            myCell.setX(xCoord);
-            myCell.setY(yCoord);
-        }
-        catch (InstantiationException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+    private void createNewCell() {
+	try {
+	    addCell((Cell) myCellClass.newInstance());
+	    myCell.setState(1);
+	    myCell.setX(xCoord);
+	    myCell.setY(yCoord);
+	} catch (InstantiationException | IllegalAccessException e) {
+	    e.printStackTrace();
+	}
     }
 
     public void setColorToBody(Color myColor) {

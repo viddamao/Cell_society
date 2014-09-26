@@ -62,7 +62,7 @@ public class LifePatch extends Patch {
 	// Update this
 	switch (myState) {
 	case OCCUPIED:
-	    //myCell.setFill(infoSheet.getColor("CELL"));
+	    // myCell.setFill(infoSheet.getColor("CELL"));
 	    break;
 	case GENERATING:
 	    Cell generated = new LifeCell(xCoord, yCoord);
@@ -76,10 +76,10 @@ public class LifePatch extends Patch {
 	    break;
 	}
     }
-    
+
     @Override
     public void toggleCellState() {
-	switch (myState){
+	switch (myState) {
 	case OCCUPIED:
 	    removeCell();
 	    break;
@@ -88,7 +88,7 @@ public class LifePatch extends Patch {
 	    addCell(generated);
 	    myState = State.OCCUPIED;
 	    break;
-	    
+
 	}
     }
 }

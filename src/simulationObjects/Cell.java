@@ -7,8 +7,8 @@ import javafx.scene.shape.Rectangle;
 import controller.GridInfo;
 
 /**
- * Parent Class of Cell Hierarchy
- * TODO Change extends to Polygon?
+ * Parent Class of Cell Hierarchy TODO Change extends to Polygon?
+ * 
  * @author Everyone
  *
  */
@@ -53,7 +53,7 @@ public abstract class Cell extends Rectangle {
 
     public abstract void prepareToUpdate(Patch currentPatch,
 	    List<Patch> neighbors);
-    
+
     public abstract int getNextState();
 
     public int getGridX() {

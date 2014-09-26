@@ -102,13 +102,12 @@ public class SegCell extends Cell {
     }
 
     @Override
-    public int getNextState () {
-        if (myState == STATE_X){
-            return STATE_O;
-        }
-        else{
-            return -1;
-        }
+    public int getNextState() {
+	if (myState == STATE_X) {
+	    return STATE_O;
+	} else {
+	    return -1;
+	}
     }
 
 }

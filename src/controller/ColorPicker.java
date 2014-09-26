@@ -37,17 +37,19 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
 	myStage.setResizable(false);
 	myStage.setTitle("Choose colors for the simulation!");
 	GridPane gridpane = new GridPane();
-	gridpane.getColumnConstraints().add(new ColumnConstraints(80));
-	gridpane.getColumnConstraints().add(new ColumnConstraints(100));
+	int rowNumber=infoSheet.getStateTypes().size();
+	gridpane.getColumnConstraints().add(new ColumnConstraints(60));
+	gridpane.getColumnConstraints().add(new ColumnConstraints(90));
+	for (int i=0;i<rowNumber;i++)
 	gridpane.getRowConstraints().add(new RowConstraints(35));
-	gridpane.getRowConstraints().add(new RowConstraints(55));
-	gridpane.getRowConstraints().add(new RowConstraints(40));
 
 	if (infoSheet.getStateTypes() == null) {
 	    sendPickFileAlert();
 	    return;
 	}
-	Scene scene = new Scene(gridpane, 350, 120);
+	
+	Scene scene = new Scene(gridpane, 400, 40*rowNumber);
+	
 	for (int i = 0; i < infoSheet.getStateTypes().size(); i++) {
 	    gridpane = buildColorPickerMenu(i, gridpane);
 
@@ -83,7 +85,7 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
 		text.setFill(myColor);
 		infoSheet.setColor(stateType, myColor);
 
-		if (text.getText() == "BACKGROUND") {
+		if ((text.getText() == "BACKGROUND")|(text.getText().contains("_"))) {
 		    grid.updateBackgroundColor(myColor);
 		}
 	    }
