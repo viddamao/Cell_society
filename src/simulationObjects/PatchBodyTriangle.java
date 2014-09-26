@@ -2,6 +2,13 @@ package simulationObjects;
 
 import java.awt.Point;
 
+/**
+ * triangle implementation of patch body
+ * 
+ * @author Davis
+ *
+ */
+
 
 public class PatchBodyTriangle extends PatchBody {
 

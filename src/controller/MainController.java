@@ -255,14 +255,13 @@ public class MainController extends Application {
 	});
     }
 
-    // TODO Implementation, clicks for empty patches as well?
     /**
      * Clicking empty cell creates a new cell there. Clicking on a cell
      * decreases its state value by 1.
      */
     private void toggleCellStateForMouseEvent(MouseEvent mouseEvent) {
 	Patch selectedPatch = grid.getPatchAtCoordinate(
-		(int) mouseEvent.getSceneX(), (int) mouseEvent.getSceneY());
+		(int) mouseEvent.getX(), (int) mouseEvent.getY());
 	if (selectedPatch != null) {
 	    selectedPatch.toggleCellState();
 	}

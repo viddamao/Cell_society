@@ -2,6 +2,12 @@ package simulationObjects;
 
 import java.awt.Point;
 
+/**
+ * hexagon implementation of patch body
+ * 
+ * @author Davis
+ *
+ */
 
 public class PatchBodyHexagon extends PatchBody {
     

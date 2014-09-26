@@ -2,6 +2,13 @@ package simulationObjects;
 
 import java.awt.Point;
 
+/**
+ * rectangle implementation of patch body
+ * 
+ * @author Davis
+ *
+ */
+
 
 public class PatchBodyRectangle extends PatchBody {
 
