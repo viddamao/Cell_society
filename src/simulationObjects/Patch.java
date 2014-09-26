@@ -217,15 +217,23 @@ public class Patch extends Group {
             }
         }
         else{
-            try {
-                addCell((Cell) myCellClass.newInstance());
-                myCell.setState(1);
-                myCell.setX(xCoord);
-                myCell.setY(yCoord);
-            }
-            catch (InstantiationException | IllegalAccessException e) {
-                e.printStackTrace();
-            }
+            createNewCell();
+        }
+    }
+
+    /**
+     * create a new cell and assign it to this patch
+     * new cell comes from the cell class stored in this patch
+     */
+    private void createNewCell () {
+        try {
+            addCell((Cell) myCellClass.newInstance());
+            myCell.setState(1);
+            myCell.setX(xCoord);
+            myCell.setY(yCoord);
+        }
+        catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
         }
     }
 
