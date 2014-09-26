@@ -256,6 +256,12 @@ public class Grid extends Pane {
         return totalCells;
     }
 
+    /**
+     * create a patch body for each cell, given the user selection
+     * 
+     * @param i
+     * 
+     */
     public void setPatchBody (int i) {
         for (Patch[] row : gridArray) {
             for (Patch p : row) {

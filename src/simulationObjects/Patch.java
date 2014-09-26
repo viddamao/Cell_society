@@ -44,6 +44,12 @@ public class Patch extends Group {
 	initialize(x, y, m);
     }
     
+    /**
+     * creates a patch body for the patch
+     * 
+     * @param bodyType
+     * what kind of shape it is
+     */
     public void createBody(int bodyType){
         if (myBody != null){
             getChildren().remove(myBody);
@@ -214,6 +220,8 @@ public class Patch extends Group {
             try {
                 addCell((Cell) myCellClass.newInstance());
                 myCell.setState(1);
+                myCell.setX(xCoord);
+                myCell.setY(yCoord);
             }
             catch (InstantiationException | IllegalAccessException e) {
                 e.printStackTrace();
