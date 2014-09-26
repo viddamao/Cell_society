@@ -55,8 +55,6 @@ public abstract class Cell extends Rectangle {
 
     public abstract void prepareToUpdate(Patch currentPatch,
 	    List<Patch> neighbors);
-    
-    public abstract int getNextState();
 
     public abstract int getNextState ();
 

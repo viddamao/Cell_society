@@ -23,7 +23,7 @@ public class ToroidalEdgeRules extends GridEdgeRules {
         int yWrapped = nextY;
         if (isOutOfBounds(nextX, nextY)) {
             xWrapped = wrapCoordAround(nextX, myXBound);
-            yWrapped = wrapCoordAround(nextY, yUpperBound);
+            yWrapped = wrapCoordAround(nextY, myYBound);
         }
         neighbors.add(grid.getPatchAtPoint(xWrapped, yWrapped));  
     }

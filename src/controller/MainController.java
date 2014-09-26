@@ -156,8 +156,8 @@ public class MainController extends Application {
     private void initializeSimulationObjects(List<GridRows> gridRows) {
 	try {
 	    List<Patch> patchList = new ArrayList<Patch>();
-	    int width = infoSheet.getWidth();
-	    int height = infoSheet.getHeight();
+	    int width = myInfoSheet.getWidth();
+	    int height = myInfoSheet.getHeight();
 	    int gridWidth = (gridRows.get(0).states.length() + 1) / 2;
 	    int gridHeight = gridRows.size();
 	    if (width < 0) {
