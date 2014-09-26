@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
-
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import simulationObjects.Patch;
+
 
 /**
  * Manages grid properties and contents
@@ -23,110 +23,120 @@ public class Grid extends Pane {
     private int[] yDelta = { 0, 0, 1, -1, 1, -1, 1, -1 };
     private int gWidth;
     private int gHeight;
-    private GridInfo infoSheet = new GridInfo();
+    private GridInfo infoSheet;
     private HashMap<Integer, Integer> cellCounts;
     private int totalCells;
     private GridEdgeRules myEdgeRules;
-
-    // private String patchType;
-    // {4,8} indicates adjacent type to be 4 or 8 blocks around
-    // private int adjacentType;
+    private List<Patch> emptyPatches;
 
     /**
      * Constructs the Grid, initiates private variables
      *
      * @param width
-     *            of the grid
+     *        of the grid
      * @param height
-     *            of the grid
-     * @param rules
-     *            Edge rules for the grid
+     *        of the grid
+     * @param rules Edge rules for the grid
      */
 
-    public Grid(int width, int height) {
-	gridArray = new Patch[width][height];
-	gWidth = width;
-	gHeight = height;
-	myEdgeRules = new DefaultEdgeRules(width, height, this);
-	totalCells = 0;
+    public Grid (int width, int height) {
+        gridArray = new Patch[width][height];
+        gWidth = width;
+        gHeight = height;
+        infoSheet = new GridInfo();
+        myEdgeRules = new DefaultEdgeRules(width, height, this);
+        totalCells = 0;
 
+    }
+
+    public void initializeCellCounts ()
+    {
+        cellCounts = new HashMap();
+        for (Integer i = 1; i <= infoSheet.getMaxCellState(); i++){
+            cellCounts.put(i, 0);
+        }
+    }
+
+    /**
+     * Makes a step in the simulation, updates everything sequentially
+     */
+    public void updateGrid () {
+        prepareToUpdateAllPatches();
+        resetCellCounts();
+        updateAllPatches();
+    }
+
+    private void updateAllPatches () {
+        for (Patch[] row : gridArray) {
+            for (Patch p : row) {
+                p.update();
+                countCellInPatch(p);
+            }
+        }
+    }
+
+    private void prepareToUpdateAllPatches () {
+        for (Patch[] row : gridArray) {
+            for (Patch p : row) {
+                p.prepareToUpdate();
+            }
+        }
+    }
+
+    private void countCellInPatch (Patch p) {
+        if (!p.isEmpty())
+        {
+            int state = p.getCell().getState();
+            cellCounts.put(state, cellCounts.get(state) + 1);
+            totalCells++;
+        }
+    }
+
+    private void resetCellCounts () {
+        Set<Integer> s = cellCounts.keySet();
+        for (Integer i : s){
+            cellCounts.put(i, 0);
+        }
+        totalCells = 0;
+    }
+
+    public HashMap<Integer, Integer> getCellCounts ()
+    {
+        return cellCounts;
     }
 
     /**
      * Adds patch in specific location in the Grid
      *
      * @param patch
-     *            to be added
+     *        to be added
      * @param xCoord
-     *            in grid
+     *        in grid
      * @param yCoord
-     *            in grid
+     *        in grid
      */
-    public void addPatchAtPoint(Patch patch) {
-	gridArray[patch.getGridX()][patch.getGridY()] = patch;
-	addPatchToGrid(patch, patch.getGridX(), patch.getGridY());
+    public void addPatchAtPoint (Patch patch) {
+        gridArray[patch.getGridX()][patch.getGridY()] = patch;
+        addPatchToGrid(patch, patch.getGridX(), patch.getGridY());
     }
 
-    private void addPatchToGrid(Patch patch, int gridX, int gridY) {
-	patch.createBody(0);
-	getChildren().add(patch);
+    private void addPatchToGrid (Patch patch, int gridX, int gridY) {
+        patch.createBody(0);
+        getChildren().add(patch);
     }
 
     /**
-     * Change current grid's edge rules to new rules
+     * Remove cell from specific location in the Grid
      *
-     * @param rules
+     * @param xCoord
+     *        in grid
+     * @param yCoord
+     *        in grid
      */
-    public void changeRulesTo(GridEdgeRules rules) {
-	myEdgeRules = rules;
-	updateAllNeighborhoods();
+    public void removeCellinPatch (int xCoord, int yCoord) {
+        gridArray[xCoord][yCoord].removeCell();
     }
 
-    /**
-     * Finds empty Patch
-     *
-     * @return an empty Patch
-     */
-    public Patch findEmptyPatch() {
-	List<Patch> emptyPatches = new ArrayList<Patch>();
-	for (Patch[] row : gridArray) {
-	    for (Patch p : row) {
-		if (p.getCell() == null) {
-		    emptyPatches.add(p);
-		}
-	    }
-	}
-	if (emptyPatches.size() == 0)
-	    return null;
-	else {
-	    int random = new Random().nextInt(emptyPatches.size());
-	    return emptyPatches.get(random);
-	}
-    }
-
-    public HashMap<Integer, Integer> getCellCounts() {
-	return cellCounts;
-    }
-
-    /**
-     * Get the grid's height
-     *
-     * @return gHeight
-     */
-    public int getGridHeight() {
-	return gHeight;
-    }
-
-    /**
-     * Get the grid's width
-     *
-     * @return gWidth
-     */
-    public int getGridWidth() {
-	return gWidth;
-    }
-
-    // TODO Needs to be updated for unique boundary conditions.
     /**
      * Retrieves all neighboring patches around a point
      *
@@ -134,34 +144,14 @@ public class Grid extends Pane {
      * @param yCoord
      * @return
      */
-    public List<Patch> getNeighborsAround(int xCoord, int yCoord) {
-	List<Patch> neighbors = new ArrayList<Patch>();
-	for (int i = 0; i < infoSheet.getAdjacentType(); i++) {
-	    int nextX = xCoord + xDelta[i];
-	    int nextY = yCoord + yDelta[i];
-	    myEdgeRules.applyRulesAndGetNeighbors(nextX, nextY, neighbors);
-	}
-	return neighbors;
-    }
-
-    /**
-     * get patch given a scene coordinate this is with respect to the scene
-     * (pixels), NOT to the grid
-     *
-     * @param i
-     *            the explicit pixel x location
-     * @param j
-     *            the explicit pixel y location
-     * @return
-     */
-    public Patch getPatchAtCoordinate(int i, int j) {
-	for (Patch[] row : gridArray) {
-	    for (Patch p : row) {
-		if (p.getBoundsInParent().contains(i, j))
-		    return p;
-	    }
-	}
-	return null;
+    public List<Patch> getNeighborsAround (int xCoord, int yCoord) {
+        List<Patch> neighbors = new ArrayList<Patch>();
+        for (int i = 0; i < infoSheet.getAdjacentType(); i++) {
+            int nextX = xCoord + xDelta[i];
+            int nextY = yCoord + yDelta[i];
+            myEdgeRules.applyRulesAndGetNeighbors(nextX, nextY, neighbors);
+        }
+        return neighbors;
     }
 
     /**
@@ -171,37 +161,112 @@ public class Grid extends Pane {
      * @param j
      * @return
      */
-    public Patch getPatchAtPoint(int i, int j) {
-	return gridArray[i][j];
+    public Patch getPatchAtPoint (int i, int j) {
+        return gridArray[i][j];
+    }
+
+    /**
+     * get patch given a scene coordinate
+     * this is with respect to the scene (pixels), NOT to the grid
+     *
+     * @param i the explicit pixel x location
+     * @param j the explicit pixel y location
+     * @return
+     */
+    public Patch getPatchAtCoordinate (int i, int j) {
+        for (Patch[] row : gridArray) {
+            for (Patch p : row) {
+                if (p.getBoundsInParent().contains(i, j)) { return p; }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get the grid's width
+     * 
+     * @return gWidth
+     */
+    public int getGridWidth () {
+        return gWidth;
+    }
+
+    /**
+     * Get the grid's height
+     * 
+     * @return gHeight
+     */
+    public int getGridHeight () {
+        return gHeight;
+    }
+
+    /**
+     * Finds empty Patch
+     *
+     * @return an empty Patch
+     */
+    public Patch findEmptyPatch () {
+        List<Patch> emptyPatches = new ArrayList<Patch>();
+        for (Patch[] row : gridArray) {
+            for (Patch p : row) {
+                if (p.getCell() == null) {
+                    emptyPatches.add(p);
+                }
+            }
+        }
+        if (emptyPatches.size() == 0) {
+            return null;
+        }
+        else {
+            int random = new Random().nextInt(emptyPatches.size());
+            return emptyPatches.get(random);
+        }
+    }
+
+    /**
+     * Updates the neighborhoods of all patches
+     * based on the grid's rules
+     */
+    public void updateAllNeighborhoods () {
+        for (Patch[] row : gridArray) {
+            for (Patch p : row) {
+                p.getNeighbors();
+            }
+        }
+    }
+
+    /**
+     * Change current grid's edge rules to new rules
+     * 
+     * @param rules
+     */
+    public void changeRulesTo (GridEdgeRules rules)
+    {
+        myEdgeRules = rules;
+        updateAllNeighborhoods();
+    }
+
+    /**
+     * Updates the background color.
+     * 
+     * @param myColor
+     */
+    public void updateBackgroundColor (Color myColor) {
+        for (Patch[] row : gridArray) {
+            for (Patch p : row) {
+                p.setColorToBody(myColor);
+            }
+        }
     }
 
     /**
      * Return the total number of cells in the simulation.
-     *
+     * 
      * @return
      */
-    public int getTotalCells() {
-	return totalCells;
-    }
-
-    public void initializeCellCounts() {
-	cellCounts = new HashMap();
-	for (Integer i = 1; i <= infoSheet.getMaxCellState(); i++) {
-	    cellCounts.put(i, 0);
-	}
-
-    }
-
-    /**
-     * Remove cell from specific location in the Grid
-     *
-     * @param xCoord
-     *            in grid
-     * @param yCoord
-     *            in grid
-     */
-    public void removeCellinPatch(int xCoord, int yCoord) {
-	gridArray[xCoord][yCoord].removeCell();
+    public int getTotalCells ()
+    {
+        return totalCells;
     }
 
     /**
@@ -210,65 +275,11 @@ public class Grid extends Pane {
      * @param i
      *
      */
-    public void setPatchBody(int i) {
-	for (Patch[] row : gridArray) {
-	    for (Patch p : row) {
-		p.createBody(i);
-	    }
-	}
-    }
-
-    /**
-     * Updates the neighborhoods of all patches based on the grid's rules
-     */
-    public void updateAllNeighborhoods() {
-	for (Patch[] row : gridArray) {
-	    for (Patch p : row) {
-		p.getNeighbors();
-	    }
-	}
-    }
-
-    /**
-     * Updates the background color...
-     *
-     * @param myColor
-     */
-    public void updateBackgroundColor(Color myColor) {
-	for (Patch[] row : gridArray) {
-	    for (Patch p : row) {
-		p.setColorToBody(myColor);
-	    }
-	}
-    }
-
-    // TODO Duplicated for loop...
-    /**
-     * Makes a step in the simulation, updates everything sequentially
-     */
-    public void updateGrid() {
-	for (Patch[] row : gridArray) {
-	    for (Patch p : row) {
-		p.prepareToUpdate();
-		totalCells = 0;
-	    }
-	}
-
-	// Reset state count
-	Set<Integer> s = cellCounts.keySet();
-	for (Integer i : s) {
-	    cellCounts.put(i, 0);
-	}
-	for (Patch[] row : gridArray) {
-	    for (Patch p : row) {
-		p.update();
-		if (!p.isEmpty()) {
-		    int state = p.getCell().getState();
-		    cellCounts.put(state, cellCounts.get(state) + 1);
-		    totalCells++;
-		}
-	    }
-	}
-
+    public void setPatchBody (int i) {
+        for (Patch[] row : gridArray) {
+            for (Patch p : row) {
+                p.createBody(i);
+            }
+        }
     }
 }

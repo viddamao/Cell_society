@@ -1,91 +1,116 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
+import java.util.List;
+import java.util.Map;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Series;
 import javafx.scene.layout.Pane;
 
+
 /**
- *
+ * Chart that graphs the cell data from the grid
  * @author Will Chang
  *
  */
 public class SimulationChart extends Pane {
+    
+    private final int X_AXIS_RANGE = 1000;
+    private final int CHART_WIDTH = 500;
+    private final int CHART_HEIGHT = 130;
+    private final int X_DELTA = 10;
+    private final int TICK_MARKS = 4;
+    
     private Grid grid;
-    private ArrayList<XYChart.Series> datapoints;
     private GridInfo infoSheet;
-    private LineChart lineChart;
-    private NumberAxis xAxis;
-    private NumberAxis yAxis;
-    private int width;
-    private int height;
-    private int xCoord;
-    private HashMap<Integer, Integer> cellCounts;
+    private LineChart myLineChart;
+    private NumberAxis myXAxis;
+    private NumberAxis myYAxis;
+    private int myWidth;
+    private int myHeight;
+    private int myXCoord;
+    private List<Series> myDataPoints;
+    private Map<Integer, Integer> cellCounts;
 
-    public SimulationChart(Grid g) {
-	grid = g;
-	xCoord = 0;
-	infoSheet = new GridInfo();
-	datapoints = new ArrayList<>();
-	width = grid.getGridWidth();
-	height = grid.getGridHeight();
-	intialize();
+    /**
+     * Constructor for the simulation's chart
+     * @param g
+     */
+    public SimulationChart (Grid g) {
+        grid = g;
+        myXCoord = 0;
+        infoSheet = new GridInfo();
+        myDataPoints = new ArrayList<>();
+        myWidth = grid.getGridWidth();
+        myHeight = grid.getGridHeight();
+        intializeChart();
     }
 
-    public void checkBoundaryAndReset() {
-	if (xCoord >= 1000) {
-	    for (int i = 0; i < datapoints.size(); i++) {
-		datapoints.get(i).getData().clear();
-	    }
-	    xCoord = 0;
-	}
+    /**
+     * Sets up the axes, datapoints, and linechart
+     */
+    private void intializeChart () {
+        //creating axes
+        myXAxis = new NumberAxis(0, X_AXIS_RANGE, X_AXIS_RANGE / TICK_MARKS);
+        myYAxis = new NumberAxis(0, myHeight * myWidth, myHeight * myWidth / TICK_MARKS);
+
+        myXAxis.setTickMarkVisible(false);
+        myXAxis.setTickLabelsVisible(false);
+        myYAxis.setTickMarkVisible(false);
+        myYAxis.setTickLabelsVisible(false);
+
+        // creating the chart
+        LineChart<Number, Number> lineChart = new LineChart<Number, Number>(myXAxis, myYAxis);
+        lineChart.setMaxWidth(CHART_WIDTH);
+        lineChart.setMinHeight(CHART_HEIGHT);
+        lineChart.setMaxHeight(CHART_HEIGHT);
+        lineChart.setCreateSymbols(false);
+        lineChart.setLegendVisible(false);
+
+        //adding datapoint lists
+        for (int i = 0; i < infoSheet.getMaxCellState(); i++) {
+            Series series = new Series();
+            myDataPoints.add(series);
+
+        }
+        for (Series series : myDataPoints) {
+            lineChart.getData().add(series);
+        }
+
+        getChildren().add(lineChart);
     }
 
-    private void intialize() {
-	xAxis = new NumberAxis(0, 1000, 1000 / 4);
-	yAxis = new NumberAxis(0, height * width, height * width / 4);
-
-	xAxis.setTickMarkVisible(false);
-	xAxis.setTickLabelsVisible(false);
-	yAxis.setTickMarkVisible(false);
-	yAxis.setTickLabelsVisible(false);
-
-	// creating the chart
-	LineChart<Number, Number> lineChart = new LineChart<Number, Number>(
-		xAxis, yAxis);
-	lineChart.setMaxWidth(500);
-	lineChart.setMinHeight(130);
-	lineChart.setMaxHeight(130);
-	lineChart.setCreateSymbols(false);
-
-	lineChart.setLegendVisible(false);
-
-	for (int i = 0; i < infoSheet.getMaxCellState(); i++) {
-	    XYChart.Series series = new XYChart.Series();
-	    datapoints.add(series);
-
-	}
-	for (XYChart.Series series : datapoints) {
-	    lineChart.getData().add(series);
-	}
-
-	getChildren().add(lineChart);
+    /**
+     * Checks if the data has reached the length of the graph,
+     * plots new datapoints each step
+     */
+    public void updateDisplay () {
+        checkBoundaryAndReset();
+        plotData();
     }
 
-    protected void plotData() {
-	cellCounts = grid.getCellCounts();
-	for (int i = 0; i < datapoints.size(); i++) {
-	    datapoints.get(i).getData()
-		    .add(new XYChart.Data(xCoord, cellCounts.get(i + 1)));
-	}
-	xCoord += 10;
+    /**
+     * Gets cellcounts from grid and plots it in the Chart
+     */
+    protected void plotData () {
+        cellCounts = grid.getCellCounts();
+        for (int i = 0; i < myDataPoints.size(); i++) {
+            myDataPoints.get(i).getData().add(new XYChart.Data(myXCoord, cellCounts.get(i + 1)));
+        }
+        myXCoord += X_DELTA;
     }
 
-    public void updateDisplay() {
-	checkBoundaryAndReset();
-	plotData();
+    /**
+     * Checks to see if x coordinate has reached the end of the axis
+     */
+    public void checkBoundaryAndReset () {
+        if (myXCoord >= X_AXIS_RANGE) {
+            for (int i = 0; i < myDataPoints.size(); i++) {
+                myDataPoints.get(i).getData().clear();
+            }
+            myXCoord = 0;
+        }
     }
 }

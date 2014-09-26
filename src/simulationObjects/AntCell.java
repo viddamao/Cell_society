@@ -1,6 +1,7 @@
 package simulationObjects;
 
 /**
+ * Ant Foraging Simulation, incomlete
  * @author Will Chang
  */
 import java.util.ArrayList;

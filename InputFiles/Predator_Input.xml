@@ -6,7 +6,7 @@
  	  <width>9</width>
 	  <height>9</height>
       <type>PredatorCell</type>
-      <patchType>PredatorPatch</patchType>
+      <patchType>Default</patchType>
  	  <adjacentType>4</adjacentType>
  	  <maxCellState>2</maxCellState>
    </gridInfo>
