@@ -267,8 +267,10 @@ public class Grid extends Pane {
     }
 
     /**
-     * Setup patch body.
+     * create a patch body for each cell, given the user selection
+     * 
      * @param i
+     * 
      */
     public void setPatchBody (int i) {
         for (Patch[] row : gridArray) {
