@@ -6,12 +6,11 @@ import javafx.scene.paint.Color;
 
 
 /**
- *
+ * Cell for Predator/Prey simulation
  * @author Will Chang
  *
  */
 public class PredatorCell extends Cell {
-    // This is it's pregnancylevel
 
     protected int vitality = 5;
     protected int timeToBreed = 4;

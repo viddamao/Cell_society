@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 
 
 /**
- *
+ * Cell for Game of Life Simulation
  * @author Will Chang
  *
  */
@@ -34,18 +34,20 @@ public class LifeCell extends Cell {
     @Override
     public void setState (int state) {
         myState = state;
-
     }
 
+    /**
+     * Update was not necessary for this simulation
+     */
     @Override
     public void update (Patch currentPatch, List<Patch> neighbors) {
-        // TODO Auto-generated method stub
-
     }
 
+    /**
+     * PrepareToUpdate was not necessary for this simulation
+     */
     @Override
     public void prepareToUpdate (Patch currentPatch, List<Patch> neighbors) {
-        // TODO Auto-generated method stub
 
     }
 

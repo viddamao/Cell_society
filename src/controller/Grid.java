@@ -23,14 +23,11 @@ public class Grid extends Pane {
     private int[] yDelta = { 0, 0, 1, -1, 1, -1, 1, -1 };
     private int gWidth;
     private int gHeight;
-    private GridInfo infoSheet = new GridInfo();
+    private GridInfo infoSheet;
     private HashMap<Integer, Integer> cellCounts;
     private int totalCells;
     private GridEdgeRules myEdgeRules;
-
-    // private String patchType;
-    // {4,8} indicates adjacent type to be 4 or 8 blocks around
-    // private int adjacentType;
+    private List<Patch> emptyPatches;
 
     /**
      * Constructs the Grid, initiates private variables
@@ -46,6 +43,7 @@ public class Grid extends Pane {
         gridArray = new Patch[width][height];
         gWidth = width;
         gHeight = height;
+        infoSheet = new GridInfo();
         myEdgeRules = new DefaultEdgeRules(width, height, this);
         totalCells = 0;
 
@@ -54,43 +52,52 @@ public class Grid extends Pane {
     public void initializeCellCounts ()
     {
         cellCounts = new HashMap();
-        for (Integer i = 1; i <= infoSheet.getMaxCellState(); i++)
-        {
+        for (Integer i = 1; i <= infoSheet.getMaxCellState(); i++){
             cellCounts.put(i, 0);
         }
-
     }
 
-    // TODO Duplicated for loop...
     /**
      * Makes a step in the simulation, updates everything sequentially
      */
     public void updateGrid () {
-        for (Patch[] row : gridArray) {
-            for (Patch p : row) {
-                p.prepareToUpdate();
-                totalCells = 0;
-            }
-        }
+        prepareToUpdateAllPatches();
+        resetCellCounts();
+        updateAllPatches();
+    }
 
-        // Reset state count
-        Set<Integer> s = cellCounts.keySet();
-        for (Integer i : s)
-        {
-            cellCounts.put(i, 0);
-        }
+    private void updateAllPatches () {
         for (Patch[] row : gridArray) {
             for (Patch p : row) {
                 p.update();
-                if (!p.isEmpty())
-                {
-                    int state = p.getCell().getState();
-                    cellCounts.put(state, cellCounts.get(state) + 1);
-                    totalCells++;
-                }
+                countCellInPatch(p);
             }
         }
+    }
 
+    private void prepareToUpdateAllPatches () {
+        for (Patch[] row : gridArray) {
+            for (Patch p : row) {
+                p.prepareToUpdate();
+            }
+        }
+    }
+
+    private void countCellInPatch (Patch p) {
+        if (!p.isEmpty())
+        {
+            int state = p.getCell().getState();
+            cellCounts.put(state, cellCounts.get(state) + 1);
+            totalCells++;
+        }
+    }
+
+    private void resetCellCounts () {
+        Set<Integer> s = cellCounts.keySet();
+        for (Integer i : s){
+            cellCounts.put(i, 0);
+        }
+        totalCells = 0;
     }
 
     public HashMap<Integer, Integer> getCellCounts ()
@@ -130,7 +137,6 @@ public class Grid extends Pane {
         gridArray[xCoord][yCoord].removeCell();
     }
 
-    // TODO Needs to be updated for unique boundary conditions.
     /**
      * Retrieves all neighboring patches around a point
      *
@@ -163,10 +169,8 @@ public class Grid extends Pane {
      * get patch given a scene coordinate
      * this is with respect to the scene (pixels), NOT to the grid
      *
-     * @param i
-     *        the explicit pixel x location
-     * @param j
-     *        the explicit pixel y location
+     * @param i the explicit pixel x location
+     * @param j the explicit pixel y location
      * @return
      */
     public Patch getPatchAtCoordinate (int i, int j) {
@@ -243,7 +247,7 @@ public class Grid extends Pane {
     }
 
     /**
-     * Updates the background color...
+     * Updates the background color.
      * 
      * @param myColor
      */
