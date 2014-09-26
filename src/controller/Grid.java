@@ -28,6 +28,7 @@ public class Grid extends Pane {
     private final int INFINITE = 2;
     private HashMap<Integer,Integer> cellCounts;
     private int totalCells;
+    private GridEdgeRules myEdgeRules;
     
     // private String patchType;
     // {4,8} indicates adjacent type to be 4 or 8 blocks around
@@ -40,13 +41,19 @@ public class Grid extends Pane {
      *            of the grid
      * @param height
      *            of the grid
+     * @param rules Edge rules for the grid
      */
+
+    
+
+    
     public Grid(int width, int height) {
-	gridArray = new Patch[width][height];
-	gWidth = width;
-	gHeight = height;
-	totalCells = 0;
-	myMode = 0; //Default is bounded.
+        gridArray = new Patch[width][height];
+        gWidth = width;
+        gHeight = height;
+        myEdgeRules = new DefaultEdgeRules(width, height, this);
+        totalCells = 0;
+        myMode = 0; //Default is bounded.
     }
 
     public void initializeCellCounts()
@@ -142,60 +149,13 @@ public class Grid extends Pane {
 	for (int i = 0; i < infoSheet.getAdjacentType(); i++) {
 	    int nextX = xCoord + xDelta[i];
 	    int nextY = yCoord + yDelta[i];
-
-	    if (isOutOfBounds(nextX, nextY)) {
-		applyBoundaryRules(nextX, nextY, neighbors);
-	    } else {
-		neighbors.add(gridArray[nextX][nextY]);
-	    }
+	    myEdgeRules.applyConditionsAndGetNeighbors(nextX, nextY, neighbors);
 	}
 	return neighbors;
     }
 
-    private void applyBoundaryRules(int nextX, int nextY,
-	    ArrayList<Patch> neighbors) {
-	if (myMode == 1) {
-	    processAndAddToroidal(nextX, nextY, neighbors);
-	} else if (myMode == INFINITE) {
-	    processAndAddInfinite(nextX, nextY, neighbors);
-	}
-    }
 
-    private void processAndAddInfinite(int nextX, int nextY,
-	    ArrayList<Patch> neighbors) {
 
-    }
-
-    private void processAndAddToroidal(int nextX, int nextY,
-	    ArrayList<Patch> neighbors) {
-	nextX = wrapCoordAround(nextX, gWidth);
-	nextY = wrapCoordAround(nextY, gHeight);
-	neighbors.add(gridArray[nextX][nextY]);
-    }
-
-    // TODO add min/change for infinite
-    private int wrapCoordAround(int coord, int max) {
-	if (coord > max - 1) {
-	    coord = 0;
-	} else if (coord < 0) {
-	    coord = max - 1;
-	}
-	return coord;
-    }
-
-    /**
-     * Checks if a location is not in the grid
-     *
-     * @param xCoord
-     *            in grid
-     * @param yCoord
-     *            in grid
-     * @return true if out of bounds, false otherwise
-     */
-    private boolean isOutOfBounds(int xCoord, int yCoord) {
-	return xCoord > gWidth - 1 || xCoord < 0 || yCoord > gHeight - 1
-		|| yCoord < 0;
-    }
 
     /**
      * get patch in our grid system
@@ -234,12 +194,14 @@ public class Grid extends Pane {
 	return gHeight;
     }
 
+    //TODO deprecated
     public void setEdgeRules(int mode) {
 	myMode = mode;
 	updateAllNeighborhoods();
     }
 
     // TODO Look this over and change implementation -Will
+    //deprecated
     /**
      * Finds empty Patch
      *
@@ -270,6 +232,12 @@ public class Grid extends Pane {
 	}
     }
 
+    public void changeRulesTo(GridEdgeRules rules)
+    {
+        myEdgeRules = rules;
+        
+    }
+    
     public void updateBackgroundColor(Color myColor) {
 	for (Patch[] row : gridArray) {
 	    for (Patch p : row) {
