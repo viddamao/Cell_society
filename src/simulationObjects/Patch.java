@@ -10,7 +10,7 @@ import controller.Grid;
 import controller.GridInfo;
 
 /**
- *
+ * Patch for the simulation. Holds locations, cells, and simulation rules
  * @author Will Chang
  *
  */
@@ -183,7 +183,8 @@ public class Patch extends Group {
 	}
     }
 
-    public Patch randomEmptyPatch() {
+    
+    public Patch getRandomEmptyPatch() {
 	// get an empty patch from grid manager
 	return grid.findEmptyPatch();
     }

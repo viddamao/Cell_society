@@ -105,7 +105,7 @@ public class SegCell extends Cell {
     @Override
     public void update(Patch currentPatch, List<Patch> neighbors) {
 	if (!isSatisfied(currentPatch, neighbors)) {
-	    currentPatch.randomEmptyPatch().addCell(this);
+	    currentPatch.getRandomEmptyPatch().addCell(this);
 	    currentPatch.removeCell();
 	}
     }

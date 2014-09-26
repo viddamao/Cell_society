@@ -19,6 +19,7 @@ public class PredatorCell extends Cell {
     private final int FISH = 1;
     private final int SHARK = 2;
     private final int DYING = 0;
+    
     protected int vitality;
     protected int timeToBreed;
     protected int sharkVitality;
