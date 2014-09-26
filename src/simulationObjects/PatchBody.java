@@ -14,16 +14,16 @@ import controller.GridInfo;
 
 public abstract class PatchBody extends Polygon {
 
+    private static final double STROKE_WIDTH = .5;
+    public int myX;
+    public int myY;
     protected GridInfo infoSheet = new GridInfo();
-
     private int myPatchHeight;
     private int myPatchWidth;
     private Point myCenter;
-    public int myX;
 
-    public int myY;
 
-    public PatchBody(int x, int y) {
+    public PatchBody (int x, int y) {
         super();
         myX = x;
         myY = y;
@@ -33,7 +33,7 @@ public abstract class PatchBody extends Polygon {
      * calculate the points needed for the specific polygon
      * given our height, width, grid x, and grid y
      */
-    public abstract void buildBody();
+    public abstract void buildBody ();
     
     /**
      * create a polygon given an array of points
@@ -41,26 +41,26 @@ public abstract class PatchBody extends Polygon {
      * @param pts
      * array of x and y points used to create the polygon
      */
-    public void createPolyFromPoints(Double[] pts){
+    public void createPolyFromPoints (Double[] pts){
         getPoints().addAll(pts);
-        setFill(new Color(0f,0f,0f,.0f));
-        setStrokeWidth(.5);
+        setFill(new Color(0f, 0f, 0f, .0f));
+        setStrokeWidth(STROKE_WIDTH);
         setStroke(Color.BLACK);
     }
     
-    public void setPatchHeight(int h){
+    public void setPatchHeight (int h) {
         myPatchHeight = h;
     }
     
-    public void setPatchWidth(int w){
+    public void setPatchWidth (int w) {
         myPatchWidth = w;
     }
     
-    public int getPatchHeight(){
+    public int getPatchHeight () {
         return myPatchHeight;
     }
     
-    public int getPatchWidth(){
+    public int getPatchWidth () {
         return myPatchWidth;
     }
     

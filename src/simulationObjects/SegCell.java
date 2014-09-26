@@ -12,10 +12,10 @@ import javafx.scene.paint.Color;
 
 public class SegCell extends Cell {
 
-    final private int STATE_X = 1;
-    final private int STATE_O = 2;
+    private static final int STATE_X = 1;
+    private static final int STATE_O = 2;
 
-    public SegCell() {
+    public SegCell () {
 	super();
     }
 
@@ -23,7 +23,7 @@ public class SegCell extends Cell {
      * make changes to the cells position, if needed
      */
     @Override
-    public void update(Patch currentPatch, ArrayList<Patch> neighbors) {
+    public void update (Patch currentPatch, ArrayList<Patch> neighbors) {
 	if (!isSatisfied(currentPatch, neighbors)) {
 	    currentPatch.randomEmptyPatch().addCell(this);
 	    currentPatch.removeCell();
@@ -39,7 +39,7 @@ public class SegCell extends Cell {
      *            the neighbors of the cell's patch
      * @return satisfied or not
      */
-    private boolean isSatisfied(Patch currentPatch, ArrayList<Patch> neighbors) {
+    private boolean isSatisfied (Patch currentPatch, ArrayList<Patch> neighbors) {
 	double satisfiedCount = 0;
 	double dissatisfiedCount = 0;
 	currentPatch.getCell().setState(myState);
@@ -47,28 +47,32 @@ public class SegCell extends Cell {
 	    if (p.getCell() != null) {
 		if (p.getCell().getState() == myState) {
 		    satisfiedCount++;
-		} else {
+		} 
+		else {
 		    dissatisfiedCount++;
 		}
 	    }
 	}
-	if (satisfiedCount + dissatisfiedCount > 0)
+	if (satisfiedCount + dissatisfiedCount > 0) {
 	    return satisfiedCount / (satisfiedCount + dissatisfiedCount) > infoSheet
 		    .getParam();
-	else
+	}
+	else {
 	    return false;
+	}
     }
 
     @Override
-    public int getState() {
+    public int getState () {
 	return myState;
     }
 
     @Override
-    public void setState(int state) {
+    public void setState (int state) {
 	if (state == STATE_X) {
 	    setFill(infoSheet.getColor("X"));
-	} else if (state == STATE_O) {
+	} 
+	else if (state == STATE_O) {
 	    setFill(infoSheet.getColor("O"));
 	}
 	myState = state;
@@ -78,12 +82,12 @@ public class SegCell extends Cell {
      * this simulation does not require the inherited prepare to update method
      */
     @Override
-    public void prepareToUpdate(Patch currentPatch, ArrayList<Patch> neighbors) {
+    public void prepareToUpdate (Patch currentPatch, ArrayList<Patch> neighbors) {
 	return;
     }
 
     @Override
-    public ArrayList<String> getStateTypes() {
+    public ArrayList<String> getStateTypes () {
 	ArrayList<String> myStateType = new ArrayList<String>();
 	myStateType.add("BACKGROUND");
 	myStateType.add("X");
@@ -92,7 +96,7 @@ public class SegCell extends Cell {
     }
 
     @Override
-    public ArrayList<Color> getInitialColors() {
+    public ArrayList<Color> getInitialColors () {
 	ArrayList<Color> myStateColors = new ArrayList<Color>();
 	myStateColors.add(Color.WHITE);
 	myStateColors.add(Color.RED);
@@ -102,10 +106,10 @@ public class SegCell extends Cell {
 
     @Override
     public int getNextState () {
-        if (myState == STATE_X){
+        if (myState == STATE_X) {
             return STATE_O;
         }
-        else{
+        else {
             return -1;
         }
     }
