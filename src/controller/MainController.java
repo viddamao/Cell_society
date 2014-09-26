@@ -202,19 +202,9 @@ public class MainController extends Application {
                     cell.setY(j);
                     int state = Integer.parseInt(currentRow[i]);
                     cell.setState(state);
-                    Patch currentPatch;
-                    if (myInfoSheet.getPatchType().equals("Default")) {
-                        currentPatch = new Patch(i, j, myGrid);
-                    }
-                    else {
-                        String patchPathAndName = ourProperties
-                                .getString("cell_bundle")
-                                                  + "."
-                                                  + myInfoSheet.getPatchType();
-                        Class<?> patchClass = Class.forName(patchPathAndName);
-                        currentPatch = (Patch) patchClass.newInstance();
-                        currentPatch.initialize(i, j, myGrid);
-                    }
+                    PatchFactory myPatchFactory = new PatchFactory(myInfoSheet);
+                    Patch currentPatch = myPatchFactory.createPatch(myGrid, i, j);
+
                     currentPatch.setCellClass(cellClass);
 
                     // add the patch to grid manager
