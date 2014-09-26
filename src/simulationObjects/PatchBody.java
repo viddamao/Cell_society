@@ -1,4 +1,4 @@
-package simulationPatches;
+package simulationObjects;
 
 import java.awt.Point;
 import javafx.scene.paint.Color;

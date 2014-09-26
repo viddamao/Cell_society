@@ -128,7 +128,7 @@ public class UserInterface {
 			    @Override
 			    public void handle(ActionEvent event) {
 				if (myGrid != null) {
-				    myGrid.setAndUpdateMode(2);
+				    myGrid.setEdgeRules(2);
 				}
 			    }
 			}));
@@ -140,7 +140,7 @@ public class UserInterface {
 			    @Override
 			    public void handle(ActionEvent event) {
 				if (myGrid != null) {
-				    myGrid.setAndUpdateMode(1);
+				    myGrid.setEdgeRules(1);
 				}
 			    }
 			}));
@@ -152,7 +152,7 @@ public class UserInterface {
 			    @Override
 			    public void handle(ActionEvent event) {
 				if (myGrid != null) {
-				    myGrid.setAndUpdateMode(0);
+				    myGrid.setEdgeRules(0);
 				}
 			    }
 			}));

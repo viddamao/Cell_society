@@ -1,10 +1,9 @@
-package simulationCells;
+package simulationObjects;
 
 /**
  * @author Will Chang
  */
 import java.util.ArrayList;
-import simulationPatches.Patch;
 import javafx.scene.paint.Color;
 
 public class AntCell extends Cell {

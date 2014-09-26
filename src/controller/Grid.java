@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
-import simulationPatches.Patch;
+import simulationObjects.Patch;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
@@ -234,7 +234,7 @@ public class Grid extends Pane {
 	return gHeight;
     }
 
-    public void setAndUpdateMode(int mode) {
+    public void setEdgeRules(int mode) {
 	myMode = mode;
 	updateAllNeighborhoods();
     }

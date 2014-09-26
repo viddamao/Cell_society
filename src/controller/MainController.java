@@ -16,8 +16,8 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import simulationCells.Cell;
-import simulationPatches.Patch;
+import simulationObjects.Cell;
+import simulationObjects.Patch;
 
 /**
  *

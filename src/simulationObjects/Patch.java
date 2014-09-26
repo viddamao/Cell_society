@@ -1,7 +1,6 @@
-package simulationPatches;
+package simulationObjects;
 
 import java.util.ArrayList;
-import simulationCells.Cell;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

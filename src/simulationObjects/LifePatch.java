@@ -1,7 +1,5 @@
-package simulationPatches;
+package simulationObjects;
 
-import simulationCells.Cell;
-import simulationCells.LifeCell;
 import controller.Grid;
 
 /**

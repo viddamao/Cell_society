@@ -1,4 +1,4 @@
-package simulationPatches;
+package simulationObjects;
 
 import controller.Grid;
 
