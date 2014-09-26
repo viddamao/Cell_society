@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+import simulationPatches.Patch;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import simulationObjects.Patch;
 
 /**
  * Manages grid properties and contents

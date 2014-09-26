@@ -1,5 +1,7 @@
-package simulationObjects;
+package simulationPatches;
 
+import simulationCells.Cell;
+import simulationCells.LifeCell;
 import controller.Grid;
 
 /**
@@ -62,7 +64,7 @@ public class LifePatch extends Patch {
 	// Update this
 	switch (myState) {
 	case OCCUPIED:
-	    myCell.setFill(myCell.infoSheet.getColor("CELL"));
+	    myCell.setFill(infoSheet.getColor("CELL"));
 	    break;
 	case GENERATING:
 	    Cell generated = new LifeCell(xCoord, yCoord);

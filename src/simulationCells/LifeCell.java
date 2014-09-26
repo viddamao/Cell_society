@@ -1,6 +1,7 @@
-package simulationObjects;
+package simulationCells;
 
 import java.util.ArrayList;
+import simulationPatches.Patch;
 import javafx.scene.paint.Color;
 
 /**

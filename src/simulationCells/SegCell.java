@@ -1,7 +1,7 @@
-package simulationObjects;
+package simulationCells;
 
 import java.util.ArrayList;
-
+import simulationPatches.Patch;
 import javafx.scene.paint.Color;
 
 /**
@@ -43,7 +43,7 @@ public class SegCell extends Cell {
     private boolean isSatisfied(Patch currentPatch, ArrayList<Patch> neighbors) {
 	double satisfiedCount = 0;
 	double dissatisfiedCount = 0;
-	currentPatch.myCell.setState(myState);
+	currentPatch.getCell().setState(myState);
 	for (Patch p : neighbors) {
 	    if (p.getCell() != null) {
 		if (p.getCell().getState() == myState) {

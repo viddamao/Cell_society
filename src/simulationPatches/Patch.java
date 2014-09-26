@@ -1,12 +1,13 @@
-package simulationObjects;
+package simulationPatches;
 
 import java.util.ArrayList;
-
+import simulationCells.Cell;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import controller.Grid;
+import controller.GridInfo;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Patch extends Group {
     protected ImageView myView;
     protected State myState;
     protected PatchBody myBody;
+    protected GridInfo infoSheet;
     
     private Class<?> myCellClass;
 
@@ -43,6 +45,7 @@ public class Patch extends Group {
 	yCoord = y;
 	grid = m;
 	myState = State.EMPTY;
+	infoSheet = new GridInfo();
 
     }
     
