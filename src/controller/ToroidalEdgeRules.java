@@ -30,7 +30,8 @@ public class ToroidalEdgeRules extends GridEdgeRules {
             nextX = wrapCoordAround(nextX, xUpperBound);
             nextY = wrapCoordAround(nextY, yUpperBound);
         }
-        neighbors.add(grid.getPatchAtPoint(nextX,nextY));     
+        neighbors.add(grid.getPatchAtPoint(nextX,nextY)); 
+        
     }
 
 

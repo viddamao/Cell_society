@@ -151,6 +151,10 @@ public class Grid extends Pane {
 	    int nextY = yCoord + yDelta[i];
 	    myEdgeRules.applyConditionsAndGetNeighbors(nextX, nextY, neighbors);
 	}
+	
+	    
+	    
+        
 	return neighbors;
     }
 
@@ -237,7 +241,7 @@ public class Grid extends Pane {
     public void changeRulesTo(GridEdgeRules rules)
     {
         myEdgeRules = rules;
-        
+        updateAllNeighborhoods();
     }
     
     public void updateBackgroundColor(Color myColor) {
