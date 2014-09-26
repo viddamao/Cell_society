@@ -1,6 +1,5 @@
 package simulationObjects;
 
-import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -10,7 +9,7 @@ import controller.GridInfo;
 /**
  * Parent Class of Cell Hierarchy
  * TODO Change extends to Polygon?
- * 
+ *
  * @author Everyone
  *
  */
@@ -51,10 +50,10 @@ public abstract class Cell extends Rectangle {
 
     public abstract void setState (int state);
 
-    public abstract void update(Patch currentPatch, List<Patch> neighbors);
+    public abstract void update (Patch currentPatch, List<Patch> neighbors);
 
-    public abstract void prepareToUpdate(Patch currentPatch,
-	    List<Patch> neighbors);
+    public abstract void prepareToUpdate (Patch currentPatch,
+                                          List<Patch> neighbors);
 
     public abstract int getNextState ();
 
@@ -74,7 +73,7 @@ public abstract class Cell extends Rectangle {
         myY = y;
     }
 
-    public abstract List<String> getStateTypes();
+    public abstract List<String> getStateTypes ();
 
-    public abstract List<Color> getInitialColors();
+    public abstract List<Color> getInitialColors ();
 }

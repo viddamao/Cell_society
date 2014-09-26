@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.paint.Color;
 
+
 public class AntCell extends Cell {
 
     @Override
@@ -28,7 +29,7 @@ public class AntCell extends Cell {
     }
 
     private void forage () {
-        if(hasFoodItem())
+        if (hasFoodItem())
         {
             returnToNest();
         }
@@ -39,81 +40,80 @@ public class AntCell extends Cell {
     }
 
     private void findFoodSource () {
-    
-        //Null if it can't move because neighbor is full.
-        if(isAtNest())
+
+        // Null if it can't move because neighbor is full.
+        if (isAtNest())
         {
-         //set location to neighbor with max food
-         //hormones
+            // set location to neighbor with max food
+            // hormones
         }
         ArrayList<Patch> neighbors = null;
-        //forward locations
+        // forward locations
         Patch destination = selectLocation(neighbors);
-        if(destination == null)
+        if (destination == null)
         {
-            //Other neighbor locations
+            // Other neighbor locations
             destination = selectLocation(neighbors);
         }
         else
         {
             dropHomePheromones();
-            //setOrientationHomeward
+            // setOrientationHomeward
             Patch homeward = null;
             setOrientation(homeward);
             moveTo(homeward);
-            if(isAtFoodSource())
+            if (isAtFoodSource())
             {
                 pickUpFoodItem();
-                boolean hasFoodItem = true;
             }
         }
     }
-    
+
     private void pickUpFoodItem () {
         // TODO Auto-generated method stub
-        
+
     }
 
     private void dropHomePheromones () {
-        if(isAtNest())
+        if (isAtNest())
         {
             topOffPheromones();
         }
         else
         {
-            //maxpheromones of neighbors
+            // maxpheromones of neighbors
             int max = 0;
-            //desired level of pheromones
-            int desired = max -2;
+            // desired level of pheromones
+            int desired = max - 2;
             int pheromonesAtCurrent = 0;
             int difference = desired - pheromonesAtCurrent;
-            if(difference >0)
+            if (difference > 0)
             {
-                //deposit D home pheromones at current location
+                // deposit D home pheromones at current location
             }
         }
-        
+
     }
 
     private void topOffPheromones () {
         // TODO Auto-generated method stub
-        
+
     }
 
     private Patch selectLocation (ArrayList<Patch> neighbors) {
-        //remove obstacle neighbors
+        // remove obstacle neighbors
         neighbors = processNeighbors(neighbors);
-        //removeFullNeighbors
+        // removeFullNeighbors
         neighbors = processFullNeighbors(neighbors);
-        //empty?
-        if(neighbors ==null)
+        // empty?
+        if (neighbors == null)
         {
             return null;
         }
         else
         {
-            //each former neighbor location has weight
-            //(K +FoodPheromonesAtLocation)^N
+            // each former neighbor location has weight
+            // (K +FoodPheromonesAtLocation)^N
             selectLocation(neighbors);
         }
         return null;
@@ -130,32 +130,32 @@ public class AntCell extends Cell {
     }
 
     private void returnToNest () {
-        //IF it is a food source...
-        if(isAtFoodSource())
+        // IF it is a food source...
+        if (isAtFoodSource())
         {
-            //Shift direction to patch with max home pheromones
+            // Shift direction to patch with max home pheromones
             shiftOrientation(myPatch.getState());
         }
-        //set equal to patch in front of Patch
-        //May need to set directions for each of the neighbors...
+        // set equal to patch in front of Patch
+        // May need to set directions for each of the neighbors...
         Patch destination = new Patch();
-        if(destination == null)
+        if (destination == null)
         {
             destination = findMaxPheromoneNeighbor();
         }
         else
         {
-            dropFoodPheromones();  
+            dropFoodPheromones();
             setOrientation(destination);
-            this.moveTo(destination);
-            //Check for nest
-            if(isAtNest())
+            moveTo(destination);
+            // Check for nest
+            if (isAtNest())
             {
                 dropFoodItem();
-                //hasfoodItem = false
+                // hasfoodItem = false
             }
         }
-        
+
     }
 
     private boolean isAtNest () {
@@ -170,39 +170,38 @@ public class AntCell extends Cell {
 
     private void dropFoodItem () {
         // TODO Auto-generated method stub
-        
+
     }
 
     private void moveTo (Patch destination) {
         // TODO Auto-generated method stub
-        
+
     }
 
     private void setOrientation (Patch destination) {
         // TODO Auto-generated method stub
-        
+
     }
 
     private void dropFoodPheromones () {
-        if(isAtFoodSource())
+        if (isAtFoodSource())
         {
             topOffPheromones();
         }
         else
         {
-            //maxpheromones of neighbors
+            // maxpheromones of neighbors
             int max = 0;
-            //desired level of pheromones
-            int desired = max -2;
+            // desired level of pheromones
+            int desired = max - 2;
             int pheromonesAtCurrent = 0;
             int difference = desired - pheromonesAtCurrent;
-            if(difference >0)
+            if (difference > 0)
             {
-                //deposit D home pheromones at current location
+                // deposit D home pheromones at current location
             }
         }
-        
-        
+
     }
 
     private Patch findMaxPheromoneNeighbor () {
@@ -212,10 +211,8 @@ public class AntCell extends Cell {
 
     private void shiftOrientation (int state) {
         // TODO Auto-generated method stub
-        
-    }
 
-   
+    }
 
     private boolean hasFoodItem () {
         // TODO Auto-generated method stub
@@ -225,7 +222,7 @@ public class AntCell extends Cell {
     @Override
     public void prepareToUpdate (Patch currentPatch, List<Patch> neighbors) {
         myPatch = currentPatch;
-        
+
     }
 
     @Override

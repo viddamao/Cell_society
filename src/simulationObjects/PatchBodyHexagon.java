@@ -5,7 +5,7 @@ import java.awt.Point;
 
 /**
  * hexagon implementation of patch body
- * 
+ *
  * @author Davis
  *
  */
@@ -46,7 +46,7 @@ public class PatchBodyHexagon extends PatchBody {
         // create array of points, moving clockwise around the hexagon
         Double[] myPts =
                 new Double[] { topx1, topy, topx2, topy, midx2, midy, bottomx2, bottomy, bottomx1,
-                              bottomy, midx1, midy };
+                               bottomy, midx1, midy };
         createPolyFromPoints(myPts);
         // what's our center
         setCenter(new Point((int) (topx1 + mySideLength / 2), (int) midy));

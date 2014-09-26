@@ -5,7 +5,7 @@ import java.awt.Point;
 
 /**
  * rectangle implementation of patch body
- * 
+ *
  * @author Davis
  *
  */

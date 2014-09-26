@@ -5,7 +5,7 @@ import java.awt.Point;
 
 /**
  * triangle implementation of patch body
- * 
+ *
  * @author Davis
  *
  */

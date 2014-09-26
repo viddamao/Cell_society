@@ -2,8 +2,11 @@ package controller;
 
 import java.util.List;
 import simulationObjects.Patch;
+
+
 /**
  * Default grid rules.
+ * 
  * @author Will Chang
  *
  */
