@@ -11,12 +11,11 @@ public class DefaultEdgeRules extends GridEdgeRules {
     }
 
     @Override
-    public void applyBoundaryRulesToNeighbors (int nextX, int nextY, ArrayList<Patch> neighbors) {
+    public void applyConditionsAndGetNeighbors (int nextX, int nextY, ArrayList<Patch> neighbors) {
         if(!isOutOfBounds(nextX,nextY))
         {
             neighbors.add(grid.getPatchAtPoint(nextX,nextY));
         }
-
     }
 
 }
