@@ -181,27 +181,22 @@ public class MainController extends Application {
                 gridRows = randomizeGrid();
             }
             createGrid(width, height);
-            // Refactor
-            myChart = new SimulationChart(myGrid);
+            createPopulationChart(width, height);
             myUserInterface.setGrid(myGrid);
             myUserInterface.setChart(myChart);
-            // Refactor
-            myChart.setPrefHeight(height);
-            myChart.setPrefWidth(width);
+            
             for (int j = 0; j < height; j++) {
                 String[] currentRow = gridRows.get(j).states.split(" ");
 
                 for (int i = 0; i < width; i++) {
                     // create a patch object at the x and y location
                     // create a cell object
+                    int state = Integer.parseInt(currentRow[i]);
                     String classPathAndName = ourProperties.getString("cell_bundle")
                                               + "." + myInfoSheet.getCellType();
                     Class<?> cellClass = Class.forName(classPathAndName);
-                    Cell cell = (Cell) cellClass.newInstance();
-                    cell.setX(i);
-                    cell.setY(j);
-                    int state = Integer.parseInt(currentRow[i]);
-                    cell.setState(state);
+                    Cell cell = createCell(i, j, state, cellClass);
+                    
                     PatchFactory myPatchFactory = new PatchFactory(myInfoSheet);
                     Patch currentPatch = myPatchFactory.createPatch(myGrid, i, j);
 
@@ -218,15 +213,9 @@ public class MainController extends Application {
                 }
 
             }
-            // TODO
-
+            //Finishes initializations
+            myGrid.updateAllNeighborhoods();
             myGrid.initializeCellCounts();
-            // now that we have all the patches, assign neighbors to each one
-            // TODO Grid has a method for this...
-            for (Patch p : patchList) {
-                p.getNeighbors();
-            }
-
         }
         catch (ClassNotFoundException e) {
             System.out.println(ourProperties.getString("class_not_found_error"));
@@ -238,6 +227,21 @@ public class MainController extends Application {
             System.out.println(ourProperties.getString("illegal_access_error"));
         }
 
+    }
+
+    protected Cell createCell (int i, int j, int state, Class<?> cellClass) throws InstantiationException,
+                                                                IllegalAccessException {
+        Cell cell = (Cell) cellClass.newInstance();
+        cell.setX(i);
+        cell.setY(j);
+        cell.setState(state);
+        return cell;
+    }
+
+    protected void createPopulationChart (int width, int height) {
+        myChart = new SimulationChart(myGrid);
+        myChart.setPrefHeight(height);
+        myChart.setPrefWidth(width);
     }
 
     private List<GridRows> randomizeGrid () {
