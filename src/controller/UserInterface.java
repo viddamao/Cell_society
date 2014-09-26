@@ -94,9 +94,11 @@ public class UserInterface {
 			new EventHandler<ActionEvent>() {
 			    @Override
 			    public void handle(ActionEvent event) {
-				ColorPicker colorPicker = new ColorPicker();
-				colorPicker.showColorPicker();
-
+			        if(myGrid != null)
+			        {
+			            ColorPicker colorPicker = new ColorPicker(myGrid);
+			            colorPicker.showColorPicker();
+			        }
 			    }
 			}));
 	rootPane.getChildren().add(
@@ -120,7 +122,9 @@ public class UserInterface {
 
 	// radiobuttons for the edge type
 	final ToggleGroup edgeGroup = new ToggleGroup();
-	rootPane.getChildren().add(
+	
+	//TODO Either delete or implement Infinite Edge later
+	/*rootPane.getChildren().add(
 		createRadioButton(messages.getString("edge_radio_button3_title"),
 			intFromResource("edge_radio_button3_x"),
 			intFromResource("edge_radio_button3_y"), edgeGroup,
@@ -131,7 +135,7 @@ public class UserInterface {
 				    myGrid.setEdgeRules(2);
 				}
 			    }
-			}));
+			}));*/
 	rootPane.getChildren().add(
 		createRadioButton(messages.getString("edge_radio_button2_title"),
 			intFromResource("edge_radio_button2_x"),
@@ -140,7 +144,9 @@ public class UserInterface {
 			    @Override
 			    public void handle(ActionEvent event) {
 				if (myGrid != null) {
-				    myGrid.setEdgeRules(1);
+				    myGrid.changeRulesTo(new ToroidalEdgeRules(myGrid.getGridWidth(),
+				                                               myGrid.getGridHeight(),
+				                                               myGrid));
 				}
 			    }
 			}));
@@ -152,7 +158,9 @@ public class UserInterface {
 			    @Override
 			    public void handle(ActionEvent event) {
 				if (myGrid != null) {
-				    myGrid.setEdgeRules(0);
+				    myGrid.changeRulesTo(new DefaultEdgeRules(myGrid.getGridWidth(),
+				                                              myGrid.getGridHeight(),
+				                                              myGrid));
 				}
 			    }
 			}));

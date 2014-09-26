@@ -36,16 +36,12 @@ public class Patch extends Group {
      */
     public Patch() {
 	super();
+	infoSheet = new GridInfo();
     }
 
     public Patch(int x, int y, Grid m) {
 	super();
-	xCoord = x;
-	yCoord = y;
-	grid = m;
-	myState = State.EMPTY;
-	infoSheet = new GridInfo();
-
+	initialize(x, y, m);
     }
     
     public void createBody(int bodyType){
@@ -88,6 +84,7 @@ public class Patch extends Group {
 	xCoord = x;
 	yCoord = y;
 	grid = m;
+	infoSheet = new GridInfo();
 	myState = State.EMPTY;
     }
 

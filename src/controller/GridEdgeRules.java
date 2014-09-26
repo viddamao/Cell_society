@@ -38,7 +38,7 @@ public abstract class GridEdgeRules {
                 || yCoord > yUpperBound - 1
                 || yCoord < 0;
     }
-    public abstract void applyBoundaryRulesToNeighbors(int nextX, int nextY,
+    public abstract void applyConditionsAndGetNeighbors(int nextX, int nextY,
                                     ArrayList<Patch> neighbors);    
     
 

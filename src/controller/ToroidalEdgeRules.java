@@ -24,13 +24,14 @@ public class ToroidalEdgeRules extends GridEdgeRules {
     }
 
     @Override
-    public void applyBoundaryRulesToNeighbors (int nextX, int nextY, ArrayList<Patch> neighbors) {
+    public void applyConditionsAndGetNeighbors (int nextX, int nextY, ArrayList<Patch> neighbors) {
         if(isOutOfBounds(nextX,nextY))
         {
             nextX = wrapCoordAround(nextX, xUpperBound);
             nextY = wrapCoordAround(nextY, yUpperBound);
         }
-        neighbors.add(grid.getPatchAtPoint(nextX,nextY));     
+        neighbors.add(grid.getPatchAtPoint(nextX,nextY)); 
+        
     }
 
 
