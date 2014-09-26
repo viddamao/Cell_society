@@ -11,7 +11,6 @@ public class DefaultEdgeRules extends GridEdgeRules {
 
     public DefaultEdgeRules (int x, int y, Grid g) {
         super(x, y, g);
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -19,9 +18,8 @@ public class DefaultEdgeRules extends GridEdgeRules {
      */
     @Override
     public void applyRulesAndGetNeighbors (int nextX, int nextY, List<Patch> neighbors) {
-        if(!isOutOfBounds(nextX,nextY))
-        {
-            neighbors.add(grid.getPatchAtPoint(nextX,nextY));
+        if (!isOutOfBounds(nextX, nextY)) {
+            neighbors.add(grid.getPatchAtPoint(nextX, nextY));
         }
     }
 

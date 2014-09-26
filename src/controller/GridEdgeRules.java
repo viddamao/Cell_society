@@ -10,8 +10,8 @@ import simulationObjects.Patch;
  */
 public abstract class GridEdgeRules {
 
-    protected int xUpperBound;
-    protected int yUpperBound;
+    protected int myXBound;
+    protected int myYBound;
     protected Grid grid;
 
     /**
@@ -22,8 +22,8 @@ public abstract class GridEdgeRules {
      */
     public GridEdgeRules(int x, int y, Grid g)
     {
-        xUpperBound = x;
-        yUpperBound = y;
+        myXBound = x;
+        myYBound = y;
         grid = g;
     }
     
@@ -34,9 +34,9 @@ public abstract class GridEdgeRules {
      * @return true if out of bounds, false otherwise
      */
     public boolean isOutOfBounds(int xCoord, int yCoord) {
-        return xCoord > xUpperBound - 1 
+        return xCoord > myXBound - 1 
                 || xCoord < 0 
-                || yCoord > yUpperBound - 1
+                || yCoord > myYBound - 1
                 || yCoord < 0;
     }
     
