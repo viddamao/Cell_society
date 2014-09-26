@@ -1,7 +1,7 @@
 package simulationObjects;
 
 /**
- * 
+ *
  * @author Will Chang
  *
  */

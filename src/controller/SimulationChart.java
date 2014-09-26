@@ -5,11 +5,11 @@ import java.util.HashMap;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.chart.XYChart.Series;
 import javafx.scene.layout.Pane;
 
+
 /**
- * 
+ *
  * @author Will Chang
  *
  */
@@ -23,53 +23,52 @@ public class SimulationChart extends Pane {
     private int width;
     private int height;
     private int xCoord;
-    private HashMap<Integer,Integer> cellCounts;
-    
-    public SimulationChart(Grid g)
+    private HashMap<Integer, Integer> cellCounts;
+
+    public SimulationChart (Grid g)
     {
         grid = g;
         xCoord = 0;
         infoSheet = new GridInfo();
         datapoints = new ArrayList<>();
         width = grid.getGridWidth();
-        height =grid.getGridHeight();
+        height = grid.getGridHeight();
         intialize();
     }
 
     private void intialize () {
-        xAxis = new NumberAxis(0,1000,1000/4);
-        yAxis = new NumberAxis(0,height*width,height*width/4);
-        
+        xAxis = new NumberAxis(0, 1000, 1000 / 4);
+        yAxis = new NumberAxis(0, height * width, height * width / 4);
+
         xAxis.setTickMarkVisible(false);
         xAxis.setTickLabelsVisible(false);
         yAxis.setTickMarkVisible(false);
         yAxis.setTickLabelsVisible(false);
-        
-        
-        //creating the chart
-        LineChart<Number,Number> lineChart = new LineChart<Number,Number>(xAxis,yAxis);
+
+        // creating the chart
+        LineChart<Number, Number> lineChart = new LineChart<Number, Number>(xAxis, yAxis);
         lineChart.setMaxWidth(500);
         lineChart.setMinHeight(130);
         lineChart.setMaxHeight(130);
         lineChart.setCreateSymbols(false);
 
         lineChart.setLegendVisible(false);
-        
-        for(int i = 0; i<infoSheet.getMaxCellState(); i++)
+
+        for (int i = 0; i < infoSheet.getMaxCellState(); i++)
         {
             XYChart.Series series = new XYChart.Series();
             datapoints.add(series);
-            
+
         }
-        for(XYChart.Series series : datapoints)
+        for (XYChart.Series series : datapoints)
         {
             lineChart.getData().add(series);
         }
 
-        this.getChildren().add(lineChart);        
+        getChildren().add(lineChart);
     }
-    
-    public void updateDisplay()
+
+    public void updateDisplay ()
     {
         checkBoundaryAndReset();
         plotData();
@@ -77,17 +76,18 @@ public class SimulationChart extends Pane {
 
     protected void plotData () {
         cellCounts = grid.getCellCounts();
-        for(int i = 0; i < datapoints.size(); i++)
+        for (int i = 0; i < datapoints.size(); i++)
         {
-            datapoints.get(i).getData().add(new XYChart.Data(xCoord,cellCounts.get(i+1)));
+            datapoints.get(i).getData().add(new XYChart.Data(xCoord, cellCounts.get(i + 1)));
         }
-        xCoord +=10;
+        xCoord += 10;
     }
-    public void checkBoundaryAndReset()
+
+    public void checkBoundaryAndReset ()
     {
-        if(xCoord >= 1000)
+        if (xCoord >= 1000)
         {
-            for(int i =0; i < datapoints.size();i++)
+            for (int i = 0; i < datapoints.size(); i++)
             {
                 datapoints.get(i).getData().clear();
             }
