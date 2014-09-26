@@ -26,44 +26,9 @@ import javax.swing.JOptionPane;
 public class ColorPicker extends javafx.scene.control.ColorPicker {
     private GridInfo infoSheet = new GridInfo();
     private Grid grid;
-    
-    public ColorPicker(Grid g)
-    {
-        grid = g;
-    }
 
-    public void showColorPicker() {
-	Stage myStage = new Stage();
-	myStage.setResizable(false);
-	myStage.setTitle("Choose colors for the simulation!");
-	GridPane gridpane = new GridPane();
-	int rowNumber=infoSheet.getStateTypes().size();
-	gridpane.getColumnConstraints().add(new ColumnConstraints(60));
-	gridpane.getColumnConstraints().add(new ColumnConstraints(90));
-	for (int i=0;i<rowNumber;i++)
-	gridpane.getRowConstraints().add(new RowConstraints(35));
-
-	if (infoSheet.getStateTypes() == null) {
-	    sendPickFileAlert();
-	    return;
-	}
-	
-	Scene scene = new Scene(gridpane, 400, 40*rowNumber);
-	
-	for (int i = 0; i < infoSheet.getStateTypes().size(); i++) {
-	    gridpane = buildColorPickerMenu(i, gridpane);
-
-	}
-
-	myStage.setScene(scene);
-	myStage.show();
-    }
-
-    private void sendPickFileAlert() {
-	ResourceBundle messages = ResourceBundle.getBundle("messages",
-		Locale.US);
-	JOptionPane.showMessageDialog(null,
-		messages.getString("missing_sim_type"));
+    public ColorPicker(Grid g) {
+	grid = g;
     }
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
@@ -85,7 +50,8 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
 		text.setFill(myColor);
 		infoSheet.setColor(stateType, myColor);
 
-		if ((text.getText() == "BACKGROUND")|(text.getText().contains("_"))) {
+		if ((text.getText() == "BACKGROUND")
+			| (text.getText().contains("_"))) {
 		    grid.updateBackgroundColor(myColor);
 		}
 	    }
@@ -96,5 +62,40 @@ public class ColorPicker extends javafx.scene.control.ColorPicker {
 
 	return gridpane;
 
+    }
+
+    private void sendPickFileAlert() {
+	ResourceBundle messages = ResourceBundle.getBundle("messages",
+		Locale.US);
+	JOptionPane.showMessageDialog(null,
+		messages.getString("missing_sim_type"));
+    }
+
+    public void showColorPicker() {
+	Stage myStage = new Stage();
+	myStage.setResizable(false);
+	myStage.setTitle("Choose colors for the simulation!");
+	GridPane gridpane = new GridPane();
+	int rowNumber = infoSheet.getStateTypes().size();
+	gridpane.getColumnConstraints().add(new ColumnConstraints(60));
+	gridpane.getColumnConstraints().add(new ColumnConstraints(90));
+	for (int i = 0; i < rowNumber; i++) {
+	    gridpane.getRowConstraints().add(new RowConstraints(35));
+	}
+
+	if (infoSheet.getStateTypes() == null) {
+	    sendPickFileAlert();
+	    return;
+	}
+
+	Scene scene = new Scene(gridpane, 400, 40 * rowNumber);
+
+	for (int i = 0; i < infoSheet.getStateTypes().size(); i++) {
+	    gridpane = buildColorPickerMenu(i, gridpane);
+
+	}
+
+	myStage.setScene(scene);
+	myStage.show();
     }
 }

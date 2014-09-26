@@ -1,7 +1,7 @@
 package controller;
 
 /*
- * 
+ *
  * Just for xml parser test
  */
 public class GridRows {
@@ -9,9 +9,9 @@ public class GridRows {
     String states;
 
     @Override
-    public String toString () {
+    public String toString() {
 
-        return states;
+	return states;
     }
 
 }

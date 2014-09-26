@@ -2,8 +2,8 @@ package controller;
 
 import java.util.HashMap;
 import java.util.List;
-import javafx.scene.paint.Color;
 
+import javafx.scene.paint.Color;
 
 /**
  *
@@ -25,82 +25,80 @@ public class GridInfo {
     private static int maxCellState;
     public boolean useGivenGrid = true;
 
-    public void setWidth (int width) {
-        myWidth = width;
+    public int getAdjacentType() {
+	return myAdjacentType;
     }
 
-    public void setHeight (int height) {
-        myHeight = height;
+    public String getCellType() {
+	return myType;
     }
 
-    public void setType (String type) {
-        myType = type;
-
+    public Color getColor(String stateType) {
+	return stateColors.get(stateType);
     }
 
-    public void setPatchType (String type) {
-        myPatchType = type;
-
+    public int getHeight() {
+	return myHeight;
     }
 
-    public void setAdjacent (int adjacent) {
-        myAdjacentType = adjacent;
-
+    public int getMaxCellState() {
+	return maxCellState;
     }
 
-    public void setParameter (double d) {
-        myParameter = d;
+    public double getParam() {
+	return myParameter;
     }
 
-    public int getWidth () {
-        return myWidth;
-    }
-
-    public int getHeight () {
-        return myHeight;
-    }
-
-    public String getCellType () {
-        return myType;
-    }
-
-    public String getPatchType () {
-        return myPatchType;
+    public String getPatchType() {
+	return myPatchType;
 
     }
 
-    public int getMaxCellState ()
-    {
-        return maxCellState;
+    public List<String> getStateTypes() {
+	return myStateTypes;
     }
 
-    public double getParam () {
-        return myParameter;
+    public int getWidth() {
+	return myWidth;
     }
 
-    public int getAdjacentType () {
-        return myAdjacentType;
+    public void setAdjacent(int adjacent) {
+	myAdjacentType = adjacent;
+
     }
 
-    public void setColor (String stateType, Color myColor) {
-        stateColors.put(stateType, myColor);
+    public void setColor(String stateType, Color myColor) {
+	stateColors.put(stateType, myColor);
     }
 
-    public Color getColor (String stateType) {
-        return stateColors.get(stateType);
+    public void setHeight(int height) {
+	myHeight = height;
     }
 
-    public void setStateTypes (List<String> stateTypes) {
-        myStateTypes = stateTypes;
+    public void setMaxCellState(int state) {
+	maxCellState = state;
     }
 
-    public List<String> getStateTypes () {
-        return myStateTypes;
+    public void setParameter(double d) {
+	myParameter = d;
     }
 
-    public void setMaxCellState (int state)
-    {
-        maxCellState = state;
+    public void setPatchType(String type) {
+	myPatchType = type;
+
+    }
+
+    public void setStateTypes(List<String> stateTypes) {
+	myStateTypes = stateTypes;
+    }
+
+    public void setType(String type) {
+	myType = type;
+
+    }
+
+    public void setWidth(int width) {
+	myWidth = width;
     }
 
 }

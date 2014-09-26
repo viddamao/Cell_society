@@ -1,24 +1,24 @@
 package simulationObjects;
 
-import javafx.scene.paint.Color;
 import controller.Grid;
 
 public class SugarPatch extends Patch {
-    private int currentSugar=5;
+    private int currentSugar = 0;
     protected int vision = 1;
-    protected int colorGradient=2;
+    protected int colorGradient = 4;
     protected int sugarGrowBackRate = 1;
-    
 
     public SugarPatch() {
 	super();
     }
-    
-    
-    
+
+    public SugarPatch(int x, int y, Grid m) {
+	super(x, y, m);
+    }
+
     /**
      * creates a patch body for the patch
-     * 
+     *
      * @param bodyType
      *            what kind of shape it is
      */
@@ -51,15 +51,9 @@ public class SugarPatch extends Patch {
 	myBody.setStrokeWidth(0);
 	getChildren().add(myBody);
     }
-    public SugarPatch(int x, int y, Grid m) {
-	super(x, y, m);
-    }
 
-    @Override
-    public void initialize(int x, int y, Grid m) {
-
-	super.initialize(x, y, m);
-
+    public int getCurrentSugar() {
+	return currentSugar;
     }
 
     @Override
@@ -73,39 +67,42 @@ public class SugarPatch extends Patch {
 
     }
 
-    public int getCurrentSugar() {
-	return currentSugar;
+    @Override
+    public void initialize(int x, int y, Grid m) {
+
+	super.initialize(x, y, m);
+
     }
-    
+
+    public void removeSugar() {
+	currentSugar = 0;
+    }
+
+    public void setColorToBody() {
+	int colorType = Math.round(currentSugar / colorGradient);
+	if (colorType > 4) {
+	    colorType = 4;
+	}
+	myBody.setFill(infoSheet.getColor("CONCENTRATION_" + colorType));
+
+    }
+
+    public void sugarGrowBack() {
+	currentSugar += sugarGrowBackRate;
+
+    }
+
     @Override
     public void update() {
 	// Update this
-	this.sugarGrowBack();
+	sugarGrowBack();
 	if (myCell != null) {
 	    myCell.update(this, myNeighbors);
-	    // TODO put 0 into the GridInfo/GameInfo
 	    if (myCell != null && myCell.getState() == 0) {
 		removeCell();
 	    }
 	}
 	this.setColorToBody();
 
-    }
-
-    
-    public void setColorToBody() {
-	String colorType="CONCENTRATION_"+((Integer)Math.round(currentSugar/colorGradient)).toString();
-	   	myBody.setFill(infoSheet.getColor(colorType));
-	
-	
-       }
-
-    public void removeSugar() {
-	this.currentSugar=0;
-    }
-
-    public void sugarGrowBack() {
-	currentSugar+=sugarGrowBackRate;
-	   
     }
 }
