@@ -208,12 +208,14 @@ public class Grid extends Pane {
 	return gridArray[i][j];
     }
 
-    // TODO duplicate method??
     /**
      * get patch given a scene coordinate
+     * this is with respect to the scene (pixels), NOT to the grid
      *
      * @param i
+     * the explicit pixel x location
      * @param j
+     * the explicit pixel y location
      * @return
      */
     public Patch getPatchAtCoordinate(int i, int j) {
