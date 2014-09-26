@@ -37,6 +37,8 @@ public class MainController extends Application {
     private Grid myGrid;
     private GridInfo myInfoSheet = new GridInfo();
     private SimulationChart myChart;
+    private int myGridWidth;
+    private int myGridHeight;
 
     public static void main (String[] args) throws Exception {
 
@@ -154,41 +156,17 @@ public class MainController extends Application {
     private void initializeSimulationObjects (List<GridRows> gridRows) {
         try {
             List<Patch> patchList = new ArrayList<Patch>();
-            int width = myInfoSheet.getWidth();
-            int height = myInfoSheet.getHeight();
-            int gridWidth = (gridRows.get(0).states.length() + 1) / 2;
-            int gridHeight = gridRows.size();
-            if (width < 0) {
-                myInfoSheet.setWidth(DEFAULT_WIDTH);
-                width = DEFAULT_WIDTH;
-                myInfoSheet.useGivenGrid = false;
-            }
-            if (height < 0) {
-                myInfoSheet.setHeight(DEFAULT_HEIGHT);
-                height = DEFAULT_HEIGHT;
-                myInfoSheet.useGivenGrid = false;
-            }
-            if (width > gridWidth) {
-                myInfoSheet.setWidth(gridWidth);
-                width = gridWidth;
-            }
-            if (height > gridHeight) {
-                myInfoSheet.setHeight(gridHeight);
-                height = gridHeight;
-            }
-
-            if (!myInfoSheet.useGivenGrid) {
-                gridRows = randomizeGrid();
-            }
-            createGrid(width, height);
-            createPopulationChart(width, height);
+            setupGridConstraints(gridRows);
+            createGrid(myGridWidth, myGridHeight);
+            // Refactor
+            myChart = new SimulationChart(myGrid);
             myUserInterface.setGrid(myGrid);
             myUserInterface.setChart(myChart);
             
-            for (int j = 0; j < height; j++) {
+            for (int j = 0; j < myGridHeight; j++) {
                 String[] currentRow = gridRows.get(j).states.split(" ");
 
-                for (int i = 0; i < width; i++) {
+                for (int i = 0; i < myGridWidth; i++) {
                     // create a patch object at the x and y location
                     // create a cell object
                     int state = Integer.parseInt(currentRow[i]);
@@ -227,6 +205,35 @@ public class MainController extends Application {
             System.out.println(ourProperties.getString("illegal_access_error"));
         }
 
+    }
+    
+    
+    private void setupGridConstraints(List<GridRows> gridRows){
+        myGridWidth = myInfoSheet.getWidth();
+        myGridHeight = myInfoSheet.getHeight();
+        int gridWidth = (gridRows.get(0).states.length() + 1) / 2;
+        int gridHeight = gridRows.size();
+        if (myGridWidth < 0) {
+            myInfoSheet.setWidth(DEFAULT_WIDTH);
+            myGridWidth = DEFAULT_WIDTH;
+            myInfoSheet.useGivenGrid = false;
+        }
+        if (gridHeight < 0) {
+            myInfoSheet.setHeight(DEFAULT_HEIGHT);
+            gridHeight = DEFAULT_HEIGHT;
+            myInfoSheet.useGivenGrid = false;
+        }
+        if (myGridWidth > gridWidth) {
+            myInfoSheet.setWidth(gridWidth);
+            myGridWidth = gridWidth;
+        }
+        if (gridHeight > gridHeight) {
+            myInfoSheet.setHeight(gridHeight);
+            gridHeight = gridHeight;
+        }
+        if (!myInfoSheet.useGivenGrid) {
+            gridRows = randomizeGrid();
+        }
     }
 
     protected Cell createCell (int i, int j, int state, Class<?> cellClass) throws InstantiationException,
