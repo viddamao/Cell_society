@@ -3,6 +3,7 @@ Cell Society - Team 04
 
 ###Names: 
 Will Chang, Davis Gossage, Wenjun Mao
+wkc10 , dcg13 , wm56
 
 ###Date/time:
 Date Started: 09/14/14
@@ -10,9 +11,9 @@ Date Completed: 09/26/14
 Hours Spent: Around 40 per person
 
 ###Roles
-Will Chang - life, predator and ant simulation, grid behavior
+Will Chang - life, predator and ant simulation (incomplete), grid behavior and rules, simulation chart
 Davis Gossage - user interface, main controller, segregation simulation
-Wenjun Mao - xml parsing, forest simulation, sugarscape simulation
+Wenjun Mao - xml parsing, colorpicking, forest simulation, sugarscape simulation
 
 ###Resources used:
 CS308 class website and links for simulation instructions.  Stack overflow for syntax questions.    Java/Javafx official documentation.
