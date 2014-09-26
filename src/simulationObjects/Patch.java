@@ -48,8 +48,25 @@ public class Patch extends Group {
 
     }
     
-    public void createBody(){
-        myBody = new PatchBodyRectangle(xCoord,yCoord,grid.getMinHeight(),grid.getMinWidth(),grid.getGridHeight(),grid.getGridWidth());
+    public void createBody(int bodyType){
+        if (myBody != null){
+            getChildren().remove(myBody);
+        }
+        //TODO: use reflection
+        switch (bodyType){
+            case 0:
+                myBody = new PatchBodyRectangle(xCoord,yCoord,grid.getMinHeight(),grid.getMinWidth(),grid.getGridHeight(),grid.getGridWidth());
+                break;
+            case 1:
+                myBody = new PatchBodyTriangle(xCoord,yCoord,grid.getMinHeight(),grid.getMinWidth(),grid.getGridHeight(),grid.getGridWidth());
+                break;
+            case 2:
+                myBody = new PatchBodyHexagon(xCoord,yCoord,grid.getMinHeight(),grid.getMinWidth(),grid.getGridHeight(),grid.getGridWidth());
+                break;
+        }
+        if (myCell != null){
+            updateCellConstraints(myCell);
+        }
         getChildren().add(myBody);
     }
 
@@ -141,15 +158,19 @@ public class Patch extends Group {
 	if (myCell != null) {
 	    removeCell();
 	}
-	cell.setHeight(myBody.getPatchWidth()/2);
-	cell.setWidth(myBody.getPatchWidth()/2);
-	cell.setLayoutX(myBody.getCenter().x-myBody.getPatchWidth()/4);
-	cell.setLayoutY(myBody.getCenter().y-myBody.getPatchHeight()/4);
-	cell.setArcHeight(cell.getHeight());
-	cell.setArcWidth(cell.getWidth());
-	getChildren().add(cell);
 	myState = State.OCCUPIED;
 	myCell = cell;
+	updateCellConstraints(myCell);
+        getChildren().add(myCell);
+    }
+    
+    public void updateCellConstraints(Cell cell){
+        cell.setHeight(myBody.getPatchWidth()/2);
+        cell.setWidth(myBody.getPatchWidth()/2);
+        cell.setLayoutX(myBody.getCenter().x-myBody.getPatchWidth()/4);
+        cell.setLayoutY(myBody.getCenter().y-myBody.getPatchHeight()/4);
+        cell.setArcHeight(cell.getHeight());
+        cell.setArcWidth(cell.getWidth());
     }
 
     public void removeCell() {

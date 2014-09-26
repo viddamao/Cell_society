@@ -113,7 +113,7 @@ public class Grid extends Pane {
     }
 
     private void addPatchToGrid(Patch patch, int gridX, int gridY) {
-	patch.createBody();
+	patch.createBody(0);
 	getChildren().add(patch);
     }
 
@@ -282,5 +282,13 @@ public class Grid extends Pane {
     public int getTotalCells()
     {
         return totalCells;
+    }
+
+    public void setPatchBody (int i) {
+        for (Patch[] row : gridArray) {
+            for (Patch p : row) {
+                p.createBody(i);
+            }
+        }
     }
 }

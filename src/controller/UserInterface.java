@@ -32,7 +32,7 @@ public class UserInterface {
     private static ResourceBundle messages;
     public final int GRID_WIDTH = 500;
     public final int GRID_HEIGHT = 500;
-    private final int PANEL_HEIGHT = 180;
+    private final int PANEL_HEIGHT = 200;
     private SimulationChart myChart;
 
     public UserInterface(Stage s, MainController mainController) {
@@ -118,12 +118,12 @@ public class UserInterface {
 			    }
 			}));
 
-	// radiobuttons
+	// radiobuttons for the edge type
 	final ToggleGroup edgeGroup = new ToggleGroup();
 	rootPane.getChildren().add(
-		createRadioButton(messages.getString("radio_button3_title"),
-			intFromResource("radio_button3_x"),
-			intFromResource("radio_button3_y"), edgeGroup,
+		createRadioButton(messages.getString("edge_radio_button3_title"),
+			intFromResource("edge_radio_button3_x"),
+			intFromResource("edge_radio_button3_y"), edgeGroup,
 			new EventHandler<ActionEvent>() {
 			    @Override
 			    public void handle(ActionEvent event) {
@@ -133,9 +133,9 @@ public class UserInterface {
 			    }
 			}));
 	rootPane.getChildren().add(
-		createRadioButton(messages.getString("radio_button2_title"),
-			intFromResource("radio_button2_x"),
-			intFromResource("radio_button2_y"), edgeGroup,
+		createRadioButton(messages.getString("edge_radio_button2_title"),
+			intFromResource("edge_radio_button2_x"),
+			intFromResource("edge_radio_button2_y"), edgeGroup,
 			new EventHandler<ActionEvent>() {
 			    @Override
 			    public void handle(ActionEvent event) {
@@ -145,9 +145,9 @@ public class UserInterface {
 			    }
 			}));
 	rootPane.getChildren().add(
-		createRadioButton(messages.getString("radio_button1_title"),
-			intFromResource("radio_button1_x"),
-			intFromResource("radio_button1_y"), edgeGroup,
+		createRadioButton(messages.getString("edge_radio_button1_title"),
+			intFromResource("edge_radio_button1_x"),
+			intFromResource("edge_radio_button1_y"), edgeGroup,
 			new EventHandler<ActionEvent>() {
 			    @Override
 			    public void handle(ActionEvent event) {
@@ -156,6 +156,46 @@ public class UserInterface {
 				}
 			    }
 			}));
+	
+	// radiobuttons for the shape type
+        final ToggleGroup shapeGroup = new ToggleGroup();
+        rootPane.getChildren().add(
+                createRadioButton(messages.getString("shape_radio_button3_title"),
+                        intFromResource("shape_radio_button3_x"),
+                        intFromResource("shape_radio_button3_y"), shapeGroup,
+                        new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                if (myGrid != null) {
+                                    myGrid.setPatchBody(2);
+                                }
+                            }
+                        }));
+        rootPane.getChildren().add(
+                createRadioButton(messages.getString("shape_radio_button2_title"),
+                        intFromResource("shape_radio_button2_x"),
+                        intFromResource("shape_radio_button2_y"), shapeGroup,
+                        new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                if (myGrid != null) {
+                                    myGrid.setPatchBody(1);
+                                }
+                            }
+                        }));
+        rootPane.getChildren().add(
+                createRadioButton(messages.getString("shape_radio_button1_title"),
+                        intFromResource("shape_radio_button1_x"),
+                        intFromResource("shape_radio_button1_y"), shapeGroup,
+                        new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                if (myGrid != null) {
+                                    myGrid.setPatchBody(0);
+                                }
+                            }
+                        }));
+        
 	// slider
 	rootPane.getChildren().add(
 		createSlider(intFromResource("slider_min"),
