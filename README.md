@@ -8,7 +8,9 @@ wkc10 , dcg13 , wm56
 
 ###Date/time:
 Date Started: 09/14/14
+
 Date Completed: 09/26/14
+
 Hours Spent: Around 40 per person
 
 ###Roles
