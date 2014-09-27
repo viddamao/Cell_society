@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.7">
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\controller\ColorPicker.java">
+<error line="27" column="22" severity="warning" message="Name &apos;infoSheet&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="28" column="18" severity="warning" message="Name &apos;grid&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="30" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="34" column="5" severity="warning" message="Method length is 31 lines (max allowed is 30)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+<error line="36" column="27" severity="warning" message="Name &apos;colorPicker&apos; must match pattern &apos;^[A-Z][A-Z0-9_]+$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.LocalFinalVariableNameCheck"/>
+<error line="37" column="20" severity="warning" message="Name &apos;text&apos; must match pattern &apos;^[A-Z][A-Z0-9_]+$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.LocalFinalVariableNameCheck"/>
+<error line="38" column="43" severity="warning" message="&apos;20&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="53" column="37" severity="warning" message="Literal Strings should be compared using equals(), not &apos;==&apos;." source="com.puppycrawl.tools.checkstyle.checks.coding.StringLiteralEqualityCheck"/>
+<error line="74" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="80" column="67" severity="warning" message="&apos;60&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="81" column="67" severity="warning" message="&apos;90&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="83" column="65" severity="warning" message="&apos;35&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="91" column="43" severity="warning" message="&apos;400&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="91" column="48" severity="warning" message="&apos;40&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\controller\DefaultEdgeRules.java">
+<error line="15" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="23" column="47" severity="warning" message="Expected @param tag for &apos;nextX&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="23" column="58" severity="warning" message="Expected @param tag for &apos;nextY&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="24" column="25" severity="warning" message="Expected @param tag for &apos;neighbors&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\controller\Grid.java">
+<error line="21" column="23" severity="warning" message="Name &apos;gridArray&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="22" column="19" severity="warning" message="Name &apos;xDelta&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="22" column="29" severity="warning" message="&apos;{&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck"/>
+<error line="23" column="19" severity="warning" message="Name &apos;yDelta&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="23" column="29" severity="warning" message="&apos;{&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck"/>
+<error line="24" column="17" severity="warning" message="Name &apos;gWidth&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="25" column="17" severity="warning" message="Name &apos;gHeight&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="26" column="22" severity="warning" message="Name &apos;infoSheet&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="27" column="39" severity="warning" message="Name &apos;cellCounts&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="28" column="17" severity="warning" message="Name &apos;totalCells&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="30" column="25" severity="warning" message="Name &apos;emptyPatches&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="39" column="8" severity="warning" message="Unused @param tag for &apos;rules&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="52" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="53" column="5" severity="warning" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="55" column="67" severity="warning" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="88" column="9" severity="warning" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="97" column="28" severity="warning" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="104" column="5" severity="warning" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="113" column="8" severity="warning" message="Unused @param tag for &apos;xCoord&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="115" column="8" severity="warning" message="Unused @param tag for &apos;yCoord&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="147" column="48" severity="warning" message="Expected @param tag for &apos;xCoord&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="147" column="60" severity="warning" message="Expected @param tag for &apos;yCoord&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="164" column="39" severity="warning" message="Expected @param tag for &apos;i&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="164" column="46" severity="warning" message="Expected @param tag for &apos;j&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="209" column="21" severity="warning" message="&apos;emptyPatches&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="243" column="46" severity="warning" message="Expected @param tag for &apos;rules&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="244" column="5" severity="warning" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="254" column="46" severity="warning" message="Expected @param tag for &apos;myColor&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="268" column="5" severity="warning" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="278" column="35" severity="warning" message="Expected @param tag for &apos;i&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\controller\GridEdgeRules.java">
+<error line="15" column="19" severity="warning" message="Variable &apos;myXBound&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="16" column="19" severity="warning" message="Variable &apos;myYBound&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="17" column="20" severity="warning" message="Name &apos;grid&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="17" column="20" severity="warning" message="Variable &apos;grid&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\controller\GridInfo.java">
+<error line="17" column="24" severity="warning" message="Name &apos;myWidth&apos; must match pattern &apos;^our[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>
+<error line="18" column="24" severity="warning" message="Name &apos;myHeight&apos; must match pattern &apos;^our[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>
+<error line="19" column="27" severity="warning" message="Name &apos;myType&apos; must match pattern &apos;^our[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>
+<error line="20" column="27" severity="warning" message="Name &apos;myPatchType&apos; must match pattern &apos;^our[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>
+<error line="21" column="24" severity="warning" message="Name &apos;myAdjacentType&apos; must match pattern &apos;^our[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>
+<error line="21" column="41" severity="warning" message="&apos;8&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="22" column="27" severity="warning" message="Name &apos;myParameter&apos; must match pattern &apos;^our[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>
+<error line="22" column="41" severity="warning" message="&apos;0.7&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="23" column="43" severity="warning" message="Name &apos;stateColors&apos; must match pattern &apos;^our[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>
+<error line="24" column="33" severity="warning" message="Name &apos;myStateTypes&apos; must match pattern &apos;^our[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>
+<error line="25" column="24" severity="warning" message="Name &apos;maxCellState&apos; must match pattern &apos;^our[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>
+<error line="26" column="34" severity="warning" message="Name &apos;paramList&apos; must match pattern &apos;^our[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>
+<error line="27" column="20" severity="warning" message="Name &apos;useGivenGrid&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="27" column="20" severity="warning" message="Variable &apos;useGivenGrid&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="37" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="67" column="5" severity="warning" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="76" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="110" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="112" column="12" severity="warning" message="&apos;for&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="113" column="9" severity="warning" message="&apos;{&apos; should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\controller\GridRows.java">
+<error line="7" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="8" column="9" severity="warning" message="Name &apos;id&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="8" column="9" severity="warning" message="Variable &apos;id&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="9" column="12" severity="warning" message="Name &apos;states&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="9" column="12" severity="warning" message="Variable &apos;states&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\controller\MainController.java">
+<error line="31" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="37" column="5" severity="warning" message="Static variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="38" column="5" severity="warning" message="Static variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="39" column="5" severity="warning" message="Static variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="40" column="5" severity="warning" message="Static variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="41" column="5" severity="warning" message="Instance variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="42" column="5" severity="warning" message="Instance variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="43" column="5" severity="warning" message="Instance variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="44" column="5" severity="warning" message="Instance variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="45" column="5" severity="warning" message="Instance variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="46" column="5" severity="warning" message="Instance variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="48" column="5" severity="warning" message="Instance variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="53" column="5" severity="warning" message="Instance variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="53" column="39" severity="warning" message="Name &apos;oneFrame&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="61" column="13" severity="warning" message="Throws count is 2 (max allowed is 1)." source="com.puppycrawl.tools.checkstyle.checks.design.ThrowsCountCheck"/>
+<error line="85" column="27" severity="warning" message="&apos;120&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="110" column="5" severity="warning" message="Method length is 54 lines (max allowed is 30)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+<error line="154" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="157" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="159" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="171" column="51" severity="warning" message="Name &apos;XMLData&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+<error line="183" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="183" column="11" severity="warning" message="Catching &apos;Exception&apos; is not allowed." source="com.puppycrawl.tools.checkstyle.checks.coding.IllegalCatchCheck"/>
+<error line="218" column="55" severity="warning" message="&apos;100&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="255" column="22" severity="warning" message="Assignment of parameter &apos;gridRows&apos; is not allowed." source="com.puppycrawl.tools.checkstyle.checks.coding.ParameterAssignmentCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\controller\Parser.java">
+<error line="24" column="4" severity="warning" message="Unused Javadoc tag." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="32" severity="warning" message="Type Javadoc comment is missing an @author tag." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="32" column="1" severity="warning" message="Utility classes should not have a public or default constructor." source="com.puppycrawl.tools.checkstyle.checks.design.HideUtilityClassConstructorCheck"/>
+<error line="47" column="5" severity="warning" message="Method length is 54 lines (max allowed is 30)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+<error line="49" column="9" severity="warning" message="Avoid nested blocks." source="com.puppycrawl.tools.checkstyle.checks.blocks.AvoidNestedBlocksCheck"/>
+<error line="66" column="21" severity="warning" message="switch without &quot;default&quot; clause." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+<error line="112" column="5" severity="warning" message="Method length is 46 lines (max allowed is 30)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+<error line="112" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="114" column="68" severity="warning" message="The String &quot;.&quot; appears 2 times in the file." source="com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheck"/>
+<error line="173" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="175" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="177" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="182" column="5" severity="warning" message="Static variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="182" column="21" severity="warning" message="Name &apos;infoSheet&apos; must match pattern &apos;^our[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>
+<error line="182" column="21" severity="warning" message="Variable &apos;infoSheet&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="184" column="5" severity="warning" message="Static variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="184" column="35" severity="warning" message="Name &apos;messages&apos; must match pattern &apos;^our[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\controller\PatchFactory.java">
+<error line="18" column="5" severity="warning" message="Static variable definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="20" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="40" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="49" column="13" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="52" column="13" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="55" column="13" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\controller\SimulationChart.java">
+<error line="20" column="23" severity="warning" message="Name &apos;X_AXIS_RANGE&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="21" column="23" severity="warning" message="Name &apos;CHART_WIDTH&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="22" column="23" severity="warning" message="Name &apos;CHART_HEIGHT&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="23" column="23" severity="warning" message="Name &apos;X_DELTA&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="24" column="23" severity="warning" message="Name &apos;TICK_MARKS&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="26" column="18" severity="warning" message="Name &apos;grid&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="27" column="22" severity="warning" message="Name &apos;infoSheet&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="35" column="35" severity="warning" message="Name &apos;cellCounts&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="41" column="34" severity="warning" message="Expected @param tag for &apos;g&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\controller\ToroidalEdgeRules.java">
+<error line="15" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="23" column="47" severity="warning" message="Expected @param tag for &apos;nextX&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="23" column="58" severity="warning" message="Expected @param tag for &apos;nextY&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="24" column="25" severity="warning" message="Expected @param tag for &apos;neighbors&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="47" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\controller\UserInterface.java">
+<error line="39" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="169" column="5" severity="warning" message="Method length is 171 lines (max allowed is 30)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+<error line="227" column="44" severity="warning" message="Name &apos;XMLData&apos; must match pattern &apos;^[A-Z][A-Z0-9_]+$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.LocalFinalVariableNameCheck"/>
+<error line="237" column="27" severity="warning" message="Name &apos;edgeGroup&apos; must match pattern &apos;^[A-Z][A-Z0-9_]+$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.LocalFinalVariableNameCheck"/>
+<error line="282" column="27" severity="warning" message="Name &apos;shapeGroup&apos; must match pattern &apos;^[A-Z][A-Z0-9_]+$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.LocalFinalVariableNameCheck"/>
+<error line="334" column="44" severity="warning" message="Name &apos;old_val&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+<error line="334" column="60" severity="warning" message="Name &apos;new_val&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+<error line="351" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="356" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\Images\WaTorPatch.png">
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\messages_en_US.properties">
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\AntCell.java">
+<error line="12" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="15" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="22" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="29" column="33" severity="warning" message="Must have at least one statement." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
+<error line="39" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="46" column="33" severity="warning" message="Must have at least one statement." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
+<error line="56" column="25" severity="warning" message="Must have at least one statement." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
+<error line="66" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="79" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="86" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="93" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="99" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="105" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="111" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="116" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="121" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="126" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="131" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="136" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="147" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="152" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="167" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="182" column="19" severity="warning" message="Assignment of parameter &apos;neighbors&apos; is not allowed." source="com.puppycrawl.tools.checkstyle.checks.coding.ParameterAssignmentCheck"/>
+<error line="184" column="19" severity="warning" message="Assignment of parameter &apos;neighbors&apos; is not allowed." source="com.puppycrawl.tools.checkstyle.checks.coding.ParameterAssignmentCheck"/>
+<error line="186" severity="warning" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="197" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="203" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="208" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="213" severity="warning" message="Stupid generated comment left in" source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\AntPatch.java">
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\Cell.java">
+<error line="17" column="24" severity="warning" message="Name &apos;infoSheet&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="17" column="24" severity="warning" message="Variable &apos;infoSheet&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="19" column="19" severity="warning" message="Variable &apos;myX&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="20" column="19" severity="warning" message="Variable &apos;myY&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="21" column="19" severity="warning" message="Variable &apos;myState&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="22" column="21" severity="warning" message="Variable &apos;myPatch&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="23" column="29" severity="warning" message="Variable &apos;myParamList&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="25" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="36" column="33" severity="warning" message="Expected @param tag for &apos;x&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="36" column="40" severity="warning" message="Expected @param tag for &apos;y&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="36" column="47" severity="warning" message="Expected @param tag for &apos;state&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="76" column="49" severity="warning" message="Expected @param tag for &apos;currentPatch&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="77" column="55" severity="warning" message="Expected @param tag for &apos;neighbors&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="113" column="27" severity="warning" message="Expected @param tag for &apos;y&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\ForestCell.java">
+<error line="8" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="10" column="11" severity="warning" message="&apos;private&apos; modifier out of order with the JLS suggestions." source="com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheck"/>
+<error line="10" column="23" severity="warning" message="Name &apos;EMPTY&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="11" column="11" severity="warning" message="&apos;private&apos; modifier out of order with the JLS suggestions." source="com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheck"/>
+<error line="11" column="23" severity="warning" message="Name &apos;ONFIRE&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="12" column="11" severity="warning" message="&apos;private&apos; modifier out of order with the JLS suggestions." source="com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheck"/>
+<error line="12" column="23" severity="warning" message="Name &apos;TREE&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="14" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="22" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="37" column="32" severity="warning" message="Avoid inline conditionals." source="com.puppycrawl.tools.checkstyle.checks.coding.AvoidInlineConditionalsCheck"/>
+<error line="49" column="25" severity="warning" message="The String &quot;ONFIRE&quot; appears 2 times in the file." source="com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheck"/>
+<error line="50" column="25" severity="warning" message="The String &quot;TREE&quot; appears 2 times in the file." source="com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheck"/>
+<error line="63" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="71" column="9" severity="warning" message="switch without &quot;default&quot; clause." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+<error line="76" column="13" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="87" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="95" column="16" severity="warning" message="Unnecessary parentheses around return value." source="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessaryParenthesesCheck"/>
+<error line="95" column="18" severity="warning" message="Unnecessary parentheses around identifier &apos;haveNeighborOnFire&apos;." source="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessaryParenthesesCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\LifeCell.java">
+<error line="15" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="17" column="36" severity="warning" message="The String &quot;CELL&quot; appears 3 times in the file." source="com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheck"/>
+<error line="20" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="43" column="31" severity="warning" message="Expected @param tag for &apos;currentPatch&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="43" column="57" severity="warning" message="Expected @param tag for &apos;neighbors&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="50" column="40" severity="warning" message="Expected @param tag for &apos;currentPatch&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="50" column="66" severity="warning" message="Expected @param tag for &apos;neighbors&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\LifePatch.java">
+<error line="16" column="17" severity="warning" message="Name &apos;comfortableAmount&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="16" column="37" severity="warning" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="17" column="17" severity="warning" message="Name &apos;baselineAmount&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="19" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="23" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="28" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="51" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="59" column="9" severity="warning" message="switch without &quot;default&quot; clause." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\Patch.java">
+<error line="27" column="20" severity="warning" message="Variable &apos;myCell&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="28" column="19" severity="warning" message="Name &apos;xCoord&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="28" column="19" severity="warning" message="Variable &apos;xCoord&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="29" column="19" severity="warning" message="Name &apos;yCoord&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="29" column="19" severity="warning" message="Variable &apos;yCoord&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="30" column="20" severity="warning" message="Name &apos;grid&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="30" column="20" severity="warning" message="Variable &apos;grid&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="31" column="27" severity="warning" message="Variable &apos;myNeighbors&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="32" column="21" severity="warning" message="Name &apos;image&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="32" column="21" severity="warning" message="Variable &apos;image&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="33" column="25" severity="warning" message="Variable &apos;myView&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="34" column="21" severity="warning" message="Variable &apos;myState&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="36" column="25" severity="warning" message="Variable &apos;myBody&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="38" column="24" severity="warning" message="Name &apos;infoSheet&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="38" column="24" severity="warning" message="Variable &apos;infoSheet&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="52" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="83" severity="warning" message="Comment matches to-do format &apos;TODO:&apos;." source="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck"/>
+<error line="84" column="9" severity="warning" message="switch without &quot;default&quot; clause." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+<error line="117" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="192" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="204" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="208" column="38" severity="warning" message="&apos;myState&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="212" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="217" column="13" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="220" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="240" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="243" column="73" severity="warning" message="&apos;4&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="244" column="74" severity="warning" message="&apos;4&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\PatchBody.java">
+<error line="19" column="16" severity="warning" message="Variable &apos;myX&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="20" column="16" severity="warning" message="Variable &apos;myY&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="21" column="24" severity="warning" message="Name &apos;infoSheet&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="21" column="24" severity="warning" message="Variable &apos;infoSheet&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="26" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\PatchBodyHexagon.java">
+<error line="16" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="19" column="60" severity="warning" message="&apos;1.5&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="21" column="56" severity="warning" message="&apos;3.0&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="27" column="38" severity="warning" message="Avoid inline conditionals." source="com.puppycrawl.tools.checkstyle.checks.coding.AvoidInlineConditionalsCheck"/>
+<error line="27" column="55" severity="warning" message="&apos;1.5&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="30" column="45" severity="warning" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="42" column="40" severity="warning" message="&apos;{&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\PatchBodyRectangle.java">
+<error line="14" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="36" column="40" severity="warning" message="&apos;{&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\PatchBodyTriangle.java">
+<error line="14" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="22" column="5" severity="warning" message="Method length is 36 lines (max allowed is 30)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+<error line="34" column="59" severity="warning" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="39" column="35" severity="warning" message="&apos;{&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck"/>
+<error line="43" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="49" column="62" severity="warning" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="51" column="35" severity="warning" message="&apos;{&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\PredatorCell.java">
+<error line="19" column="23" severity="warning" message="Name &apos;FISH&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="20" column="23" severity="warning" message="Name &apos;SHARK&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="21" column="23" severity="warning" message="Name &apos;DYING&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="23" column="5" severity="warning" message="Variable access definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="23" column="19" severity="warning" message="Name &apos;vitality&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="23" column="19" severity="warning" message="Variable &apos;vitality&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="24" column="5" severity="warning" message="Variable access definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="24" column="19" severity="warning" message="Name &apos;timeToBreed&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="24" column="19" severity="warning" message="Variable &apos;timeToBreed&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="25" column="5" severity="warning" message="Variable access definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="25" column="19" severity="warning" message="Name &apos;sharkVitality&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="25" column="19" severity="warning" message="Variable &apos;sharkVitality&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="26" column="5" severity="warning" message="Variable access definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="26" column="19" severity="warning" message="Name &apos;fishVitality&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="26" column="19" severity="warning" message="Variable &apos;fishVitality&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="27" column="5" severity="warning" message="Variable access definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="27" column="19" severity="warning" message="Name &apos;gestationPeriod&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="27" column="19" severity="warning" message="Variable &apos;gestationPeriod&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="32" column="5" severity="warning" message="Variable access definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="32" column="27" severity="warning" message="Variable &apos;myNeighbors&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="34" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="48" column="29" severity="warning" message="Expected @param tag for &apos;x&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="48" column="36" severity="warning" message="Expected @param tag for &apos;y&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="48" column="43" severity="warning" message="Expected @param tag for &apos;state&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="55" column="40" severity="warning" message="The String &quot;SHARK&quot; appears 3 times in the file." source="com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheck"/>
+<error line="57" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="58" column="40" severity="warning" message="The String &quot;FISH&quot; appears 3 times in the file." source="com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheck"/>
+<error line="71" column="41" severity="warning" message="Expected @param tag for &apos;neighbors&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="74" severity="warning" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="76" severity="warning" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="85" column="28" severity="warning" message="Expected @param tag for &apos;destination&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="87" column="21" severity="warning" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="101" column="33" severity="warning" message="Avoid inline conditionals." source="com.puppycrawl.tools.checkstyle.checks.coding.AvoidInlineConditionalsCheck"/>
+<error line="122" column="32" severity="warning" message="Expected @param tag for &apos;x&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="122" column="39" severity="warning" message="Expected @param tag for &apos;y&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="122" column="46" severity="warning" message="Expected @param tag for &apos;state&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="138" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="162" column="39" severity="warning" message="Expected @param tag for &apos;currentPatch&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="162" column="65" severity="warning" message="Expected @param tag for &apos;neighbors&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="183" column="13" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="188" severity="warning" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="198" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="211" column="30" severity="warning" message="Expected @param tag for &apos;current&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="211" column="51" severity="warning" message="Expected @param tag for &apos;neighbors&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="217" column="13" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="254" column="40" severity="warning" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="255" column="26" severity="warning" message="&apos;=&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="255" column="42" severity="warning" message="&apos;4&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\SegCell.java">
+<error line="20" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="35" severity="warning" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="37" severity="warning" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="50" column="25" severity="warning" message="The String &quot;X&quot; appears 2 times in the file." source="com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheck"/>
+<error line="51" column="25" severity="warning" message="The String &quot;O&quot; appears 2 times in the file." source="com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheck"/>
+<error line="72" column="17" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="77" severity="warning" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="80" severity="warning" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="88" column="39" severity="warning" message="Expected @param tag for &apos;currentPatch&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="88" column="65" severity="warning" message="Expected @param tag for &apos;neighbors&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="96" column="9" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="106" column="30" severity="warning" message="Expected @param tag for &apos;currentPatch&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="106" column="56" severity="warning" message="Expected @param tag for &apos;neighbors&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\SugarCell.java">
+<error line="8" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="14" column="19" severity="warning" message="Name &apos;currentSugar&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="14" column="19" severity="warning" message="Variable &apos;currentSugar&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="14" column="34" severity="warning" message="&apos;25&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="15" column="19" severity="warning" message="Name &apos;sugarMetabolism&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="15" column="19" severity="warning" message="Variable &apos;sugarMetabolism&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="15" column="37" severity="warning" message="&apos;4&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="16" column="27" severity="warning" message="Variable &apos;myNeighbors&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="17" column="23" severity="warning" message="Name &apos;OCCUPIED&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="19" column="23" severity="warning" message="Name &apos;DYING&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="23" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="28" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="35" column="40" severity="warning" message="The String &quot;AGENT&quot; appears 3 times in the file." source="com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheck"/>
+<error line="42" severity="warning" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="45" severity="warning" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="63" column="36" severity="warning" message="Avoid inline conditionals." source="com.puppycrawl.tools.checkstyle.checks.coding.AvoidInlineConditionalsCheck"/>
+<error line="96" column="30" severity="warning" message="&apos;9999&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="154" column="13" severity="warning" message="&apos;}&apos; should be alone on a line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+</file>
+<file name="C:\Users\Teddy\My Documents\cs372\oldCode\cellsociety\04\src\simulationObjects\SugarPatch.java">
+<error line="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="6" column="17" severity="warning" message="Name &apos;currentSugar&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="6" column="17" severity="warning" message="Variable &apos;currentSugar&apos; explicitly initialized to &apos;0&apos; (default value for its type)." source="com.puppycrawl.tools.checkstyle.checks.coding.ExplicitInitializationCheck"/>
+<error line="7" column="5" severity="warning" message="Variable access definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="7" column="19" severity="warning" message="Name &apos;vision&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="7" column="19" severity="warning" message="Variable &apos;vision&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="8" column="5" severity="warning" message="Variable access definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="8" column="19" severity="warning" message="Name &apos;colorGradient&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="8" column="19" severity="warning" message="Variable &apos;colorGradient&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="8" column="35" severity="warning" message="&apos;4&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="9" column="5" severity="warning" message="Variable access definition in wrong order." source="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+<error line="9" column="19" severity="warning" message="Name &apos;sugarGrowBackRate&apos; must match pattern &apos;^my[a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="9" column="19" severity="warning" message="Variable &apos;sugarGrowBackRate&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="11" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="15" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="30" severity="warning" message="Comment matches to-do format &apos;TODO:&apos;." source="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck"/>
+<error line="31" column="9" severity="warning" message="switch without &quot;default&quot; clause." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+<error line="64" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="64" column="34" severity="warning" message="&apos;vision&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="77" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="81" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="83" column="25" severity="warning" message="&apos;4&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="84" column="25" severity="warning" message="&apos;4&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="90" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="src\controller\ColorPicker.java">
+</file>
+<file name="src\controller\DefaultEdgeRules.java">
+</file>
+<file name="src\controller\Grid.java">
+</file>
+<file name="src\controller\GridEdgeRules.java">
+</file>
+<file name="src\controller\GridInfo.java">
+</file>
+<file name="src\controller\GridRows.java">
+</file>
+<file name="src\controller\MainController.java">
+</file>
+<file name="src\controller\Parser.java">
+</file>
+<file name="src\controller\PatchFactory.java">
+</file>
+<file name="src\controller\SimulationChart.java">
+</file>
+<file name="src\controller\ToroidalEdgeRules.java">
+</file>
+<file name="src\controller\UserInterface.java">
+</file>
+<file name="src\Images\WaTorPatch.png">
+</file>
+<file name="src\messages_en_US.properties">
+</file>
+<file name="src\simulationObjects\AntCell.java">
+<error line="21" severity="warning" message="Found duplicate of 15 lines in src\simulationObjects\AntCell.java, starting from line 38" source="com.puppycrawl.tools.checkstyle.checks.duplicates.StrictDuplicateCodeCheck"/>
+</file>
+<file name="src\simulationObjects\AntPatch.java">
+</file>
+<file name="src\simulationObjects\Cell.java">
+</file>
+<file name="src\simulationObjects\ForestCell.java">
+</file>
+<file name="src\simulationObjects\LifeCell.java">
+</file>
+<file name="src\simulationObjects\LifePatch.java">
+</file>
+<file name="src\simulationObjects\Patch.java">
+</file>
+<file name="src\simulationObjects\PatchBody.java">
+</file>
+<file name="src\simulationObjects\PatchBodyHexagon.java">
+</file>
+<file name="src\simulationObjects\PatchBodyRectangle.java">
+</file>
+<file name="src\simulationObjects\PatchBodyTriangle.java">
+</file>
+<file name="src\simulationObjects\PredatorCell.java">
+</file>
+<file name="src\simulationObjects\SegCell.java">
+</file>
+<file name="src\simulationObjects\SugarCell.java">
+</file>
+<file name="src\simulationObjects\SugarPatch.java">
+<error line="26" severity="warning" message="Found duplicate of 25 lines in src\simulationObjects\Patch.java, starting from line 79" source="com.puppycrawl.tools.checkstyle.checks.duplicates.StrictDuplicateCodeCheck"/>
+</file>
+</checkstyle>
