@@ -16,7 +16,7 @@ public abstract class GridEdgeRules {
 
     protected int myXBound;
     protected int myYBound;
-    protected Grid grid;
+    protected Grid myGrid;
 
     /**
      * Constructor for the grid's edge rules
@@ -28,10 +28,10 @@ public abstract class GridEdgeRules {
      * @param g
      *            grid reference
      */
-    public GridEdgeRules(int x, int y, Grid g) {
+    public GridEdgeRules (int x, int y, Grid g) {
 	myXBound = x;
 	myYBound = y;
-	grid = g;
+	myGrid = g;
     }
 
     /**
@@ -45,7 +45,7 @@ public abstract class GridEdgeRules {
      *            list of all potential neighbors
      * @return TODO
      */
-    public abstract List<Patch> applyRulesAndGetNeighbors(int nextX, int nextY,
+    public abstract List<Patch> applyRulesAndGetNeighbors (int nextX, int nextY,
 	    List<Patch> neighbors);
 
     /**
@@ -57,7 +57,7 @@ public abstract class GridEdgeRules {
      *            in grid
      * @return true if out of bounds, false otherwise
      */
-    public boolean isOutOfBounds(int xCoord, int yCoord) {
+    public boolean isOutOfBounds (int xCoord, int yCoord) {
 	return xCoord > myXBound - 1 || xCoord < 0 || yCoord > myYBound - 1
 		|| yCoord < 0;
     }

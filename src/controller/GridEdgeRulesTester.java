@@ -11,12 +11,12 @@ public class GridEdgeRulesTester {
  */
     
     @Test
-    public void testThatRulesAreNotNull() {
+    public void testThatRulesAreNotNull () {
         GridEdgeRules rules = new DefaultEdgeRules(0,0,new Grid(0,0));
         assertEquals(rules, rules);
     }
     @Test
-    public void testThatRulesAreRules() {
+    public void testThatRulesAreRules () {
         GridEdgeRules rules = new DefaultEdgeRules(0,0,new Grid(0,0));
         GridEdgeRules rules1 = new ToroidalEdgeRules(0,0,new Grid(0,0));
         assertEquals(rules, rules);
@@ -24,7 +24,7 @@ public class GridEdgeRulesTester {
         assertEquals(rules.getClass().getSuperclass(), rules1.getClass().getSuperclass());
     }
     @Test
-    public void testWrappingCoordinates() {
+    public void testWrappingCoordinates () {
         int x = 0;
         int y = 0;
         ToroidalEdgeRules rules = new ToroidalEdgeRules(x,y,new Grid(x,y));
@@ -33,23 +33,23 @@ public class GridEdgeRulesTester {
     }
     
     @Test
-    public void testIsOutOfBounds() {
+    public void testIsOutOfBounds () {
         GridEdgeRules rules = new DefaultEdgeRules(0,0,new Grid(0,0));
         assertEquals(rules.isOutOfBounds(0, 0), true);
     }
     
     @Test
-    public void testIsOutOfBounds2() {
+    public void testIsOutOfBounds2 () {
         GridEdgeRules rules = new DefaultEdgeRules(0,0,new Grid(1,1));
         assertEquals(rules.isOutOfBounds(1, 1), true);
     }
     @Test
-    public void testIsOutOfBounds3() {
+    public void testIsOutOfBounds3 () {
         GridEdgeRules rules = new DefaultEdgeRules(2,2,new Grid(2,2));
         assertEquals(!rules.isOutOfBounds(0,0), true);
     }
     @Test
-    public void testApplyRulesAndGetNeighbors() {
+    public void testApplyRulesAndGetNeighbors () {
         Grid g = new Grid(3,3);
         GridEdgeRules rules = new DefaultEdgeRules(0,0,g);
         g.addPatchAtPoint(new Patch(0,0,g));

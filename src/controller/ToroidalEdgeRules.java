@@ -14,7 +14,7 @@ import simulationObjects.Patch;
  */
 public class ToroidalEdgeRules extends GridEdgeRules {
 
-    public ToroidalEdgeRules(int x, int y, Grid g) {
+    public ToroidalEdgeRules (int x, int y, Grid g) {
 	super(x, y, g);
     }
 
@@ -22,7 +22,7 @@ public class ToroidalEdgeRules extends GridEdgeRules {
      * Sets up the Toroidal edge rules
      */
     @Override
-    public List<Patch> applyRulesAndGetNeighbors(int nextX, int nextY,
+    public List<Patch> applyRulesAndGetNeighbors (int nextX, int nextY,
 	    List<Patch> neighbors) {
 	int xWrapped = nextX;
 	int yWrapped = nextY;
@@ -30,7 +30,7 @@ public class ToroidalEdgeRules extends GridEdgeRules {
 	    xWrapped = wrapCoordAround(nextX, myXBound);
 	    yWrapped = wrapCoordAround(nextY, myYBound);
 	}
-	neighbors.add(grid.getPatchAtPoint(xWrapped, yWrapped));
+	neighbors.add(myGrid.getPatchAtPoint(xWrapped, yWrapped));
 	return neighbors;
     }
 
@@ -44,11 +44,12 @@ public class ToroidalEdgeRules extends GridEdgeRules {
      *            boundary reference
      * @return the wrapped around coordinate
      */
-    public int wrapCoordAround(int coord, int max) {
+    public int wrapCoordAround (int coord, int max) {
 	int wrappedCoord = coord;
 	if (coord > max - 1) {
 	    wrappedCoord = 0;
-	} else if (coord < 0) {
+	} 
+	else if (coord < 0) {
 	    wrappedCoord = max - 1;
 	}
 	return wrappedCoord;

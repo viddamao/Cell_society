@@ -14,7 +14,7 @@ import simulationObjects.Patch;
  */
 public class DefaultEdgeRules extends GridEdgeRules {
 
-    public DefaultEdgeRules(int x, int y, Grid g) {
+    public DefaultEdgeRules (int x, int y, Grid g) {
 	super(x, y, g);
     }
 
@@ -22,10 +22,10 @@ public class DefaultEdgeRules extends GridEdgeRules {
      * Default rules for a finite grid
      */
     @Override
-    public List<Patch> applyRulesAndGetNeighbors(int nextX, int nextY,
+    public List<Patch> applyRulesAndGetNeighbors (int nextX, int nextY,
 	    List<Patch> neighbors) {
 	if (!isOutOfBounds(nextX, nextY)) {
-	    neighbors.add(grid.getPatchAtPoint(nextX, nextY));
+	    neighbors.add(myGrid.getPatchAtPoint(nextX, nextY));
 	}
 	return neighbors;
     }
