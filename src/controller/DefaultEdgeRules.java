@@ -1,3 +1,5 @@
+//// This entire file is part of my masterpiece.
+// Will Chang
 package controller;
 
 import java.util.List;
@@ -20,11 +22,12 @@ public class DefaultEdgeRules extends GridEdgeRules {
      * Default rules for a finite grid
      */
     @Override
-    public void applyRulesAndGetNeighbors(int nextX, int nextY,
+    public List<Patch> applyRulesAndGetNeighbors(int nextX, int nextY,
 	    List<Patch> neighbors) {
 	if (!isOutOfBounds(nextX, nextY)) {
 	    neighbors.add(grid.getPatchAtPoint(nextX, nextY));
 	}
+	return neighbors;
     }
 
 }

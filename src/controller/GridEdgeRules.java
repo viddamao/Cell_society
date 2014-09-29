@@ -1,3 +1,5 @@
+// This entire file is part of my masterpiece.
+// Will Chang
 package controller;
 
 import java.util.List;
@@ -41,8 +43,9 @@ public abstract class GridEdgeRules {
      *            coordinate to check for a neighbor
      * @param neighbors
      *            list of all potential neighbors
+     * @return TODO
      */
-    public abstract void applyRulesAndGetNeighbors(int nextX, int nextY,
+    public abstract List<Patch> applyRulesAndGetNeighbors(int nextX, int nextY,
 	    List<Patch> neighbors);
 
     /**

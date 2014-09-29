@@ -1,3 +1,5 @@
+// This entire file is part of my masterpiece.
+// Will Chang
 package controller;
 
 import java.util.List;
@@ -20,7 +22,7 @@ public class ToroidalEdgeRules extends GridEdgeRules {
      * Sets up the Toroidal edge rules
      */
     @Override
-    public void applyRulesAndGetNeighbors(int nextX, int nextY,
+    public List<Patch> applyRulesAndGetNeighbors(int nextX, int nextY,
 	    List<Patch> neighbors) {
 	int xWrapped = nextX;
 	int yWrapped = nextY;
@@ -29,10 +31,12 @@ public class ToroidalEdgeRules extends GridEdgeRules {
 	    yWrapped = wrapCoordAround(nextY, myYBound);
 	}
 	neighbors.add(grid.getPatchAtPoint(xWrapped, yWrapped));
+	return neighbors;
     }
 
     /**
      * Wraps a coordinate around the edges of the grid.
+     * Made Public for JUnit Tests
      *
      * @param coord
      *            out of bounds coordinate to wrap around
@@ -40,7 +44,7 @@ public class ToroidalEdgeRules extends GridEdgeRules {
      *            boundary reference
      * @return the wrapped around coordinate
      */
-    private int wrapCoordAround(int coord, int max) {
+    public int wrapCoordAround(int coord, int max) {
 	int wrappedCoord = coord;
 	if (coord > max - 1) {
 	    wrappedCoord = 0;
