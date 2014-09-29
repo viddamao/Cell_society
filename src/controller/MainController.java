@@ -249,7 +249,7 @@ public class MainController extends Application {
 	}
 	if (gridHeight > gridHeight) {
 	    myInfoSheet.setHeight(gridHeight);
-	    gridHeight = gridHeight;
+	    myGridHeight = gridHeight;
 	}
 	if (!myInfoSheet.useGivenGrid) {
 	    gridRows = randomizeGrid();
