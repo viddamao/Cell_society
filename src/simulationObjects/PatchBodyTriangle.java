@@ -11,16 +11,16 @@ import java.awt.Point;
 
 public class PatchBodyTriangle extends PatchBody {
 
-    public PatchBodyTriangle(int x, int y, double gridPixelHeight,
+    public PatchBodyTriangle (int x, int y, double gridPixelHeight,
 	    double gridPixelWidth, int gridHeight, int gridWidth) {
 	super(x, y);
-	setPatchHeight((int) gridPixelHeight / gridHeight);
-	setPatchWidth((int) gridPixelWidth / gridWidth);
+	setPatchHeight((int)gridPixelHeight / gridHeight);
+	setPatchWidth((int)gridPixelWidth / gridWidth);
 	buildBody();
     }
 
     @Override
-    public void buildBody() {
+    public void buildBody () {
 	double startX = getPatchWidth() * myX;
 	double startY = getPatchHeight() * myY;
 	Double[] myPts;
@@ -38,9 +38,10 @@ public class PatchBodyTriangle extends PatchBody {
 	    double bottomY = startY + getPatchHeight();
 	    myPts = new Double[] { topCoord1, topY, topCoord2, topY,
 		    bottomCoord, bottomY };
-	    center = new Point((int) bottomCoord, (int) topY + getPatchHeight()
+	    center = new Point((int)bottomCoord, (int)topY + getPatchHeight()
 		    / 2);
-	} else {
+	} 
+	else {
 	    // 1 coord on top, same y
 	    double topCoord1 = startX + (getPatchWidth() / 2);
 	    double topY = startY;
@@ -50,7 +51,7 @@ public class PatchBodyTriangle extends PatchBody {
 	    double bottomY = startY + getPatchHeight();
 	    myPts = new Double[] { topCoord1, topY, bottomCoord1, bottomY,
 		    bottomCoord2, bottomY };
-	    center = new Point((int) topCoord1, (int) topY + getPatchHeight()
+	    center = new Point((int)topCoord1, (int)topY + getPatchHeight()
 		    / 2);
 	}
 	createPolyFromPoints(myPts);

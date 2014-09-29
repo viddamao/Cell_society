@@ -1,3 +1,6 @@
+// This entire file is part of my masterpiece.
+// Davis Gossage
+
 package simulationObjects;
 
 import java.awt.Point;
@@ -11,16 +14,16 @@ import java.awt.Point;
 
 public class PatchBodyRectangle extends PatchBody {
 
-    public PatchBodyRectangle(int x, int y, double gridPixelHeight,
+    public PatchBodyRectangle (int x, int y, double gridPixelHeight,
 	    double gridPixelWidth, int gridHeight, int gridWidth) {
 	super(x, y);
-	setPatchHeight((int) gridPixelHeight / gridHeight);
-	setPatchWidth((int) gridPixelWidth / gridWidth);
+	setPatchHeight((int)gridPixelHeight / gridHeight);
+	setPatchWidth((int)gridPixelWidth / gridWidth);
 	buildBody();
     }
 
     @Override
-    public void buildBody() {
+    public void buildBody () {
 	double startX = getPatchWidth() * myX;
 	double startY = getPatchHeight() * myY;
 	// 4 sets of x and y coordinates
@@ -36,7 +39,7 @@ public class PatchBodyRectangle extends PatchBody {
 	Double[] myPts = new Double[] { x1, y1, x2, y2, x3, y3, x4, y4 };
 	createPolyFromPoints(myPts);
 	// set center
-	setCenter(new Point((int) (x1 + x2) / 2, (int) (y1 + y3) / 2));
+	setCenter(new Point((int)(x1 + x2) / 2, (int)(y1 + y3) / 2));
     }
 
 }
