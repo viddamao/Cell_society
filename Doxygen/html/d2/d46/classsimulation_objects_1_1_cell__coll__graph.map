@@ -1,0 +1,8 @@
+<map id="simulationObjects.Cell" name="simulationObjects.Cell">
+<area shape="rect" id="node3" href="$d5/da5/classsimulation_objects_1_1_patch.html" title="simulationObjects.Patch" alt="" coords="959,241,1134,268"/>
+<area shape="rect" id="node9" href="$d7/d97/classcontroller_1_1_grid.html" title="controller.Grid" alt="" coords="1273,289,1383,316"/>
+<area shape="rect" id="node5" href="$de/d7a/classcontroller_1_1_grid_info.html" title="controller.GridInfo" alt="" coords="342,404,477,431"/>
+<area shape="rect" id="node17" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html" title="simulationObjects.PatchBody" alt="" coords="595,72,802,99"/>
+<area shape="rect" id="node12" href="$dd/d38/classcontroller_1_1_grid_edge_rules.html" title="controller.GridEdgeRules" alt="" coords="1523,289,1699,316"/>
+<area shape="rect" id="node15" href="$df/d37/enumsimulation_objects_1_1_patch_1_1_state.html" title="simulationObjects.Patch.\lState" alt="" coords="609,174,788,215"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="simulationObjects.Patch.createNewCell" name="simulationObjects.Patch.createNewCell">
+<area shape="rect" id="node2" href="$d5/da5/classsimulation_objects_1_1_patch.html#ac05b7dd86c9f30b498d93d62cbbba9a4" title="simulationObjects.Patch.addCell" alt="" coords="275,48,501,75"/>
+<area shape="rect" id="node8" href="$d2/d6e/classsimulation_objects_1_1_cell.html#ab7b10d67ea8a16bcb15cc2b8d079b3a1" title="simulationObjects.Cell.set\lState" alt="" coords="295,99,481,141"/>
+<area shape="rect" id="node9" href="$d2/d6e/classsimulation_objects_1_1_cell.html#a79ed116f88362c4ef4d906c7a6988fe1" title="simulationObjects.Cell.setX" alt="" coords="291,165,485,192"/>
+<area shape="rect" id="node10" href="$d2/d6e/classsimulation_objects_1_1_cell.html#a94febf4dbd9046affdb7f81e36b8c164" title="simulationObjects.Cell.setY" alt="" coords="291,216,485,243"/>
+<area shape="rect" id="node3" href="$d5/da5/classsimulation_objects_1_1_patch.html#ac18f8e7cdd82ed885a6a92f066da2d38" title="simulationObjects.Patch.removeCell" alt="" coords="549,19,800,45"/>
+<area shape="rect" id="node4" href="$d5/da5/classsimulation_objects_1_1_patch.html#a06f00537a57f3678cf147c580b92de0d" title="simulationObjects.Patch.update\lCellConstraints" alt="" coords="563,70,787,111"/>
+<area shape="rect" id="node5" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a466dadbe30fb2f8360163881e0db9295" title="simulationObjects.PatchBody.get\lPatchWidth" alt="" coords="849,5,1079,46"/>
+<area shape="rect" id="node6" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a7be1762ade4eaee79c26ac524eb97f33" title="simulationObjects.PatchBody.get\lCenter" alt="" coords="849,70,1079,111"/>
+<area shape="rect" id="node7" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a268e88a7cb1f5feb98f49e230475c2ba" title="simulationObjects.PatchBody.get\lPatchHeight" alt="" coords="849,135,1079,177"/>
+</map>

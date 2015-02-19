@@ -1,0 +1,4 @@
+<map id="simulationObjects.ForestCell.catchFire" name="simulationObjects.ForestCell.catchFire">
+<area shape="rect" id="node2" href="$dc/d23/classsimulation_objects_1_1_forest_cell.html#abb76f3b62b5ffb2d3e0c8c6f0e3c1e23" title="simulationObjects.Forest\lCell.setState" alt="" coords="235,5,415,46"/>
+<area shape="rect" id="node3" href="$de/d7a/classcontroller_1_1_grid_info.html#aa4604331decd6c710c086e9792c6f251" title="controller.GridInfo.getColor" alt="" coords="464,12,656,39"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="controller.MainController.setSimulationSpeed" name="controller.MainController.setSimulationSpeed">
+<area shape="rect" id="node2" href="$db/ddb/classcontroller_1_1_user_interface.html#a9cf1e21253003993661082c9d42926b2" title="controller.UserInterface.make\lBottomPanel" alt="" coords="253,63,464,105"/>
+<area shape="rect" id="node6" href="$db/d32/classcontroller_1_1_main_controller.html#a1f4957429639670087d4d012381ff339" title="controller.MainController.start" alt="" coords="253,129,464,156"/>
+<area shape="rect" id="node3" href="$db/ddb/classcontroller_1_1_user_interface.html#a6dd740b89d748c372a5ef9959e1bd7c4" title="controller.UserInterface.\lUserInterface" alt="" coords="529,5,703,46"/>
+<area shape="rect" id="node4" href="$db/ddb/classcontroller_1_1_user_interface.html#aad62b84bbc23f683c844ace519feb9d2" title="controller.UserInterface.reset" alt="" coords="512,71,720,97"/>
+<area shape="rect" id="node5" href="$db/d32/classcontroller_1_1_main_controller.html#a7cfedb8e16c6b9d6394054d03193da82" title="controller.MainController.initialize\lSimulationWithData" alt="" coords="769,89,999,130"/>
+</map>

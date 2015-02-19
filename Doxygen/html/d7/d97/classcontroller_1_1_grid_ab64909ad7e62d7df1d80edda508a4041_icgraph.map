@@ -1,0 +1,6 @@
+<map id="controller.Grid.setPatchBody" name="controller.Grid.setPatchBody">
+<area shape="rect" id="node2" href="$db/ddb/classcontroller_1_1_user_interface.html#a9cf1e21253003993661082c9d42926b2" title="controller.UserInterface.make\lBottomPanel" alt="" coords="256,63,467,105"/>
+<area shape="rect" id="node3" href="$db/ddb/classcontroller_1_1_user_interface.html#a6dd740b89d748c372a5ef9959e1bd7c4" title="controller.UserInterface.\lUserInterface" alt="" coords="531,5,706,46"/>
+<area shape="rect" id="node4" href="$db/ddb/classcontroller_1_1_user_interface.html#aad62b84bbc23f683c844ace519feb9d2" title="controller.UserInterface.reset" alt="" coords="515,71,723,97"/>
+<area shape="rect" id="node5" href="$db/d32/classcontroller_1_1_main_controller.html#a7cfedb8e16c6b9d6394054d03193da82" title="controller.MainController.initialize\lSimulationWithData" alt="" coords="771,89,1002,130"/>
+</map>

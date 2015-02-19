@@ -1,0 +1,8 @@
+<map id="simulationObjects.Cell.getStateTypes" name="simulationObjects.Cell.getStateTypes">
+<area shape="rect" id="node2" href="$d3/d6a/classcontroller_1_1_parser.html#ab2d2918d4e1dc3f52a137910d14c633d" title="controller.Parser.setCell\lStates" alt="" coords="243,27,413,69"/>
+<area shape="rect" id="node3" href="$d3/d6a/classcontroller_1_1_parser.html#a02bf0729411c23f212468f2d50d4e5ed" title="controller.Parser.parserXml" alt="" coords="462,35,655,61"/>
+<area shape="rect" id="node4" href="$db/d32/classcontroller_1_1_main_controller.html#a7cfedb8e16c6b9d6394054d03193da82" title="controller.MainController.initialize\lSimulationWithData" alt="" coords="705,27,935,69"/>
+<area shape="rect" id="node5" href="$db/ddb/classcontroller_1_1_user_interface.html#a9cf1e21253003993661082c9d42926b2" title="controller.UserInterface.make\lBottomPanel" alt="" coords="984,57,1195,98"/>
+<area shape="rect" id="node6" href="$db/ddb/classcontroller_1_1_user_interface.html#aad62b84bbc23f683c844ace519feb9d2" title="controller.UserInterface.reset" alt="" coords="1243,5,1451,32"/>
+<area shape="rect" id="node7" href="$db/ddb/classcontroller_1_1_user_interface.html#a6dd740b89d748c372a5ef9959e1bd7c4" title="controller.UserInterface.\lUserInterface" alt="" coords="1259,57,1434,98"/>
+</map>

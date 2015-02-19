@@ -1,0 +1,5 @@
+<map id="simulationObjects.Cell.initialize" name="simulationObjects.Cell.initialize">
+<area shape="rect" id="node2" href="$d2/d6e/classsimulation_objects_1_1_cell.html#ab7b10d67ea8a16bcb15cc2b8d079b3a1" title="simulationObjects.Cell.set\lState" alt="" coords="276,5,463,46"/>
+<area shape="rect" id="node3" href="$d2/d6e/classsimulation_objects_1_1_cell.html#a79ed116f88362c4ef4d906c7a6988fe1" title="simulationObjects.Cell.setX" alt="" coords="272,71,467,97"/>
+<area shape="rect" id="node4" href="$d2/d6e/classsimulation_objects_1_1_cell.html#a94febf4dbd9046affdb7f81e36b8c164" title="simulationObjects.Cell.setY" alt="" coords="272,121,467,148"/>
+</map>

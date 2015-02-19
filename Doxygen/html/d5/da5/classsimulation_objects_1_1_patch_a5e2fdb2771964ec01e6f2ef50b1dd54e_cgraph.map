@@ -1,0 +1,5 @@
+<map id="simulationObjects.Patch.getNeighbors" name="simulationObjects.Patch.getNeighbors">
+<area shape="rect" id="node2" href="$d7/d97/classcontroller_1_1_grid.html#a462b2d06aaf343128c4f4534c4304305" title="controller.Grid.getNeighbors\lAround" alt="" coords="254,34,455,75"/>
+<area shape="rect" id="node3" href="$dd/d38/classcontroller_1_1_grid_edge_rules.html#aedf4c70e84eba8d2becdf3dd6c6745e8" title="controller.GridEdgeRules.apply\lRulesAndGetNeighbors" alt="" coords="518,5,733,46"/>
+<area shape="rect" id="node4" href="$de/d7a/classcontroller_1_1_grid_info.html#aef08f2c5d0e8914e1bb285490a144ec5" title="controller.GridInfo.getAdjacentType" alt="" coords="504,71,747,97"/>
+</map>

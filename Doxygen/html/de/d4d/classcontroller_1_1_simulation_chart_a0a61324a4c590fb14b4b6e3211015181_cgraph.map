@@ -1,0 +1,6 @@
+<map id="controller.SimulationChart.SimulationChart" name="controller.SimulationChart.SimulationChart">
+<area shape="rect" id="node2" href="$d7/d97/classcontroller_1_1_grid.html#a61d4b46bec1a6a3c7f277736e6293252" title="controller.Grid.getGridHeight" alt="" coords="263,5,467,32"/>
+<area shape="rect" id="node3" href="$d7/d97/classcontroller_1_1_grid.html#a07b690d056f74953ade8dc5e762341d7" title="controller.Grid.getGridWidth" alt="" coords="267,56,464,83"/>
+<area shape="rect" id="node4" href="$de/d4d/classcontroller_1_1_simulation_chart.html#a2a0445aa6e86c2a38019a594d925a2f6" title="controller.SimulationChart.intialize\lChart" alt="" coords="245,107,485,149"/>
+<area shape="rect" id="node5" href="$de/d7a/classcontroller_1_1_grid_info.html#a950f874bbf7935273015e19158a6caf8" title="controller.GridInfo.getMax\lCellState" alt="" coords="534,107,719,149"/>
+</map>

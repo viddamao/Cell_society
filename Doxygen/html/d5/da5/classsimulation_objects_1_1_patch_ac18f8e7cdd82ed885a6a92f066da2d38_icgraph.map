@@ -1,0 +1,26 @@
+<map id="simulationObjects.Patch.removeCell" name="simulationObjects.Patch.removeCell">
+<area shape="rect" id="node2" href="$d5/da5/classsimulation_objects_1_1_patch.html#ac05b7dd86c9f30b498d93d62cbbba9a4" title="simulationObjects.Patch.addCell" alt="" coords="323,313,549,340"/>
+<area shape="rect" id="node4" href="$d5/da5/classsimulation_objects_1_1_patch.html#a982ffbab2f32d5955c2c59b5a89fc4a1" title="simulationObjects.Patch.toggle\lCellState" alt="" coords="955,188,1173,230"/>
+<area shape="rect" id="node15" href="$db/d71/classsimulation_objects_1_1_sugar_cell.html#a2bafc48f035b3134c87ad371e3e2364e" title="simulationObjects.SugarCell.makeMove" alt="" coords="616,21,891,48"/>
+<area shape="rect" id="node18" href="$db/dee/classsimulation_objects_1_1_predator_cell.html#a7d74aa75e5e49981396b561c6badf01c" title="simulationObjects.Predator\lCell.makeMove" alt="" coords="656,371,851,412"/>
+<area shape="rect" id="node19" href="$da/db6/classsimulation_objects_1_1_life_patch.html#a79181e099fd4d7c9e86b94f20f103395" title="simulationObjects.LifePatch.toggle\lCellState" alt="" coords="633,123,874,164"/>
+<area shape="rect" id="node20" href="$da/db6/classsimulation_objects_1_1_life_patch.html#a13f9f221b6ac960be22ba52095e60738" title="simulationObjects.LifePatch.update" alt="" coords="630,437,877,464"/>
+<area shape="rect" id="node21" href="$db/d5f/classsimulation_objects_1_1_seg_cell.html#a9d7bc36bf15d97456e59afed1a19e460" title="simulationObjects.SegCell.update" alt="" coords="635,488,872,514"/>
+<area shape="rect" id="node22" href="$db/dee/classsimulation_objects_1_1_predator_cell.html#a9bb0b62fbecbaf439f7e8552ff74c567" title="simulationObjects.Predator\lCell.feed" alt="" coords="339,523,533,564"/>
+<area shape="rect" id="node23" href="$d7/d97/classcontroller_1_1_grid.html#ae1a47377b4b0a32b1dc96b07dc2395ee" title="controller.Grid.removeCellin\lPatch" alt="" coords="337,588,535,630"/>
+<area shape="rect" id="node24" href="$d6/dae/classsimulation_objects_1_1_sugar_patch.html#a8197c32cacf2b75722a72656a1f68b88" title="simulationObjects.SugarPatch.update" alt="" coords="305,654,567,681"/>
+<area shape="rect" id="node25" href="$d5/da5/classsimulation_objects_1_1_patch.html#ab880fd2c170d6d1c035a1468b8e19465" title="simulationObjects.Patch.update" alt="" coords="324,705,548,732"/>
+<area shape="rect" id="node3" href="$d5/da5/classsimulation_objects_1_1_patch.html#a801de23da5dcdf2e6914b939deefe67e" title="simulationObjects.Patch.create\lNewCell" alt="" coords="643,188,863,230"/>
+<area shape="rect" id="node7" href="$db/d32/classcontroller_1_1_main_controller.html#aecc10abc6b55d8b0b4bd152be5c5d3f0" title="controller.MainController.initialize\lSimulationObjects" alt="" coords="1833,220,2063,262"/>
+<area shape="rect" id="node12" href="$db/dee/classsimulation_objects_1_1_predator_cell.html#a681bdcb9944d91e15325e477aad1b449" title="simulationObjects.Predator\lCell.leaveEgg" alt="" coords="656,306,851,347"/>
+<area shape="rect" id="node5" href="$db/d32/classcontroller_1_1_main_controller.html#a20c66a59cfde2b9f8ac2b8bf67e3996d" title="controller.MainController.toggle\lCellStateForMouseEvent" alt="" coords="1253,188,1473,230"/>
+<area shape="rect" id="node6" href="$db/d32/classcontroller_1_1_main_controller.html#ad28f21e1510291d95a69a9f488a20d89" title="controller.MainController.createGrid" alt="" coords="1537,200,1783,226"/>
+<area shape="rect" id="node8" href="$db/d32/classcontroller_1_1_main_controller.html#a7cfedb8e16c6b9d6394054d03193da82" title="controller.MainController.initialize\lSimulationWithData" alt="" coords="2113,220,2343,262"/>
+<area shape="rect" id="node9" href="$db/ddb/classcontroller_1_1_user_interface.html#a9cf1e21253003993661082c9d42926b2" title="controller.UserInterface.make\lBottomPanel" alt="" coords="2392,250,2603,291"/>
+<area shape="rect" id="node10" href="$db/ddb/classcontroller_1_1_user_interface.html#aad62b84bbc23f683c844ace519feb9d2" title="controller.UserInterface.reset" alt="" coords="2651,198,2859,225"/>
+<area shape="rect" id="node11" href="$db/ddb/classcontroller_1_1_user_interface.html#a6dd740b89d748c372a5ef9959e1bd7c4" title="controller.UserInterface.\lUserInterface" alt="" coords="2667,250,2842,291"/>
+<area shape="rect" id="node13" href="$db/dee/classsimulation_objects_1_1_predator_cell.html#a0f04c13ccdd5e4845f2e5975ec63952f" title="simulationObjects.Predator\lCell.updateStatesandMakeMoves" alt="" coords="947,371,1181,412"/>
+<area shape="rect" id="node14" href="$db/dee/classsimulation_objects_1_1_predator_cell.html#a954732c3db3474e874b5023303baa2ed" title="simulationObjects.Predator\lCell.update" alt="" coords="1265,371,1460,412"/>
+<area shape="rect" id="node16" href="$db/d71/classsimulation_objects_1_1_sugar_cell.html#afca541b3cc884269b4f778da83fb149d" title="simulationObjects.SugarCell.update\lStatesandMakeMoves" alt="" coords="939,14,1189,55"/>
+<area shape="rect" id="node17" href="$db/d71/classsimulation_objects_1_1_sugar_cell.html#a4f3c5edbe0c43ea62d21a9658fbc11c7" title="simulationObjects.SugarCell.update" alt="" coords="1237,21,1488,48"/>
+</map>

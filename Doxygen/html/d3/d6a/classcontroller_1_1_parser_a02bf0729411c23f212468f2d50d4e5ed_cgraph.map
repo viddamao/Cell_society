@@ -1,0 +1,18 @@
+<map id="controller.Parser.parserXml" name="controller.Parser.parserXml">
+<area shape="rect" id="node2" href="$d3/d6a/classcontroller_1_1_parser.html#a3cb22c70450e8c7a3adfbeb33cf21309" title="controller.Parser.attribute\lParse" alt="" coords="262,217,445,258"/>
+<area shape="rect" id="node11" href="$d3/d6a/classcontroller_1_1_parser.html#a3c0867c9e5b4f1dcfecb43f2730072ca" title="controller.Parser.inputValidion" alt="" coords="249,427,458,453"/>
+<area shape="rect" id="node13" href="$d3/d6a/classcontroller_1_1_parser.html#ab2d2918d4e1dc3f52a137910d14c633d" title="controller.Parser.setCell\lStates" alt="" coords="268,510,439,551"/>
+<area shape="rect" id="node3" href="$de/d7a/classcontroller_1_1_grid_info.html#a6247bdec4e9925da19bb5ca9d8b2a4a4" title="controller.GridInfo.setAdjacent" alt="" coords="513,5,727,32"/>
+<area shape="rect" id="node4" href="$de/d7a/classcontroller_1_1_grid_info.html#a9bad52b68d084a34a421652fd07d713c" title="controller.GridInfo.setHeight" alt="" coords="520,56,720,83"/>
+<area shape="rect" id="node5" href="$de/d7a/classcontroller_1_1_grid_info.html#a9d7b3515ea21cc50997780a39875a767" title="controller.GridInfo.setMax\lCellState" alt="" coords="528,107,712,149"/>
+<area shape="rect" id="node6" href="$de/d7a/classcontroller_1_1_grid_info.html#a07fb7e572c36338d7b16bff1764b73cc" title="controller.GridInfo.setParameter" alt="" coords="507,173,733,200"/>
+<area shape="rect" id="node7" href="$de/d7a/classcontroller_1_1_grid_info.html#a0b83cf07752c81d1310c2d32b7b93304" title="controller.GridInfo.setParamList" alt="" coords="509,224,731,251"/>
+<area shape="rect" id="node8" href="$de/d7a/classcontroller_1_1_grid_info.html#a45c9fe4842504c6c77f52167e093beb4" title="controller.GridInfo.setPatchType" alt="" coords="509,275,731,301"/>
+<area shape="rect" id="node9" href="$de/d7a/classcontroller_1_1_grid_info.html#a6c5d3e26cafafa7e694eae3214ef76ff" title="controller.GridInfo.setType" alt="" coords="527,325,713,352"/>
+<area shape="rect" id="node10" href="$de/d7a/classcontroller_1_1_grid_info.html#aa1ef6cedb22bcd544e4c21d201c6f6c7" title="controller.GridInfo.setWidth" alt="" coords="523,376,717,403"/>
+<area shape="rect" id="node12" href="$de/d7a/classcontroller_1_1_grid_info.html#aa3ee95078f3742aa392bab45f477a5a5" title="controller.GridInfo.getCellType" alt="" coords="515,427,725,453"/>
+<area shape="rect" id="node14" href="$d2/d6e/classsimulation_objects_1_1_cell.html#a23ecd3bd96a8cd054bf310202af9cd2d" title="simulationObjects.Cell.get\lStateTypes" alt="" coords="526,478,714,519"/>
+<area shape="rect" id="node15" href="$de/d7a/classcontroller_1_1_grid_info.html#af89dcd48d9c508052c53a54797d06a96" title="controller.GridInfo.setState\lTypes" alt="" coords="523,543,717,585"/>
+<area shape="rect" id="node16" href="$d2/d6e/classsimulation_objects_1_1_cell.html#addfb21707362a1904e1bff58918ff266" title="simulationObjects.Cell.get\lInitialColors" alt="" coords="526,609,714,650"/>
+<area shape="rect" id="node17" href="$de/d7a/classcontroller_1_1_grid_info.html#abf71126b3cab1973d8dd4deac7270fc4" title="controller.GridInfo.setColor" alt="" coords="525,675,715,701"/>
+</map>

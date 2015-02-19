@@ -1,0 +1,13 @@
+<map id="simulationObjects.Patch.toggleCellState" name="simulationObjects.Patch.toggleCellState">
+<area shape="rect" id="node2" href="$d5/da5/classsimulation_objects_1_1_patch.html#a801de23da5dcdf2e6914b939deefe67e" title="simulationObjects.Patch.create\lNewCell" alt="" coords="273,121,493,162"/>
+<area shape="rect" id="node4" href="$d5/da5/classsimulation_objects_1_1_patch.html#ac18f8e7cdd82ed885a6a92f066da2d38" title="simulationObjects.Patch.removeCell" alt="" coords="816,183,1067,209"/>
+<area shape="rect" id="node9" href="$d2/d6e/classsimulation_objects_1_1_cell.html#ab7b10d67ea8a16bcb15cc2b8d079b3a1" title="simulationObjects.Cell.set\lState" alt="" coords="561,11,748,53"/>
+<area shape="rect" id="node12" href="$d2/d6e/classsimulation_objects_1_1_cell.html#a8b09099316cc34ad6f5ceec3d03d7584" title="simulationObjects.Cell.get\lNextState" alt="" coords="289,281,477,322"/>
+<area shape="rect" id="node3" href="$d5/da5/classsimulation_objects_1_1_patch.html#ac05b7dd86c9f30b498d93d62cbbba9a4" title="simulationObjects.Patch.addCell" alt="" coords="541,77,768,104"/>
+<area shape="rect" id="node10" href="$d2/d6e/classsimulation_objects_1_1_cell.html#a79ed116f88362c4ef4d906c7a6988fe1" title="simulationObjects.Cell.setX" alt="" coords="557,128,752,155"/>
+<area shape="rect" id="node11" href="$d2/d6e/classsimulation_objects_1_1_cell.html#a94febf4dbd9046affdb7f81e36b8c164" title="simulationObjects.Cell.setY" alt="" coords="557,179,752,205"/>
+<area shape="rect" id="node5" href="$d5/da5/classsimulation_objects_1_1_patch.html#a06f00537a57f3678cf147c580b92de0d" title="simulationObjects.Patch.update\lCellConstraints" alt="" coords="829,70,1053,111"/>
+<area shape="rect" id="node6" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a466dadbe30fb2f8360163881e0db9295" title="simulationObjects.PatchBody.get\lPatchWidth" alt="" coords="1115,5,1346,46"/>
+<area shape="rect" id="node7" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a7be1762ade4eaee79c26ac524eb97f33" title="simulationObjects.PatchBody.get\lCenter" alt="" coords="1115,70,1346,111"/>
+<area shape="rect" id="node8" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a268e88a7cb1f5feb98f49e230475c2ba" title="simulationObjects.PatchBody.get\lPatchHeight" alt="" coords="1115,135,1346,177"/>
+</map>

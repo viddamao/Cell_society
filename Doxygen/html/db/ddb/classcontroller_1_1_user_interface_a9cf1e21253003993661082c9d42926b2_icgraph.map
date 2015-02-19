@@ -1,0 +1,5 @@
+<map id="controller.UserInterface.makeBottomPanel" name="controller.UserInterface.makeBottomPanel">
+<area shape="rect" id="node2" href="$db/ddb/classcontroller_1_1_user_interface.html#aad62b84bbc23f683c844ace519feb9d2" title="controller.UserInterface.reset" alt="" coords="264,5,472,32"/>
+<area shape="rect" id="node4" href="$db/ddb/classcontroller_1_1_user_interface.html#a6dd740b89d748c372a5ef9959e1bd7c4" title="controller.UserInterface.\lUserInterface" alt="" coords="281,57,455,98"/>
+<area shape="rect" id="node3" href="$db/d32/classcontroller_1_1_main_controller.html#a7cfedb8e16c6b9d6394054d03193da82" title="controller.MainController.initialize\lSimulationWithData" alt="" coords="521,57,751,98"/>
+</map>

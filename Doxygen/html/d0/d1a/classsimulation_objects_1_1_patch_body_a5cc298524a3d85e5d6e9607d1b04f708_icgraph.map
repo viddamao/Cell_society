@@ -1,0 +1,5 @@
+<map id="simulationObjects.PatchBody.setPatchHeight" name="simulationObjects.PatchBody.setPatchHeight">
+<area shape="rect" id="node2" href="$d8/dfe/classsimulation_objects_1_1_patch_body_hexagon.html#aca47a8d7da67fe3ff2cde904deca8899" title="simulationObjects.PatchBody\lHexagon.PatchBodyHexagon" alt="" coords="289,5,495,46"/>
+<area shape="rect" id="node3" href="$d9/d93/classsimulation_objects_1_1_patch_body_rectangle.html#a9df877efcfbeb43bc4482635a2850ad5" title="simulationObjects.PatchBody\lRectangle.PatchBodyRectangle" alt="" coords="283,70,501,111"/>
+<area shape="rect" id="node4" href="$dc/df0/classsimulation_objects_1_1_patch_body_triangle.html#a3a12b11e10051311aa061e65b0df98da" title="simulationObjects.PatchBody\lTriangle.PatchBodyTriangle" alt="" coords="289,135,495,177"/>
+</map>

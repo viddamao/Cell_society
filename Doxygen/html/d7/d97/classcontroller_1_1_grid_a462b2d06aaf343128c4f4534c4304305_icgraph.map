@@ -1,0 +1,4 @@
+<map id="controller.Grid.getNeighborsAround" name="controller.Grid.getNeighborsAround">
+<area shape="rect" id="node2" href="$d6/dae/classsimulation_objects_1_1_sugar_patch.html#afac1274ddfe0c5436bf2d27fbc654d03" title="simulationObjects.SugarPatch.get\lNeighbors" alt="" coords="257,5,495,46"/>
+<area shape="rect" id="node3" href="$d5/da5/classsimulation_objects_1_1_patch.html#a5e2fdb2771964ec01e6f2ef50b1dd54e" title="simulationObjects.Patch.get\lNeighbors" alt="" coords="276,70,476,111"/>
+</map>

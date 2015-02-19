@@ -1,0 +1,12 @@
+<map id="controller.Grid.getGridHeight" name="controller.Grid.getGridHeight">
+<area shape="rect" id="node2" href="$d6/dae/classsimulation_objects_1_1_sugar_patch.html#ad0451478701e5c49026140110dfa290f" title="simulationObjects.SugarPatch.createBody" alt="" coords="259,5,549,32"/>
+<area shape="rect" id="node3" href="$d5/da5/classsimulation_objects_1_1_patch.html#a77ec59a5f39498ab6337a9535a6193e0" title="simulationObjects.Patch.createBody" alt="" coords="278,56,530,83"/>
+<area shape="rect" id="node8" href="$db/ddb/classcontroller_1_1_user_interface.html#a9cf1e21253003993661082c9d42926b2" title="controller.UserInterface.make\lBottomPanel" alt="" coords="1605,99,1816,141"/>
+<area shape="rect" id="node11" href="$de/d4d/classcontroller_1_1_simulation_chart.html#a0a61324a4c590fb14b4b6e3211015181" title="controller.SimulationChart.\lSimulationChart" alt="" coords="308,158,500,199"/>
+<area shape="rect" id="node4" href="$d7/d97/classcontroller_1_1_grid.html#a52256ef1252a18eab8baeb2edef836d8" title="controller.Grid.addPatch\lToGrid" alt="" coords="598,41,773,82"/>
+<area shape="rect" id="node5" href="$d7/d97/classcontroller_1_1_grid.html#a85b3833ab13642ba27fd7b65ee6a6daa" title="controller.Grid.addPatch\lAtPoint" alt="" coords="822,41,997,82"/>
+<area shape="rect" id="node6" href="$db/d32/classcontroller_1_1_main_controller.html#aecc10abc6b55d8b0b4bd152be5c5d3f0" title="controller.MainController.initialize\lSimulationObjects" alt="" coords="1046,41,1277,82"/>
+<area shape="rect" id="node7" href="$db/d32/classcontroller_1_1_main_controller.html#a7cfedb8e16c6b9d6394054d03193da82" title="controller.MainController.initialize\lSimulationWithData" alt="" coords="1326,41,1557,82"/>
+<area shape="rect" id="node9" href="$db/ddb/classcontroller_1_1_user_interface.html#a6dd740b89d748c372a5ef9959e1bd7c4" title="controller.UserInterface.\lUserInterface" alt="" coords="1881,99,2055,141"/>
+<area shape="rect" id="node10" href="$db/ddb/classcontroller_1_1_user_interface.html#aad62b84bbc23f683c844ace519feb9d2" title="controller.UserInterface.reset" alt="" coords="1864,48,2072,75"/>
+</map>

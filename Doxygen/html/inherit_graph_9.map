@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$d2/d6e/classsimulation_objects_1_1_cell.html" title="simulationObjects.Cell" alt="" coords="139,132,301,159"/>
+<area shape="rect" id="node3" href="$d0/d1a/classsimulation_objects_1_1_ant_cell.html" title="simulationObjects.AntCell" alt="" coords="366,5,551,32"/>
+<area shape="rect" id="node4" href="$dc/d23/classsimulation_objects_1_1_forest_cell.html" title="simulationObjects.ForestCell" alt="" coords="357,56,560,83"/>
+<area shape="rect" id="node5" href="$da/ddf/classsimulation_objects_1_1_life_cell.html" title="simulationObjects.LifeCell" alt="" coords="366,107,551,133"/>
+<area shape="rect" id="node6" href="$db/dee/classsimulation_objects_1_1_predator_cell.html" title="simulationObjects.PredatorCell" alt="" coords="349,157,568,184"/>
+<area shape="rect" id="node7" href="$db/d5f/classsimulation_objects_1_1_seg_cell.html" title="simulationObjects.SegCell" alt="" coords="365,208,553,235"/>
+<area shape="rect" id="node8" href="$db/d71/classsimulation_objects_1_1_sugar_cell.html" title="simulationObjects.SugarCell" alt="" coords="358,259,559,285"/>
+</map>

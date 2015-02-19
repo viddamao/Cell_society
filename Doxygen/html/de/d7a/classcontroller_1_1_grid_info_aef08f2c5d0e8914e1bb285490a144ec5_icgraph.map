@@ -1,0 +1,5 @@
+<map id="controller.GridInfo.getAdjacentType" name="controller.GridInfo.getAdjacentType">
+<area shape="rect" id="node2" href="$d7/d97/classcontroller_1_1_grid.html#a462b2d06aaf343128c4f4534c4304305" title="controller.Grid.getNeighbors\lAround" alt="" coords="297,38,498,79"/>
+<area shape="rect" id="node3" href="$d6/dae/classsimulation_objects_1_1_sugar_patch.html#afac1274ddfe0c5436bf2d27fbc654d03" title="simulationObjects.SugarPatch.get\lNeighbors" alt="" coords="547,5,786,46"/>
+<area shape="rect" id="node4" href="$d5/da5/classsimulation_objects_1_1_patch.html#a5e2fdb2771964ec01e6f2ef50b1dd54e" title="simulationObjects.Patch.get\lNeighbors" alt="" coords="567,70,767,111"/>
+</map>

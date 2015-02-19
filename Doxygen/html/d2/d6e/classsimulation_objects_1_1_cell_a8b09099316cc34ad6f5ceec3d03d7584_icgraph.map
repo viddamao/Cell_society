@@ -1,0 +1,10 @@
+<map id="simulationObjects.Cell.getNextState" name="simulationObjects.Cell.getNextState">
+<area shape="rect" id="node2" href="$d5/da5/classsimulation_objects_1_1_patch.html#a982ffbab2f32d5955c2c59b5a89fc4a1" title="simulationObjects.Patch.toggle\lCellState" alt="" coords="243,27,461,69"/>
+<area shape="rect" id="node3" href="$db/d32/classcontroller_1_1_main_controller.html#a20c66a59cfde2b9f8ac2b8bf67e3996d" title="controller.MainController.toggle\lCellStateForMouseEvent" alt="" coords="510,27,730,69"/>
+<area shape="rect" id="node4" href="$db/d32/classcontroller_1_1_main_controller.html#ad28f21e1510291d95a69a9f488a20d89" title="controller.MainController.createGrid" alt="" coords="779,35,1026,61"/>
+<area shape="rect" id="node5" href="$db/d32/classcontroller_1_1_main_controller.html#aecc10abc6b55d8b0b4bd152be5c5d3f0" title="controller.MainController.initialize\lSimulationObjects" alt="" coords="1075,27,1306,69"/>
+<area shape="rect" id="node6" href="$db/d32/classcontroller_1_1_main_controller.html#a7cfedb8e16c6b9d6394054d03193da82" title="controller.MainController.initialize\lSimulationWithData" alt="" coords="1355,27,1586,69"/>
+<area shape="rect" id="node7" href="$db/ddb/classcontroller_1_1_user_interface.html#a9cf1e21253003993661082c9d42926b2" title="controller.UserInterface.make\lBottomPanel" alt="" coords="1635,57,1845,98"/>
+<area shape="rect" id="node8" href="$db/ddb/classcontroller_1_1_user_interface.html#aad62b84bbc23f683c844ace519feb9d2" title="controller.UserInterface.reset" alt="" coords="1893,5,2101,32"/>
+<area shape="rect" id="node9" href="$db/ddb/classcontroller_1_1_user_interface.html#a6dd740b89d748c372a5ef9959e1bd7c4" title="controller.UserInterface.\lUserInterface" alt="" coords="1910,57,2085,98"/>
+</map>

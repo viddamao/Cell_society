@@ -1,0 +1,10 @@
+<map id="simulationObjects.SugarCell" name="simulationObjects.SugarCell">
+<area shape="rect" id="node2" href="$d2/d6e/classsimulation_objects_1_1_cell.html" title="simulationObjects.Cell" alt="" coords="617,220,780,247"/>
+<area shape="rect" id="node4" href="$d5/da5/classsimulation_objects_1_1_patch.html" title="simulationObjects.Patch" alt="" coords="959,353,1134,380"/>
+<area shape="rect" id="node10" href="$d7/d97/classcontroller_1_1_grid.html" title="controller.Grid" alt="" coords="1273,401,1383,428"/>
+<area shape="rect" id="node6" href="$de/d7a/classcontroller_1_1_grid_info.html" title="controller.GridInfo" alt="" coords="342,340,477,367"/>
+<area shape="rect" id="node18" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html" title="simulationObjects.PatchBody" alt="" coords="595,640,802,667"/>
+<area shape="rect" id="node13" href="$dd/d38/classcontroller_1_1_grid_edge_rules.html" title="controller.GridEdgeRules" alt="" coords="1523,401,1699,428"/>
+<area shape="rect" id="node16" href="$df/d37/enumsimulation_objects_1_1_patch_1_1_state.html" title="simulationObjects.Patch.\lState" alt="" coords="609,402,788,443"/>
+<area shape="rect" id="node21" href="$de/dc9/enumsimulation_objects_1_1_sugar_cell_1_1_phase.html" title="simulationObjects.SugarCell.\lPhase" alt="" coords="596,87,801,129"/>
+</map>

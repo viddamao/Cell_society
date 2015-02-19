@@ -1,0 +1,5 @@
+<map id="controller.ToroidalEdgeRules.applyRulesAndGetNeighbors" name="controller.ToroidalEdgeRules.applyRulesAndGetNeighbors">
+<area shape="rect" id="node2" href="$d7/d97/classcontroller_1_1_grid.html#a0d00df96b88fcfcf610dd8346860f8ad" title="controller.Grid.getPatch\lAtPoint" alt="" coords="321,5,492,46"/>
+<area shape="rect" id="node3" href="$dd/d38/classcontroller_1_1_grid_edge_rules.html#a1744f73c070f46f05d047ac0d52742b5" title="controller.GridEdgeRules.is\lOutOfBounds" alt="" coords="311,70,502,111"/>
+<area shape="rect" id="node4" href="$d2/d45/classcontroller_1_1_toroidal_edge_rules.html#ae5f764c2a958c3bd559f88f0e0d94392" title="controller.ToroidalEdgeRules.wrap\lCoordAround" alt="" coords="291,135,523,177"/>
+</map>

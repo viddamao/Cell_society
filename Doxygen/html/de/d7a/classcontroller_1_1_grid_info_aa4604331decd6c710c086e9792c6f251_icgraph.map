@@ -1,0 +1,22 @@
+<map id="controller.GridInfo.getColor" name="controller.GridInfo.getColor">
+<area shape="rect" id="node2" href="$db/db2/classcontroller_1_1_color_picker.html#afb051d96595ff37672f48e50dc036c82" title="controller.ColorPicker.build\lColorPickerMenu" alt="" coords="269,63,459,105"/>
+<area shape="rect" id="node8" href="$da/ddf/classsimulation_objects_1_1_life_cell.html#a5113216e9560d0e7e7f9e60c445f0461" title="simulationObjects.LifeCell.\lLifeCell" alt="" coords="269,129,459,170"/>
+<area shape="rect" id="node9" href="$db/dee/classsimulation_objects_1_1_predator_cell.html#ac97ac10ba48d554abe18f8e51e080a5e" title="simulationObjects.Predator\lCell.PredatorCell" alt="" coords="267,194,461,235"/>
+<area shape="rect" id="node10" href="$d6/dae/classsimulation_objects_1_1_sugar_patch.html#aaa246e873468360d773a255ccfa23780" title="simulationObjects.SugarPatch.set\lColorToBody" alt="" coords="245,259,483,301"/>
+<area shape="rect" id="node12" href="$dc/d23/classsimulation_objects_1_1_forest_cell.html#abb76f3b62b5ffb2d3e0c8c6f0e3c1e23" title="simulationObjects.Forest\lCell.setState" alt="" coords="274,325,454,366"/>
+<area shape="rect" id="node16" href="$db/d5f/classsimulation_objects_1_1_seg_cell.html#a47275c40995ce166665370c940c10947" title="simulationObjects.SegCell.set\lState" alt="" coords="258,390,470,431"/>
+<area shape="rect" id="node17" href="$db/d71/classsimulation_objects_1_1_sugar_cell.html#a0fc1e577370ddb0b415775220a1e0895" title="simulationObjects.SugarCell.set\lState" alt="" coords="251,455,477,497"/>
+<area shape="rect" id="node19" href="$db/dee/classsimulation_objects_1_1_predator_cell.html#afaebfc71f9b5ee067fda0be8389dc777" title="simulationObjects.Predator\lCell.setState" alt="" coords="267,521,461,562"/>
+<area shape="rect" id="node21" href="$db/d71/classsimulation_objects_1_1_sugar_cell.html#a1f48dea0c220b70504fd280b2889c51e" title="simulationObjects.SugarCell.\lSugarCell" alt="" coords="261,586,467,627"/>
+<area shape="rect" id="node3" href="$db/db2/classcontroller_1_1_color_picker.html#a965e34ea24c65524bc0e564d055a8e4e" title="controller.ColorPicker.show\lColorPicker" alt="" coords="567,63,758,105"/>
+<area shape="rect" id="node4" href="$db/ddb/classcontroller_1_1_user_interface.html#a9cf1e21253003993661082c9d42926b2" title="controller.UserInterface.make\lBottomPanel" alt="" coords="843,63,1053,105"/>
+<area shape="rect" id="node5" href="$db/ddb/classcontroller_1_1_user_interface.html#a6dd740b89d748c372a5ef9959e1bd7c4" title="controller.UserInterface.\lUserInterface" alt="" coords="1118,5,1293,46"/>
+<area shape="rect" id="node6" href="$db/ddb/classcontroller_1_1_user_interface.html#aad62b84bbc23f683c844ace519feb9d2" title="controller.UserInterface.reset" alt="" coords="1101,71,1309,97"/>
+<area shape="rect" id="node7" href="$db/d32/classcontroller_1_1_main_controller.html#a7cfedb8e16c6b9d6394054d03193da82" title="controller.MainController.initialize\lSimulationWithData" alt="" coords="1358,89,1589,130"/>
+<area shape="rect" id="node11" href="$d6/dae/classsimulation_objects_1_1_sugar_patch.html#a8197c32cacf2b75722a72656a1f68b88" title="simulationObjects.SugarPatch.update" alt="" coords="531,221,794,248"/>
+<area shape="rect" id="node13" href="$dc/d23/classsimulation_objects_1_1_forest_cell.html#a4f9f29e4b339e76b9ef3ad31cd8d9f02" title="simulationObjects.Forest\lCell.burnDown" alt="" coords="573,273,753,314"/>
+<area shape="rect" id="node14" href="$dc/d23/classsimulation_objects_1_1_forest_cell.html#a71352215a71f9031bf93dc51c9bf38f5" title="simulationObjects.Forest\lCell.update" alt="" coords="858,331,1038,373"/>
+<area shape="rect" id="node15" href="$dc/d23/classsimulation_objects_1_1_forest_cell.html#a754d6f01e7cb2ced3a4690aeaf2e8369" title="simulationObjects.Forest\lCell.catchFire" alt="" coords="573,390,753,431"/>
+<area shape="rect" id="node18" href="$db/d71/classsimulation_objects_1_1_sugar_cell.html#a4f3c5edbe0c43ea62d21a9658fbc11c7" title="simulationObjects.SugarCell.update" alt="" coords="537,463,788,489"/>
+<area shape="rect" id="node20" href="$db/dee/classsimulation_objects_1_1_predator_cell.html#a954732c3db3474e874b5023303baa2ed" title="simulationObjects.Predator\lCell.update" alt="" coords="565,521,760,562"/>
+</map>

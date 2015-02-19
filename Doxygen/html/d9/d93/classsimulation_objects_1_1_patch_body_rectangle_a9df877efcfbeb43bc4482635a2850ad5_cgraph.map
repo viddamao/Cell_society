@@ -1,0 +1,9 @@
+<map id="simulationObjects.PatchBodyRectangle.PatchBodyRectangle" name="simulationObjects.PatchBodyRectangle.PatchBodyRectangle">
+<area shape="rect" id="node2" href="$d9/d93/classsimulation_objects_1_1_patch_body_rectangle.html#a9eadab113da9b80f951bf333791d1ff3" title="simulationObjects.PatchBody\lRectangle.buildBody" alt="" coords="283,102,490,143"/>
+<area shape="rect" id="node7" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a5cc298524a3d85e5d6e9607d1b04f708" title="simulationObjects.PatchBody.set\lPatchHeight" alt="" coords="272,167,501,209"/>
+<area shape="rect" id="node8" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a3fbd0cb76950803bc4c07f3580569be4" title="simulationObjects.PatchBody.set\lPatchWidth" alt="" coords="272,233,501,274"/>
+<area shape="rect" id="node3" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a466dadbe30fb2f8360163881e0db9295" title="simulationObjects.PatchBody.get\lPatchWidth" alt="" coords="559,5,790,46"/>
+<area shape="rect" id="node4" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a268e88a7cb1f5feb98f49e230475c2ba" title="simulationObjects.PatchBody.get\lPatchHeight" alt="" coords="559,70,790,111"/>
+<area shape="rect" id="node5" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a9760016e89cb49e2037203dd2a7eed58" title="simulationObjects.PatchBody.create\lPolyFromPoints" alt="" coords="549,135,800,177"/>
+<area shape="rect" id="node6" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a699dd283d067ce6da4bc19a2ae81a365" title="simulationObjects.PatchBody.set\lCenter" alt="" coords="560,201,789,242"/>
+</map>

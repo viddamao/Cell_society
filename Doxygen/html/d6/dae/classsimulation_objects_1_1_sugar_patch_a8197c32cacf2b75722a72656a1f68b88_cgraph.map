@@ -1,0 +1,8 @@
+<map id="simulationObjects.SugarPatch.update" name="simulationObjects.SugarPatch.update">
+<area shape="rect" id="node2" href="$d2/d6e/classsimulation_objects_1_1_cell.html#a7d7b09f9e92254d6b2176e8593ce5c21" title="simulationObjects.Cell.get\lState" alt="" coords="350,5,538,46"/>
+<area shape="rect" id="node3" href="$d5/da5/classsimulation_objects_1_1_patch.html#ac18f8e7cdd82ed885a6a92f066da2d38" title="simulationObjects.Patch.removeCell" alt="" coords="319,71,569,97"/>
+<area shape="rect" id="node4" href="$d6/dae/classsimulation_objects_1_1_sugar_patch.html#aaa246e873468360d773a255ccfa23780" title="simulationObjects.SugarPatch.set\lColorToBody" alt="" coords="325,122,563,163"/>
+<area shape="rect" id="node6" href="$d6/dae/classsimulation_objects_1_1_sugar_patch.html#a10531578abc8fc4d5d65e7c302c3ad9a" title="simulationObjects.SugarPatch.sugar\lGrowBack" alt="" coords="317,187,571,229"/>
+<area shape="rect" id="node7" href="$d2/d6e/classsimulation_objects_1_1_cell.html#a0c8b76c4b9bec90ddf8016548d9e7474" title="simulationObjects.Cell.update" alt="" coords="338,253,550,280"/>
+<area shape="rect" id="node5" href="$de/d7a/classcontroller_1_1_grid_info.html#aa4604331decd6c710c086e9792c6f251" title="controller.GridInfo.getColor" alt="" coords="619,129,811,156"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="simulationObjects.PatchBodyHexagon.buildBody" name="simulationObjects.PatchBodyHexagon.buildBody">
+<area shape="rect" id="node2" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a9760016e89cb49e2037203dd2a7eed58" title="simulationObjects.PatchBody.create\lPolyFromPoints" alt="" coords="261,5,512,46"/>
+<area shape="rect" id="node3" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a268e88a7cb1f5feb98f49e230475c2ba" title="simulationObjects.PatchBody.get\lPatchHeight" alt="" coords="271,70,502,111"/>
+<area shape="rect" id="node4" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html#a699dd283d067ce6da4bc19a2ae81a365" title="simulationObjects.PatchBody.set\lCenter" alt="" coords="272,135,501,177"/>
+</map>

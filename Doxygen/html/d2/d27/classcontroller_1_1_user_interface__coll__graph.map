@@ -1,0 +1,11 @@
+<map id="controller.UserInterface" name="controller.UserInterface">
+<area shape="rect" id="node26" href="$db/d32/classcontroller_1_1_main_controller.html" title="controller.MainController" alt="" coords="1758,940,1935,967"/>
+<area shape="rect" id="node2" href="$de/d4d/classcontroller_1_1_simulation_chart.html" title="controller.SimulationChart" alt="" coords="1049,949,1237,976"/>
+<area shape="rect" id="node8" href="$d7/d97/classcontroller_1_1_grid.html" title="controller.Grid" alt="" coords="745,655,855,681"/>
+<area shape="rect" id="node4" href="$de/d7a/classcontroller_1_1_grid_info.html" title="controller.GridInfo" alt="" coords="379,400,514,427"/>
+<area shape="rect" id="node9" href="$d5/da5/classsimulation_objects_1_1_patch.html" title="simulationObjects.Patch" alt="" coords="1055,287,1230,313"/>
+<area shape="rect" id="node11" href="$d2/d6e/classsimulation_objects_1_1_cell.html" title="simulationObjects.Cell" alt="" coords="1403,319,1565,345"/>
+<area shape="rect" id="node16" href="$d0/d1a/classsimulation_objects_1_1_patch_body.html" title="simulationObjects.PatchBody" alt="" coords="697,68,903,95"/>
+<area shape="rect" id="node21" href="$dd/d38/classcontroller_1_1_grid_edge_rules.html" title="controller.GridEdgeRules" alt="" coords="1055,619,1231,645"/>
+<area shape="rect" id="node14" href="$df/d37/enumsimulation_objects_1_1_patch_1_1_state.html" title="simulationObjects.Patch.\lState" alt="" coords="711,221,889,262"/>
+</map>

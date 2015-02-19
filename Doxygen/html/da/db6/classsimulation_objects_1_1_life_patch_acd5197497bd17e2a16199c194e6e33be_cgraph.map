@@ -1,0 +1,5 @@
+<map id="simulationObjects.LifePatch.prepareToUpdate" name="simulationObjects.LifePatch.prepareToUpdate">
+<area shape="rect" id="node2" href="$da/db6/classsimulation_objects_1_1_life_patch.html#a3b83c761bbe4cc3795aa4643d74d2fb1" title="simulationObjects.LifePatch.process\lNeighborsAndUpdateState" alt="" coords="304,38,555,79"/>
+<area shape="rect" id="node3" href="$da/db6/classsimulation_objects_1_1_life_patch.html#ae893fb16d7bed57a52e4011e3daa4c85" title="simulationObjects.LifePatch.count\lNeighbors" alt="" coords="603,5,840,46"/>
+<area shape="rect" id="node4" href="$d5/da5/classsimulation_objects_1_1_patch.html#a84e7580a85285441a2caf058f977f237" title="simulationObjects.Patch.is\lEmpty" alt="" coords="627,70,816,111"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="controller.Grid.getNeighborsAround" name="controller.Grid.getNeighborsAround">
+<area shape="rect" id="node2" href="$dd/d38/classcontroller_1_1_grid_edge_rules.html#aedf4c70e84eba8d2becdf3dd6c6745e8" title="controller.GridEdgeRules.apply\lRulesAndGetNeighbors" alt="" coords="270,5,485,46"/>
+<area shape="rect" id="node3" href="$de/d7a/classcontroller_1_1_grid_info.html#aef08f2c5d0e8914e1bb285490a144ec5" title="controller.GridInfo.getAdjacentType" alt="" coords="256,71,499,97"/>
+</map>

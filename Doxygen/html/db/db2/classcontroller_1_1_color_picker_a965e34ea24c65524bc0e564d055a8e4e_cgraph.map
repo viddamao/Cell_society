@@ -1,0 +1,9 @@
+<map id="controller.ColorPicker.showColorPicker" name="controller.ColorPicker.showColorPicker">
+<area shape="rect" id="node2" href="$db/db2/classcontroller_1_1_color_picker.html#afb051d96595ff37672f48e50dc036c82" title="controller.ColorPicker.build\lColorPickerMenu" alt="" coords="247,143,436,185"/>
+<area shape="rect" id="node5" href="$de/d7a/classcontroller_1_1_grid_info.html#a4ffe15890c7f3ba78c9f30b4c3ac1cb2" title="controller.GridInfo.getState\lTypes" alt="" coords="507,238,701,279"/>
+<area shape="rect" id="node8" href="$db/db2/classcontroller_1_1_color_picker.html#a88996a9cdb1e6897ed697b793ed2e154" title="controller.ColorPicker.send\lPickFileAlert" alt="" coords="246,263,437,305"/>
+<area shape="rect" id="node3" href="$db/db2/classcontroller_1_1_color_picker.html#a37af659b10fbe01fd8102c37ae719377" title="controller.ColorPicker.Color\lPicker" alt="" coords="508,5,700,46"/>
+<area shape="rect" id="node4" href="$de/d7a/classcontroller_1_1_grid_info.html#aa4604331decd6c710c086e9792c6f251" title="controller.GridInfo.getColor" alt="" coords="508,71,700,97"/>
+<area shape="rect" id="node6" href="$de/d7a/classcontroller_1_1_grid_info.html#abf71126b3cab1973d8dd4deac7270fc4" title="controller.GridInfo.setColor" alt="" coords="509,121,699,148"/>
+<area shape="rect" id="node7" href="$d7/d97/classcontroller_1_1_grid.html#a3633218920b12cc2de0fd78523f726e9" title="controller.Grid.updateBackground\lColor" alt="" coords="486,173,722,214"/>
+</map>

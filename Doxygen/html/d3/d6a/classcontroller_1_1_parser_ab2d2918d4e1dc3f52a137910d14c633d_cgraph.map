@@ -1,0 +1,7 @@
+<map id="controller.Parser.setCellStates" name="controller.Parser.setCellStates">
+<area shape="rect" id="node2" href="$de/d7a/classcontroller_1_1_grid_info.html#aa3ee95078f3742aa392bab45f477a5a5" title="controller.GridInfo.getCellType" alt="" coords="224,5,435,32"/>
+<area shape="rect" id="node3" href="$d2/d6e/classsimulation_objects_1_1_cell.html#addfb21707362a1904e1bff58918ff266" title="simulationObjects.Cell.get\lInitialColors" alt="" coords="235,57,423,98"/>
+<area shape="rect" id="node4" href="$d2/d6e/classsimulation_objects_1_1_cell.html#a23ecd3bd96a8cd054bf310202af9cd2d" title="simulationObjects.Cell.get\lStateTypes" alt="" coords="235,122,423,163"/>
+<area shape="rect" id="node5" href="$de/d7a/classcontroller_1_1_grid_info.html#abf71126b3cab1973d8dd4deac7270fc4" title="controller.GridInfo.setColor" alt="" coords="234,188,425,215"/>
+<area shape="rect" id="node6" href="$de/d7a/classcontroller_1_1_grid_info.html#af89dcd48d9c508052c53a54797d06a96" title="controller.GridInfo.setState\lTypes" alt="" coords="233,239,426,281"/>
+</map>
